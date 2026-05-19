@@ -1,0 +1,95 @@
+<section class="matcha-vs-cafe">
+  <div class="matcha-vs-cafe__shadow"></div>
+  <div class="matcha-vs-cafe__container">
+    <h2 class="matcha-vs-cafe__title">{{ section.settings.title }}</h2>
+
+    <div class="matcha-vs-cafe__inner">
+
+      <!-- Columna Matcha -->
+      <div class="matcha-vs-cafe__matcha">
+        <h3>MATCHA</h3>
+        {% if section.settings.matcha_img %}
+          <img src="{{ section.settings.matcha_img | image_url }}" alt="Matcha" class="mx-auto rounded-lg shadow mb-6 w-40 h-auto">
+        {% endif %}
+        <ul>
+          {% for block in section.blocks %}
+            {% if block.type == "matcha_benefit" %}
+              <li>
+                <h5>{{ block.settings.title }}</h5>
+                <p>{{ block.settings.text }}</p>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Columna Café -->
+      <div class="matcha-vs-cafe__cafe">
+        <h3>CAFÉ</h3>
+        {% if section.settings.cafe_img %}
+          <img src="{{ section.settings.cafe_img | image_url }}" alt="Café" class="mx-auto rounded-lg shadow mb-6 w-40 h-auto">
+        {% endif %}
+        <ul>
+          {% for block in section.blocks %}
+            {% if block.type == "cafe_benefit" %}
+              <li>
+                <h5>{{ block.settings.title }}</h5>
+                <p>{{ block.settings.text }}</p>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .matcha-vs-cafe {
+    padding: 64px 20px 130px;
+    background-image: url({{ section.settings.bg_image_desktop | image_url }});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Mobile: usar otra imagen */
+  @media (max-width: 767px) {
+    .matcha-vs-cafe {
+      background-image: url({{ section.settings.bg_image_mobile | image_url }});
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Copilot - Matcha vs Café",
+  "settings": [
+    { "type": "image_picker", "id": "bg_image_desktop", "label": "Imagen de fondo (Desktop)" },
+    { "type": "image_picker", "id": "bg_image_mobile","label": "Imagen de fondo (Mobile)" },
+    { "type": "text", "id": "title", "label": "Título", "default": "DOS FORMAS DE ENERGÍA, DOS EXPERIENCIAS DIFERENTES" },
+  ],
+  "blocks": [
+    {
+      "type": "matcha_benefit",
+      "name": "Beneficio Matcha",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Título" },
+        { "type": "textarea", "id": "text", "label": "Texto beneficio" }
+      ]
+    },
+    {
+      "type": "cafe_benefit",
+      "name": "Beneficio Café",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Título" },
+        { "type": "textarea", "id": "text", "label": "Texto beneficio" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Copilot - Matcha vs Café", "category": "Matcha" }
+  ]
+}
+{% endschema %}

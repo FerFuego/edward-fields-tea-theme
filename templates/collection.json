@@ -1,0 +1,222 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1678882210cf655040": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "copilot_flex_layout_kKQKNm": {
+      "type": "copilot-flex-layout",
+      "blocks": {
+        "container_EtC9tC": {
+          "type": "container",
+          "settings": {
+            "container_name": "principal",
+            "custom_class": "class",
+            "layout": "flex",
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "row",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#fbfaf4",
+            "border": "",
+            "width": "100%",
+            "height": "auto",
+            "margin": "0",
+            "padding": "0",
+            "gap": "0"
+          }
+        },
+        "heading_CYYNkC": {
+          "type": "heading",
+          "settings": {
+            "parent_container_name": "principal",
+            "text": "Encuentra el ritual ideal para ti",
+            "heading_tag": "h1",
+            "link_title": "",
+            "color": "#213529",
+            "font_size": "40px",
+            "font_weight": "400",
+            "margin": "0 0 10px 0",
+            "padding": "0",
+            "width": "100%"
+          }
+        }
+      },
+      "block_order": [
+        "container_EtC9tC",
+        "heading_CYYNkC"
+      ],
+      "name": "Copilot - Flexible Container",
+      "settings": {
+        "layout": "flex",
+        "flex_direction": "column",
+        "justify_content": "center",
+        "align_items": "center",
+        "background_color": "#fbfaf4",
+        "border": "",
+        "width": "100%",
+        "height": "auto",
+        "margin": "0",
+        "padding": "30px 5rem 20px",
+        "column_count": 1,
+        "rows_count": 1,
+        "gap": "0",
+        "custom_class": "copilot-collection-header"
+      }
+    },
+    "custom_liquid_6BDbiP": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<ul class=\"copilot-custom-menu-filters\">\n<li><a href=\"/collections/todos\" class=\"{% if collection.handle == 'todos' %}active{% endif %}\">Todos los productos</a></li>\n  <li><a href=\"/collections/para-iniciadores\" class=\"{% if collection.handle == 'para-iniciadores' %}active{% endif %}\">Para iniciadores</a></li>\n  <li><a href=\"/collections/mejorar-concentracion\" class=\"{% if collection.handle == 'mejorar-concentracion' %}active{% endif %}\">Mejorar Concentración</a></li>\n  <li><a href=\"/collections/sabores-premium\" class=\"{% if collection.handle == 'sabores-premium' %}active{% endif %}\">Premium</a></li>\n</ul>",
+        "color_scheme": "accent-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 12,
+        "columns_desktop": 3,
+        "color_scheme": "accent-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "none",
+        "enable_filtering": false,
+        "filter_type": "horizontal",
+        "enable_sorting": false,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "40f5b7b3-0b99-4118-b8dd-d053b6a6e313": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "settings": {
+        "custom_liquid": "<div class=\"info_cat page-width\">{{collection.metafields.accentuate.informacion_adicional }}</div>",
+        "color_scheme": "background-1",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "16891082647f2b126d": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "judgeme_carousel_jtUXMA": {
+      "type": "judgeme-carousel",
+      "name": "Carousel judge-me",
+      "settings": {
+        "title": "Lo que dicen quienes viven<br> el ritual, sin dramas",
+        "text": "Nuestra comunidad crece cada día porque acá no hay extremos, solo personas que eligen sumar bienestar sin dejar de disfrutar."
+      }
+    },
+    "1761156398bf594404": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_ihKNbr": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_ihKNbr"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "copilot_custom_reviews_i3fUfW": {
+      "type": "copilot-custom-reviews",
+      "blocks": {
+        "review_px8YyA": {
+          "type": "review",
+          "settings": {
+            "author": "Cliente feliz",
+            "comment": "“Lorem ipsum dolor sit amet consectetur adipiscing elit, tellus porttitor habitant laoreet nascetur sociis, venenatis ridiculus ultricies curae habitasse massa. Lacus feugiat conubia felis phasellus in justo quam, bibendum vehicula primis dui litora iaculis metus”",
+            "rating": 5
+          }
+        },
+        "review_UbNNyD": {
+          "type": "review",
+          "settings": {
+            "author": "Cliente feliz",
+            "comment": "“Lorem ipsum dolor sit amet consectetur adipiscing elit, tellus porttitor habitant laoreet nascetur sociis, venenatis ridiculus ultricies curae habitasse massa. Lacus feugiat conubia felis phasellus in justo quam, bibendum vehicula primis dui litora iaculis metus”",
+            "rating": 5
+          }
+        },
+        "review_djRcYe": {
+          "type": "review",
+          "settings": {
+            "author": "Cliente feliz",
+            "comment": "“Lorem ipsum dolor sit amet consectetur adipiscing elit, tellus porttitor habitant laoreet nascetur sociis, venenatis ridiculus ultricies curae habitasse massa. Lacus feugiat conubia felis phasellus in justo quam, bibendum vehicula primis dui litora iaculis metus”",
+            "rating": 5
+          }
+        },
+        "review_mmR9wm": {
+          "type": "review",
+          "settings": {
+            "author": "Cliente feliz",
+            "comment": "“Lorem ipsum dolor sit amet consectetur adipiscing elit, tellus porttitor habitant laoreet nascetur sociis, venenatis ridiculus ultricies curae habitasse massa. Lacus feugiat conubia felis phasellus in justo quam, bibendum vehicula primis dui litora iaculis metus”",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "review_px8YyA",
+        "review_UbNNyD",
+        "review_djRcYe",
+        "review_mmR9wm"
+      ],
+      "disabled": true,
+      "name": "Copilot - Reviews",
+      "settings": {
+        "title": "LO que dicen quienes viven el ritual sin dramas",
+        "subtitle": "Nuestra comunidad crece cada día porque acá no hay extremos, solo personas que eligen sumar bienestar sin dejar de disfrutar."
+      }
+    }
+  },
+  "order": [
+    "1678882210cf655040",
+    "banner",
+    "copilot_flex_layout_kKQKNm",
+    "custom_liquid_6BDbiP",
+    "product-grid",
+    "40f5b7b3-0b99-4118-b8dd-d053b6a6e313",
+    "16891082647f2b126d",
+    "judgeme_carousel_jtUXMA",
+    "1761156398bf594404",
+    "copilot_custom_reviews_i3fUfW"
+  ]
+}

@@ -1,0 +1,97 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement_VERANX": {
+          "type": "announcement",
+          "settings": {
+            "text": "Envío en 48hs",
+            "link": ""
+          }
+        },
+        "announcement_DVeCcz": {
+          "type": "announcement",
+          "settings": {
+            "text": "Envío gratis a partir de 30€",
+            "link": ""
+          }
+        },
+        "announcement_UPJKYm": {
+          "type": "announcement",
+          "settings": {
+            "text": "-10% primer pedido código: EFNEW",
+            "link": ""
+          }
+        },
+        "announcement_7PEkc3": {
+          "type": "announcement",
+          "settings": {
+            "text": "Chasen de bambú gratis en tu primera compra",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement_VERANX",
+        "announcement_DVeCcz",
+        "announcement_UPJKYm",
+        "announcement_7PEkc3"
+      ],
+      "settings": {
+        "color_scheme": "scheme-87247214-d370-49d1-96ca-7f26b279b7cf",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": true,
+        "change_slides_speed": 3,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "custom_liquid_Wi3hf3": {
+      "type": "custom-liquid",
+      "name": "Liquid personalizado - Abandoment Cart",
+      "settings": {
+        "custom_liquid": "<script>\n  window.addEventListener('load', function() {\n  var _learnq = window._learnq || [];\n  function addedToCart() {\n   fetch(`${window.location.origin}/cart.js`)\n   .then(res => res.clone().json().then(data => {\n    var cart = {\n      total_price: data.total_price/100,\n      $value: data.total_price/100,\n      total_discount: data.total_discount,\n      original_total_price: data.original_total_price/100,\n      items: data.items\n    }\n    if (item !== 'undefined') {\n      cart = Object.assign(cart, item)\n    }\n    if (klAjax) {\n       _learnq.push(['track', 'Added to Cart', cart]);\n       klAjax = false;\n      }\n   }))\n  };\n  (function (ns, fetch) {\n    ns.fetch = function() {\n      const response = fetch.apply(this, arguments);\n      response.then(res => {\n        if (`${window.location.origin}/cart/add.js`\n          .includes(res.url) && res.url !== '') {\n              addedToCart()\n        }\n      });\n      return response\n     }\n  }(window, window.fetch));\n  var klAjax = true;\n  var atcButtons = document.querySelectorAll(\"form[action*='/cart/add'] button[type='submit']\");\n  for (var i = 0; i < atcButtons.length; i++) { \n    atcButtons[i].addEventListener(\"click\", function() {\n      if (klAjax) {\n        _learnq.push(['track', 'Added to Cart', item]);\n        klAjax = false;\n      }\n    })\n  }\n  });\n</script>",
+        "color_scheme": "scheme-87247214-d370-49d1-96ca-7f26b279b7cf",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_position": "middle-left",
+        "menu": "new-menu",
+        "menu_type_desktop": "dropdown",
+        "sticky_header_type": "always",
+        "show_line_separator": false,
+        "color_scheme": "scheme-762cd8c3-54ca-4a17-af34-bec050b59cb5",
+        "menu_color_scheme": "accent-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "enable_customer_avatar": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 36,
+        "padding_bottom": 4
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "custom_liquid_Wi3hf3",
+    "header"
+  ]
+}

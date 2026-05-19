@@ -1,0 +1,746 @@
+{% comment %}
+  Flexible Layout Section con nested_container que permite bloques hijos (text, image, button)
+{% endcomment %}
+
+{%- liquid
+  assign grid_columns = section.settings.column_count | default: 3
+  assign grid_rows = section.settings.rows_count | default: 3
+  assign layout_type = section.settings.layout
+  assign is_grid = false
+  assign is_flex_grid = false
+
+  if layout_type == "grid"
+    assign is_grid = true
+  elsif layout_type == "flex-grid"
+    assign is_flex_grid = true
+  endif
+-%}
+
+{% style %}
+  .contact-form__input.error {
+    border: 1px solid red;
+  }
+  .contact-form__form-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .field-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    padding-left: 30px;
+  }
+   .contact-form__success {
+      display: flex;
+      align-items: center;
+      gap: var(--gap-xs);
+      font-size: 30px;
+      color: #3d4982;
+      line-height: 32px;
+      font-weight: 700;
+  }
+  .contact-form__checkbox.error {
+    outline: 2px solid red;
+  }
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-poster {
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+{% endstyle %}
+
+<section class="custom-flex-layout {{ section.settings.custom_class }}" style="
+  {% if is_grid %}
+    display: grid;
+    grid-template-columns: repeat({{ grid_columns }}, 1fr);
+    grid-template-rows: repeat({{ grid_rows }}, auto);
+    grid-auto-flow: dense;
+  {% elsif is_flex_grid %}
+    display: flex;
+    flex-wrap: wrap;
+    --columns: {{ grid_columns }};
+    --gap: {{ section.settings.gap }};
+  {% else %}
+    display: {{ layout_type }};
+    flex-direction: {{ section.settings.flex_direction }};
+  {% endif %}
+  justify-content: {{ section.settings.justify_content }};
+  align-items: {{ section.settings.align_items }};
+  background-color: {{ section.settings.background_color }};
+  border: {{ section.settings.border }};
+  width: {{ section.settings.width }};
+  height: {{ section.settings.height }};
+  padding: {{ section.settings.padding }};
+  margin: {{ section.settings.margin }};
+  gap: {{ section.settings.gap }};">
+
+  {%- assign containers = section.blocks | where: "type", "container" -%}
+
+  {%- for container in containers -%}
+    {%- liquid
+      assign grid_position = container.settings.grid_position | default: "auto/auto"
+      assign position_parts = grid_position | split: '/'
+      assign grid_column = position_parts[0] | default: 'auto'
+      assign grid_row = position_parts[1] | default: 'auto'
+      
+      if is_flex_grid
+        assign flex_position = grid_position | split: '/' | join: '-'
+        assign flex_order = container.settings.flex_order | default: 0
+      endif
+    -%}
+
+    {% assign container_link = container.settings.link %}
+
+    {% if container_link != blank %}
+      <a 
+        href="{{ container_link }}"
+        id="{{ container.settings.container_name }}"
+        class="layout-block layout-block--container layout-block--link"
+        {% if container.settings.link_new_tab %}
+          target="_blank"
+          rel="noopener"
+        {% endif %}
+        style="
+          display: {{ container.settings.layout }};
+          flex-direction: {{ container.settings.flex_direction }};
+          justify-content: {{ container.settings.justify_content }};
+          align-items: {{ container.settings.align_items }};
+          background-color: {{ container.settings.background_color }};
+          border: {{ container.settings.border }};
+          width: {{ container.settings.width }};
+          height: {{ container.settings.height }};
+          padding: {{ container.settings.padding }};
+          margin: {{ container.settings.margin }};
+          gap: {{ container.settings.gap }};
+          text-decoration:none;
+          color:inherit;
+          {% if is_grid %}
+            grid-column: {{ grid_column }};
+            grid-row: {{ grid_row }};
+          {% elsif is_flex_grid %}
+            flex: 0 0 calc((100% / var(--columns)) - var(--gap));
+            min-width: calc((100% / var(--columns)) - var(--gap));
+            order: {{ flex_order }};
+          {% endif %}
+        "
+      >
+    {% else %}
+      <div 
+        id="{{ container.settings.container_name }}"
+        class="layout-block layout-block--container"
+        style="
+          display: {{ container.settings.layout }};
+          flex-direction: {{ container.settings.flex_direction }};
+          justify-content: {{ container.settings.justify_content }};
+          align-items: {{ container.settings.align_items }};
+          background-color: {{ container.settings.background_color }};
+          border: {{ container.settings.border }};
+          width: {{ container.settings.width }};
+          height: {{ container.settings.height }};
+          padding: {{ container.settings.padding }};
+          margin: {{ container.settings.margin }};
+          gap: {{ container.settings.gap }};
+          {% if is_grid %}
+            grid-column: {{ grid_column }};
+            grid-row: {{ grid_row }};
+          {% elsif is_flex_grid %}
+            flex: 0 0 calc((100% / var(--columns)) - var(--gap));
+            min-width: calc((100% / var(--columns)) - var(--gap));
+            order: {{ flex_order }};
+          {% endif %}
+        "
+      >
+    {% endif %}
+
+      {% render 'copilot-block', container: container, blocks: section.blocks %}
+
+    {% if container_link != blank %}
+      </a>
+    {% else %}
+      </div>
+    {% endif %}
+
+  {%- endfor -%}
+
+  {% comment %} POPUP {% endcomment %}
+   {%- for b in section.blocks -%}
+    {%- if b.type == 'popup_content' -%}
+      {%- liquid
+        assign htag = b.settings.heading_tag | default: 'h2'
+      -%}
+      <div
+        id="copilot-popup--{{ b.settings.popup_id }}"
+        class="copilot-popup"
+        role="dialog"
+        aria-modal="true"
+        style="display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center; background-color:{{ b.settings.overlay_color }};"
+        {{ b.shopify_attributes }}
+      >
+        <div
+          class="copilot-popup__inner"
+          style="
+            background-color: {{ b.settings.background_color }};
+            border-radius: {{ b.settings.border_radius }};
+            padding: {{ b.settings.padding }};
+            max-width: {{ b.settings.max_width }};
+            width: 90%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+          "
+        >
+          {%- if b.settings.heading != blank -%}
+            <{{ htag }}
+              style="color:{{ b.settings.heading_color }}; font-size:{{ b.settings.heading_font_size }}; margin:0 0 12px 0;"
+            >
+              {{ b.settings.heading }}
+            </{{ htag }}>
+          {%- endif -%}
+
+          {%- if b.settings.text != blank -%}
+            <div style="color:{{ b.settings.text_color }}; font-size:{{ b.settings.text_font_size }}; margin-bottom:16px;">
+              {{ b.settings.text }}
+            </div>
+          {%- endif -%}
+
+          {%- if b.settings.custom_html != blank -%}
+            <div class="copilot-popup__custom-html">
+              {{ b.settings.custom_html }}
+            </div>
+          {%- endif -%}
+
+          <button
+            type="button"
+            class="copilot-popup-close"
+            data-popup-close="{{ b.settings.popup_id }}"
+            aria-label="Cerrar"
+            style="position:absolute; top:12px; right:16px; background:none; border:none; cursor:pointer; font-size:22px; line-height:1; color:{{ b.settings.close_btn_color }};"
+          >&#x2715;</button>
+        </div>
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+  {% comment %} ENDPOPUP {% endcomment %}
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+
+      const poster = wrapper.querySelector('.js-video-poster');
+      const iframe = wrapper.querySelector('.js-video-iframe');
+
+      if (!poster || !iframe) return;
+
+      poster.addEventListener('click', function () {
+
+        iframe.src = iframe.dataset.src;
+
+        poster.style.display = 'none';
+        iframe.style.display = 'block';
+
+      });
+    });
+  });
+</script>
+<script>
+  (function() {
+    function initCopilotPopups() {
+      // Abrir
+      document.querySelectorAll('.copilot-popup-trigger').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var id = btn.getAttribute('data-popup-target');
+          var popup = document.getElementById('copilot-popup--' + id);
+          if (popup) {
+            popup.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+
+      // Cerrar con botón X
+      document.querySelectorAll('.copilot-popup-close').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var id = btn.getAttribute('data-popup-close');
+          closePopup(id);
+        });
+      });
+
+      // Cerrar clickeando el overlay
+      document.querySelectorAll('.copilot-popup').forEach(function(popup) {
+        popup.addEventListener('click', function(e) {
+          if (e.target === popup) {
+            var id = popup.id.replace('copilot-popup--', '');
+            closePopup(id);
+          }
+        });
+      });
+
+      // Cerrar con Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          document.querySelectorAll('.copilot-popup').forEach(function(popup) {
+            if (popup.style.display === 'flex') {
+              var id = popup.id.replace('copilot-popup--', '');
+              closePopup(id);
+            }
+          });
+        }
+      });
+    }
+
+    function closePopup(id) {
+      var popup = document.getElementById('copilot-popup--' + id);
+      if (popup) {
+        popup.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCopilotPopups);
+    } else {
+      initCopilotPopups();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Copilot - Flexible Layout",
+  "settings": [
+    { "type": "select", "id": "layout", "label": "Display", "default": "flex",
+      "options": [
+        { "value": "flex", "label": "Flexbox" },
+        { "value": "grid", "label": "Grid" },
+        { "value": "flex-grid", "label": "Flex Grid" },
+        { "value": "block", "label": "Block" }
+      ]
+    },
+    { "type": "select", "id": "flex_direction", "label": "Dirección", "default": "column",
+      "options": [
+        { "value": "row", "label": "Row" },
+        { "value": "column", "label": "Column" }
+      ]
+    },
+    { "type": "select", "id": "justify_content", "label": "Justify", "default": "center",
+      "options": [
+        { "value": "flex-start", "label": "Start" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "End" },
+        { "value": "space-between", "label": "Space Between" },
+        { "value": "space-around", "label": "Space Around" }
+      ]
+    },
+    { "type": "select", "id": "align_items", "label": "Align", "default": "center",
+      "options": [
+        { "value": "flex-start", "label": "Start" },
+        { "value": "center", "label": "Center" },
+        { "value": "flex-end", "label": "End" },
+        { "value": "stretch", "label": "Stretch" }
+      ]
+    },
+    { "type": "color", "id": "background_color", "label": "Color de fondo", "default": "#eeeeee" },
+    { "type": "text", "id": "border", "label": "Borde", "default": "1px solid #ccc" },
+    { "type": "text", "id": "width", "label": "Ancho", "default": "100%" },
+    { "type": "text", "id": "height", "label": "Alto", "default": "auto" },
+    { "type": "text", "id": "margin", "label": "Margen", "default": "0" },
+    { "type": "text", "id": "padding", "label": "Padding", "default": "10px" },
+    { "type": "range", "id": "column_count", "label": "Cantidad de columnas", "min": 1, "max": 12, "default": 3, "info": "Aplica para Grid y Flex Grid" },
+    { "type": "range", "id": "rows_count", "label": "Cantidad de filas", "min": 1, "max": 12, "default": 3, "info": "Aplica para Grid y Flex Grid" },
+    { "type": "text", "id": "gap", "label": "Gap", "default": "0" },
+    { "type": "text", "id": "custom_class", "label": "Clase CSS personalizada", "default": "class" }
+  ],
+  "blocks": [
+    {
+      "type": "container",
+      "name": "Contenedor",
+      "settings": [
+        { "type": "text", "id": "container_name", "label": "Nombre del contenedor", "default": "contenedor-1" },
+        { "type": "select", "id": "layout", "label": "Display", "default": "flex",
+          "options": [
+            { "value": "flex", "label": "Flex" },
+            { "value": "grid", "label": "Grid" },
+            { "value": "block", "label": "Block" }
+          ]
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Enlace del contenedor"
+        },
+        {
+          "type": "checkbox",
+          "id": "link_new_tab",
+          "label": "Abrir en nueva pestaña",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "grid_position",
+          "label": "Posición (Grid/Flex)",
+          "default": "auto/auto",
+          "info": "Para Grid: 'columna/fila' (ej: 1/2). Para Flex Grid: 'columna-fila' (ej: 1-2)"
+        },
+        {
+          "type": "range",
+          "id": "flex_order",
+          "label": "Orden (Flex Grid)",
+          "min": 0,
+          "max": 100,
+          "default": 0,
+          "info": "Controla el orden en Flex Grid"
+        },
+        { "type": "select", "id": "flex_direction", "label": "Dirección", "default": "column",
+          "options": [
+            { "value": "row", "label": "Row" },
+            { "value": "column", "label": "Column" }
+          ]
+        },
+        { "type": "select", "id": "justify_content", "label": "Justify", "default": "center",
+          "options": [
+            { "value": "flex-start", "label": "Start" },
+            { "value": "center", "label": "Center" },
+            { "value": "flex-end", "label": "End" },
+            { "value": "space-between", "label": "Space Between" },
+            { "value": "space-around", "label": "Space Around" }
+          ]
+        },
+        { "type": "select", "id": "align_items", "label": "Align", "default": "center",
+          "options": [
+            { "value": "flex-start", "label": "Start" },
+            { "value": "center", "label": "Center" },
+            { "value": "flex-end", "label": "End" },
+            { "value": "stretch", "label": "Stretch" }
+          ]
+        },
+        { "type": "color", "id": "background_color", "label": "Color de fondo", "default": "#eeeeee" },
+        { "type": "text", "id": "border", "label": "Borde", "default": "1px solid #ccc" },
+        { "type": "text", "id": "width", "label": "Ancho", "default": "100%" },
+        { "type": "text", "id": "height", "label": "Alto", "default": "auto" },
+        { "type": "text", "id": "margin", "label": "Margen", "default": "0" },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "10px" },
+        { "type": "text", "id": "gap", "label": "Gap", "default": "0" },
+      ]
+    },
+    {
+      "type": "heading",
+      "name": "Título",
+      "settings": [
+        { "type": "text", "id": "parent_container_name", "label": "Contenedor padre" },
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "título",
+          "label": "Título"
+        },
+        { "type": "select", "id": "heading_tag", "label": "Tag HTML", "default": "h2", "options": [
+          { "value": "h1", "label": "H1" },
+          { "value": "h2", "label": "H2" },
+          { "value": "h3", "label": "H3" },
+          { "value": "h4", "label": "H4" },
+          { "value": "h5", "label": "H5" },
+          { "value": "h6", "label": "H6" }
+        ]},
+        { "type": "color", "id": "color", "label": "Color", "default": "#000000" },
+        { "type": "text", "id": "font_size", "label": "Tamaño de fuente", "default": "24px" },
+        { "type": "text", "id": "font_weight", "label": "Grosor de fuente", "default": "700" },
+        { "type": "text", "id": "margin", "label": "Margen", "default": "0 0 10px 0" },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "0" },
+        { "type": "text", "id": "width", "label": "Ancho", "default": "100%" },
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Texto",
+      "settings": [
+        { "type": "text", "id": "parent_container_name", "label": "Contenedor padre" },
+        { "type": "textarea", "id": "text", "label": "Texto", "default": "Texto por defecto" },
+        { "type": "color", "id": "color", "label": "Color", "default": "#000000" },
+        { "type": "text", "id": "font_size", "label": "Tamaño de fuente", "default": "16px" },
+        { "type": "text", "id": "font_weight", "label": "Grosor de fuente", "default": "400" },
+        { "type": "text", "id": "line_height", "label": "Altura de fuente", "default": "1.2em" },     
+        { "type": "select", "id": "text_align", "label": "Alineación", "default": "left",
+          "options": [ 
+            { "value": "left", "label": "Izquierda" },
+            { "value": "center", "label": "Centro" },
+            { "value": "right", "label": "Derecha" }
+          ]
+        },
+        { "type": "text", "id": "margin", "label": "Margen", "default": "0" },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "0" }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Imagen",
+      "settings": [
+        { "type": "text", "id": "parent_container_name", "label": "Contenedor padre" },
+        { "type": "image_picker", "id": "image", "label": "Imagen Desktop" },
+        { "type": "image_picker", "id": "image_mobile", "label": "Imagen Mobile" },
+        { "type": "text", "id": "width", "label": "Ancho", "default": "auto" },
+        { "type": "text", "id": "height", "label": "Alto", "default": "auto" },
+        { "type": "text", "id": "margin", "label": "Margen", "default": "0" },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "0" },
+        { "type": "text", "id": "border_radius", "label": "Radio de Borde", "default": "0" }
+      ]
+    },
+    {
+      "type": "richtext",
+      "name": "Texto Enriquesido",
+      "settings": [
+        { "type": "text", "id": "parent_container_name", "label": "Contenedor padre" },
+        { "type": "richtext","id": "text", "default": "<p>Texto de prueba.</p>", "label": "Texto Enriquesido"},
+        { "type": "color", "id": "color", "label": "Color", "default": "#000000" },
+        { "type": "text", "id": "font_size", "label": "Tamaño de fuente", "default": "16px" },
+        { "type": "text", "id": "font_weight", "label": "Grosor de fuente", "default": "400" },
+        { "type": "text", "id": "line_height", "label": "Altura de fuente", "default": "1.2em" },     
+        { "type": "select", "id": "text_align", "label": "Alineación", "default": "left",
+          "options": [ 
+            { "value": "left", "label": "Izquierda" },
+            { "value": "center", "label": "Centro" },
+            { "value": "right", "label": "Derecha" }
+          ]
+        },
+        { "type": "text", "id": "margin", "label": "Margen", "default": "0" },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "0" }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Botón",
+      "settings": [
+        { "type": "text", "id": "parent_container_name", "label": "Contenedor padre" },
+        { "type": "text", "id": "label", "label": "Texto del botón", "default": "Click aquí" },
+        { "type": "url", "id": "url", "label": "Enlace" },
+        { "type": "color", "id": "background_color", "label": "Fondo", "default": "#000000" },
+        { "type": "color", "id": "color", "label": "Color de texto", "default": "#ffffff" },
+        { "type": "text", "id": "font_size", "label": "Tamaño de fuente", "default": "16px" },
+        { "type": "text", "id": "font_weight", "label": "Grosor de fuente", "default": "400" },
+        { "type": "text", "id": "line_height", "label": "Altura de fuente", "default": "1.2em" },
+        { "type": "select", "id": "layout", "label": "Display", "default": "flex",
+          "options": [
+            { "value": "flex", "label": "Flex" },
+            { "value": "block", "label": "Block" }
+          ]
+        },
+        { "type": "select", "id": "justify_content", "label": "Justify", "default": "center",
+          "options": [
+            { "value": "flex-start", "label": "Start" },
+            { "value": "center", "label": "Center" },
+            { "value": "flex-end", "label": "End" },
+            { "value": "space-between", "label": "Space Between" },
+            { "value": "space-around", "label": "Space Around" }
+          ]
+        },
+        { "type": "select", "id": "align_items", "label": "Align", "default": "center",
+          "options": [
+            { "value": "flex-start", "label": "Start" },
+            { "value": "center", "label": "Center" },
+            { "value": "flex-end", "label": "End" },
+            { "value": "stretch", "label": "Stretch" }
+          ]
+        },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "10px 20px" },
+        { "type": "text", "id": "margin", "label": "Margen", "default": "0" },
+        { "type": "text", "id": "border", "label": "Borde", "default": "none" },
+        { "type": "text", "id": "border_radius", "label": "Radio de Borde", "default": "0" },
+        { "type": "text", "id": "width", "label": "Ancho", "default": "auto" },
+        { "type": "text", "id": "height", "label": "Alto", "default": "auto" },
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        { "type": "text", "id": "parent_container_name", "label": "Contenedor padre" },
+        { "type": "video", "id": "video", "label": "Subir video" },
+        { "type": "url", "id": "video_url", "label": "URL Video (YouTube o Vimeo)" },
+        { "type": "image_picker", "id": "cover_image", "label": "Imagen portada" },
+        { "type": "checkbox", "id": "enable_video_looping", "label": "Loop video", "default": false },
+        { "type": "text", "id": "width", "label": "Ancho", "default": "100%" },
+        { "type": "text", "id": "height", "label": "Alto", "default": "360px" },
+        { "type": "text", "id": "margin", "label": "Margen", "default": "0" },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "0" },
+        { "type": "text", "id": "border_radius", "label": "Radio de borde", "default": "0" }
+      ]
+    },
+    {
+      "type": "contact_form",
+      "name": "Formulario de contacto",
+      "settings": [
+        {
+          "type": "select",
+          "id": "form_type",
+          "label": "Tipo de formulario",
+          "default": "profesional",
+          "options": [
+            { "value": "profesional", "label": "Profesional" },
+            { "value": "contacto",    "label": "Contacto general" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "parent_container_name",
+          "label": "Contenedor padre"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Título",
+          "default": "Contactanos"
+        },
+      ]
+    },
+    {
+      "type": "menu",
+      "name": "Menú Shopify",
+      "settings": [
+        { "type": "text", "id": "parent_container_name", "label": "Contenedor padre" },
+        { "type": "link_list", "id": "menu", "label": "Seleccionar menú" },
+        { "type": "color", "id": "color", "label": "Color texto", "default": "#000000" },
+        { "type": "text", "id": "font_size", "label": "Tamaño fuente", "default": "16px" },
+        { "type": "text", "id": "font_weight", "label": "Peso fuente", "default": "400" },
+        { "type": "text", "id": "gap", "label": "Espacio entre items", "default": "8px" },
+        { "type": "select", "id": "direction", "label": "Dirección",
+          "default": "column",
+          "options": [
+            { "value": "column", "label": "Vertical" },
+            { "value": "row", "label": "Horizontal" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "social_links",
+      "name": "Redes sociales",
+      "settings": [
+        { "type": "text", "id": "parent_container_name", "label": "Contenedor padre" },
+        { "type": "range", "id": "icon_size", "label": "Tamaño ícono", "min": 14, "max": 50, "step": 1, "default": 22 },
+        { "type": "text", "id": "gap", "label": "Gap", "default": "14px" },
+        { "type": "color", "id": "icon_color", "label": "Color ícono", "default": "#3C4981" },
+        { "type": "color", "id": "bg_color", "label": "Fondo", "default": "transparent" },
+        { "type": "color", "id": "border_color", "label": "Color borde", "default": "rgba(0,0,0,0.2)" },
+        { "type": "text", "id": "border_radius", "label": "Radio", "default": "999px" },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "10px" },
+        { "type": "checkbox", "id": "open_new_tab", "label": "Abrir en nueva pestaña", "default": true },
+        { "type": "url", "id": "social_facebook_link", "label": "Facebook" },
+        { "type": "url", "id": "social_instagram_link", "label": "Instagram"},
+        { "type": "url", "id": "social_instagram_link_it", "label": "Instagram IT"},
+        { "type": "url", "id": "social_instagram_link_pt", "label": "Instagram PT"},
+        { "type": "url", "id": "social_youtube_link", "label": "YouTube" },
+        { "type": "url", "id": "social_tiktok_link", "label": "TikTok" },
+        { "type": "url", "id": "social_twitter_link", "label": "Twitter" },
+        { "type": "url", "id": "social_x_link", "label": "X" },
+        { "type": "url", "id": "social_threads_link", "label": "Threads" },
+        { "type": "url", "id": "social_linkedin_link", "label": "LinkedIn" },
+        { "type": "url", "id": "social_spotify_link", "label": "Spotify" }
+      ]
+    },
+    {
+      "type": "popup_trigger",
+      "name": "Botón Popup",
+      "settings": [
+        { "type": "text", "id": "parent_container_name", "label": "Contenedor padre" },
+        { "type": "text", "id": "popup_id", "label": "ID del Popup", "default": "popup-1", "info": "Debe coincidir con el ID del bloque Popup Content" },
+        { "type": "text", "id": "label", "label": "Texto del botón", "default": "Abrir" },
+        { "type": "color", "id": "background_color", "label": "Fondo", "default": "#000000" },
+        { "type": "color", "id": "color", "label": "Color de texto", "default": "#ffffff" },
+        { "type": "text", "id": "font_size", "label": "Tamaño de fuente", "default": "16px" },
+        { "type": "text", "id": "font_weight", "label": "Grosor de fuente", "default": "400" },
+        { "type": "text", "id": "padding", "label": "Padding", "default": "10px 20px" },
+        { "type": "text", "id": "margin", "label": "Margen", "default": "0" },
+        { "type": "text", "id": "border", "label": "Borde", "default": "none" },
+        { "type": "text", "id": "border_radius", "label": "Radio de borde", "default": "0" },
+        { "type": "text", "id": "width", "label": "Ancho", "default": "auto" }
+      ]
+    },
+    {
+      "type": "popup_content",
+      "name": "Popup Contenido",
+      "settings": [
+        { "type": "text", "id": "popup_id", "label": "ID del Popup", "default": "popup-1", "info": "Debe coincidir con el ID del botón Popup Trigger" },
+        { "type": "text", "id": "heading", "label": "Título", "default": "Título del popup" },
+        { "type": "select", "id": "heading_tag", "label": "Tag del título", "default": "h2",
+          "options": [
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" },
+            { "value": "h4", "label": "H4" }
+          ]
+        },
+        { "type": "color", "id": "heading_color", "label": "Color título", "default": "#000000" },
+        { "type": "text", "id": "heading_font_size", "label": "Tamaño título", "default": "24px" },
+        { "type": "richtext", "id": "text", "label": "Texto", "default": "<p>Descripción del popup.</p>" },
+        { "type": "color", "id": "text_color", "label": "Color texto", "default": "#333333" },
+        { "type": "text", "id": "text_font_size", "label": "Tamaño texto", "default": "16px" },
+        { "type": "html", "id": "custom_html", "label": "HTML / Script personalizado", "info": "Podés pegar aquí cualquier HTML o script externo (formulario, widget, etc.)" },
+        { "type": "color", "id": "background_color", "label": "Fondo del popup", "default": "#ffffff" },
+        { "type": "text", "id": "border_radius", "label": "Radio de borde", "default": "8px" },
+        { "type": "text", "id": "padding", "label": "Padding interno", "default": "32px" },
+        { "type": "text", "id": "max_width", "label": "Ancho máximo", "default": "560px" },
+        { "type": "color", "id": "overlay_color", "label": "Color overlay", "default": "rgba(0,0,0,0.55)" },
+        { "type": "color", "id": "close_btn_color", "label": "Color botón cerrar", "default": "#000000" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot - Flexible Container",
+      "blocks": [
+        {
+          "type": "container",
+          "settings": {
+            "container_name": "principal",
+            "layout": "flex",
+            "flex_direction": "row",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#f5f5f5",
+            "border": "1px solid #999",
+            "width": "100%",
+            "height": "auto",
+            "padding": "20px"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "Texto dentro del contenedor",
+            "parent_container_name": "principal"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

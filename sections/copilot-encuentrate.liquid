@@ -1,0 +1,466 @@
+{% comment %}
+  Section: Encuentra el tuyo - Product Showcase
+  Autoadministrable con selección de productos (2 o más)
+{% endcomment %}
+
+<style>
+  .encuentra-section {
+    background-color: #FFF;
+    display: block;
+    padding: 20px 20px 100px;
+    font-family: 'OverusedGrotesk', sans-serif;
+  }
+
+  .encuentra-section__header {
+    text-align: center;
+    margin-bottom: 148px;
+  }
+
+  .encuentra-section__title {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 300;
+    font-size: 50px;
+    line-height: 50px;
+    letter-spacing: 0%;
+    color: #213529;
+    margin: 0 0 12px 0;
+    text-transform: none !important;
+  }
+
+  .encuentra-section__subtitle {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 400;
+    font-size: 16px !important;
+    line-height: 20px;
+    color: #213529;
+    margin: 0;
+  }
+
+  .encuentra-section__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 48px auto;
+  }
+
+  .product-card {
+    border: 1px solid #213529;
+    background-color: #FBFAF3;
+    width: 298px;
+    min-height: 423px;
+    border-radius: 20px;
+    padding: 37px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .product-card:nth-child(2) img {
+    margin-bottom: -34px;
+  }
+
+  .product-card:hover {
+    box-shadow: 0 4px 24px rgba(33, 53, 41, 0.10);
+  }
+
+  .product-card__image-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+    min-height: 110px;
+    align-items: flex-end;
+    position: relative;
+  }
+
+  .product-card__image {
+    {% comment %} max-width: 160px;
+    max-height: 160px; 
+    object-fit: contain;{% endcomment %}
+    display: block;
+    position: absolute;
+  }
+
+  .product-card__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 114px;
+    height: 28px;
+    border-radius: 50px;
+    background-color: #213529;
+    color: #fff;
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 14px;
+    letter-spacing: 0.04em;
+  }
+
+  .product-card__badge--alt {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 114px;
+    height: 28px;
+    background-color: #FBFAF3;
+    color: #FBFAF3;
+    margin-bottom: 14px;
+  }
+
+  .product-card__title {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 400;
+    font-size: 20px !important;
+    line-height: 24px !important;
+    color: #213529;
+    text-align: center;
+    margin: 0 0 8px 0;
+  }
+
+  .product-card__description {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 16px !important;
+    line-height: 20px;
+    color: #213529;
+    text-align: center;
+    margin: 0 0 10px 0 !important;
+    {% comment %} flex: 1; {% endcomment %}
+  }
+
+  .product-card__price {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
+    color: #213529;
+    text-align: center;
+    margin: 0 0 6px 0 !important;
+  }
+
+  .product-card__price-note {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #213529;
+    text-align: center;
+    margin: 0 0 20px 0 !important;
+  }
+
+  .product-card__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 183px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: #1A7A4A;
+    color: #fff;
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+    margin-top: auto;
+  }
+
+  .product-card__cta:hover {
+    background-color: #155e38;
+    transform: translateY(-1px);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .encuentra-section__footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .encuentra-section__footer-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    width: 265px;
+    height: 60px;
+    border: 1px solid #1A7A4A;
+    border-radius: 50px;
+    color: #1A7A4A;
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .encuentra-section__footer-cta:hover {
+    background-color: #1A7A4A;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* ── RESPONSIVE (mobile) ── */
+  @media (max-width: 768px) {
+    .encuentra-section {
+      padding: 48px 16px;
+    }
+
+    .encuentra-section__title {
+      font-size: 36px;
+      line-height: 38px;
+    }
+
+    .encuentra-section__grid {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .product-card {
+      width: 100%;
+      max-width: 480px;
+      min-height: unset;
+      flex-direction: row;
+      align-items: center;
+      padding: 24px 20px;
+      gap: 16px;
+    }
+
+    .product-card__image-wrap {
+      min-width: 100px;
+      max-width: 110px;
+      min-height: unset;
+      margin-bottom: 0;
+      flex-shrink: 0;
+    }
+
+    .product-card__image {
+      max-width: 100px;
+      max-height: 100px;
+    }
+
+    .product-card__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 1;
+    }
+
+    .product-card__badge {
+      margin-bottom: 8px;
+    }
+
+    .product-card__title,
+    .product-card__description,
+    .product-card__price,
+    .product-card__price-note {
+      text-align: left;
+    }
+
+    .product-card__description {
+      margin-bottom: 8px;
+    }
+
+    .product-card__cta {
+      width: 100%;
+      max-width: 220px;
+      height: 48px;
+      font-size: 15px;
+      margin-top: 12px;
+    }
+  }
+</style>
+
+<section class="encuentra-section" id="section-{{ section.id }}">
+
+  <div class="encuentra-section__header">
+    {% if section.settings.title != blank %}
+      <h2 class="encuentra-section__title">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% if section.settings.subtitle != blank %}
+      <p class="encuentra-section__subtitle">{{ section.settings.subtitle }}</p>
+    {% endif %}
+  </div>
+
+  <div class="encuentra-section__grid">
+    {% for block in section.blocks %}
+      {% assign product = all_products[block.settings.product] %}
+      {% if product != blank %}
+        <div class="product-card" {{ block.shopify_attributes }}>
+
+          {% comment %} Mobile requires a content wrapper {% endcomment %}
+          <div class="product-card__image-wrap">
+            {% if product.featured_image %}
+              <img
+                class="product-card__image"
+                src="{{ product.featured_image | image_url: width: 320 }}"
+                alt="{{ product.featured_image.alt | escape }}"
+                width="300"
+                height="300"
+                loading="lazy"
+              >
+            {% endif %}
+          </div>
+
+          <div class="product-card__content" style="display:contents;">
+            {% if block.settings.badge != blank %}
+              <span class="product-card__badge">{{ block.settings.badge }}</span>
+            {% else %}
+              <span class="product-card__badge--alt"></span>
+            {% endif %}
+
+            {% if block.settings.title_prod != blank %}
+                <h4 class="product-card__title">{{ block.settings.title_prod }}</h4>
+            {% else %}
+                <h4 class="product-card__title">{{ product.title }}</h4>
+            {% endif %}
+
+            {% if block.settings.description != blank %}
+              <p class="product-card__description">{{ block.settings.description }}</p>
+            {% elsif product.description != blank and block.settings.description == blank %}
+              <p class="product-card__description">{{ product.description | strip_html | truncate: 120 }}</p>
+            {% endif %}
+
+            <p class="product-card__price">{{ product.price | money }}</p>
+
+            {% if block.settings.price_note != blank %}
+              <p class="product-card__price-note">{{ block.settings.price_note }}</p>
+            {% endif %}
+
+            <a
+              href="{{ product.url }}"
+              class="product-card__cta"
+            >
+              {{ block.settings.cta_label | default: 'Ver producto' }}
+            </a>
+          </div>
+
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  {% if section.settings.footer_cta_label != blank and section.settings.footer_cta_url != blank %}
+    <div class="encuentra-section__footer">
+      <a href="{{ section.settings.footer_cta_url }}" class="encuentra-section__footer-cta">
+        {{ section.settings.footer_cta_label }}
+      </a>
+    </div>
+  {% endif %}
+
+</section>
+
+{% schema %}
+{
+  "name": "Copilot Encuentra el tuyo",
+  "tag": "section",
+  "class": "encuentra-el-tuyo",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título del módulo",
+      "default": "Encuentra el tuyo"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Dos formatos, un propósito. Elige según tu ritual."
+    },
+    {
+      "type": "text",
+      "id": "footer_cta_label",
+      "label": "Texto del CTA inferior",
+      "default": "Ver todos nuestros productos"
+    },
+    {
+      "type": "url",
+      "id": "footer_cta_url",
+      "label": "URL del CTA inferior"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Tarjeta de producto",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Producto"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge (ej: Más vendido)",
+          "info": "Dejar en blanco para no mostrar el badge"
+        },
+        {
+          "type": "text",
+          "id": "title_prod",
+          "label": "Titulo del producto",
+          "info": "Dejar en blanco para no mostrar el titulo"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Descripción personalizada",
+          "info": "Si se deja en blanco, se usará la descripción del producto"
+        },
+        {
+          "type": "text",
+          "id": "price_note",
+          "label": "Nota de precio (ej: Menos de 1€ por taza)",
+          "info": "Texto pequeño debajo del precio"
+        },
+        {
+          "type": "text",
+          "id": "cta_label",
+          "label": "Texto del botón",
+          "default": "Ver producto"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot - Encuentra el tuyo",
+      "blocks": [
+        {
+          "type": "product_card",
+          "settings": {
+            "badge": "Más vendido",
+            "description": "15 cápsulas de matcha Uji. Compatible con Nespresso, sin cambiar nada de tu rutina.",
+            "price_note": "Menos de 1€ por taza",
+            "cta_label": "Ver producto"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "description": "100g de matcha Uji de primera cosecha. Para quien prefiere prepararlo a su manera.",
+            "cta_label": "Ver producto"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

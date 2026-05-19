@@ -1,0 +1,322 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1678882210cf655040": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
+      }
+    },
+    "copilot_flex_layout_UbgNCD": {
+      "type": "copilot-flex-layout",
+      "blocks": {
+        "container_NW9ii6": {
+          "type": "container",
+          "settings": {
+            "container_name": "principal",
+            "custom_class": "class",
+            "layout": "flex",
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "row",
+            "justify_content": "flex-start",
+            "align_items": "flex-end",
+            "background_color": "#fbfaf4",
+            "border": "0",
+            "width": "505px",
+            "height": "auto",
+            "margin": "0",
+            "padding": "0",
+            "gap": "0"
+          }
+        },
+        "heading_MJ7kpJ": {
+          "type": "heading",
+          "settings": {
+            "parent_container_name": "principal",
+            "text": "Encuentra el ritual ideal para ti",
+            "heading_tag": "h1",
+            "link_title": "",
+            "color": "#213529",
+            "font_size": "80px",
+            "font_weight": "600",
+            "margin": "0 0 10px 0",
+            "padding": "0",
+            "width": "100%"
+          }
+        },
+        "image_wNwzMd": {
+          "type": "image",
+          "settings": {
+            "parent_container_name": "principal",
+            "image": "shopify://shop_images/Vector.svg",
+            "link_img": "",
+            "width": "auto",
+            "height": "auto",
+            "margin": "0px 0 8px -205px",
+            "padding": "0",
+            "border_radius": "0"
+          }
+        }
+      },
+      "block_order": [
+        "container_NW9ii6",
+        "heading_MJ7kpJ",
+        "image_wNwzMd"
+      ],
+      "name": "Copilot - Flexible Container",
+      "settings": {
+        "layout": "flex",
+        "flex_direction": "column",
+        "justify_content": "flex-start",
+        "align_items": "flex-start",
+        "background_color": "#fbfaf4",
+        "border": "0",
+        "width": "100%",
+        "height": "auto",
+        "margin": "0",
+        "padding": "80px 5rem 20px",
+        "column_count": 1,
+        "rows_count": 1,
+        "gap": "0",
+        "custom_class": "copilot-collection-header"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "color_scheme": "accent-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "quick_add": "standard",
+        "enable_filtering": false,
+        "filter_type": "vertical",
+        "enable_sorting": true,
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 100
+      }
+    },
+    "rich_text_TVFLYB": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_6RcQ9w": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Té Matcha Premium y Grado Ceremonial</strong>",
+            "heading_size": "h2"
+          }
+        },
+        "text_UAFVPp": {
+          "type": "text",
+          "settings": {
+            "text": "<p>En nuestra tienda online podrás encontrar el mejor Té Matcha y disfrutar de sus auténticas propiedades y beneficios para tu salud y bienestar.</p><p>Desde Té Matcha Premium hasta Té Matcha Ceremonial de Japón molido en piedra de manera tradicional. Diferentes calidades en una misma tienda listos para <em>lattear</em> o tomar solos.</p><p>Los Té Matcha Premium son ideales para quienes se quieran iniciar en el mundo del Matcha, mientras que los Té Matcha Ceremoniales son perfectos los que buscan algo más único y auténtico.</p><p>Nuestro Té Matcha Imperial Japonés Ecológico de 1er Grado Ceremonial proviene directamente de la región de Uji en Kyoto, y esta hecho con las hojas más frescas de la primera cosecha de primavera.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6RcQ9w",
+        "text_UAFVPp"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_gNFrFG": {
+      "type": "image-banner",
+      "disabled": true,
+      "settings": {
+        "copilot_custom_class": "",
+        "copilot_show_judge": false,
+        "image": "shopify://shop_images/pexels-roman-odintsov-5976082_e7cc8065-4f1d-4f49-9242-d226b34b4199.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "collapsible_content_JATmkF": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_RTb4Bz": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Qué es el Matcha?",
+            "icon": "check_mark",
+            "row_content": "<p>El matcha es un tipo de té verde en polvo originario de Japón. Se obtiene de las hojas de té verde molidas finamente, lo que resulta en un polvo fino y vibrante. Su color verde distintivo se debe a la alta concentración de clorofila presente en las hojas de té antes de la cosecha.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_mBdEx3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Origen del Matcha",
+            "icon": "check_mark",
+            "row_content": "<p>El matcha tiene una historia rica y fascinante que se remonta a siglos atrás en la cultura japonesa. Fue introducido por monjes budistas zen en el siglo XII, quienes lo valoraban por sus propiedades energizantes y su capacidad para mejorar la concentración durante la meditación.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_e79irK": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Beneficios del Matcha",
+            "icon": "check_mark",
+            "row_content": "<p>El matcha está cargado de antioxidantes, especialmente catequinas, que ayudan a combatir el estrés oxidativo y a proteger contra enfermedades crónicas. Además, contiene compuestos que promueven la calma mental y la concentración, como la L-teanina, lo que lo convierte en una alternativa ideal para la cafeína.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_jWcQaq": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Propiedades del Matcha",
+            "icon": "check_mark",
+            "row_content": "<p>Entre las propiedades más destacadas del matcha se encuentran su capacidad para aumentar el metabolismo y quemar grasas, mejorar la salud del corazón y fortalecer el sistema inmunológico. También es rico en vitaminas y minerales, como vitamina C, zinc y magnesio, que son esenciales para mantener un cuerpo sano y equilibrado.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_zNypht": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Cómo se prepara el Matcha",
+            "icon": "check_mark",
+            "row_content": "<p>Preparar una taza perfecta de matcha es todo un arte. Tradicionalmente, se mezcla una cucharadita de matcha en polvo con agua caliente y se bate vigorosamente con un batidor de bambú hasta que se forme una espuma suave. Sin embargo, también se puede disfrutar en deliciosas recetas, como lattes, batidos y postres. Si quieres más información puedes visitar nuestra guía de preparación <a href=\"/pages/guia-de-preparacion-matcha\" target=\"_blank\" title=\"Guía de preparación del Matcha\">aqui.</a></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_gtGcDB": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Beneficios sobre el Café",
+            "icon": "check_mark",
+            "row_content": "<p>A diferencia del café, el matcha proporciona una liberación de energía más sostenida sin los temidos \"picos\" y \"caídas\" asociados con la cafeína. Además, la L-teanina presente en el matcha promueve la relajación sin causar somnolencia, lo que lo convierte en una opción ideal para mantener la energía y la concentración a lo largo del día.</p><p>En resumen, el matcha no solo es una bebida deliciosa, sino también un elixir cargado de beneficios para la salud. Desde su rico patrimonio cultural hasta sus impresionantes propiedades nutricionales, el matcha sigue siendo una opción popular para aquellos que buscan una forma revitalizante y saludable de disfrutar de su dosis diaria de energía.</p><p>¡Eleva tus sentidos con una taza de matcha y únete a la tendencia que está conquistando el mundo, una bebida a la vez!</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_RTb4Bz",
+        "collapsible_row_mBdEx3",
+        "collapsible_row_e79irK",
+        "collapsible_row_jWcQaq",
+        "collapsible_row_zNypht",
+        "collapsible_row_gtGcDB"
+      ],
+      "disabled": true,
+      "settings": {
+        "caption": "",
+        "heading": "Todo sobre el Matcha",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "video_6GLnUQ": {
+      "type": "video",
+      "disabled": true,
+      "settings": {
+        "heading": "Cómo preparar Matcha Latte",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=kd35m50HBgE&t=5s",
+        "cover_image": "shopify://shop_images/Captura_de_pantalla_2024-04-26_a_las_13.12.08.png",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "copilot_custom_reviews_ngqUW9": {
+      "type": "copilot-custom-reviews",
+      "blocks": {
+        "review_nVjQBY": {
+          "type": "review",
+          "settings": {
+            "author": "Cliente feliz",
+            "comment": "“Lorem ipsum dolor sit amet consectetur adipiscing elit, tellus porttitor habitant laoreet nascetur sociis, venenatis ridiculus ultricies curae habitasse massa. Lacus feugiat conubia felis phasellus in justo quam, bibendum vehicula primis dui litora iaculis metus”",
+            "rating": 5
+          }
+        },
+        "review_RWjRFq": {
+          "type": "review",
+          "settings": {
+            "author": "Cliente feliz",
+            "comment": "“Lorem ipsum dolor sit amet consectetur adipiscing elit, tellus porttitor habitant laoreet nascetur sociis, venenatis ridiculus ultricies curae habitasse massa. Lacus feugiat conubia felis phasellus in justo quam, bibendum vehicula primis dui litora iaculis metus”",
+            "rating": 5
+          }
+        },
+        "review_33Kb4Q": {
+          "type": "review",
+          "settings": {
+            "author": "Cliente feliz",
+            "comment": "“Lorem ipsum dolor sit amet consectetur adipiscing elit, tellus porttitor habitant laoreet nascetur sociis, venenatis ridiculus ultricies curae habitasse massa. Lacus feugiat conubia felis phasellus in justo quam, bibendum vehicula primis dui litora iaculis metus”",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "review_nVjQBY",
+        "review_RWjRFq",
+        "review_33Kb4Q"
+      ],
+      "name": "Copilot - Reviews",
+      "settings": {
+        "title": "LO QUE DICEN quienes viven el ritual sin dramas",
+        "subtitle": "Nuestra comunidad crece cada día porque acá no hay extremos, solo personas que eligen sumar bienestar sin dejar de disfrutar."
+      }
+    }
+  },
+  "order": [
+    "1678882210cf655040",
+    "banner",
+    "copilot_flex_layout_UbgNCD",
+    "product-grid",
+    "rich_text_TVFLYB",
+    "image_banner_gNFrFG",
+    "collapsible_content_JATmkF",
+    "video_6GLnUQ",
+    "copilot_custom_reviews_ngqUW9"
+  ]
+}

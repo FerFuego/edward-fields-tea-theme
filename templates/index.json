@@ -1,0 +1,370 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_bLt9PG": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_pi4Xxn": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Energía limpia, sin el crash.</p>",
+            "heading_size": "h0"
+          }
+        },
+        "text_TqJbwh": {
+          "type": "text",
+          "settings": {
+            "text": "Matcha Uji de grado ceremonial. El mismo ritual que tu café, sin el nerviosismo, sin el bajón de las 11h, sin los ingredientes que no reconoces.",
+            "text_style": "body"
+          }
+        },
+        "buttons_GkxKQT": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Ver nuestros productos",
+            "button_link_1": "/collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_pi4Xxn",
+        "text_TqJbwh",
+        "buttons_GkxKQT"
+      ],
+      "settings": {
+        "copilot_custom_class": "copilot-hero-banner",
+        "copilot_show_judge": true,
+        "video": "shopify://files/videos/Edward Fields - Banner.mp4",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-762cd8c3-54ca-4a17-af34-bec050b59cb5",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "copilot_marquee_carousel_BtHrgR": {
+      "type": "copilot-marquee-carousel",
+      "blocks": {
+        "image_row1_h3mJ4k": {
+          "type": "image_row1",
+          "settings": {
+            "image": "shopify://shop_images/polvo-asiatico-verde-de-alto-angulo-para-te-matcha_3_651297ba-63d8-40ca-87ce-eec1669cc6d8.webp"
+          }
+        },
+        "item_row1_UJTTjN": {
+          "type": "item_row1",
+          "settings": {
+            "label": "Flash de media mañana"
+          }
+        },
+        "item_row1_pGagmn": {
+          "type": "item_row1",
+          "settings": {
+            "label": "L-teanina natural"
+          }
+        },
+        "item_row1_Hk9Ghk": {
+          "type": "item_row1",
+          "settings": {
+            "label": "Energía sostenida 4–6h"
+          }
+        },
+        "item_row1_PcRtGB": {
+          "type": "item_row1",
+          "settings": {
+            "label": "Un solo ingrediente"
+          }
+        },
+        "item_row1_4wdiAJ": {
+          "type": "item_row1",
+          "settings": {
+            "label": "Sin nerviosismo"
+          }
+        },
+        "item_row2_8Fcp9p": {
+          "type": "item_row2",
+          "settings": {
+            "label": "Bueno para tu estómago"
+          }
+        },
+        "image_row2_xcrDmD": {
+          "type": "image_row2",
+          "settings": {
+            "image": "shopify://shop_images/polvo-asiatico-verde-de-alto-angulo-para-te-matcha_1_5bf1ece6-2130-45e4-90ee-fb4e9d9eee78.webp"
+          }
+        },
+        "item_row2_rX7rXD": {
+          "type": "item_row2",
+          "settings": {
+            "label": "Pre-entreno natural"
+          }
+        },
+        "item_row2_4Fz7Cp": {
+          "type": "item_row2",
+          "settings": {
+            "label": "Foco mental real"
+          }
+        },
+        "item_row2_FRg9MV": {
+          "type": "item_row2",
+          "settings": {
+            "label": "Bueno para tu intestino"
+          }
+        },
+        "item_row2_UK3Tza": {
+          "type": "item_row2",
+          "settings": {
+            "label": "Digestión natural"
+          }
+        }
+      },
+      "block_order": [
+        "image_row1_h3mJ4k",
+        "item_row1_UJTTjN",
+        "item_row1_pGagmn",
+        "item_row1_Hk9Ghk",
+        "item_row1_PcRtGB",
+        "item_row1_4wdiAJ",
+        "item_row2_8Fcp9p",
+        "image_row2_xcrDmD",
+        "item_row2_rX7rXD",
+        "item_row2_4Fz7Cp",
+        "item_row2_FRg9MV",
+        "item_row2_UK3Tza"
+      ],
+      "name": "Copilot Marquee Carousel",
+      "settings": {
+        "show_heading": true,
+        "heading": "La alternativa honesta a las fuentes de energía de siempre.",
+        "subheading": "Existe una opción más limpia, más sostenida y con la misma facilidad de uso. Se llama matcha.",
+        "background_color": "#ffffff",
+        "pill_background": "#fbfaf3",
+        "pill_border_color": "#213529",
+        "text_color": "#213529",
+        "font_size": 22,
+        "border_radius": 40,
+        "speed": 30,
+        "gap": 12,
+        "section_padding_v": 80
+      }
+    },
+    "copilot_encuentrate_9debT4": {
+      "type": "copilot-encuentrate",
+      "blocks": {
+        "product_card_8nLcUM": {
+          "type": "product_card",
+          "settings": {
+            "product": "capsulas-de-matcha-japones-uji-organico-para-nespresso",
+            "badge": "Más vendido",
+            "title_prod": "Cápsulas de Matcha",
+            "description": "15 cápsulas de matcha Uji. Compatible con Nespresso, sin cambiar nada de tu rutina.",
+            "price_note": "Menos de 1€ por taza",
+            "cta_label": "Ver producto"
+          }
+        },
+        "product_card_46bVE3": {
+          "type": "product_card",
+          "settings": {
+            "product": "matcha-premium-japones-organico",
+            "badge": "",
+            "title_prod": "Tarro Ceremonial",
+            "description": "100g de matcha Uji de primera cosecha. Para quien prefiere prepararlo a su manera.",
+            "price_note": "",
+            "cta_label": "Ver producto"
+          }
+        }
+      },
+      "block_order": [
+        "product_card_8nLcUM",
+        "product_card_46bVE3"
+      ],
+      "name": "Copilot Encuentra el tuyo",
+      "settings": {
+        "title": "Encuentra el tuyo",
+        "subtitle": "Dos formatos, un propósito. Elige según tu ritual.",
+        "footer_cta_label": "Ver todos nuestros productos",
+        "footer_cta_url": "shopify://collections/all"
+      }
+    },
+    "copilot_energia_limpia_dbRTyY": {
+      "type": "copilot-energia-limpia",
+      "blocks": {
+        "stat_card_TeUjtf": {
+          "type": "stat_card",
+          "settings": {
+            "valor": 89,
+            "valor_maximo": 100,
+            "tipo": "percent",
+            "texto": "eliminó/redujo el bajón de energía de media mañana en las primeras 2 semanas."
+          }
+        },
+        "stat_card_wVKeHK": {
+          "type": "stat_card",
+          "settings": {
+            "valor": 94,
+            "valor_maximo": 100,
+            "tipo": "percent",
+            "texto": "mejor foco y claridad mental durante las horas de trabajo en comparación con el café."
+          }
+        },
+        "stat_card_dHjmiD": {
+          "type": "stat_card",
+          "settings": {
+            "valor": 3,
+            "valor_maximo": 3,
+            "tipo": "multiplier",
+            "texto": "es la media de recompra en los primeros 3 meses."
+          }
+        }
+      },
+      "block_order": [
+        "stat_card_TeUjtf",
+        "stat_card_wVKeHK",
+        "stat_card_dHjmiD"
+      ],
+      "name": "Copilot - Energía limpia",
+      "settings": {
+        "titulo": "Energía limpia, en números",
+        "subtitulo": "Lo que nuestros clientes reportan tras las primeras 4 semanas de uso continuado.",
+        "bg_color": "#2d6a2d",
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    },
+    "copilot_flex_layout_wjrmHf": {
+      "type": "copilot-flex-layout",
+      "blocks": {
+        "container_NEKpjh": {
+          "type": "container",
+          "settings": {
+            "container_name": "cos-1",
+            "layout": "flex",
+            "link": "",
+            "link_new_tab": false,
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "row",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "rgba(0,0,0,0)",
+            "border": "0",
+            "width": "220px",
+            "height": "auto",
+            "margin": "0",
+            "padding": "0px",
+            "gap": "0"
+          }
+        },
+        "image_rBbaCH": {
+          "type": "image",
+          "settings": {
+            "parent_container_name": "cos-1",
+            "image": "shopify://shop_images/cos-face.png",
+            "width": "197px",
+            "height": "auto",
+            "margin": "0",
+            "padding": "0",
+            "border_radius": "0"
+          }
+        },
+        "container_wJLjJG": {
+          "type": "container",
+          "settings": {
+            "container_name": "cos-2",
+            "layout": "flex",
+            "link": "",
+            "link_new_tab": false,
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "column",
+            "justify_content": "flex-start",
+            "align_items": "flex-start",
+            "background_color": "rgba(0,0,0,0)",
+            "border": "0",
+            "width": "604px",
+            "height": "auto",
+            "margin": "0",
+            "padding": "0px",
+            "gap": "0"
+          }
+        },
+        "heading_DrRnwn": {
+          "type": "heading",
+          "settings": {
+            "parent_container_name": "cos-2",
+            "text": "Somos Álvaro y Óscar. Fundadores de COPiLOT, agencia de ecommerce.",
+            "heading_tag": "h4",
+            "color": "#ffffff",
+            "font_size": "20px",
+            "font_weight": "700",
+            "margin": "0 0 10px 0",
+            "padding": "0",
+            "width": "455px"
+          }
+        },
+        "richtext_dDzRrM": {
+          "type": "richtext",
+          "settings": {
+            "parent_container_name": "cos-2",
+            "text": "<p>Pasábamos 10 horas al día delante de una pantalla y el café era lo que nos mantenía en pie. Tres tazas, el bajón de las 3h, otra taza, mal sueño. El ciclo de siempre. Descubrimos el matcha buscando algo que funcionara sin ese coste. Funcionó. Así que adquirimos Edward Fields para convertirlo en una marca de energía limpia. Sin bajones. Sin ciclos.</p>",
+            "color": "#ffffff",
+            "font_size": "16px",
+            "font_weight": "400",
+            "line_height": "1.2em",
+            "text_align": "left",
+            "margin": "0",
+            "padding": "0"
+          }
+        }
+      },
+      "block_order": [
+        "container_NEKpjh",
+        "image_rBbaCH",
+        "container_wJLjJG",
+        "heading_DrRnwn",
+        "richtext_dDzRrM"
+      ],
+      "name": "Copilot - Flexible Container",
+      "settings": {
+        "layout": "flex",
+        "flex_direction": "row",
+        "justify_content": "center",
+        "align_items": "center",
+        "background_color": "#1a7a4a",
+        "border": "0",
+        "width": "100%",
+        "height": "auto",
+        "margin": "100px 0 0",
+        "padding": "42px 10px",
+        "column_count": 1,
+        "rows_count": 1,
+        "gap": "40px",
+        "custom_class": "class"
+      }
+    }
+  },
+  "order": [
+    "image_banner_bLt9PG",
+    "copilot_marquee_carousel_BtHrgR",
+    "copilot_encuentrate_9debT4",
+    "copilot_energia_limpia_dbRTyY",
+    "copilot_flex_layout_wjrmHf"
+  ]
+}

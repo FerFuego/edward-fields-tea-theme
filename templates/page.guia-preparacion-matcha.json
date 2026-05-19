@@ -1,0 +1,125 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_tRqmYL": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/banner_accesorios_matcha_1.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 20
+      }
+    },
+    "multicolumn_kLwUMh": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_LNiyPj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/banner_preparacion_matcha_1.jpg",
+            "title": "ELIGE",
+            "text": "<p>Añade 1g de Matcha con tu Chashaku o una cucharilla.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_rHXU3A": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/banner_preparacion_matcha_2.jpg",
+            "title": "TAMIZA",
+            "text": "<p>Usando un colador fino, espolvorea el Matcha en un pequeño bol para batir.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_tCT3jd": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/banner_preparacion_matcha_3.jpg",
+            "title": "AÑADE AGUA Y BATE",
+            "text": "<p>Añade 60 ml de agua a 80º en el bol con el matcha espolvoreado y bate en zig zag con tu Chasen o batidor de bambú hasta que quede espumoso.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_m8NBfQ": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/banner_preparacion_matcha_4.jpg",
+            "title": "AÑADE LECHE O BEBIDA VEGETAL",
+            "text": "<p>Añade tu mezcla de Matcha a 180 ml de agua o leche/bebida vegetal para un Matcha Latte.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_LNiyPj",
+        "column_rHXU3A",
+        "column_tCT3jd",
+        "column_m8NBfQ"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "Comprar Matcha",
+        "button_link": "shopify://collections/te-matcha-premium-ceremonial",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_twYbKa": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify://shop_images/gifmatcha.gif",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    }
+  },
+  "order": [
+    "image_banner_tRqmYL",
+    "main",
+    "multicolumn_kLwUMh",
+    "image_banner_twYbKa"
+  ]
+}

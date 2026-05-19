@@ -1,0 +1,194 @@
+<section class="ritual-slider py-10 copilot-product-filters">
+  <div class="container">
+
+    <div class="ritual-slider__header flex gap-4 mb-6">
+        <!-- Title -->
+        <h2 class="text-3xl font-bold mb-6">
+          {{ section.settings.title }} 
+        </h2>
+        <!-- Filtros -->
+        <div class="ritual-slider__filters flex gap-4 mb-6">
+            <button class="filter-btn" data-filter="para-iniciadores">Para iniciadores</button>
+            <button class="filter-btn active" data-filter="mejorar-concentracion">Mejorar concentración</button>
+            <button class="filter-btn" data-filter="sabores-premium">Premium</button>
+        </div>
+        <!-- Arrows -->
+        <div class="ritual-slider__arrows flex gap-4 mb-6">
+            <!-- Left -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="29" viewBox="0 0 30 29" fill="none" class="ritual-slider__arrow ritual-slider__arrow--prev">
+            <path d="M14.6577 28.1487C6.8172 28.1486 0.499636 22.0778 0.499513 14.636C0.499514 7.19404 6.81712 1.1234 14.6577 1.12329C22.4984 1.12329 28.8159 7.19398 28.8159 14.636C28.8158 22.0779 22.4983 28.1487 14.6577 28.1487Z" fill="#FBFAF3" stroke="#213529"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.4595 18.8695C17.749 19.1489 17.749 19.6128 17.4595 19.8922C17.1841 20.158 16.7476 20.158 16.4723 19.8922L11.5415 15.1329L11.5385 15.13C11.5385 15.13 11.5385 15.13 12.0502 14.6361L11.5385 15.13C11.2559 14.8573 11.2559 14.415 11.5385 14.1422L16.4723 9.37997C16.7476 9.11416 17.1841 9.11416 17.4595 9.37997C17.749 9.65942 17.749 10.1233 17.4595 10.4027L13.0736 14.6361L17.4595 18.8695Z" fill="#213529"/>
+            </svg>
+            <!-- Right -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="31" height="29" viewBox="0 0 31 29" fill="none" class="ritual-slider__arrow ritual-slider__arrow--next">
+            <path d="M15.3931 0.5C23.2336 0.500108 29.5511 6.57085 29.5513 14.0127C29.5513 21.4546 23.2337 27.5253 15.3931 27.5254C7.55238 27.5254 1.23486 21.4547 1.23486 14.0127C1.23499 6.57079 7.55245 0.5 15.3931 0.5Z" fill="#FBFAF3" stroke="#213529"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5918 9.77922C12.3023 9.49977 12.3023 9.03591 12.5918 8.75646C12.8672 8.49065 13.3036 8.49065 13.579 8.75646L18.5098 13.5157L18.5128 13.5186C18.5128 13.5186 18.5128 13.5187 18.0011 14.0126L18.5128 13.5186C18.7954 13.7914 18.7954 14.2337 18.5128 14.5065L13.579 19.2687C13.3036 19.5345 12.8672 19.5345 12.5918 19.2687C12.3023 18.9893 12.3023 18.5254 12.5918 18.246L16.9777 14.0126L12.5918 9.77922Z" fill="#213529"/>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Slider -->
+    <div class="swiper ritualSwiper">
+      <div class="swiper-wrapper">
+
+        {% for product in collections[section.settings.collection_iniciadores].products %}
+          <div class="swiper-slide product-card-wrapper" data-filter="para-iniciadores">
+            {% render 'card-product', card_product: product, wrapper: false, show_secondary_image: true %}
+          </div>
+        {% endfor %}
+
+        {% for product in collections[section.settings.collection_concentracion].products %}
+          <div class="swiper-slide product-card-wrapper" data-filter="mejorar-concentracion">
+            {% render 'card-product', card_product: product, wrapper: false, show_secondary_image: true %}
+          </div>
+        {% endfor %}
+
+        {% for product in collections[section.settings.collection_sabores].products %}
+          <div class="swiper-slide product-card-wrapper" data-filter="sabores-premium">
+            {% render 'card-product', card_product: product, wrapper: false, show_secondary_image: true %}
+          </div>
+        {% endfor %}
+
+      </div>
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Ver todos -->
+    {% comment %} <div class="text-center mt-8">
+      <a href="{{ collections[section.settings.collection].url }}" class="btn bg-black text-white px-6 py-3">
+        Ver todos 
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 30 10" fill="none"><g clip-path="url(#clip0_137_60)"><path d="M22.5743 10H21.4604C21.4604 6.89397 25.1733 4.46973 29.9258 4.46973V5.60609C25.8416 5.60609 22.5743 7.65155 22.5743 10.0758V10Z" fill="currentColor"></path><path d="M30 5.5303C25.2475 5.5303 21.5347 3.0303 21.5347 0H22.6485C22.6485 2.42424 25.9901 4.39394 30 4.4697V5.60606V5.5303Z" fill="currentColor"></path><path d="M30 4.46973H0V5.60609H30V4.46973Z" fill="currentColor"></path></g><defs><clipPath id="clip0_137_60"><rect width="30" height="10" fill="white"></rect></clipPath></defs></svg>
+      </a>
+    </div> {% endcomment %}
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const wrapper = document.querySelector('.ritualSwiper .swiper-wrapper');
+  if (!wrapper) return;
+
+  // 1. Capture ONLY the real slides:
+  //    - must have class swiper-slide
+  //    - must have data-filter (so we ignore nested .swiper-slide inside card-product)
+  const originalSlides = Array.from(
+    wrapper.querySelectorAll('.swiper-slide[data-filter]:not(.swiper-slide-duplicate)')
+  ).map(slide => {
+    return {
+      filter: (slide.getAttribute('data-filter') || 'all').toLowerCase(),
+      // handle is optional but good if you added data-product-handle in Liquid
+      handle: (slide.getAttribute('data-product-handle') || '').toLowerCase(),
+      html: slide.outerHTML
+    };
+  });
+
+  let swiper;
+
+  function initSwiper() {
+    swiper = new Swiper(".ritualSwiper", {
+      spaceBetween: 20,
+      slidesPerView: 2,
+      slidesPerGroup: 1,
+      autoHeight: false,
+      navigation: {
+        nextEl: ".ritual-slider__arrow--next",
+        prevEl: ".ritual-slider__arrow--prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        768: { slidesPerView: 2, slidesPerGroup: 2 },
+        1024: { slidesPerView: 3, slidesPerGroup: 3 },
+      }
+    });
+  }
+
+  // 2. Build slides for the given filter
+  function buildSlidesForFilter(filterValue) {
+    const wanted = (filterValue || 'all').toLowerCase();
+
+    // Only slides that match that filter exactly
+    const matchingSlides = originalSlides.filter(s => s.filter === wanted);
+
+    // Dedupe by handle if you added data-product-handle in Liquid
+    const seen = new Set();
+    const htmlPieces = [];
+
+    matchingSlides.forEach(s => {
+      const key = s.handle || s.html;
+      if (seen.has(key)) return;
+      seen.add(key);
+      htmlPieces.push(s.html);
+    });
+
+    return htmlPieces.join('');
+  }
+
+  // 3. Apply filter: replace wrapper contents and re-init Swiper
+  function applyFilter(filterValue) {
+    const slidesHTML = buildSlidesForFilter(filterValue);
+
+    wrapper.innerHTML = slidesHTML;
+
+    if (swiper) {
+      swiper.destroy(true, true);
+    }
+    initSwiper();
+  }
+
+  // 4. Hook up buttons
+  const filterBtns = document.querySelectorAll(".filter-btn");
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", function() {
+      const filter = (this.dataset.filter || 'all').toLowerCase();
+
+      // active state
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+
+      applyFilter(filter);
+    });
+  });
+
+  // 5. Initial render = 'mejorar-concentracion'
+  applyFilter('mejorar-concentracion');
+});
+</script>
+
+{% schema %}
+{
+  "name": "Copilot - Product Filters",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Encuentra el ritual ideal para ti!"
+    },
+    {
+      "type": "collection",
+      "id": "collection_iniciadores",
+      "label": "Colección: Para iniciadores"
+    },
+    {
+      "type": "collection",
+      "id": "collection_concentracion",
+      "label": "Colección: Mejorar concentración"
+    },
+    {
+      "type": "collection",
+      "id": "collection_sabores",
+      "label": "Colección: Sabores premium"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot - Product Filters"
+    }
+  ]
+}
+{% endschema %}

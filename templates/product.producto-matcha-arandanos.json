@@ -1,0 +1,481 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1678881669493489db": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Té Matcha Premium",
+            "text_style": "body"
+          }
+        },
+        "judge_me_reviews_preview_badge_hWnDV4": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "subtitle": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "text_style": "body"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "custom_liquid_LD6XK4": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<ul class=\"copilot-product-data\">\n<li><img src=\"https://cdn.shopify.com/s/files/1/0330/5737/4344/files/Group_1000008464.svg?v=1758911762\"></li>\n<li><img src=\"https://cdn.shopify.com/s/files/1/0330/5737/4344/files/Group_1000008462.svg?v=1758911762\"></li>\n<li><img src=\"https://cdn.shopify.com/s/files/1/0330/5737/4344/files/Group_1000008465.svg?v=1758911762\"></li>\n<li><img src=\"https://cdn.shopify.com/s/files/1/0330/5737/4344/files/Group_1000008467_9c124eb5-9e0c-4044-b95d-ffd039d516eb.png?v=1758912597\"></li>\n</ul>"
+          }
+        },
+        "custom_liquid_kAEVLH": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<ul class=\"copilot-product-aclaration\">\n<li><img src=\"https://cdn.shopify.com/s/files/1/0330/5737/4344/files/Group_1000005474.svg?v=1758911762\"> Envío Express 3,95 € - Grátis a partir de 30 €</li>\n<li><img src=\"https://cdn.shopify.com/s/files/1/0330/5737/4344/files/Group_1000008528.svg?v=1758911762\"> Llega en 48hs, para no interrumpir tu ritual</li>\n</ul>"
+          }
+        },
+        "b49be545-f6ba-4857-99a1-330e4d5e0cf4": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "lightning_bolt",
+            "image_1": "shopify://shop_images/Group_1000008492.svg",
+            "heading_1": "Energía sin nerviosismo",
+            "icon_2": "return",
+            "image_2": "shopify://shop_images/Group_1000008494.svg",
+            "heading_2": "Mejora la concentración",
+            "icon_3": "truck",
+            "image_3": "shopify://shop_images/Group_1000008493.svg",
+            "heading_3": "Diurético natural",
+            "icon_4": "truck",
+            "image_4": "shopify://shop_images/Group.svg",
+            "heading_4": "Sin azúcares, colorantes ni conservantes"
+          }
+        },
+        "a9b5ee1e-bdf0-4f87-90c4-8ae7830f70d0": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Ingredientes",
+            "icon": "none",
+            "content": "<p>Té verde en polvo Matcha (30%), Arándano puro en polvo (70%). </p><p>Puede contener rastros de frutos de cáscara y productos derivados, leche y sus derivados (incluida la lactosa).</p>",
+            "page": ""
+          }
+        },
+        "collapsible_tab_pmrHr8": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Origen",
+            "icon": "none",
+            "content": "<p>Origen: China</p><p>Matcha cultivado de manera tradicional y recolectado en primavera tras 35 días de sombreado.</p>",
+            "page": ""
+          }
+        },
+        "7b9a7e5d-0c83-4b1d-8591-df1026399c82": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "¿Cómo tomar el Té Matcha?",
+            "icon": "none",
+            "content": "<ul><li>Solo con agua caliente</li><li>Matcha Latte: con leche o bebida vegetal (avena, almendra, soja, etc) caliente o fría.</li></ul>",
+            "page": ""
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vendor",
+        "judge_me_reviews_preview_badge_hWnDV4",
+        "title",
+        "subtitle",
+        "variant_picker",
+        "price",
+        "quantity_selector",
+        "buy_buttons",
+        "custom_liquid_LD6XK4",
+        "custom_liquid_kAEVLH",
+        "b49be545-f6ba-4857-99a1-330e4d5e0cf4",
+        "a9b5ee1e-bdf0-4f87-90c4-8ae7830f70d0",
+        "collapsible_tab_pmrHr8",
+        "7b9a7e5d-0c83-4b1d-8591-df1026399c82",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "accent-1",
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 20,
+        "padding_bottom": 12
+      }
+    },
+    "fa63851b-7cb1-46c3-9e82-fc77bcc26e65": {
+      "type": "rich-text",
+      "blocks": {
+        "e71fde5f-b23e-43f2-b773-ab6256067d2b": {
+          "type": "heading",
+          "settings": {
+            "heading": "¿Quieres saborear el auténtico Té Matcha?",
+            "heading_size": "h1"
+          }
+        },
+        "template--20335514943825__fa63851b-7cb1-46c3-9e82-fc77bcc26e65-heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "El Matcha ideal para los amantes de los Frutos Rojos",
+            "heading_size": "h2"
+          }
+        },
+        "template--20335514943825__fa63851b-7cb1-46c3-9e82-fc77bcc26e65-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Nuestro Té Matcha Premium con Arándano puro en polvo 100% no contiene azúcares, colorantes ni conservantes añadidos. <strong>Increíbles beneficios para tu cuerpo y mente.</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "e71fde5f-b23e-43f2-b773-ab6256067d2b",
+        "template--20335514943825__fa63851b-7cb1-46c3-9e82-fc77bcc26e65-heading-1",
+        "template--20335514943825__fa63851b-7cb1-46c3-9e82-fc77bcc26e65-text-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_VJPDP7": {
+      "type": "image-banner",
+      "disabled": true,
+      "settings": {
+        "copilot_custom_class": "",
+        "copilot_show_judge": false,
+        "image": "shopify://shop_images/Diseno_sin_titulo_36a24272-7bff-4d87-8d9a-cab8eb0cd529.png",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "d00a60a7-849e-4f6e-8089-e385c102d7f7": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_MLWP8X": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/powder.png",
+            "title": "ELIGE",
+            "text": "<p>Añade 1g de Matcha con tu Chashaku o una cucharilla.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--20335514943825__d00a60a7-849e-4f6e-8089-e385c102d7f7-column-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Captura_de_pantalla_2023-12-08_a_las_11.40.59-removebg-preview.png",
+            "title": "ESPOLVOREA",
+            "text": "<p>Usando un colador fino, espolvorea el Matcha en un pequeño bol para batir.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--20335514943825__d00a60a7-849e-4f6e-8089-e385c102d7f7-column-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Captura_de_pantalla_2023-12-08_a_las_11.43.21-removebg-preview.png",
+            "title": "AÑADE AGUA Y BATE",
+            "text": "<p>Añade 60 ml de agua a 80º en el bol con el matcha espolvoreado y bate en zig zag con tu Chasen o batidor de bambú hasta que quede espumoso.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--20335514943825__d00a60a7-849e-4f6e-8089-e385c102d7f7-column-3": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Captura_de_pantalla_2024-04-26_a_las_11.08.13.png",
+            "title": "VIERTE",
+            "text": "<p>Añade tu mezcla de Matcha a 180 ml de agua, leche o bebida vegetal  para un Matcha Latte.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_MLWP8X",
+        "template--20335514943825__d00a60a7-849e-4f6e-8089-e385c102d7f7-column-1",
+        "template--20335514943825__d00a60a7-849e-4f6e-8089-e385c102d7f7-column-2",
+        "template--20335514943825__d00a60a7-849e-4f6e-8089-e385c102d7f7-column-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Cómo preparar el Matcha perfecto",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "copilot_class": "class"
+      }
+    },
+    "822461a7-dc6f-4d15-af5f-f1fa0806621f": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--20335514943825__822461a7-dc6f-4d15-af5f-f1fa0806621f-collapsible_row-4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Qué es y de donde viene el Té Matcha de alta calidad?",
+            "icon": "leaf",
+            "row_content": "<p>La palabra \"Matcha\" significa \"té en polvo\" en japonés y proviene de las mejores hojas de té verde molidas. La primera cosecha se realiza en primavera y es en ésta donde están las hojas de mayor calidad. El Té Matcha es reconocido mundialmente por sus increibles propiedades y beneficios para la salud. Un superalimento lleno de vitaminas y antioxidantes.</p>",
+            "page": ""
+          }
+        },
+        "06a8f7bb-9651-42d9-8b93-4073835faf37": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Qué quiere decir que es de calidad Ceremonial?",
+            "icon": "star",
+            "row_content": "<p>Está hecho con los estándares necesarios para la ceremonia del té japonesa.</p>",
+            "page": ""
+          }
+        },
+        "template--20335514943825__822461a7-dc6f-4d15-af5f-f1fa0806621f-collapsible_row-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cómo se prepara el Té Matcha?",
+            "icon": "dairy",
+            "row_content": "<ul><li>Añade 1 gramo de Té Matcha en un cuenco o bol con una cuchara o Chasaku (cuchara tradicional para Matcha)</li><li>Añade 60 ml de agua caliente a 80 grados.</li><li>Batir con un batidor eléctrico o Chasen de bambú (batidor tradicional para Matcha) hasta que esté espumoso.</li><li>Añade 190 ml de agua, leche o bebida vegetal.</li></ul>",
+            "page": ""
+          }
+        },
+        "template--20335514943825__822461a7-dc6f-4d15-af5f-f1fa0806621f-collapsible_row-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cuanto tiempo dura el Té Matcha una vez abierto?",
+            "icon": "stopwatch",
+            "row_content": "<p>Una vez se abre el Té Matcha, éste puede durar de 2 a 4 meses.</p>",
+            "page": ""
+          }
+        },
+        "template--20335514943825__822461a7-dc6f-4d15-af5f-f1fa0806621f-collapsible_row-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cómo guardar el Té Matcha?",
+            "icon": "lock",
+            "row_content": "<p>Una vez abierto debe ser guardado en la nevera o refrigerador para que mantenga su color, sabor, aroma y propiedades. Es importante alejarlo de olores fuertes y aseguarse que esté bien cerrado. Si todavía no esta abierto, se puede almacenar en un lugar fresco y seco lejos de la luz solar.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--20335514943825__822461a7-dc6f-4d15-af5f-f1fa0806621f-collapsible_row-4",
+        "06a8f7bb-9651-42d9-8b93-4073835faf37",
+        "template--20335514943825__822461a7-dc6f-4d15-af5f-f1fa0806621f-collapsible_row-1",
+        "template--20335514943825__822461a7-dc6f-4d15-af5f-f1fa0806621f-collapsible_row-2",
+        "template--20335514943825__822461a7-dc6f-4d15-af5f-f1fa0806621f-collapsible_row-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "caption": "FAQ",
+        "heading": "Preguntas Frecuentes Té Matcha",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn_C6HazJ": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_ttycGP": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Modo_de_aislamiento_2.svg",
+            "title": "1",
+            "text": "<p>Pon 1g y añade 60ml de <br/>agua caliente (80º).</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_rD3eWa": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Modo_de_aislamiento_887c5d7a-447a-4299-b896-b32a4dc96c88.svg",
+            "title": "2",
+            "text": "<p>Batir hasta que quede disuelto y con espuma</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_MeC4dX": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Modo_de_aislamiento_1.svg",
+            "title": "3",
+            "text": "<p>Añade 190ml de agua, leche o bebida vegetal.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_ttycGP",
+        "column_rD3eWa",
+        "column_MeC4dX"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "paso a paso del ritual perfecto",
+        "heading_size": "h0",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "accent-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "copilot_class": "copilot-paso-a-paso"
+      }
+    },
+    "de028200-b80c-4719-ad6f-c8364f7bbcb1": {
+      "type": "video",
+      "settings": {
+        "heading": "Prepáralo en 1 minuto",
+        "heading_size": "h2",
+        "enable_video_looping": false,
+        "video_url": "https://www.youtube.com/watch?v=kd35m50HBgE",
+        "cover_image": "shopify://shop_images/Portada_video_edward_fields_te_Matcha_latte.png",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "accent-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "Encuentra otros productos similares",
+        "heading_size": "h2",
+        "columns_desktop": 4,
+        "color_scheme": "accent-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "columns_mobile": "1",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "1689108088583b3ff6": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_WQAnUa": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_WQAnUa"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "1678881669493489db",
+    "main",
+    "fa63851b-7cb1-46c3-9e82-fc77bcc26e65",
+    "image_banner_VJPDP7",
+    "d00a60a7-849e-4f6e-8089-e385c102d7f7",
+    "822461a7-dc6f-4d15-af5f-f1fa0806621f",
+    "multicolumn_C6HazJ",
+    "de028200-b80c-4719-ad6f-c8364f7bbcb1",
+    "related-products",
+    "1689108088583b3ff6"
+  ]
+}

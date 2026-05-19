@@ -1,0 +1,408 @@
+{% comment %}
+  Sección: Energía limpia, en números
+  Autoadministrable desde el personalizador de temas de Shopify
+{% endcomment %}
+
+<style>
+  .el-section-{{ section.id }} {
+    background-color: #fff;
+    margin: {{ section.settings.margin_top }}px auto {{ section.settings.margin_bottom }}px;
+  }
+  .el-outer-{{ section.id }} {
+    width: 100%;
+    max-width: 1315px;
+    border-radius: 20px;
+    margin: 0 auto;
+    background-color: {{ section.settings.bg_color }};
+    background-image: url(https://cdn.shopify.com/s/files/1/0330/5737/4344/files/bg-mod-20.webp?v=1779129524);
+    background-size: cover;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .el-inner-{{ section.id }} {
+    margin: 0 auto;
+    padding: 120px 100px;
+    display: flex;
+    align-items: flex-start;
+    gap: 55px;
+  }
+  .el-titles-{{ section.id }} {
+    max-width: 333px;
+    min-width: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+  .el-title-{{ section.id }} {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 50px;
+    line-height: 50px;
+    letter-spacing: 0;
+    color: #fff;
+    margin: 0;
+  }
+  .el-subtitle-{{ section.id }} {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+    margin: 0;
+  }
+  .el-cards-{{ section.id }} {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+  .el-card-{{ section.id }} {
+    width: 228px;
+    height: 325px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background: #FFFFFF0D;
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow:
+        0px 8px 72px -5px #0000001A,
+        0px 2px 30px 0px #0000000D,
+        0px 2px 20px 2px #3535350D inset,
+        0px 0px 5px 0px #FFFFFF26 inset,
+        -1px -1px 0px 0px #FFFFFF66 inset,
+        1px 0.5px 0px 0px #FFFFFF99 inset;
+    padding: 45px 15px 49px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .el-card-{{ section.id }}:hover {
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    box-shadow:
+        0px 8px 72px -5px #0000001A,
+        0px 2px 30px 0px #0000000D,
+        0px 2px 20px 2px #3535350D inset,
+        0px 0px 5px 0px #FFFFFF26 inset,
+        -1px -1px 0px 0px #FFFFFF66 inset,
+        1px 0.5px 0px 0px #FFFFFF99 inset !important;
+  }
+  .el-circle-wrap-{{ section.id }} {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    flex-shrink: 0;
+  }
+  .el-circle-wrap-{{ section.id }} svg {
+    position: absolute;
+    top: 0; left: 0;
+    transform: rotate(-90deg);
+  }
+  .el-num-wrap-{{ section.id }} {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+  .el-number-{{ section.id }} {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 60px;
+    line-height: 60px;
+    color: #fff;
+    letter-spacing: 0;
+  }
+  .el-percent-{{ section.id }} {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 300 !important;
+    font-size: 40px;
+    line-height: 60px;
+    color: #fff;
+    letter-spacing: 0;
+  }
+  .el-text-{{ section.id }} {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    opacity: 0.9;
+  }
+  @media screen and (max-width: 1100px) {
+    .el-inner-{{ section.id }} {
+      flex-direction: column;
+      padding: 60px 40px;
+      gap: 40px;
+    }
+    .el-titles-{{ section.id }} {
+      max-width: 100%;
+    }
+    .el-cards-{{ section.id }} {
+      justify-content: center;
+    }
+  }
+  @media screen and (max-width: 680px) {
+    .el-title-{{ section.id }} { font-size: 36px; line-height: 38px; }
+    .el-inner-{{ section.id }} { padding: 48px 24px; }
+    .el-card-{{ section.id }} { width: 200px; }
+  }
+</style>
+
+<section class="el-section-{{ section.id }}">
+  <div class="el-outer-{{ section.id }}" id="el-module-{{ section.id }}">
+    <div class="el-inner-{{ section.id }}">
+
+      <div class="el-titles-{{ section.id }}">
+        <p class="el-title-{{ section.id }}">{{ section.settings.titulo }}</p>
+        <p class="el-subtitle-{{ section.id }}">{{ section.settings.subtitulo }}</p>
+      </div>
+
+      <div class="el-cards-{{ section.id }}">
+
+        {% for block in section.blocks %}
+          {% assign block_id = block.id | replace: '-', '' %}
+          <div class="el-card-{{ section.id }}" {{ block.shopify_attributes }}>
+            <div class="el-circle-wrap-{{ section.id }}">
+                <canvas class="el-canvas-{{ section.id }}"
+                    width="160" height="160"
+                    data-target="{{ block.settings.valor }}"
+                    data-maxval="{{ block.settings.valor_maximo }}">
+                </canvas>
+                <div class="el-num-wrap-{{ section.id }}">
+                    {% if block.settings.tipo == 'multiplier' %}
+                    <span class="el-percent-{{ section.id }}" style="font-size:32px;align-self:center;margin-right:2px">x</span>
+                    <span class="el-number-{{ section.id }} el-counter-{{ section.id }}" data-target="{{ block.settings.valor }}">0</span>
+                    {% else %}
+                    <span class="el-number-{{ section.id }} el-counter-{{ section.id }}" data-target="{{ block.settings.valor }}">0</span>
+                    <span class="el-percent-{{ section.id }}">%</span>
+                    {% endif %}
+                </div>
+            </div>
+            <p class="el-text-{{ section.id }}">{{ block.settings.texto }}</p>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+    (function(){
+    var sid = '{{ section.id }}';
+    var module = document.getElementById('el-module-' + sid);
+    if(!module) return;
+
+    var TOTAL_TICKS = 72;
+    var TICK_LONG = 8;
+    var TICK_SHORT = 8;
+    var TICK_WIDTH = 2.2;
+    var RADIUS = 68;
+    var CX = 80, CY = 80;
+    var DURATION = 2000;
+    var animated = false;
+
+    function easeOutCubic(t){ return 1 - Math.pow(1-t,3); }
+
+    function drawTicks(canvas, fillRatio){
+        var dpr = window.devicePixelRatio || 1;
+        var size = 160;
+        canvas.width = size * dpr;
+        canvas.height = size * dpr;
+        canvas.style.width = size + 'px';
+        canvas.style.height = size + 'px';
+        var ctx = canvas.getContext('2d');
+        ctx.scale(dpr, dpr);
+        ctx.clearRect(0, 0, size, size);
+        var ticksToFill = Math.round(fillRatio * TOTAL_TICKS);
+        for(var i = 0; i < TOTAL_TICKS; i++){
+        var angleDeg = (360 / TOTAL_TICKS) * i - 90;
+        var angleRad = angleDeg * Math.PI / 180;
+        var tickLen = (i % 3 === 0) ? TICK_LONG : TICK_SHORT;
+        var x1 = CX + (RADIUS - tickLen) * Math.cos(angleRad);
+        var y1 = CY + (RADIUS - tickLen) * Math.sin(angleRad);
+        var x2 = CX + RADIUS * Math.cos(angleRad);
+        var y2 = CY + RADIUS * Math.sin(angleRad);
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.strokeStyle = (i < ticksToFill) ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.18)';
+        ctx.lineWidth = TICK_WIDTH;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+        }
+    }
+
+    function animateAll(){
+        if(animated) return;
+        animated = true;
+
+        var canvases = module.querySelectorAll('.el-canvas-' + sid);
+        var counters = module.querySelectorAll('.el-counter-' + sid);
+        var start = performance.now();
+
+        canvases.forEach(function(canvas){
+        drawTicks(canvas, 0);
+        });
+
+        function tick(now){
+        var elapsed = now - start;
+        var raw = Math.min(elapsed / DURATION, 1);
+        var ease = easeOutCubic(raw);
+
+        canvases.forEach(function(canvas){
+            var target = parseInt(canvas.dataset.target);
+            var maxVal = parseInt(canvas.dataset.maxval) || 100;
+            drawTicks(canvas, ease * (target / maxVal));
+        });
+
+        counters.forEach(function(el){
+            el.textContent = Math.round(ease * parseInt(el.dataset.target));
+        });
+
+        if(raw < 1) requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+    }
+
+    if('IntersectionObserver' in window){
+        var observer = new IntersectionObserver(function(entries){
+        if(entries[0].isIntersecting){ animateAll(); observer.disconnect(); }
+        }, { threshold: 0.3 });
+        observer.observe(module);
+    } else {
+        animateAll();
+    }
+    })();
+</script>
+
+{% schema %}
+{
+  "name": "Copilot - Energía limpia",
+  "tag": "section",
+  "class": "energia-numeros-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "titulo",
+      "label": "Título",
+      "default": "Energía limpia, en números"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitulo",
+      "label": "Subtítulo / descripción",
+      "default": "Lo que nuestros clientes reportan tras las primeras 4 semanas de uso continuado."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Color de fondo",
+      "default": "#2d6a2d"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Margen superior (px)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margen inferior (px)",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat_card",
+      "name": "Tarjeta de estadística",
+      "settings": [
+        {
+          "type": "range",
+          "id": "valor",
+          "label": "Número a mostrar",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "default": 89
+        },
+        {
+          "type": "range",
+          "id": "valor_maximo",
+          "label": "Valor máximo del círculo (100 para porcentajes)",
+          "min": 1,
+          "max": 100,
+          "step": 1,
+          "default": 100
+        },
+        {
+          "type": "select",
+          "id": "tipo",
+          "label": "Tipo de indicador",
+          "options": [
+            { "value": "percent", "label": "Porcentaje (%)" },
+            { "value": "multiplier", "label": "Multiplicador (x)" }
+          ],
+          "default": "percent"
+        },
+        {
+          "type": "textarea",
+          "id": "texto",
+          "label": "Texto descriptivo",
+          "default": "eliminó/redujo el bajón de energía de media mañana en las primeras 2 semanas."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot - Energía limpia",
+      "blocks": [
+        {
+          "type": "stat_card",
+          "settings": {
+            "valor": 89,
+            "valor_maximo": 100,
+            "tipo": "percent",
+            "texto": "eliminó/redujo el bajón de energía de media mañana en las primeras 2 semanas."
+          }
+        },
+        {
+          "type": "stat_card",
+          "settings": {
+            "valor": 94,
+            "valor_maximo": 100,
+            "tipo": "percent",
+            "texto": "mejor foco y claridad mental durante las horas de trabajo en comparación con el café."
+          }
+        },
+        {
+          "type": "stat_card",
+          "settings": {
+            "valor": 3,
+            "valor_maximo": 3,
+            "tipo": "multiplier",
+            "texto": "es la media de recompra en los primeros 3 meses."
+          }
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6
+}
+{% endschema %}

@@ -1,0 +1,459 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "677977e4-6649-4282-a42b-fd58faa41ae6": {
+      "type": "image-banner",
+      "blocks": {
+        "template--19252397801809__677977e4-6649-4282-a42b-fd58faa41ae6-1689100746e9fee292-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "template--19252397801809__677977e4-6649-4282-a42b-fd58faa41ae6-1689100746e9fee292-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "template--19252397801809__677977e4-6649-4282-a42b-fd58faa41ae6-1689100746e9fee292-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19252397801809__677977e4-6649-4282-a42b-fd58faa41ae6-1689100746e9fee292-0",
+        "template--19252397801809__677977e4-6649-4282-a42b-fd58faa41ae6-1689100746e9fee292-1",
+        "template--19252397801809__677977e4-6649-4282-a42b-fd58faa41ae6-1689100746e9fee292-2"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/banner_1_09575bc1-1266-4a86-888a-45a441493388.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "f0184e35-e7f8-4478-9e2f-45af348928f8": {
+      "type": "image-banner",
+      "blocks": {
+        "template--19252397801809__f0184e35-e7f8-4478-9e2f-45af348928f8-1689100746e9fee292-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "template--19252397801809__f0184e35-e7f8-4478-9e2f-45af348928f8-1689100746e9fee292-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "template--19252397801809__f0184e35-e7f8-4478-9e2f-45af348928f8-1689100746e9fee292-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19252397801809__f0184e35-e7f8-4478-9e2f-45af348928f8-1689100746e9fee292-0",
+        "template--19252397801809__f0184e35-e7f8-4478-9e2f-45af348928f8-1689100746e9fee292-1",
+        "template--19252397801809__f0184e35-e7f8-4478-9e2f-45af348928f8-1689100746e9fee292-2"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/verde.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "b8f591c4-27c6-4b1d-9400-933ffc42499f": {
+      "type": "image-banner",
+      "blocks": {
+        "template--19252397801809__b8f591c4-27c6-4b1d-9400-933ffc42499f-1689100746e9fee292-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "template--19252397801809__b8f591c4-27c6-4b1d-9400-933ffc42499f-1689100746e9fee292-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "template--19252397801809__b8f591c4-27c6-4b1d-9400-933ffc42499f-1689100746e9fee292-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19252397801809__b8f591c4-27c6-4b1d-9400-933ffc42499f-1689100746e9fee292-0",
+        "template--19252397801809__b8f591c4-27c6-4b1d-9400-933ffc42499f-1689100746e9fee292-1",
+        "template--19252397801809__b8f591c4-27c6-4b1d-9400-933ffc42499f-1689100746e9fee292-2"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/rojo_c6d0cb0e-d78a-4e60-981e-986bd56a031b.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "dcfaa01f-0983-442a-a8d6-839004466159": {
+      "type": "image-banner",
+      "blocks": {
+        "template--19252397801809__dcfaa01f-0983-442a-a8d6-839004466159-1689100746e9fee292-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "template--19252397801809__dcfaa01f-0983-442a-a8d6-839004466159-1689100746e9fee292-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "template--19252397801809__dcfaa01f-0983-442a-a8d6-839004466159-1689100746e9fee292-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19252397801809__dcfaa01f-0983-442a-a8d6-839004466159-1689100746e9fee292-0",
+        "template--19252397801809__dcfaa01f-0983-442a-a8d6-839004466159-1689100746e9fee292-1",
+        "template--19252397801809__dcfaa01f-0983-442a-a8d6-839004466159-1689100746e9fee292-2"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/negro.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "0ca233bc-57fa-4cb9-baf4-76fd88626b4e": {
+      "type": "image-banner",
+      "blocks": {
+        "template--19252397801809__0ca233bc-57fa-4cb9-baf4-76fd88626b4e-1689100746e9fee292-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "template--19252397801809__0ca233bc-57fa-4cb9-baf4-76fd88626b4e-1689100746e9fee292-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "template--19252397801809__0ca233bc-57fa-4cb9-baf4-76fd88626b4e-1689100746e9fee292-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19252397801809__0ca233bc-57fa-4cb9-baf4-76fd88626b4e-1689100746e9fee292-0",
+        "template--19252397801809__0ca233bc-57fa-4cb9-baf4-76fd88626b4e-1689100746e9fee292-1",
+        "template--19252397801809__0ca233bc-57fa-4cb9-baf4-76fd88626b4e-1689100746e9fee292-2"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/blanco.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "2eb644d2-53f9-42aa-a247-cd2a41dde5d3": {
+      "type": "image-banner",
+      "blocks": {
+        "template--19252397801809__2eb644d2-53f9-42aa-a247-cd2a41dde5d3-1689100746e9fee292-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "template--19252397801809__2eb644d2-53f9-42aa-a247-cd2a41dde5d3-1689100746e9fee292-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "template--19252397801809__2eb644d2-53f9-42aa-a247-cd2a41dde5d3-1689100746e9fee292-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19252397801809__2eb644d2-53f9-42aa-a247-cd2a41dde5d3-1689100746e9fee292-0",
+        "template--19252397801809__2eb644d2-53f9-42aa-a247-cd2a41dde5d3-1689100746e9fee292-1",
+        "template--19252397801809__2eb644d2-53f9-42aa-a247-cd2a41dde5d3-1689100746e9fee292-2"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/oolong_c033c029-740f-419c-abeb-ebaa541d35a4.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "b1ac8fe6-382f-4b7b-a189-3da46ff42abf": {
+      "type": "image-banner",
+      "blocks": {
+        "template--19252397801809__b1ac8fe6-382f-4b7b-a189-3da46ff42abf-1689100746e9fee292-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "template--19252397801809__b1ac8fe6-382f-4b7b-a189-3da46ff42abf-1689100746e9fee292-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "template--19252397801809__b1ac8fe6-382f-4b7b-a189-3da46ff42abf-1689100746e9fee292-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19252397801809__b1ac8fe6-382f-4b7b-a189-3da46ff42abf-1689100746e9fee292-0",
+        "template--19252397801809__b1ac8fe6-382f-4b7b-a189-3da46ff42abf-1689100746e9fee292-1",
+        "template--19252397801809__b1ac8fe6-382f-4b7b-a189-3da46ff42abf-1689100746e9fee292-2"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/rooibos_b7ba00bf-96a0-4dfd-a10f-cae16b69c4c6.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "b2068e50-68fe-49d9-af81-fbf297c78507": {
+      "type": "rich-text",
+      "blocks": {
+        "template--19252397801809__b2068e50-68fe-49d9-af81-fbf297c78507-168910312386748031-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Edward Fields Perfect Serve",
+            "heading_size": "h2"
+          }
+        },
+        "template--19252397801809__b2068e50-68fe-49d9-af81-fbf297c78507-168910312386748031-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>¿Cómo preparar el té perfecto?</p>"
+          }
+        },
+        "template--19252397801809__b2068e50-68fe-49d9-af81-fbf297c78507-168910312386748031-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19252397801809__b2068e50-68fe-49d9-af81-fbf297c78507-168910312386748031-0",
+        "template--19252397801809__b2068e50-68fe-49d9-af81-fbf297c78507-168910312386748031-1",
+        "template--19252397801809__b2068e50-68fe-49d9-af81-fbf297c78507-168910312386748031-2"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "1af02449-6509-4070-9b8e-acb3c66383ba": {
+      "type": "image-banner",
+      "blocks": {
+        "template--19252397801809__1af02449-6509-4070-9b8e-acb3c66383ba-1689100746e9fee292-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "template--19252397801809__1af02449-6509-4070-9b8e-acb3c66383ba-1689100746e9fee292-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "template--19252397801809__1af02449-6509-4070-9b8e-acb3c66383ba-1689100746e9fee292-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19252397801809__1af02449-6509-4070-9b8e-acb3c66383ba-1689100746e9fee292-0",
+        "template--19252397801809__1af02449-6509-4070-9b8e-acb3c66383ba-1689100746e9fee292-1",
+        "template--19252397801809__1af02449-6509-4070-9b8e-acb3c66383ba-1689100746e9fee292-2"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/perfectserve_7b3ff809-0988-4577-b805-244628cb96f7.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "adapt",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "677977e4-6649-4282-a42b-fd58faa41ae6",
+    "f0184e35-e7f8-4478-9e2f-45af348928f8",
+    "b8f591c4-27c6-4b1d-9400-933ffc42499f",
+    "dcfaa01f-0983-442a-a8d6-839004466159",
+    "0ca233bc-57fa-4cb9-baf4-76fd88626b4e",
+    "2eb644d2-53f9-42aa-a247-cd2a41dde5d3",
+    "b1ac8fe6-382f-4b7b-a189-3da46ff42abf",
+    "b2068e50-68fe-49d9-af81-fbf297c78507",
+    "1af02449-6509-4070-9b8e-acb3c66383ba"
+  ]
+}

@@ -1,0 +1,56 @@
+{{ 'component-judge-me.css' | asset_url | stylesheet_tag }}
+
+<section class="shopify-section section judgeme-custom-header">
+  <div class="page-width">
+    <div class="judgeme-custom-review__row">
+      <img
+        src="{{ 'green-check.svg' | asset_url }}"
+        alt="check icon"
+        width="17"
+        height="16"
+        class="judgeme-custom-review__icon"
+      >
+      <img
+        src="{{ 'group-star.svg' | asset_url }}"
+        alt="rating stars"
+        width="50"
+        height="9"
+        class="judgeme-custom-review__stars"
+      >
+      <span class="judgeme-custom-review__label">
+        +2.200 clientes ya nos eligen cada día
+      </span>
+    </div>
+
+    <h2 class="judgeme-custom-header__title review-title">
+      {{ section.settings.title }}
+    </h2>
+
+    <p class="judgeme-custom-header__text review-text">
+      {{ section.settings.text }}
+    </p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Reviews Judge.me",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Descripción"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews Judge.me"
+    }
+  ]
+}
+{% endschema %}

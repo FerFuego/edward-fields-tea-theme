@@ -1,0 +1,97 @@
+<section class="matcha-energy">
+  <div class="matcha-energy__shadow"></div>
+  <div class="matcha-energy__container">
+    
+    <!-- Texto -->
+    <div class="matcha-energy__content">
+      <h2 class="matcha-energy__title">{{ section.settings.title }}</h2>
+      <p class="matcha-energy__description">{{ section.settings.description }}</p>
+      <a href="{{ section.settings.button_link }}" class="matcha-energy__button">
+        {{ section.settings.button_text }}
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 30 10" fill="none"><g clip-path="url(#clip0_137_60)"><path d="M22.5743 10H21.4604C21.4604 6.89397 25.1733 4.46973 29.9258 4.46973V5.60609C25.8416 5.60609 22.5743 7.65155 22.5743 10.0758V10Z" fill="currentColor"></path><path d="M30 5.5303C25.2475 5.5303 21.5347 3.0303 21.5347 0H22.6485C22.6485 2.42424 25.9901 4.39394 30 4.4697V5.60606V5.5303Z" fill="currentColor"></path><path d="M30 4.46973H0V5.60609H30V4.46973Z" fill="currentColor"></path></g><defs><clipPath id="clip0_137_60"><rect width="30" height="10" fill="white"></rect></clipPath></defs></svg>
+      </a>
+    </div>
+    <ul class="matcha-energy__list">
+      {% for block in section.blocks %}
+        <li class="matcha-energy__item">
+          <h4 class="matcha-energy__benefit-title">{{ block.settings.benefit_title }}</h4>
+          <span class="matcha-energy__benefit-subtitle">{{ block.settings.benefit_text }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  
+  </div>
+</section>
+
+<style>
+.matcha-energy {
+  padding: 132px 20px;
+  background-image: url({{ section.settings.bg_image_desktop | image_url }});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Mobile: usar otra imagen */
+@media (max-width: 767px) {
+  .matcha-energy {
+    background-image: url({{ section.settings.bg_image_mobile | image_url }});
+  }
+}
+</style>
+
+
+{% schema %}
+{
+  "name": "Copilot - Matcha Intro",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image_desktop",
+      "label": "Imagen de fondo (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_mobile",
+      "label": "Imagen de fondo (Mobile)"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "ENERGÍA Y BIENESTAR EN CADA TAZA"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descripción",
+      "default": "El té matcha concentra antioxidantes, vitaminas y minerales que transforman tu rutina en un ritual saludable y delicioso."
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Enlace botón",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texto botón",
+      "default": "Descubre nuestros productos"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Beneficio",
+      "settings": [
+        { "type": "text", "id": "benefit_title", "label": "Título" },
+        { "type": "textarea", "id": "benefit_text", "label": "Texto" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Copilot - Matcha Intro", "category": "Matcha" }
+  ]
+}
+{% endschema %}

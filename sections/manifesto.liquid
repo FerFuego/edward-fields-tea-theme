@@ -1,0 +1,54 @@
+{{ 'manifesto.css' | asset_url | stylesheet_tag }}
+
+<section class="shopify-section section manifesto">
+  <div class="page-width">
+    <div class="manifesto__image-wrapper">
+      {% if section.settings.image != blank %}
+        <img
+          src="{{ section.settings.image | image_url: width: 800 }}"
+          alt="{{ section.settings.image.alt | escape }}"
+          class="manifesto__image"
+          loading="lazy"
+        >
+      {% endif %}
+    </div>
+
+    <div class="manifesto__content">
+      <h2 class="manifesto__title">
+        {{ section.settings.title }}
+      </h2>
+
+      <p class="manifesto__text">
+        {{ section.settings.text }}
+      </p>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Manifesto",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Descripción"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Manifesto"
+    }
+  ]
+}
+{% endschema %}

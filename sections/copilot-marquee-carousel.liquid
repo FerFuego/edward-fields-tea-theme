@@ -1,0 +1,437 @@
+{% comment %}
+  Section: Marquee Carousel (Doble marquesina infinita)
+  Auto-administrable, responsive, items configurables (texto o imagen)
+{% endcomment %}
+
+<div class="marquee-section" style="
+  --marquee-gap: {{ section.settings.gap }}px;
+  --marquee-speed: {{ section.settings.speed }}s;
+  --marquee-bg: {{ section.settings.background_color }};
+  --marquee-pill-bg: {{ section.settings.pill_background }};
+  --marquee-pill-border: {{ section.settings.pill_border_color }};
+  --marquee-text-color: {{ section.settings.text_color }};
+  --marquee-font-size: {{ section.settings.font_size }}px;
+  --marquee-pill-radius: {{ section.settings.border_radius }}px;
+  --marquee-padding-v: {{ section.settings.section_padding_v }}px;
+">
+
+  {% if section.settings.show_heading %}
+    <div class="marquee-heading-wrapper">
+      {% if section.settings.heading != blank %}
+        <h2 class="marquee-heading">{{ section.settings.heading }}</h2>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p class="marquee-subheading">{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {%- comment -%} ROW 1: Izquierda → Derecha {%- endcomment -%}
+  {%- assign row1_blocks = section.blocks | where: "type", "item_row1" -%}
+  {%- assign row1_image_blocks = section.blocks | where: "type", "image_row1" -%}
+
+  {% if row1_blocks.size > 0 or row1_image_blocks.size > 0 %}
+    <div class="marquee-track-wrapper">
+      <div class="marquee-track marquee-ltr" aria-hidden="true">
+        {%- for i in (1..4) -%}
+          <div class="marquee-inner">
+            {%- for block in row1_blocks -%}
+              <div class="marquee-pill marquee-pill--text" {{ block.shopify_attributes }}>
+                <span>{{ block.settings.label }}</span>
+              </div>
+            {%- endfor -%}
+            {%- for block in row1_image_blocks -%}
+              <div class="marquee-pill marquee-pill--image" {{ block.shopify_attributes }}>
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 120 | image_tag: loading: 'lazy', class: 'marquee-img', alt: block.settings.image.alt }}
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  {% endif %}
+
+  {%- comment -%} ROW 2: Derecha → Izquierda {%- endcomment -%}
+  {%- assign row2_blocks = section.blocks | where: "type", "item_row2" -%}
+  {%- assign row2_image_blocks = section.blocks | where: "type", "image_row2" -%}
+
+  {% if row2_blocks.size > 0 or row2_image_blocks.size > 0 %}
+    <div class="marquee-track-wrapper">
+      <div class="marquee-track marquee-rtl" aria-hidden="true">
+        {%- for i in (1..4) -%}
+          <div class="marquee-inner">
+            {%- for block in row2_blocks -%}
+              <div class="marquee-pill marquee-pill--text" {{ block.shopify_attributes }}>
+                <span>{{ block.settings.label }}</span>
+              </div>
+            {%- endfor -%}
+            {%- for block in row2_image_blocks -%}
+              <div class="marquee-pill marquee-pill--image" {{ block.shopify_attributes }}>
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 120 | image_tag: loading: 'lazy', class: 'marquee-img', alt: block.settings.image.alt }}
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  {% endif %}
+
+</div>
+
+{% stylesheet %}
+  .marquee-section {
+    background-color: var(--marquee-bg);
+    padding: var(--marquee-padding-v) 0;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .marquee-heading-wrapper {
+    max-width: 680px;
+    padding: 0 53px 40px;
+  }
+
+  .marquee-heading {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-size: clamp(32px, 5vw, 50px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--marquee-text-color);
+    margin: 0 0 16px;
+    letter-spacing: 0;
+    text-transform: none !important;
+    max-width: 507px;
+  }
+
+  .marquee-subheading {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--marquee-text-color);
+    max-width: 420px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Track wrapper */
+  .marquee-track-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .marquee-track-wrapper:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Edge fade masks */
+  .marquee-track-wrapper::before,
+  .marquee-track-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .marquee-track-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--marquee-bg), transparent);
+  }
+
+  .marquee-track-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, var(--marquee-bg), transparent);
+  }
+
+  /* Track */
+  .marquee-track {
+    display: flex;
+    gap: var(--marquee-gap);
+    width: max-content;
+    padding: 6px 0;
+  }
+
+  /* Animaciones */
+  @keyframes marquee-ltr {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-25%); }
+  }
+
+  @keyframes marquee-rtl {
+    0%   { transform: translateX(-25%); }
+    100% { transform: translateX(0); }
+  }
+
+  .marquee-ltr {
+    animation: marquee-ltr var(--marquee-speed) linear infinite;
+  }
+
+  .marquee-rtl {
+    animation: marquee-rtl var(--marquee-speed) linear infinite;
+  }
+
+  /* Pause on hover */
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* Inner group */
+  .marquee-inner {
+    display: flex;
+    gap: var(--marquee-gap);
+    flex-shrink: 0;
+  }
+
+  /* Pills */
+  .marquee-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1.5px solid var(--marquee-pill-border);
+    border-radius: var(--marquee-pill-radius);
+    background-color: var(--marquee-pill-bg);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    cursor: default;
+  }
+
+  .marquee-pill--text {
+    padding: 12px 24px;
+    min-height: 52px;
+    box-shadow: 0px 0px 4px 0px #1A7A4A80;
+  }
+
+  .marquee-pill--text span {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-size: var(--marquee-font-size);
+    font-weight: 400;
+    color: var(--marquee-text-color);
+    white-space: nowrap;
+    letter-spacing: 0;
+    line-height: 1;
+  }
+
+  .marquee-pill--image {
+    padding: 0;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    box-shadow: 0px 0px 4px 0px #1A7A4A80;
+  }
+
+  .marquee-img {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    object-fit: cover;
+    border-radius: 50px;
+    display: block;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .marquee-heading-wrapper {
+      padding: 0 20px 28px;
+    }
+
+    .marquee-pill--text {
+      padding: 10px 18px;
+      min-height: 44px;
+    }
+
+    .marquee-pill--image {
+      width: 52px;
+      height: 52px;
+    }
+  }
+
+  /* Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-ltr,
+    .marquee-rtl {
+      animation: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Copilot Marquee Carousel",
+  "tag": "section",
+  "class": "section-marquee",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Encabezado"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_heading",
+      "label": "Mostrar encabezado",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Título",
+      "default": "La alternativa honesta a las fuentes de energía de siempre."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subtítulo",
+      "default": "Existe una opción más limpia, más sostenida y con la misma facilidad de uso. Se llama matcha."
+    },
+    {
+      "type": "header",
+      "content": "Diseño de las pastillas"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Color de fondo de la sección",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "pill_background",
+      "label": "Fondo de las pastillas",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "pill_border_color",
+      "label": "Color del borde",
+      "default": "#2d5a27"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color del texto",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Tamaño de fuente (px)",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Radio del borde (px)",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Velocidad y espaciado"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Velocidad (segundos por ciclo)",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Espacio entre items (px)",
+      "min": 4,
+      "max": 40,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "section_padding_v",
+      "label": "Padding vertical de la sección (px)",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item_row1",
+      "name": "🏷️ Texto – Fila 1 (←)",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Texto del item",
+          "default": "Energía sostenida 4–6h"
+        }
+      ]
+    },
+    {
+      "type": "image_row1",
+      "name": "🖼️ Imagen – Fila 1 (←)",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen"
+        }
+      ]
+    },
+    {
+      "type": "item_row2",
+      "name": "🏷️ Texto – Fila 2 (→)",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Texto del item",
+          "default": "Pre-entreno natural"
+        }
+      ]
+    },
+    {
+      "type": "image_row2",
+      "name": "🖼️ Imagen – Fila 2 (→)",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot - Marquee Carousel",
+      "blocks": [
+        { "type": "item_row1", "settings": { "label": "Flash de media mañana" } },
+        { "type": "item_row1", "settings": { "label": "L-teanina natural" } },
+        { "type": "item_row1", "settings": { "label": "Energía sostenida 4–6h" } },
+        { "type": "item_row1", "settings": { "label": "Un solo ingrediente" } },
+        { "type": "item_row1", "settings": { "label": "Sin nerviosismo" } },
+        { "type": "item_row2", "settings": { "label": "Bueno para tu estómago" } },
+        { "type": "item_row2", "settings": { "label": "Pre-entreno natural" } },
+        { "type": "item_row2", "settings": { "label": "Foco mental real" } },
+        { "type": "item_row2", "settings": { "label": "Bueno para tu intestino" } },
+        { "type": "item_row2", "settings": { "label": "Digestión natural" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

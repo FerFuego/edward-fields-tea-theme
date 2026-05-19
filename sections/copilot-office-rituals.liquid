@@ -1,0 +1,129 @@
+{%- liquid
+  assign orientation__text = 'order: 2'
+  assign orientation__image = 'order: 1'
+  
+  if section.settings.switch == true
+    assign orientation__text = 'order: 1'
+    assign orientation__image = 'order: 2'
+  endif
+
+-%}
+
+<div class="office-rituals">
+  <div class="office-rituals__container {% if section.settings.switch == true %} office-rituals__content--alt {% endif %}">
+    
+    <!-- Textos -->
+    <div class="office-rituals__content" style="{{ orientation__text }}">
+        {{ section.settings.title }}
+        <p class="office-rituals__desc">
+            {{ section.settings.description }}
+        </p>
+        {% if section.settings.image != blank and section.settings.switch == true %}
+          <img src="{{ section.settings.image | img_url: '400x' }}" alt="Office Rituals">
+        {% endif %}
+        <p class="office-rituals__desc">
+            {{ section.settings.description_2 }}
+        </p>
+        {% if section.settings.link_tp != blank %}
+        <a 
+            class="office-rituals__btn" 
+            href="{{ section.settings.link_tp.url }}"
+          >
+            <!-- onclick="document.getElementById('office-popup').classList.add('active')" -->
+            {{ section.settings.button_text }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 30 10" fill="none"><g clip-path="url(#clip0_137_60)"><path d="M22.5743 10H21.4604C21.4604 6.89397 25.1733 4.46973 29.9258 4.46973V5.60609C25.8416 5.60609 22.5743 7.65155 22.5743 10.0758V10Z" fill="currentColor"></path><path d="M30 5.5303C25.2475 5.5303 21.5347 3.0303 21.5347 0H22.6485C22.6485 2.42424 25.9901 4.39394 30 4.4697V5.60606V5.5303Z" fill="currentColor"></path><path d="M30 4.46973H0V5.60609H30V4.46973Z" fill="currentColor"></path></g><defs><clipPath id="clip0_137_60"><rect width="30" height="10" fill="white"></rect></clipPath></defs></svg>
+        </a>
+      {% else %}
+        <button 
+            class="office-rituals__btn" 
+            onclick="document.getElementById('office-popup').classList.add('active')">
+            {{ section.settings.button_text }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 30 10" fill="none"><g clip-path="url(#clip0_137_60)"><path d="M22.5743 10H21.4604C21.4604 6.89397 25.1733 4.46973 29.9258 4.46973V5.60609C25.8416 5.60609 22.5743 7.65155 22.5743 10.0758V10Z" fill="currentColor"></path><path d="M30 5.5303C25.2475 5.5303 21.5347 3.0303 21.5347 0H22.6485C22.6485 2.42424 25.9901 4.39394 30 4.4697V5.60606V5.5303Z" fill="currentColor"></path><path d="M30 4.46973H0V5.60609H30V4.46973Z" fill="currentColor"></path></g><defs><clipPath id="clip0_137_60"><rect width="30" height="10" fill="white"></rect></clipPath></defs></svg>
+        </button>
+      {% endif %}
+    </div>
+
+    <!-- Imagen -->
+    <div class="office-rituals__image" style="{{ orientation__image }}">
+      {% if section.settings.image != blank %}
+        <img src="{{ section.settings.image | img_url: '1000x' }}" alt="Office Rituals">
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+
+<!-- POPUP -->
+<div id="office-popup" class="office-popup">
+  <div class="office-popup__overlay" onclick="document.getElementById('office-popup').classList.remove('active')"></div>
+  <div class="office-popup__content">
+    <button class="office-popup__close" onclick="document.getElementById('office-popup').classList.remove('active')">✕</button>
+    
+    <h3 class="office-popup__form-title">Office rituals en tu empresa</h3>
+    
+    <form class="office-popup__form">
+      <input type="text" placeholder="Tu nombre completo">
+      <input type="email" placeholder="Tu mail">
+      <input type="text" placeholder="Nombre de la empresa">
+      <select>
+        <option>Nº de empleados</option>
+        <option>1-10</option>
+        <option>11-50</option>
+        <option>51-200</option>
+        <option>200+</option>
+      </select>
+      <button type="submit" class="office-popup__submit">
+        Solicitar cupón →
+      </button>
+    </form>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Copilot - Office Rituals",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Título"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Descripción",
+    },
+    {
+      "type": "richtext",
+      "id": "description_2",
+      "label": "Descripción",
+    },
+    {
+      "type": "url",
+      "id": "link_tp",
+      "label": "Enlace a ejemplo.com",
+    },
+    {
+      "type": "checkbox",
+      "id": "switch",
+      "label": "Cambiar lados",
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texto del botón",
+      "default": "Pide tu cupón para oficinas"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot - Office Rituals"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,34 @@
+.related-products {
+  display: block;
+}
+
+product-recommendations.related-products .card__information {
+  display: flex;
+  flex-direction: column;
+}
+
+product-recommendations.related-products .card-information {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+product-recommendations.related-products .caption-large.light {
+  display: none;
+}
+
+.related-products__heading {
+  margin: 0 0 3rem;
+}
+
+.related-products-section {
+  padding-left: 10%;  /* podés ajustar entre 8%–12% según el diseño */
+  padding-right: 10%;
+}
+
+.related-products-section .grid__item {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}

@@ -1,0 +1,147 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "collapsible_content_tbW3HG": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_HRwPcQ": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cuánto tarda el envío?",
+            "icon": "none",
+            "row_content": "<p>Entre 24 y 72 horas laborables, según tu ciudad. Te mantenemos al tanto para que sepas cuándo llega tu matcha.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_RQVPdn": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Es complicado preparar matcha?",
+            "icon": "none",
+            "row_content": "<p>Nada de eso. Con agua y un batidor ya lo tienes. Y si quieres ponerte creativo, tenemos recetas fáciles y rápidas.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_b6wMJL": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cómo se conserva el matcha?",
+            "icon": "none",
+            "row_content": "<p>Guárdalo en un lugar fresco, seco y cerrado. Así mantiene su frescura, color y sabor más tiempo.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_NpBPAa": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Qué pasa si no me gusta?",
+            "icon": "none",
+            "row_content": "<p>No pasa nada. Tienes garantía de satisfacción: si no es para ti, buscamos la mejor solución.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_aFhQWk": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿De dónde proviene el matcha Edward Fields?",
+            "icon": "none",
+            "row_content": "<p>Nuestro matcha se cultiva en Japón, en regiones con tradición ancestral en el té verde. Trabajamos directamente con pequeños productores que usan métodos sostenibles y cosechas de primera calidad, garantizando un matcha puro, fresco y con un perfil de sabor equilibrado.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_qEkbnB": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Qué beneficios tiene el matcha?",
+            "icon": "none",
+            "row_content": "<p>El matcha es una fuente natural de energía limpia y duradera — sin los picos ni bajones del café. Mejora la concentración gracias a la L-teanina, es rico en antioxidantes y ayuda a mantener un estado de calma y enfoque mental. Ideal para comenzar el día o mantenerte activo de forma equilibrada.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_HRwPcQ",
+        "collapsible_row_RQVPdn",
+        "collapsible_row_b6wMJL",
+        "collapsible_row_NpBPAa",
+        "collapsible_row_aFhQWk",
+        "collapsible_row_qEkbnB"
+      ],
+      "name": "t:sections.collapsible_content.presets.name",
+      "settings": {
+        "caption": "",
+        "heading": "¿Tienes preguntas? Tenemos las respuestas",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "layout": "none",
+        "color_scheme": "scheme-762cd8c3-54ca-4a17-af34-bec050b59cb5",
+        "container_color_scheme": "accent-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 76,
+        "padding_bottom": 76
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "image": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Modo_de_aislamiento.svg",
+            "image_width": 120,
+            "alignment": ""
+          }
+        },
+        "text_iyXc6i": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "subtext": "<p>Nuestro propósito: cuidar de ti y del planeta. Té premium, ético y sostenible.</p>"
+          }
+        },
+        "link-list": {
+          "type": "link_list",
+          "settings": {
+            "heading": "",
+            "menu": "new-footer-menu"
+          }
+        }
+      },
+      "block_order": [
+        "image",
+        "text_iyXc6i",
+        "link-list"
+      ],
+      "settings": {
+        "color_scheme": "scheme-87247214-d370-49d1-96ca-7f26b279b7cf",
+        "newsletter_enable": true,
+        "newsletter_heading": "Únete a la comunidad de ritualistas y recibe inspiración para tu día a día.",
+        "enable_follow_on_shop": false,
+        "show_social": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": false,
+        "show_policy": false,
+        "margin_top": 0,
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    }
+  },
+  "order": [
+    "collapsible_content_tbW3HG",
+    "footer"
+  ]
+}

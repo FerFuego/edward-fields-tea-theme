@@ -1,0 +1,243 @@
+.contact img {
+  max-width: 100%;
+}
+
+.contact .form__message {
+  align-items: flex-start;
+}
+
+.contact .icon-success {
+  margin-top: 0.2rem;
+}
+
+.contact .field {
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 750px) {
+  .contact .field {
+    margin-bottom: 2rem;
+  }
+}
+
+.contact__button {
+  display:flex;
+  align-content:center;
+  margin-top: 3rem;
+}
+
+@media screen and (min-width: 750px) {
+  .contact__button {
+    margin-top: 4rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .contact__fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+  }
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.contacto__wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.contacto__header,
+.contacto__info,
+.contacto_form {
+  width: 100%;
+  max-width: 700px;
+}
+.contacto__info,
+.contacto_form {
+  font-family: var(--fuente-terciaria);
+}
+
+.contacto__header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.contacto__title {
+  font-size: 40px;
+  line-height: 40px;
+  margin-bottom: 1rem;
+  text-transform: none;
+  color: #213529;
+}
+.contacto__intro p {
+  font-family: var(--fuente-terciaria);
+  font-size: 16px;
+  line-height: 20px;
+  color: #213529;
+  margin-bottom: 0.8rem;
+}
+.contacto__info {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contacto__info-item a {
+  text-decoration: none;
+  color: #213529;
+
+}
+
+.contacto__info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.contacto_form_fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contacto_field_full {
+  grid-column: 1 / -1;
+}
+
+.contacto_message_field {
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
+.contacto_input,
+.contacto_textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #213529;
+  background: transparent;
+  font-size: 16px;
+  padding: 8px 0;
+  color: #213529;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.contacto_input:focus,
+.contacto_textarea:focus {
+  border-color: #4a6442;
+}
+
+.contacto_textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contacto_input::placeholder,
+.contacto_textarea::placeholder {
+  font-family: var(--fuente-terciaria);
+  color: #213529;
+  opacity: 1;
+}
+
+.contacto_field_error {
+  color: #b00020;
+  font-size: 13px;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+.contacto_input::placeholder,
+.contacto_textarea::placeholder {
+  color: #213529 !important;
+  opacity: 1 !important;
+}
+
+.contacto_input::-webkit-input-placeholder,
+.contacto_textarea::-webkit-input-placeholder {
+  color: #213529 !important;
+  opacity: 1 !important;
+}
+
+.contacto_input::-moz-placeholder,
+.contacto_textarea::-moz-placeholder {
+  color: #213529 !important;
+  opacity: 1 !important;
+}
+
+.contacto_input:-ms-input-placeholder,
+.contacto_textarea:-ms-input-placeholder {
+  color: #213529 !important;
+  opacity: 1 !important;
+}
+
+.contacto_input::-ms-input-placeholder,
+.contacto_textarea::-ms-input-placeholder {
+  color: #213529 !important;
+  opacity: 1 !important;
+}
+
+.form-status-list li,
+.form-status-list li a {
+  color: #213529 !important;
+  text-decoration: none !important;
+}
+
+.form-status-list li a:hover {
+  text-decoration: underline !important;
+}
+
+.contacto__button {
+  text-align: center;
+  margin-top: 2rem;
+}
+.contacto__button .button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+
+@media (max-width: 768px) {
+  .contacto_form_fields {
+    grid-template-columns: 1fr;
+  }
+
+  .contacto__wrapper {
+    padding: 1.5rem 1rem;
+  }
+
+  .contacto__info {
+    gap: 10px;
+  }  
+
+  .contacto__header {
+    margin-bottom: 0;
+  }
+
+  .contacto__header,
+  .contacto__info,
+  .contacto_form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 433px) {
+  .contacto__info {
+    gap: 0;
+  }  
+  .contacto_form_fields {
+    margin-top: 0;
+  }
+}
+

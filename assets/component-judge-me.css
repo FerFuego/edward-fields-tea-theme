@@ -1,0 +1,55 @@
+.section.judgeme-custom-header .page-width {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--fuente-terciaria);
+}
+
+.section.judgeme-custom-header .judgeme-custom-header__title {
+  margin: 0 auto 1rem auto;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 40px;
+  letter-spacing: -0.011em;
+  text-transform: none;
+}
+
+.section.judgeme-custom-header .judgeme-custom-header__text {
+  margin: 0 auto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  max-width: 560px;
+}
+
+.judgeme-custom-review__row {
+  display: inline-flex;
+  align-items: left;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.judgeme-custom-review__label {
+  font-size: 12px;
+  font-weight: 400;
+  display: inline-block;
+  white-space: nowrap;
+}
+.judgeme-custom-review__stars {
+    margin: 4px 0 0;
+}
+
+@media (max-width: 768px) {
+
+    .section.judgeme-custom-header .judgeme-custom-header__title.review-title {
+        font-size: 35px;
+        display: inline-block;
+    }
+
+    .section.judgeme-custom-header .judgeme-custom-header__text.review-text {
+        margin-bottom:10px;
+    }
+
+}
+

@@ -1,0 +1,36 @@
+{{ 'component-judge-me.css' | asset_url | stylesheet_tag }}
+
+<section class="shopify-section section judgeme-custom-header carousel">
+  <div class="page-width">
+    <h2 class="judgeme-custom-header__title">
+      {{ section.settings.title }}
+    </h2>
+
+    <p class="judgeme-custom-header__text">
+      {{ section.settings.text }}
+    </p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Carousel judge-me",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Descripción"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Carousel judge-me"
+    }
+  ]
+}
+{% endschema %}

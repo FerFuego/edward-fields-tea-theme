@@ -1,0 +1,364 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "3dd880a3-5caf-4b4a-82d5-99c5989bd8ca": {
+      "type": "image-banner",
+      "blocks": {
+        "template--19181264142673__3dd880a3-5caf-4b4a-82d5-99c5989bd8ca-168970320373603648-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "template--19181264142673__3dd880a3-5caf-4b4a-82d5-99c5989bd8ca-168970320373603648-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "template--19181264142673__3dd880a3-5caf-4b4a-82d5-99c5989bd8ca-168970320373603648-2": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19181264142673__3dd880a3-5caf-4b4a-82d5-99c5989bd8ca-168970320373603648-0",
+        "template--19181264142673__3dd880a3-5caf-4b4a-82d5-99c5989bd8ca-168970320373603648-1",
+        "template--19181264142673__3dd880a3-5caf-4b4a-82d5-99c5989bd8ca-168970320373603648-2"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Edward_Fields_Cares.png",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "1663932695ace7dd22": {
+      "type": "multicolumn",
+      "blocks": {
+        "166393269557add601-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/nature-photographer.jpg",
+            "title": "Proteger la naturaleza",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "166393269557add601-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/couple-cuddles-watching-over-nature.jpg",
+            "title": "Cuidar a las personas",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "166393269557add601-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/african-elephant-close-up.jpg",
+            "title": "Ayudar a los animales",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "166393269557add601-0",
+        "166393269557add601-2",
+        "166393269557add601-1"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_h3JVWw": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_nNEVJP": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_fWGVR7": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A través de  <strong>Edward Fields Cares </strong>destinamos el <strong>1% de nuestros beneficios</strong> a la adopción de <strong>elefantes huérfanos </strong>para su <strong>rehabilitación a la vida salvaje.</strong></p><p>¡Conócelos! ↓</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_nNEVJP",
+        "text_fWGVR7"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Captura_de_pantalla_2024-10-10_a_las_12.18.17-removebg-preview.png",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1663934062b0336506": {
+      "type": "image-with-text",
+      "blocks": {
+        "1663934062c8fc7369-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Bondeni",
+            "heading_size": "h2"
+          }
+        },
+        "1663934062c8fc7369-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Edad:</strong> 3 años. <strong>Género:</strong> Macho. <strong>Fecha de rescate:</strong> 4 Febrero 2019. <strong>Rescatado en:</strong> Tsavo Ecosystem, Chyulu Hills. <strong>Razón de orfandad:</strong> Conflicto entre humanos y vida salvaje. <strong>Localización actual:</strong> Nairobi Nursery, Kenia.</p>",
+            "text_style": "body"
+          }
+        },
+        "1663934062c8fc7369-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "1663934062c8fc7369-0",
+        "1663934062c8fc7369-1",
+        "1663934062c8fc7369-2"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Bondeni.jpg",
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "background-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1663934154cccfddce": {
+      "type": "image-with-text",
+      "blocks": {
+        "166393415419265805-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Kiasa",
+            "heading_size": "h2"
+          }
+        },
+        "166393415419265805-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Edad:</strong> 5 años. <strong>Género:</strong> Hembra. <strong>Fecha de rescate:</strong> 30 Octubre 2017. <strong>Rescatado en:</strong> Tsavo Ecosystem, Tsavo East National. <strong>Razón de orfandad:</strong> Sequía. <strong>Localización actual:</strong> Umani Springs Reintegration Unit, Kenia.</p>",
+            "text_style": "body"
+          }
+        },
+        "166393415419265805-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "166393415419265805-0",
+        "166393415419265805-1",
+        "166393415419265805-2"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/kiasa.jpg",
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "background-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "16639488635ee196ca": {
+      "type": "image-with-text",
+      "blocks": {
+        "16639488632379143c-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Roho",
+            "heading_size": "h2"
+          }
+        },
+        "16639488632379143c-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Edad:</strong> 3 años. <strong>Género:</strong> Macho. <strong>Fecha de rescate:</strong> 16 Octubre 2019 <strong>Rescatado en:</strong> Tsavo Ecosystem, Tsavo West National Park. <strong>Razón de orfandad:</strong> Sospecha de caza furtiva. <strong>Localización actual:</strong> Nairobi Nursery, Kenia.</p>",
+            "text_style": "body"
+          }
+        },
+        "16639488632379143c-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "16639488632379143c-0",
+        "16639488632379143c-1",
+        "16639488632379143c-2"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Roho.jpg",
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "background-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "166394918227bf3686": {
+      "type": "image-with-text",
+      "blocks": {
+        "16639491823b9b700d-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Nabulu",
+            "heading_size": "h2"
+          }
+        },
+        "16639491823b9b700d-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Edad:</strong> 5 años. <strong>Género:</strong> Hembra. <strong>Fecha de rescate:</strong> 1 Febrero 2019. <strong>Rescatado en:</strong> Masai Mara, Mara North Conservancy. <strong>Razón de orfandad:</strong> Desconocida. <strong>Localización actual:</strong> Ithumba Reintegration Unit, Kenia.</p>",
+            "text_style": "body"
+          }
+        },
+        "16639491823b9b700d-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "16639491823b9b700d-0",
+        "16639491823b9b700d-1",
+        "16639491823b9b700d-2"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Nabulu.jpg",
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "section_color_scheme": "",
+        "color_scheme": "background-1",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "3dd880a3-5caf-4b4a-82d5-99c5989bd8ca",
+    "main",
+    "1663932695ace7dd22",
+    "image_with_text_h3JVWw",
+    "1663934062b0336506",
+    "1663934154cccfddce",
+    "16639488635ee196ca",
+    "166394918227bf3686"
+  ]
+}
