@@ -248,6 +248,93 @@
         "margin_bottom": 0
       }
     },
+    "copilot_video_stories_kzFjTV": {
+      "type": "copilot-video-stories",
+      "blocks": {
+        "video_q64RJ6": {
+          "type": "video",
+          "settings": {
+            "video_es": "https://cdn.shopify.com/videos/c/o/v/b99f9ceff7cf4699948366a444b89cbd.mp4",
+            "video_number": "01",
+            "video_title": "Pon la cápsula",
+            "video_subtitle": "En tu máquina Nespresso. Sin batidor, sin técnica, sin preparación.",
+            "poster": "shopify://shop_images/card-1.webp"
+          }
+        },
+        "video_rqdRYA": {
+          "type": "video",
+          "settings": {
+            "video_es": "https://cdn.shopify.com/videos/c/o/v/388f16b0bf5c4267bc4aaf2c749a0e06.mp4",
+            "video_number": "02",
+            "video_title": "30 segundos",
+            "video_subtitle": "Y tienes tu matcha listo. Espumoso y cremoso",
+            "poster": "shopify://shop_images/card-2.webp"
+          }
+        },
+        "video_NEHmpK": {
+          "type": "video",
+          "settings": {
+            "video_es": "https://cdn.shopify.com/videos/c/o/v/1192eb89941f4bf6a5de7995e8f34239.mp4",
+            "video_number": "03",
+            "video_title": "Siente la diferencia",
+            "video_subtitle": "Energía limpia desde la primera taza. Sin nerviosismo, sin acidez, sin bajones.",
+            "poster": "shopify://shop_images/card-3.webp"
+          }
+        }
+      },
+      "block_order": [
+        "video_q64RJ6",
+        "video_rqdRYA",
+        "video_NEHmpK"
+      ],
+      "name": "Copilot Video Stories",
+      "settings": {
+        "title": "Tan fácil como tu rutina actual",
+        "subtitle": "No hace falta aprender nada nuevo. El mismo gesto de cada mañana,solo un pod diferente."
+      }
+    },
+    "copilot_magic_matcha_DFU4JX": {
+      "type": "copilot-magic-matcha",
+      "blocks": {
+        "feature_item_tGF4NL": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "shopify://shop_images/rayo.svg",
+            "title": "Energía que dura",
+            "text": "Cafeína natural, sin el subidón. Sin el bajón. Solo foco durante horas."
+          }
+        },
+        "feature_item_HDycQN": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "shopify://shop_images/brain.svg",
+            "title": "Energía que dura",
+            "text": "Cafeína natural, sin el subidón. Sin el bajón. Solo foco durante horas."
+          }
+        },
+        "feature_item_ajxzTF": {
+          "type": "feature_item",
+          "settings": {
+            "icon": "shopify://shop_images/escudo.svg",
+            "title": "Energía que dura",
+            "text": "Cafeína natural, sin el subidón. Sin el bajón. Solo foco durante horas."
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_tGF4NL",
+        "feature_item_HDycQN",
+        "feature_item_ajxzTF"
+      ],
+      "name": "Copilot - Magia Matcha",
+      "settings": {
+        "bg_image_desktop": "shopify://shop_images/hf_20260513_133613_7d6816cf-b269-4e2e-b3fe-30ec7288b1f3_1.webp",
+        "title": "No es magia. Es matcha.",
+        "subtitle": "Tres ingredientes naturales que trabajan juntos para que te sientas mejor que con el café.",
+        "button_text": "Descubrir nuestros productos",
+        "button_link": "shopify://collections/all"
+      }
+    },
     "copilot_flex_layout_wjrmHf": {
       "type": "copilot-flex-layout",
       "blocks": {
@@ -365,6 +452,8 @@
     "copilot_marquee_carousel_BtHrgR",
     "copilot_encuentrate_9debT4",
     "copilot_energia_limpia_dbRTyY",
+    "copilot_video_stories_kzFjTV",
+    "copilot_magic_matcha_DFU4JX",
     "copilot_flex_layout_wjrmHf"
   ]
 }

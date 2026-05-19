@@ -2,29 +2,42 @@
   .copilot-video-stories {
     background-color: #213529;
     padding: 80px 20px;
+    margin: 100px 0 0;
   }
 
   .copilot-video-stories__container {
-    max-width: 974px;
+    max-width: 1165px;
     margin: 0 auto;
   }
 
   .copilot-video-stories__title {
     font-family: 'OverusedGrotesk', sans-serif !important;
-    color: #3d4982;
+    color: #fff;
     text-align: center;
-    font-size: 30px;
-    font-weight: 600;
-    line-height: 35px;
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 50px;
+    text-align: center;
+    margin: 0 auto 20px;
+    max-width: 415px;
+  }
+
+  .copilot-video-stories__subtitle {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
     text-align: center;
     margin: 0 auto 40px;
-    max-width: 600px;
+    max-width: 470px;
   }
 
   .copilot-video-stories__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 20px;
   }
 
   .copilot-video-card {
@@ -57,6 +70,72 @@
   }
   .js-video-slider .slick-track {
     display: flex;
+  }
+  .copilot-video-card__inner {
+    position: relative;
+    height: 528px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    background: #FFFFFF0D;
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow:
+        0px 8px 72px -5px #0000001A,
+        0px 2px 30px 0px #0000000D,
+        0px 2px 20px 2px #3535350D inset,
+        0px 0px 5px 0px #FFFFFF26 inset,
+        -1px -1px 0px 0px #FFFFFF66 inset,
+        1px 0.5px 0px 0px #FFFFFF99 inset;
+  }
+  .copilot-video-card__video-number {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FBFAF3;
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 60px;
+    text-align: center;
+    top: 20px;
+    right: 20px;
+    border: 1px solid #fff;
+    padding: 0 0 5px 0;
+    border-radius: 50px;
+    height: 60px;
+    width: 60px;
+    z-index: 2;
+  }
+  .copilot-video-card__poster {
+    position: absolute;
+  }
+  .copilot-video-card__video-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 20px 50px;
+    bottom: 10px;
+    z-index: 2;
+  }
+  .copilot-video-card__video-content span {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 30px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #FBFAF3;
+  }
+  .copilot-video-card__video-content p {
+    font-family: 'OverusedGrotesk', sans-serif !important;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #FBFAF3;
   }
 
   /* ===== MOBILE SLIDER ===== */
@@ -94,6 +173,9 @@
       <h2 class="copilot-video-stories__title">
         {{ section.settings.title }}
       </h2>
+      <p class="copilot-video-stories__subtitle">
+        {{ section.settings.subtitle }}
+      </p>
     {% endif %}
 
     <div class="copilot-video-stories__grid js-video-slider">
@@ -102,21 +184,30 @@
           class="copilot-video-card"
           {{ block.shopify_attributes }}
           data-es="{{ block.settings.video_es }}"
-          data-it="{{ block.settings.video_it }}"
-          data-pt="{{ block.settings.video_pt }}"
         >
           <div class="copilot-video-card__inner">
-            {% if block.settings.poster != blank %}
+            {% if block.settings.video_number != blank %}
+              <div class="copilot-video-card__video-number">{{ block.settings.video_number }}</div>
+            {% endif %}
+            <div class="copilot-video-card__video-content">
+              {% if block.settings.video_title != blank %}
+                <span>{{ block.settings.video_title }}</span>
+              {% endif %}
+              {% if block.settings.video_subtitle != blank %}
+                <p>{{ block.settings.video_subtitle }}</p>
+              {% endif %}
+            </div>
+              {% if block.settings.poster != blank %}
               <img
                 class="copilot-video-card__poster"
-                src="{{ block.settings.poster | image_url: width: 800 }}"
+                src="{{ block.settings.poster | image_url: width: 550 }}"
                 alt="poster-video"
                 width=""
                 height=""
               >
             {% endif %}
             <video muted playsinline preload="metadata"></video>
-            <button class="copilot-video-card__play">▶</button>
+            {% comment %} <button class="copilot-video-card__play">▶</button> {% endcomment %}
           </div>
         </div>
       {% endfor %}
@@ -129,16 +220,8 @@
     const lang = document.documentElement.lang || 'es';
 
     document.querySelectorAll('.copilot-video-card').forEach((card) => {
-      let src;
-
-      if (lang.startsWith('it')) {
-        src = card.dataset.it;
-      } else if (lang.startsWith('pt')) {
-        src = card.dataset.pt;
-      } else {
-        src = card.dataset.es;
-      }
-
+      
+      let src = card.dataset.es;
       const video = card.querySelector('video');
       const btn = card.querySelector('.copilot-video-card__play');
       const poster = card.querySelector('.copilot-video-card__poster');
@@ -254,7 +337,13 @@
       "type": "text",
       "id": "title",
       "label": "Título",
-      "default": "Historias reales de cuidado y maternidad"
+      "default": "Historias reales de cuidado"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Sub título",
+      "default": "Historias reales de cuidado"
     }
   ],
   "blocks": [
@@ -268,14 +357,19 @@
           "label": "Video Español"
         },
         {
-          "type": "url",
-          "id": "video_it",
-          "label": "Video Italiano"
+          "type": "text",
+          "id": "video_number",
+          "label": "Video Number"
         },
         {
-          "type": "url",
-          "id": "video_pt",
-          "label": "Video Portugués"
+          "type": "text",
+          "id": "video_title",
+          "label": "Video Title"
+        },
+        {
+          "type": "text",
+          "id": "video_subtitle",
+          "label": "Video Subtitle"
         },
         {
           "type": "image_picker",

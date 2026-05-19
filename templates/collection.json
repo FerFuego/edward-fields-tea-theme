@@ -32,7 +32,6 @@
           "type": "container",
           "settings": {
             "container_name": "principal",
-            "custom_class": "class",
             "layout": "flex",
             "grid_position": "auto/auto",
             "flex_order": 0,
@@ -54,7 +53,6 @@
             "parent_container_name": "principal",
             "text": "Encuentra el ritual ideal para ti",
             "heading_tag": "h1",
-            "link_title": "",
             "color": "#213529",
             "font_size": "40px",
             "font_weight": "400",
