@@ -1,0 +1,281 @@
+<section class="magic-matcha">
+  <div class="magic-matcha__container">
+    <div class="magic-matcha__content">
+      
+      {% if section.settings.title != blank %}
+        <h2 class="magic-matcha__title">{{ section.settings.title }}</h2>
+      {% endif %}
+      
+      {% if section.settings.subtitle != blank %}
+        <p class="magic-matcha__subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+
+      <div class="magic-matcha__features">
+        {% for block in section.blocks %}
+          <div class="magic-matcha__feature" {{ block.shopify_attributes }}>
+            {% if block.settings.icon != blank %}
+              <div class="magic-matcha__feature-icon">
+                {{ block.settings.icon | image_url: width: 60 | image_tag: alt: block.settings.title, loading: 'lazy' }}
+              </div>
+            {% endif %}
+            {% if block.settings.title != blank %}
+              <h3 class="magic-matcha__feature-title">{{ block.settings.title }}</h3>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              <p class="magic-matcha__feature-text">{{ block.settings.text }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="magic-matcha__cta">
+          {{ section.settings.button_text }}
+        </a>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .magic-matcha {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .magic-matcha__container {
+    width: 100%;
+    max-width: 1277px;
+    border-radius: 20px;
+    overflow: hidden; 
+    
+    {% if section.settings.bg_image_desktop != blank %}
+      background-image: url('{{ section.settings.bg_image_desktop | image_url: width: 1400 }}');
+    {% else %}
+      background-color: #f1ede5;
+    {% endif %}
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 80px 60px;
+    box-sizing: border-box;
+  }
+
+  .magic-matcha__content {
+    width: 100%;
+    max-width: 634px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .magic-matcha__title {
+    font-family: "Overused Grotesk", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 50px;
+    line-height: 50px;
+    color: #213529;
+    margin: 0 0 20px 0;
+  }
+
+  .magic-matcha__subtitle {
+    font-family: "Overused Grotesk", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #213529;
+    margin: 0 0 50px 0;
+  }
+
+  .magic-matcha__features {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .magic-matcha__feature {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .magic-matcha__feature-icon {
+    margin-bottom: 20px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .magic-matcha__feature-icon img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .magic-matcha__feature-title {
+    font-family: "Overused Grotesk", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #213529;
+    margin: 0 0 10px 0;
+  }
+
+  .magic-matcha__feature-text {
+    font-family: "Overused Grotesk", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #213529;
+    margin: 0;
+  }
+
+  .magic-matcha__cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 279px;
+    height: 60px;
+    border-radius: 50px;
+    border: 1px solid #1A7A4A;
+    background: #1A7A4A;
+    font-family: "Overused Grotesk", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .magic-matcha__cta:hover {
+    background: #125e37;
+    color: #FFFFFF;
+    border-color: #125e37;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .magic-matcha__container {
+      {% if section.settings.bg_image_mobile != blank %}
+        background-image: url('{{ section.settings.bg_image_mobile | image_url: width: 768 }}');
+      {% endif %}
+      padding: 60px 20px;
+      justify-content: center;
+    }
+    
+    .magic-matcha__title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+
+    .magic-matcha__features {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .magic-matcha__cta {
+      width: 100%;
+      max-width: 279px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Copilot - Magia Matcha",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image_desktop",
+      "label": "Imagen de fondo (Desktop) - 1277px"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_mobile",
+      "label": "Imagen de fondo (Mobile) - 768px"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "No es magia. Es matcha."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Tres ingredientes naturales que trabajan juntos para que te sientas mejor que con el café."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texto del botón",
+      "default": "Descubrir nuestros productos"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Enlace del botón"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_item",
+      "name": "Item de beneficio",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icono (Recomendado: SVG o PNG con transparencia)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título",
+          "default": "Energía que dura"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Descripción",
+          "default": "Cafeína natural, sin el subidón. Sin el bajón. Solo foco durante horas."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot - Magia Matcha",
+      "category": "Matcha",
+      "blocks": [
+        {
+          "type": "feature_item"
+        },
+        {
+          "type": "feature_item"
+        },
+        {
+          "type": "feature_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
