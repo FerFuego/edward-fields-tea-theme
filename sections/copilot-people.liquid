@@ -1,0 +1,499 @@
+<section class="copilot-people section-{{ section.id }}-padding" id="copilot-people-{{ section.id }}">
+  <div class="copilot-people__container">
+    <!-- Header Area -->
+    <div class="copilot-people__header">
+      {% if section.settings.title != blank %}
+        <h2 class="copilot-people__title">{{ section.settings.title }}</h2>
+      {% endif %}
+
+      {% if section.settings.subtitle != blank %}
+        <p class="copilot-people__subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Grid / Slider Area -->
+    <div class="copilot-people__grid-wrapper">
+      <div class="copilot-people__grid">
+        {% for block in section.blocks %}
+          <div class="copilot-people__card" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}">
+            <div class="copilot-people__card-inner">
+              <!-- Background Image -->
+              <div class="copilot-people__image-wrapper">
+                {% if block.settings.image != blank %}
+                  {{
+                    block.settings.image
+                    | image_url: width: 800
+                    | image_tag: class: 'copilot-people__image', loading: 'lazy'
+                  }}
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'copilot-people__image copilot-people__image--placeholder' }}
+                {% endif %}
+              </div>
+
+              <!-- Gradient Overlay for Legibility -->
+              <div class="copilot-people__overlay"></div>
+
+              <!-- Content Overlay (Quote, Name, Bio) -->
+              <div class="copilot-people__card-content">
+                {% if block.settings.quote != blank %}
+                  <p class="copilot-people__quote">"{{ block.settings.quote }}"</p>
+                {% endif %}
+
+                <div class="copilot-people__meta">
+                  {% if block.settings.name != blank %}
+                    <span class="copilot-people__name">- {{ block.settings.name }}</span>
+                  {% endif %}
+                  {% if block.settings.bio != blank %}
+                    <span class="copilot-people__bio">, {{ block.settings.bio }}</span>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Mobile Dots Pagination -->
+      {% if section.blocks.size > 1 %}
+        <div class="copilot-people__dots">
+          {% for block in section.blocks %}
+            <button
+              type="button"
+              class="copilot-people__dot {% if forloop.first %}is-active{% endif %}"
+              aria-label="Ir al testimonio {{ forloop.index }}"
+              data-slide-index="{{ forloop.index0 }}"
+            ></button>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* --- CUSTOMIZABLE COLORS & VARS (Modify in your stylesheet if needed) --- */
+  #copilot-people-{{ section.id }} {
+    --copilot-people-dot-bg: #B5C7BC;          /* Color de bullets inactivos */
+    --copilot-people-dot-active-bg: #1A7A4A;   /* Color de bullets activos (verde marca) */
+    --copilot-people-text-color: #FFFFFF;      /* Color del texto sobre las imágenes */
+  }
+
+  /* --- LAYOUT & STRUCTURE --- */
+  .copilot-people {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .copilot-people__container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  /* Header Layout */
+  .copilot-people__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+  }
+
+  .copilot-people__title {
+    margin: 0 0 12px 0;
+  }
+
+  .copilot-people__subtitle {
+    margin: 0;
+  }
+
+  /* Grid Layout */
+  .copilot-people__grid-wrapper {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .copilot-people__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .copilot-people__card {
+    box-sizing: border-box;
+  }
+
+  .copilot-people__card-inner {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    border-radius: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  /* Portrait Background Image */
+  .copilot-people__image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .copilot-people__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  @media (hover: hover) {
+    .copilot-people__card-inner:hover .copilot-people__image {
+      transform: scale(1.05);
+    }
+  }
+
+  .copilot-people__image--placeholder {
+    background-color: #E0E7E2;
+    fill: #A3BFB0;
+  }
+
+  /* Soft Gradient Overlay for text readability over light areas */
+  .copilot-people__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* Overlay Text Content */
+  .copilot-people__card-content {
+    position: relative;
+    z-index: 3;
+    padding: 32px 24px;
+    color: var(--copilot-people-text-color);
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .copilot-people__quote {
+    margin: 0 0 12px 0;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  .copilot-people__meta {
+    display: block;
+    line-height: 1.4;
+  }
+
+  .copilot-people__name {
+    font-weight: 500;
+  }
+
+  .copilot-people__bio {
+    opacity: 0.95;
+  }
+
+  /* Dots Pagination (Hidden on desktop) */
+  .copilot-people__dots {
+    display: none;
+  }
+
+  /* Mobile Slider (Peeking Layout) */
+  @media (max-width: 767px) {
+    .copilot-people__header {
+      margin-bottom: 28px;
+    }
+
+    .copilot-people__grid {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Hide scrollbar for Firefox */
+      gap: 16px;
+      margin: 0 -20px; /* Bleed out edges */
+      padding: 0 40px; /* Essential padding: aligns snapped card in center and shows adjacent peeking cards */
+      width: calc(100% + 40px);
+    }
+
+    .copilot-people__grid::-webkit-scrollbar {
+      display: none; /* Hide scrollbar for Chrome/Safari */
+    }
+
+    .copilot-people__card {
+      flex: 0 0 calc(100% - 80px); /* Subtracting paddings allows adjacent cards to peek from the sides! */
+      max-width: calc(100% - 80px);
+      scroll-snap-align: center;
+    }
+
+    .copilot-people__dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 32px;
+      height: 12px;
+      box-sizing: border-box;
+    }
+
+    .copilot-people__dot {
+      border: none;
+      padding: 0;
+      margin: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background-color: var(--copilot-people-dot-bg);
+      cursor: pointer;
+      outline: none;
+      flex-shrink: 0;
+      transition: background-color 0.35s ease, width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .copilot-people__dot.is-active {
+      width: 28px; /* Stretching Pill active dot */
+      background-color: var(--copilot-people-dot-active-bg);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const grids = document.querySelectorAll('.copilot-people__grid');
+
+    grids.forEach((grid) => {
+      const parent = grid.closest('.copilot-people');
+      const dots = parent.querySelectorAll('.copilot-people__dot');
+      const cards = grid.querySelectorAll('.copilot-people__card');
+
+      if (!dots.length || !cards.length) return;
+
+      let ticking = false;
+
+      // 1. Dinamic stretching of bullets calculated from real-time scroll offset
+      grid.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrollLeft = grid.scrollLeft;
+
+            // Calculate step size dynamically between adjacent slides for mathematical precision in peeking layout
+            const firstCard = cards[0];
+            const secondCard = cards[1];
+            let stepSize = grid.clientWidth;
+            if (firstCard && secondCard) {
+              stepSize = secondCard.offsetLeft - firstCard.offsetLeft;
+            }
+
+            if (stepSize > 0) {
+              const progress = scrollLeft / stepSize;
+              const maxIndex = dots.length - 1;
+              const boundedProgress = Math.max(0, Math.min(progress, maxIndex));
+
+              const index = Math.floor(boundedProgress);
+              const percent = boundedProgress - index;
+
+              dots.forEach((dot, idx) => {
+                let dotWidth = 10;
+                let isCurrentActive = false;
+
+                if (idx === index) {
+                  // Current active dot shrinks from 28px to 10px as user scrolls to next card
+                  dotWidth = 28 - 18 * percent;
+                  if (percent < 0.5) isCurrentActive = true;
+                } else if (idx === index + 1) {
+                  // Next dot grows from 10px to 28px as user scrolls closer to it
+                  dotWidth = 10 + 18 * percent;
+                  if (percent >= 0.5) isCurrentActive = true;
+                }
+
+                dot.style.width = `${dotWidth}px`;
+
+                if (isCurrentActive) {
+                  dot.classList.add('is-active');
+                } else {
+                  dot.classList.remove('is-active');
+                }
+              });
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      // 2. Intersection Observer backup to ensure precise settled active state
+      const observerOptions = {
+        root: grid,
+        threshold: 0.6,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const activeIndex = parseInt(entry.target.dataset.index, 10);
+
+            dots.forEach((dot, idx) => {
+              if (idx === activeIndex) {
+                dot.classList.add('is-active');
+                dot.style.width = '28px';
+              } else {
+                dot.classList.remove('is-active');
+                dot.style.width = '10px';
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      cards.forEach((card) => observer.observe(card));
+
+      // 3. Perfect center alignment when clicking dots
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          const card = cards[idx];
+          if (card) {
+            const targetScroll = card.offsetLeft - (grid.clientWidth - card.clientWidth) / 2;
+            grid.scrollTo({
+              left: targetScroll,
+              behavior: 'smooth',
+            });
+          }
+        });
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Copilot - Pers Criterio",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Textos de la Sección"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título de la sección",
+      "default": "Lo toman personas con criterio."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtítulo de la sección"
+    },
+    {
+      "type": "header",
+      "content": "Diseño y Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado superior (Padding Top)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado inferior (Padding Bottom)",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonio con Foto",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Foto del Personaje (Recomendado: Vertical 3:4 o similar)"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Cita / Comentario",
+          "default": "Cuido lo que me rodea y lo que consumo."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Nombre del Personaje",
+          "default": "Natalia Sáez"
+        },
+        {
+          "type": "text",
+          "id": "bio",
+          "label": "Subtítulo / Profesión / Red Social",
+          "default": "influencer @enabrilhojasmil"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot - Pers Criterio",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "name": "Natalia Sáez",
+            "bio": "influencer @enabrilhojasmil",
+            "quote": "Cuido lo que me rodea y lo que consumo."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "name": "Jorge",
+            "bio": "Concursante de MasterChef 13",
+            "quote": "Cambié el café de las mañanas. No lo echo de menos."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "name": "Nekane Terés",
+            "bio": "exjugadora profesional de balonmano",
+            "quote": "El pre-entreno más limpio que he probado."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
