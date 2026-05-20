@@ -1,6 +1,5 @@
 <section class="copilot-table-section section-{{ section.id }}-padding" id="copilot-table-{{ section.id }}">
   <div class="copilot-table-container">
-    
     <!-- Title / Header Area -->
     <div class="copilot-table__header">
       {% if section.settings.title != blank %}
@@ -24,22 +23,30 @@
             <tr class="copilot-table__header-row">
               <!-- Top-left cell is empty -->
               <th class="copilot-table__header-cell copilot-table__header-cell--empty"></th>
-              
+
               <!-- Edward Fields Column Header -->
               <th class="copilot-table__header-cell copilot-table__header-cell--highlight">
                 {% if section.settings.matcha_img != blank %}
                   <div class="copilot-table__header-image-wrapper">
-                    {{ section.settings.matcha_img | image_url: width: 250 | image_tag: class: 'copilot-table__header-image', loading: 'lazy' }}
+                    {{
+                      section.settings.matcha_img
+                      | image_url: width: 250
+                      | image_tag: class: 'copilot-table__header-image', loading: 'lazy'
+                    }}
                   </div>
                 {% endif %}
                 <span class="copilot-table__header-label">{{ section.settings.matcha_label }}</span>
               </th>
-              
+
               <!-- Coffee Column Header -->
               <th class="copilot-table__header-cell">
                 {% if section.settings.cafe_img != blank %}
                   <div class="copilot-table__header-image-wrapper">
-                    {{ section.settings.cafe_img | image_url: width: 250 | image_tag: class: 'copilot-table__header-image', loading: 'lazy' }}
+                    {{
+                      section.settings.cafe_img
+                      | image_url: width: 250
+                      | image_tag: class: 'copilot-table__header-image', loading: 'lazy'
+                    }}
                   </div>
                 {% endif %}
                 <span class="copilot-table__header-label">{{ section.settings.coffee_label }}</span>
@@ -53,12 +60,12 @@
                 <td class="copilot-table__cell copilot-table__cell--feature">
                   {{ block.settings.feature_name }}
                 </td>
-                
+
                 <!-- Highlighted Column (Edward Fields) -->
                 <td class="copilot-table__cell copilot-table__cell--highlight">
                   {{ block.settings.matcha_value }}
                 </td>
-                
+
                 <!-- Other Column (Coffee) -->
                 <td class="copilot-table__cell copilot-table__cell--other">
                   {{ block.settings.coffee_value }}
@@ -74,7 +81,6 @@
         <p class="copilot-table__footer">{{ section.settings.footer_text }}</p>
       {% endif %}
     </div>
-
   </div>
 </section>
 
@@ -144,7 +150,7 @@
   }
 
   /* Table cells alignment & padding */
-  .copilot-table td, 
+  .copilot-table td,
   .copilot-table th {
     padding: 18px 16px;
     border-bottom: 1px solid var(--copilot-table-border-color);
@@ -255,7 +261,7 @@
       padding: 0 16px;
     }
 
-    .copilot-table td, 
+    .copilot-table td,
     .copilot-table th {
       padding: 14px 10px; /* Padding más ajustado en celulares */
     }

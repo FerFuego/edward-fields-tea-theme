@@ -406,6 +406,50 @@
         "padding_bottom": 0
       }
     },
+    "copilot_people_MJyynV": {
+      "type": "copilot-people",
+      "blocks": {
+        "testimonial_CXKGkt": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/pers-1.webp",
+            "quote": "Cuido lo que me rodea y lo que consumo.",
+            "name": "Natalia Sáez",
+            "bio": "influencer @enabrilhojasmil"
+          }
+        },
+        "testimonial_yzeRcF": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/pers-2.webp",
+            "quote": "Cambié el café de las mañanas. No lo echo de menos.",
+            "name": "Jorge",
+            "bio": "Concursante de MasterChef 13"
+          }
+        },
+        "testimonial_HpzRar": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/pers-3.webp",
+            "quote": "El pre-entreno más limpio que he probado.",
+            "name": "Nekane Terés",
+            "bio": "exjugadora profesional de balonmano"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_CXKGkt",
+        "testimonial_yzeRcF",
+        "testimonial_HpzRar"
+      ],
+      "name": "Copilot - Pers Criterio",
+      "settings": {
+        "title": "Lo toman personas con criterio.",
+        "subtitle": "",
+        "padding_top": 100,
+        "padding_bottom": 0
+      }
+    },
     "copilot_flex_layout_wjrmHf": {
       "type": "copilot-flex-layout",
       "blocks": {
@@ -526,6 +570,7 @@
     "copilot_video_stories_kzFjTV",
     "copilot_magic_matcha_DFU4JX",
     "copilot_reviews_X9CLnA",
+    "copilot_people_MJyynV",
     "copilot_flex_layout_wjrmHf"
   ]
 }
