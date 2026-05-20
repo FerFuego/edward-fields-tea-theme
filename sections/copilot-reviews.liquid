@@ -8,7 +8,7 @@
       {% if section.settings.show_badge %}
         <div class="copilot-reviews__badge">
           {% if section.settings.badge_logo != blank %}
-            {{ section.settings.badge_logo | image_url: width: 40 | image_tag: class: 'copilot-reviews__badge-logo', loading: 'lazy' }}
+            {{ section.settings.badge_logo | image_url: width: 100 | image_tag: class: 'copilot-reviews__badge-logo', loading: 'lazy' }}
           {% else %}
             <!-- Default checkmark icon (like Judge.me reviews check) -->
             <svg class="copilot-reviews__badge-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -152,23 +152,38 @@
   }
 
   .copilot-reviews__badge-star {
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
     flex-shrink: 0;
   }
 
   .copilot-reviews__badge-text {
+    font-family: "OverusedGrotesk", sans-serif !important;
     font-size: 14px;
     line-height: 1.2;
   }
 
   .copilot-reviews__title {
+    font-family: "OverusedGrotesk", sans-serif !important;
+    font-weight: 300;
+    font-size: 50px;
+    line-height: 50px;
+    letter-spacing: 0;
+    color: #213529;
     margin: 0 0 12px 0;
+    text-transform: none !important;
+    max-width: 360px;
   }
 
   .copilot-reviews__subtitle {
+    font-family: "OverusedGrotesk", sans-serif !important;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #213529;
     margin: 0;
-    max-width: 500px;
+    max-width: 400px;
   }
 
   /* Grid & Slider Area */
@@ -204,10 +219,11 @@
   .copilot-reviews__stars {
     display: flex;
     gap: 4px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
 
   .copilot-reviews__star-icon {
+    color: #213529;
     width: 18px;
     height: 18px;
     flex-shrink: 0;
@@ -225,14 +241,27 @@
   .copilot-reviews__quote {
     margin: 0 0 16px 0;
     padding: 0;
-    line-height: 1.5;
+    font-family: "OverusedGrotesk", sans-serif !important;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #213529;
     text-align: left;
+    border: 0;
   }
 
   .copilot-reviews__author {
     display: block;
+    font-family: "OverusedGrotesk", sans-serif !important;
     font-style: normal;
     margin-top: auto; /* Empuja el autor al final de la tarjeta flexible */
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0;
+    color: #213529;
   }
 
   /* Dot Pagination (Mobile Only by default) */

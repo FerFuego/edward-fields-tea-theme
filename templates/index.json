@@ -335,6 +335,77 @@
         "button_link": "shopify://collections/all"
       }
     },
+    "copilot_reviews_X9CLnA": {
+      "type": "copilot-reviews",
+      "blocks": {
+        "review_wP3XC4": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "Nunca había probado otro matcha que no fuera el de la cafetería de debajo de mi casa. Ahora me lo hago en casa con este de Edward y es una maravilla.",
+            "author": "Camilo R."
+          }
+        },
+        "review_rDiCJk": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "Tiene un poder energizante que para mí está en su justa medida. Un desayuno maravillosamente placentero.",
+            "author": "Silvia"
+          }
+        },
+        "review_DUbT6M": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "El sabor espectacular, me gusta tomarlo por la mañana, me da energía. Textura suave y cremosa, sabor delicado y refrescante.",
+            "author": "Nico S."
+          }
+        },
+        "review_ifbng4": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "El aroma es muy relajante pero a la vez me siento mucho más activa desde que lo tomo.",
+            "author": "J.M."
+          }
+        },
+        "review_6b7h6F": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "Sabor increíble. Me lo llevo al trabajo en un termo frío y lo voy tomando durante la mañana.",
+            "author": "Maite"
+          }
+        },
+        "review_yQtzaL": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "Además de riquísimo sienta fenomenal, porque es energizante pero no te pone nerviosa, sino que mantienes la atención y concentración estable.",
+            "author": "Niara G."
+          }
+        }
+      },
+      "block_order": [
+        "review_wP3XC4",
+        "review_rDiCJk",
+        "review_DUbT6M",
+        "review_ifbng4",
+        "review_6b7h6F",
+        "review_yQtzaL"
+      ],
+      "name": "Copilot - Reseñas",
+      "settings": {
+        "show_badge": true,
+        "badge_logo": "shopify://shop_images/judge.me.png",
+        "badge_text": "+2.200 clientes",
+        "title": "Gente real,<br>  resultados reales",
+        "subtitle": "Personas que encontraron en Edward Fields la energía que buscaban, y lo contaron.",
+        "padding_top": 100,
+        "padding_bottom": 0
+      }
+    },
     "copilot_flex_layout_wjrmHf": {
       "type": "copilot-flex-layout",
       "blocks": {
@@ -454,6 +525,7 @@
     "copilot_energia_limpia_dbRTyY",
     "copilot_video_stories_kzFjTV",
     "copilot_magic_matcha_DFU4JX",
+    "copilot_reviews_X9CLnA",
     "copilot_flex_layout_wjrmHf"
   ]
 }
