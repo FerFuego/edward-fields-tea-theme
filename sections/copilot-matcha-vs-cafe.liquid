@@ -1,95 +1,440 @@
-<section class="matcha-vs-cafe">
-  <div class="matcha-vs-cafe__shadow"></div>
-  <div class="matcha-vs-cafe__container">
-    <h2 class="matcha-vs-cafe__title">{{ section.settings.title }}</h2>
-
-    <div class="matcha-vs-cafe__inner">
-
-      <!-- Columna Matcha -->
-      <div class="matcha-vs-cafe__matcha">
-        <h3>MATCHA</h3>
-        {% if section.settings.matcha_img %}
-          <img src="{{ section.settings.matcha_img | image_url }}" alt="Matcha" class="mx-auto rounded-lg shadow mb-6 w-40 h-auto">
-        {% endif %}
-        <ul>
-          {% for block in section.blocks %}
-            {% if block.type == "matcha_benefit" %}
-              <li>
-                <h5>{{ block.settings.title }}</h5>
-                <p>{{ block.settings.text }}</p>
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
-
-      <!-- Columna Café -->
-      <div class="matcha-vs-cafe__cafe">
-        <h3>CAFÉ</h3>
-        {% if section.settings.cafe_img %}
-          <img src="{{ section.settings.cafe_img | image_url }}" alt="Café" class="mx-auto rounded-lg shadow mb-6 w-40 h-auto">
-        {% endif %}
-        <ul>
-          {% for block in section.blocks %}
-            {% if block.type == "cafe_benefit" %}
-              <li>
-                <h5>{{ block.settings.title }}</h5>
-                <p>{{ block.settings.text }}</p>
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </div>
-
+<section class="copilot-table-section section-{{ section.id }}-padding" id="copilot-table-{{ section.id }}">
+  <div class="copilot-table-container">
+    
+    <!-- Title / Header Area -->
+    <div class="copilot-table__header">
+      {% if section.settings.title != blank %}
+        <h2 class="copilot-table__title">{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.subtitle != blank %}
+        <p class="copilot-table__subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
     </div>
+
+    <!-- Main Table Area -->
+    <div class="copilot-table__main-content">
+      <div class="copilot-table__wrapper">
+        <table class="copilot-table">
+          <colgroup>
+            <col class="copilot-table__col-feature" style="width: 32%;">
+            <col class="copilot-table__col-highlight" style="width: 36%;">
+            <col class="copilot-table__col-other" style="width: 32%;">
+          </colgroup>
+          <thead>
+            <tr class="copilot-table__header-row">
+              <!-- Top-left cell is empty -->
+              <th class="copilot-table__header-cell copilot-table__header-cell--empty"></th>
+              
+              <!-- Edward Fields Column Header -->
+              <th class="copilot-table__header-cell copilot-table__header-cell--highlight">
+                {% if section.settings.matcha_img != blank %}
+                  <div class="copilot-table__header-image-wrapper">
+                    {{ section.settings.matcha_img | image_url: width: 250 | image_tag: class: 'copilot-table__header-image', loading: 'lazy' }}
+                  </div>
+                {% endif %}
+                <span class="copilot-table__header-label">{{ section.settings.matcha_label }}</span>
+              </th>
+              
+              <!-- Coffee Column Header -->
+              <th class="copilot-table__header-cell">
+                {% if section.settings.cafe_img != blank %}
+                  <div class="copilot-table__header-image-wrapper">
+                    {{ section.settings.cafe_img | image_url: width: 250 | image_tag: class: 'copilot-table__header-image', loading: 'lazy' }}
+                  </div>
+                {% endif %}
+                <span class="copilot-table__header-label">{{ section.settings.coffee_label }}</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for block in section.blocks %}
+              <tr class="copilot-table__row" {{ block.shopify_attributes }}>
+                <!-- Feature Column -->
+                <td class="copilot-table__cell copilot-table__cell--feature">
+                  {{ block.settings.feature_name }}
+                </td>
+                
+                <!-- Highlighted Column (Edward Fields) -->
+                <td class="copilot-table__cell copilot-table__cell--highlight">
+                  {{ block.settings.matcha_value }}
+                </td>
+                
+                <!-- Other Column (Coffee) -->
+                <td class="copilot-table__cell copilot-table__cell--other">
+                  {{ block.settings.coffee_value }}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Footer Text centered below the table -->
+      {% if section.settings.footer_text != blank %}
+        <p class="copilot-table__footer">{{ section.settings.footer_text }}</p>
+      {% endif %}
+    </div>
+
   </div>
 </section>
 
 <style>
-  .matcha-vs-cafe {
-    padding: 64px 20px 130px;
-    background-image: url({{ section.settings.bg_image_desktop | image_url }});
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  /* --- CUSTOMIZABLE COLORS & VARS (Modify in your stylesheet if needed) --- */
+  #copilot-table-{{ section.id }} {
+    --copilot-table-highlight-bg: #E3EDE7;  /* Color de fondo para la columna destacada (Edward Fields) */
+    --copilot-table-border-color: #E8E6DF;  /* Color de los bordes divisorios */
   }
 
-  /* Mobile: usar otra imagen */
+  /* --- LAYOUT & STRUCTURE --- */
+  .copilot-table-section {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .copilot-table-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  /* Title Header block */
+  .copilot-table__header {
+    margin-bottom: 32px;
+    box-sizing: border-box;
+  }
+
+  .copilot-table__title {
+    margin: 0 0 12px 0;
+  }
+
+  .copilot-table__subtitle {
+    margin: 0;
+  }
+
+  /* Main Table Content columns */
+  .copilot-table__main-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .copilot-table__wrapper {
+    width: 100%;
+    margin-bottom: 28px;
+    box-sizing: border-box;
+  }
+
+  /* Semantic Table Setup */
+  .copilot-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+  }
+
+  /* Table cells alignment & padding */
+  .copilot-table td, 
+  .copilot-table th {
+    padding: 18px 16px;
+    border-bottom: 1px solid var(--copilot-table-border-color);
+    vertical-align: middle;
+    box-sizing: border-box;
+  }
+
+  .copilot-table th {
+    font-weight: 500;
+  }
+
+  .copilot-table__header-cell--empty {
+    border-bottom: 1px solid transparent !important;
+  }
+
+  /* Header Image constraints */
+  .copilot-table__header-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 16px;
+    height: 100px; /* Mantiene las imágenes alineadas a la base de forma consistente */
+  }
+
+  .copilot-table__header-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .copilot-table__header-label {
+    display: block;
+    margin-top: auto;
+  }
+
+  /* Column Alignments */
+  .copilot-table__cell--feature,
+  .copilot-table__header-cell--empty {
+    text-align: left;
+  }
+
+  .copilot-table__cell--highlight,
+  .copilot-table__header-cell--highlight {
+    text-align: center;
+  }
+
+  .copilot-table__cell--other,
+  .copilot-table th:nth-child(3) {
+    text-align: center;
+  }
+
+  /* Column Highlight Background Style */
+  .copilot-table__cell--highlight,
+  .copilot-table__header-cell--highlight {
+    background-color: var(--copilot-table-highlight-bg);
+  }
+
+  /* Rounded top corners on highlighted column header */
+  .copilot-table__header-cell--highlight {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  /* Rounded bottom corners on highlighted column base */
+  .copilot-table tr:last-child td.copilot-table__cell--highlight {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  /* Clean up bottom borders on last row */
+  .copilot-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* Table Footer styling */
+  .copilot-table__footer {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 600px;
+    box-sizing: border-box;
+  }
+
+  /* --- DESKTOP LAYOUT (Side-by-side title and table) --- */
+  @media (min-width: 768px) {
+    .copilot-table-container {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 64px;
+    }
+
+    .copilot-table__header {
+      flex: 0 0 300px; /* Ancho fijo para el título a la izquierda */
+      margin-bottom: 0;
+      position: sticky;
+      top: 40px; /* Titulo sticky premium mientras se hace scroll en la tabla */
+    }
+
+    .copilot-table__main-content {
+      flex: 1; /* La tabla ocupa todo el espacio restante a la derecha */
+    }
+  }
+
+  /* --- MOBILE RESPONSIVE --- */
   @media (max-width: 767px) {
-    .matcha-vs-cafe {
-      background-image: url({{ section.settings.bg_image_mobile | image_url }});
+    .copilot-table-container {
+      padding: 0 16px;
+    }
+
+    .copilot-table td, 
+    .copilot-table th {
+      padding: 14px 10px; /* Padding más ajustado en celulares */
+    }
+
+    .copilot-table__header-image-wrapper {
+      height: 70px; /* Imágenes más compactas en celulares */
+      margin-bottom: 8px;
     }
   }
 </style>
 
 {% schema %}
 {
-  "name": "Copilot - Matcha vs Café",
+  "name": "Copilot - Tabla Matcha",
   "settings": [
-    { "type": "image_picker", "id": "bg_image_desktop", "label": "Imagen de fondo (Desktop)" },
-    { "type": "image_picker", "id": "bg_image_mobile","label": "Imagen de fondo (Mobile)" },
-    { "type": "text", "id": "title", "label": "Título", "default": "DOS FORMAS DE ENERGÍA, DOS EXPERIENCIAS DIFERENTES" },
+    {
+      "type": "header",
+      "content": "Textos Principales"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título de la sección",
+      "default": "Edward Fields vs el café"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtítulo opcional"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_text",
+      "label": "Texto al pie de la tabla",
+      "default": "No te pedimos que lo dejes. Solo que pruebes las mañanas con algo distinto."
+    },
+    {
+      "type": "header",
+      "content": "Columna Edward Fields (Matcha)"
+    },
+    {
+      "type": "text",
+      "id": "matcha_label",
+      "label": "Etiqueta del encabezado",
+      "default": "EDWARD FIELDS"
+    },
+    {
+      "type": "image_picker",
+      "id": "matcha_img",
+      "label": "Imagen del Producto Matcha"
+    },
+    {
+      "type": "header",
+      "content": "Columna Comparativa (Café)"
+    },
+    {
+      "type": "text",
+      "id": "coffee_label",
+      "label": "Etiqueta del encabezado",
+      "default": "CAFÉ"
+    },
+    {
+      "type": "image_picker",
+      "id": "cafe_img",
+      "label": "Imagen del Café"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado de la Sección"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado superior (Padding Top)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado inferior (Padding Bottom)",
+      "default": 60
+    }
   ],
   "blocks": [
     {
-      "type": "matcha_benefit",
-      "name": "Beneficio Matcha",
+      "type": "row",
+      "name": "Fila de la Tabla",
       "settings": [
-        { "type": "text", "id": "title", "label": "Título" },
-        { "type": "textarea", "id": "text", "label": "Texto beneficio" }
-      ]
-    },
-    {
-      "type": "cafe_benefit",
-      "name": "Beneficio Café",
-      "settings": [
-        { "type": "text", "id": "title", "label": "Título" },
-        { "type": "textarea", "id": "text", "label": "Texto beneficio" }
+        {
+          "type": "text",
+          "id": "feature_name",
+          "label": "Nombre del Parámetro (ej: Energía)",
+          "default": "Parámetro"
+        },
+        {
+          "type": "text",
+          "id": "matcha_value",
+          "label": "Valor Edward Fields",
+          "default": "Valor Matcha"
+        },
+        {
+          "type": "text",
+          "id": "coffee_value",
+          "label": "Valor Café",
+          "default": "Valor Café"
+        }
       ]
     }
   ],
   "presets": [
-    { "name": "Copilot - Matcha vs Café", "category": "Matcha" }
+    {
+      "name": "Copilot - Tabla Matcha vs Café",
+      "blocks": [
+        {
+          "type": "row",
+          "settings": {
+            "feature_name": "Energía",
+            "matcha_value": "Sostenida 4–6h",
+            "coffee_value": "Pico y crash"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature_name": "Nerviosismo",
+            "matcha_value": "Ninguno",
+            "coffee_value": "Frecuente"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature_name": "Acidez estomacal",
+            "matcha_value": "No",
+            "coffee_value": "Sí, en muchos"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature_name": "Ingredientes",
+            "matcha_value": "Uno: matcha",
+            "coffee_value": "Variable"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature_name": "Foco mental",
+            "matcha_value": "L-teanina incluida",
+            "coffee_value": "Solo cafeína"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature_name": "Coste por taza",
+            "matcha_value": "≈ 1€",
+            "coffee_value": "1,20–2,50€"
+          }
+        },
+        {
+          "type": "row",
+          "settings": {
+            "feature_name": "Ritual",
+            "matcha_value": "Igual de fácil",
+            "coffee_value": "Igual de fácil"
+          }
+        }
+      ]
+    }
   ]
 }
 {% endschema %}
