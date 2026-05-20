@@ -1,0 +1,554 @@
+<section class="copilot-reviews section-{{ section.id }}-padding" id="copilot-reviews-{{ section.id }}">
+  <div class="copilot-reviews__container">
+    
+    <!-- Header Block -->
+    <div class="copilot-reviews__header">
+      
+      <!-- Judge.me / Trust Badge -->
+      {% if section.settings.show_badge %}
+        <div class="copilot-reviews__badge">
+          {% if section.settings.badge_logo != blank %}
+            {{ section.settings.badge_logo | image_url: width: 40 | image_tag: class: 'copilot-reviews__badge-logo', loading: 'lazy' }}
+          {% else %}
+            <!-- Default checkmark icon (like Judge.me reviews check) -->
+            <svg class="copilot-reviews__badge-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="20" height="20" rx="4" fill="#13C3B2"/>
+              <path d="M6 10L9 13L14 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          {% endif %}
+          
+          <div class="copilot-reviews__badge-stars">
+            {% for i in (1..5) %}
+              <svg class="copilot-reviews__badge-star" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/>
+              </svg>
+            {% endfor %}
+          </div>
+          
+          {% if section.settings.badge_text != blank %}
+            <span class="copilot-reviews__badge-text">{{ section.settings.badge_text }}</span>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <!-- Section Title -->
+      {% if section.settings.title != blank %}
+        <h2 class="copilot-reviews__title">{{ section.settings.title }}</h2>
+      {% endif %}
+
+      <!-- Section Subtitle -->
+      {% if section.settings.subtitle != blank %}
+        <p class="copilot-reviews__subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+      
+    </div>
+
+    <!-- Grid / Slider Area -->
+    <div class="copilot-reviews__grid-wrapper">
+      <div class="copilot-reviews__grid">
+        {% for block in section.blocks %}
+          <div class="copilot-reviews__card" {{ block.shopify_attributes }} data-index="{{ forloop.index0 }}">
+            <div class="copilot-reviews__card-inner">
+              
+              <!-- Stars Rating -->
+              <div class="copilot-reviews__stars">
+                {% assign rating = block.settings.rating %}
+                {% for i in (1..5) %}
+                  <svg class="copilot-reviews__star-icon {% if i <= rating %}is-filled{% else %}is-empty{% endif %}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" fill="currentColor" />
+                  </svg>
+                {% endfor %}
+              </div>
+
+              <!-- Quote Content -->
+              {% if block.settings.comment != blank %}
+                <blockquote class="copilot-reviews__quote">
+                  "{{ block.settings.comment }}"
+                </blockquote>
+              {% endif %}
+
+              <!-- Author / Client Name -->
+              {% if block.settings.author != blank %}
+                <cite class="copilot-reviews__author">— {{ block.settings.author }}</cite>
+              {% endif %}
+
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Mobile Pagination Bullets (Visible on mobile only) -->
+      {% if section.blocks.size > 1 %}
+        <div class="copilot-reviews__dots">
+          {% for block in section.blocks %}
+            <button type="button" class="copilot-reviews__dot {% if forloop.first %}is-active{% endif %}" aria-label="Ir al testimonio {{ forloop.index }}" data-slide-index="{{ forloop.index0 }}"></button>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* --- CUSTOMIZABLE COLORS & VARS (Modify in your stylesheet if needed) --- */
+  #copilot-reviews-{{ section.id }} {
+    --copilot-dot-bg: #B5C7BC;          /* Color de bullets inactivos */
+    --copilot-dot-active-bg: #213529;   /* Color de bullets activos */
+    --copilot-stars-color: #213529;     /* Color de estrellas llenas */
+    --copilot-stars-empty-color: #E0E7E2; /* Color de estrellas vacías */
+  }
+
+  /* --- LAYOUT & STRUCTURE --- */
+  .copilot-reviews {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .copilot-reviews__container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  /* Header Layout */
+  .copilot-reviews__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+  }
+
+  /* Trust Badge Layout */
+  .copilot-reviews__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+
+  .copilot-reviews__badge-logo,
+  .copilot-reviews__badge-icon {
+    flex-shrink: 0;
+    width: auto;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  .copilot-reviews__badge-stars {
+    display: flex;
+    gap: 2px;
+    color: var(--copilot-stars-color);
+  }
+
+  .copilot-reviews__badge-star {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+  }
+
+  .copilot-reviews__badge-text {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .copilot-reviews__title {
+    margin: 0 0 12px 0;
+  }
+
+  .copilot-reviews__subtitle {
+    margin: 0;
+    max-width: 500px;
+  }
+
+  /* Grid & Slider Area */
+  .copilot-reviews__grid-wrapper {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .copilot-reviews__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 24px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .copilot-reviews__card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .copilot-reviews__card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+
+  /* Stars Rating Layout */
+  .copilot-reviews__stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+
+  .copilot-reviews__star-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .copilot-reviews__star-icon.is-filled {
+    color: var(--copilot-stars-color);
+  }
+
+  .copilot-reviews__star-icon.is-empty {
+    color: var(--copilot-stars-empty-color);
+  }
+
+  /* Text & Quote Content Layout */
+  .copilot-reviews__quote {
+    margin: 0 0 16px 0;
+    padding: 0;
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  .copilot-reviews__author {
+    display: block;
+    font-style: normal;
+    margin-top: auto; /* Empuja el autor al final de la tarjeta flexible */
+  }
+
+  /* Dot Pagination (Mobile Only by default) */
+  .copilot-reviews__dots {
+    display: none;
+  }
+
+  /* Responsive Mobile Layout (Slider/Carousel) */
+  @media (max-width: 767px) {
+    .copilot-reviews__header {
+      margin-bottom: 28px;
+    }
+
+    .copilot-reviews__grid {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Oculta scrollbar en Firefox */
+      gap: 0;
+      margin: 0 -20px; /* Bleed out */
+      padding: 0 20px;
+      width: calc(100% + 40px);
+    }
+
+    .copilot-reviews__grid::-webkit-scrollbar {
+      display: none; /* Oculta scrollbar en Chrome/Safari */
+    }
+
+    .copilot-reviews__card {
+      flex: 0 0 100%;
+      width: 100%;
+      scroll-snap-align: center;
+      padding-right: 16px; /* Espaciado entre elementos */
+    }
+
+    .copilot-reviews__card:last-child {
+      padding-right: 20px; /* Espaciado final alineado */
+    }
+
+    .copilot-reviews__dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 32px;
+      height: 12px; /* Evita saltos de layout por altura variable */
+      box-sizing: border-box;
+    }
+
+    .copilot-reviews__dot {
+      border: none;
+      padding: 0;
+      margin: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 5px;
+      background-color: var(--copilot-dot-bg);
+      cursor: pointer;
+      outline: none;
+      flex-shrink: 0;
+      transition: background-color 0.35s ease, width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .copilot-reviews__dot.is-active {
+      width: 28px; /* Bullet en forma de píldora cuando está activo */
+      background-color: var(--copilot-dot-active-bg);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const grids = document.querySelectorAll('.copilot-reviews__grid');
+    
+    grids.forEach(grid => {
+      const parent = grid.closest('.copilot-reviews');
+      const dots = parent.querySelectorAll('.copilot-reviews__dot');
+      const cards = grid.querySelectorAll('.copilot-reviews__card');
+      
+      if (!dots.length || !cards.length) return;
+      
+      let isScrolling = false;
+      let ticking = false;
+
+      // 1. Efecto pegajoso/stretching dinámico de los bullets al deslizar en mobile
+      grid.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrollLeft = grid.scrollLeft;
+            const cardWidth = grid.clientWidth;
+            
+            if (cardWidth > 0) {
+              const progress = scrollLeft / cardWidth;
+              const maxIndex = dots.length - 1;
+              const boundedProgress = Math.max(0, Math.min(progress, maxIndex));
+              
+              const index = Math.floor(boundedProgress);
+              const percent = boundedProgress - index; // Proporción de transicion entre index e index+1
+
+              dots.forEach((dot, idx) => {
+                let dotWidth = 10;
+                let isCurrentActive = false;
+
+                if (idx === index) {
+                  // Achica el bullet actual de 28px a 10px a medida que desliza a la derecha
+                  dotWidth = 28 - (18 * percent);
+                  if (percent < 0.5) isCurrentActive = true;
+                } else if (idx === index + 1) {
+                  // Agranda el siguiente bullet de 10px a 28px a medida que desliza a él
+                  dotWidth = 10 + (18 * percent);
+                  if (percent >= 0.5) isCurrentActive = true;
+                }
+
+                dot.style.width = `${dotWidth}px`;
+
+                // Agrega/quita clase is-active en base a la proximidad
+                if (isCurrentActive) {
+                  dot.classList.add('is-active');
+                } else {
+                  dot.classList.remove('is-active');
+                }
+              });
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+
+      // 2. Observer de respaldo para garantizar estado activo correcto al detener el scroll
+      const observerOptions = {
+        root: grid,
+        threshold: 0.6
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const activeIndex = parseInt(entry.target.dataset.index, 10);
+            
+            // Solo actualizamos las clases si no estamos haciendo scroll activo (para evitar interferencias con el cálculo de scroll)
+            dots.forEach((dot, idx) => {
+              if (idx === activeIndex) {
+                dot.classList.add('is-active');
+                // Asegurar ancho base de activo si no se disparó el scroll exacto
+                dot.style.width = '28px';
+              } else {
+                dot.classList.remove('is-active');
+                dot.style.width = '10px';
+              }
+            });
+          }
+        });
+      }, observerOptions);
+      
+      cards.forEach(card => observer.observe(card));
+      
+      // 3. Soporte interactivo al hacer click en los bullets
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => {
+          const card = cards[idx];
+          if (card) {
+            const cardWidth = grid.clientWidth;
+            grid.scrollTo({
+              left: idx * cardWidth,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Copilot - Reseñas",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Cabecera de Reseñas"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Mostrar insignia de confianza (ej. Judge.me)",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "badge_logo",
+      "label": "Logo alternativo para insignia"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Texto de la insignia",
+      "default": "+2.200 clientes"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título de la sección",
+      "default": "Gente real, resultados reales"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Personas que encontraron en Edward Fields la energía que buscaban, y lo contaron."
+    },
+    {
+      "type": "header",
+      "content": "Diseño y Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado superior (Padding Top)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaciado inferior (Padding Bottom)",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Reseña",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Calificación (Estrellas)",
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "comment",
+          "label": "Comentario / Reseña",
+          "default": "Nunca había probado otro matcha que no fuera el de la cafetería de debajo de mi casa. Ahora me lo hago en casa con este de Edward y es una maravilla."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Autor",
+          "default": "Camilo R."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot - Reseñas",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "author": "Camilo R.",
+            "comment": "Nunca había probado otro matcha que no fuera el de la cafetería de debajo de mi casa. Ahora me lo hago en casa con este de Edward y es una maravilla."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author": "Silvia",
+            "comment": "Tiene un poder energizante que para mí está en su justa medida. Un desayuno maravillosamente placentero."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author": "Nico S.",
+            "comment": "El sabor espectacular, me gusta tomarlo por la mañana, me da energía. Textura suave y cremosa, sabor delicado y refrescante."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author": "J.M.",
+            "comment": "El aroma es muy relajante pero a la vez me siento mucho más activa desde que lo tomo."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author": "Maite",
+            "comment": "Sabor increíble. Me lo llevo al trabajo en un termo frío y lo voy tomando durante la mañana."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "author": "Niara G.",
+            "comment": "Además de riquísimo sienta fenomenal, porque es energizante pero no te pone nerviosa, sino que mantienes la atención y concentración estable."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
