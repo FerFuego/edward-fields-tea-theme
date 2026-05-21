@@ -79,9 +79,6 @@
   }
 
   .product-card__image {
-    {% comment %} max-width: 160px;
-    max-height: 160px; 
-    object-fit: contain;{% endcomment %}
     display: block;
     position: absolute;
   }
@@ -218,18 +215,22 @@
   /* ── RESPONSIVE (mobile) ── */
   @media (max-width: 768px) {
     .encuentra-section {
-      padding: 48px 16px;
+      padding: 0px 16px 40px;
     }
 
     .encuentra-section__title {
-      font-size: 36px;
-      line-height: 38px;
+      font-size: 32px;
+      line-height: 34px;
     }
 
     .encuentra-section__grid {
       flex-direction: column;
       align-items: center;
       gap: 20px;
+      margin: 0 0 20px 0;
+    }
+    .encuentra-section__header {
+      margin-bottom: 40px;
     }
 
     .product-card {
@@ -238,28 +239,46 @@
       min-height: unset;
       flex-direction: row;
       align-items: center;
-      padding: 24px 20px;
+      padding: 5px;
+      position: relative;
       gap: 16px;
+    }
+
+    .product-card:first-child img {
+      height: 200px !important;
+      top: -32px;
+      left: -30px;
     }
 
     .product-card__image-wrap {
       min-width: 100px;
       max-width: 110px;
-      min-height: unset;
+      min-height: stretch;
       margin-bottom: 0;
       flex-shrink: 0;
     }
 
+    .product-card__badge--alt {
+      display: none;
+    }
+
     .product-card__image {
-      max-width: 100px;
-      max-height: 100px;
+      max-width: none !important;
+      height: 160px !important;
+      margin: 0 auto !important;
+      width: auto !important;
+      position: absolute;
+      left: -16px;
     }
 
     .product-card__content {
-      display: flex;
-      flex-direction: column;
+      display: flex !important;
+      flex-direction: column !important;
       align-items: flex-start;
+      border: 0;
+      padding: 0;
       flex: 1;
+      max-width: 200px;
     }
 
     .product-card__badge {
@@ -271,16 +290,19 @@
     .product-card__price,
     .product-card__price-note {
       text-align: left;
+      margin-bottom: 0 !important;
     }
 
     .product-card__description {
+      font-size: 14px !important;
+      line-height: 16px !important;
       margin-bottom: 8px;
     }
 
     .product-card__cta {
       width: 100%;
-      max-width: 220px;
-      height: 48px;
+      max-width: 190px;
+      height: 40px;
       font-size: 15px;
       margin-top: 12px;
     }

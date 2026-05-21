@@ -150,82 +150,139 @@
   }
   @media screen and (max-width: 680px) {
     .el-title-{{ section.id }} { font-size: 36px; line-height: 38px; }
-    .el-inner-{{ section.id }} { padding: 48px 24px; }
-    .el-card-{{ section.id }} { width: 200px; }
+    .el-inner-{{ section.id }} { padding: 48px 24px 36px; }
+
+    /* ── Slider mobile ── */
+    .el-cards-{{ section.id }} {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      gap: 0;
+      padding-bottom: 4px;
+      justify-content: flex-start;
+    }
+    .el-cards-{{ section.id }}::-webkit-scrollbar { display: none; }
+    .el-card-{{ section.id }} {
+      flex: 0 0 100%;
+      width: 100%;
+      scroll-snap-align: center;
+      height: auto;
+      min-height: 280px;
+    }
+
+    /* ── Bullets pegajosos ── */
+    .el-bullets-{{ section.id }} {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 20px;
+    }
+    .el-bullet-{{ section.id }} {
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.35);
+      transition: width 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  background 0.35s ease;
+      width: 6px;
+      cursor: pointer;
+    }
+    .el-bullet-{{ section.id }}.is-active {
+      width: 24px;
+      background: rgba(255,255,255,0.95);
+    }
   }
 </style>
 
 <section class="el-section-{{ section.id }}">
   <div class="el-outer-{{ section.id }}" id="el-module-{{ section.id }}">
     <div class="el-inner-{{ section.id }}">
-
       <div class="el-titles-{{ section.id }}">
         <p class="el-title-{{ section.id }}">{{ section.settings.titulo }}</p>
         <p class="el-subtitle-{{ section.id }}">{{ section.settings.subtitulo }}</p>
       </div>
 
       <div class="el-cards-{{ section.id }}">
-
         {% for block in section.blocks %}
           {% assign block_id = block.id | replace: '-', '' %}
           <div class="el-card-{{ section.id }}" {{ block.shopify_attributes }}>
             <div class="el-circle-wrap-{{ section.id }}">
-                <canvas class="el-canvas-{{ section.id }}"
-                    width="160" height="160"
+              <canvas
+                class="el-canvas-{{ section.id }}"
+                width="160"
+                height="160"
+                data-target="{{ block.settings.valor }}"
+                data-maxval="{{ block.settings.valor_maximo }}"
+              >
+              </canvas>
+              <div class="el-num-wrap-{{ section.id }}">
+                {% if block.settings.tipo == 'multiplier' %}
+                  <span class="el-percent-{{ section.id }}" style="font-size:32px;align-self:center;margin-right:2px"
+                    >x</span
+                  >
+                  <span
+                    class="el-number-{{ section.id }} el-counter-{{ section.id }}"
                     data-target="{{ block.settings.valor }}"
-                    data-maxval="{{ block.settings.valor_maximo }}">
-                </canvas>
-                <div class="el-num-wrap-{{ section.id }}">
-                    {% if block.settings.tipo == 'multiplier' %}
-                    <span class="el-percent-{{ section.id }}" style="font-size:32px;align-self:center;margin-right:2px">x</span>
-                    <span class="el-number-{{ section.id }} el-counter-{{ section.id }}" data-target="{{ block.settings.valor }}">0</span>
-                    {% else %}
-                    <span class="el-number-{{ section.id }} el-counter-{{ section.id }}" data-target="{{ block.settings.valor }}">0</span>
-                    <span class="el-percent-{{ section.id }}">%</span>
-                    {% endif %}
-                </div>
+                    >0</span
+                  >
+                {% else %}
+                  <span
+                    class="el-number-{{ section.id }} el-counter-{{ section.id }}"
+                    data-target="{{ block.settings.valor }}"
+                    >0</span
+                  >
+                  <span class="el-percent-{{ section.id }}">%</span>
+                {% endif %}
+              </div>
             </div>
             <p class="el-text-{{ section.id }}">{{ block.settings.texto }}</p>
           </div>
         {% endfor %}
-
       </div>
+
+      <div class="el-bullets-{{ section.id }}" id="el-bullets-{{ section.id }}"></div>
     </div>
   </div>
 </section>
 
 <script>
-    (function(){
+  (function () {
     var sid = '{{ section.id }}';
     var module = document.getElementById('el-module-' + sid);
-    if(!module) return;
+    if (!module) return;
 
     var TOTAL_TICKS = 72;
     var TICK_LONG = 8;
     var TICK_SHORT = 8;
     var TICK_WIDTH = 2.2;
     var RADIUS = 68;
-    var CX = 80, CY = 80;
+    var CX = 80,
+      CY = 80;
     var DURATION = 2000;
     var animated = false;
 
-    function easeOutCubic(t){ return 1 - Math.pow(1-t,3); }
+    function easeOutCubic(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
 
-    function drawTicks(canvas, fillRatio){
-        var dpr = window.devicePixelRatio || 1;
-        var size = 160;
-        canvas.width = size * dpr;
-        canvas.height = size * dpr;
-        canvas.style.width = size + 'px';
-        canvas.style.height = size + 'px';
-        var ctx = canvas.getContext('2d');
-        ctx.scale(dpr, dpr);
-        ctx.clearRect(0, 0, size, size);
-        var ticksToFill = Math.round(fillRatio * TOTAL_TICKS);
-        for(var i = 0; i < TOTAL_TICKS; i++){
+    function drawTicks(canvas, fillRatio) {
+      var dpr = window.devicePixelRatio || 1;
+      var size = 160;
+      canvas.width = size * dpr;
+      canvas.height = size * dpr;
+      canvas.style.width = size + 'px';
+      canvas.style.height = size + 'px';
+      var ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+      ctx.clearRect(0, 0, size, size);
+      var ticksToFill = Math.round(fillRatio * TOTAL_TICKS);
+      for (var i = 0; i < TOTAL_TICKS; i++) {
         var angleDeg = (360 / TOTAL_TICKS) * i - 90;
-        var angleRad = angleDeg * Math.PI / 180;
-        var tickLen = (i % 3 === 0) ? TICK_LONG : TICK_SHORT;
+        var angleRad = (angleDeg * Math.PI) / 180;
+        var tickLen = i % 3 === 0 ? TICK_LONG : TICK_SHORT;
         var x1 = CX + (RADIUS - tickLen) * Math.cos(angleRad);
         var y1 = CY + (RADIUS - tickLen) * Math.sin(angleRad);
         var x2 = CX + RADIUS * Math.cos(angleRad);
@@ -233,55 +290,136 @@
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
-        ctx.strokeStyle = (i < ticksToFill) ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.18)';
+        ctx.strokeStyle = i < ticksToFill ? 'rgba(255,255,255,0.90)' : 'rgba(255,255,255,0.18)';
         ctx.lineWidth = TICK_WIDTH;
         ctx.lineCap = 'round';
         ctx.stroke();
-        }
+      }
     }
 
-    function animateAll(){
-        if(animated) return;
-        animated = true;
+    function animateAll() {
+      if (animated) return;
+      animated = true;
 
-        var canvases = module.querySelectorAll('.el-canvas-' + sid);
-        var counters = module.querySelectorAll('.el-counter-' + sid);
-        var start = performance.now();
+      var canvases = module.querySelectorAll('.el-canvas-' + sid);
+      var counters = module.querySelectorAll('.el-counter-' + sid);
+      var start = performance.now();
 
-        canvases.forEach(function(canvas){
+      canvases.forEach(function (canvas) {
         drawTicks(canvas, 0);
-        });
+      });
 
-        function tick(now){
+      function tick(now) {
         var elapsed = now - start;
         var raw = Math.min(elapsed / DURATION, 1);
         var ease = easeOutCubic(raw);
 
-        canvases.forEach(function(canvas){
-            var target = parseInt(canvas.dataset.target);
-            var maxVal = parseInt(canvas.dataset.maxval) || 100;
-            drawTicks(canvas, ease * (target / maxVal));
+        canvases.forEach(function (canvas) {
+          var target = parseInt(canvas.dataset.target);
+          var maxVal = parseInt(canvas.dataset.maxval) || 100;
+          drawTicks(canvas, ease * (target / maxVal));
         });
 
-        counters.forEach(function(el){
-            el.textContent = Math.round(ease * parseInt(el.dataset.target));
+        counters.forEach(function (el) {
+          el.textContent = Math.round(ease * parseInt(el.dataset.target));
         });
 
-        if(raw < 1) requestAnimationFrame(tick);
-        }
+        if (raw < 1) requestAnimationFrame(tick);
+      }
 
-        requestAnimationFrame(tick);
+      requestAnimationFrame(tick);
     }
 
-    if('IntersectionObserver' in window){
-        var observer = new IntersectionObserver(function(entries){
-        if(entries[0].isIntersecting){ animateAll(); observer.disconnect(); }
-        }, { threshold: 0.3 });
-        observer.observe(module);
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(
+        function (entries) {
+          if (entries[0].isIntersecting) {
+            animateAll();
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.3 }
+      );
+      observer.observe(module);
     } else {
-        animateAll();
+      animateAll();
     }
+
+    // ── Slider mobile + bullets pegajosos ──
+    (function () {
+      var slider = module.querySelector('.el-cards-' + sid);
+      var bulletsWrap = document.getElementById('el-bullets-' + sid);
+      if (!slider || !bulletsWrap) return;
+
+      var cards = slider.querySelectorAll('.el-card-' + sid);
+      var total = cards.length;
+      if (total <= 1) return;
+
+      // Solo activar en mobile
+      function isMobile() {
+        return window.innerWidth <= 680;
+      }
+
+      var dots = [];
+      var currentIndex = 0;
+
+      function buildBullets() {
+        bulletsWrap.innerHTML = '';
+        dots = [];
+        for (var i = 0; i < total; i++) {
+          var dot = document.createElement('button');
+          dot.className = 'el-bullet-' + sid;
+          dot.setAttribute('aria-label', 'Ir a tarjeta ' + (i + 1));
+          dot.dataset.idx = i;
+          (function (idx) {
+            dot.addEventListener('click', function () {
+              goTo(idx);
+            });
+          })(i);
+          bulletsWrap.appendChild(dot);
+          dots.push(dot);
+        }
+        updateBullets(0);
+      }
+
+      function updateBullets(idx) {
+        currentIndex = idx;
+        dots.forEach(function (d, i) {
+          d.classList.toggle('is-active', i === idx);
+        });
+      }
+
+      function goTo(idx) {
+        var cardWidth = cards[0].getBoundingClientRect().width;
+        slider.scrollTo({ left: cardWidth * idx, behavior: 'smooth' });
+      }
+
+      function onScroll() {
+        var cardWidth = cards[0].getBoundingClientRect().width || slider.offsetWidth;
+        var idx = Math.round(slider.scrollLeft / cardWidth);
+        idx = Math.max(0, Math.min(idx, total - 1));
+        if (idx !== currentIndex) updateBullets(idx);
+      }
+
+      function setup() {
+        if (isMobile()) {
+          bulletsWrap.style.display = 'flex';
+          buildBullets();
+          slider.addEventListener('scroll', onScroll, { passive: true });
+        } else {
+          bulletsWrap.style.display = 'none';
+        }
+      }
+
+      setup();
+
+      var resizeTimer;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(setup, 150);
+      });
     })();
+  })();
 </script>
 
 {% schema %}

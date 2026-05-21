@@ -560,6 +560,97 @@
         "gap": "40px",
         "custom_class": "class"
       }
+    },
+    "copilot_matcha_vs_cafe_pfGFKQ": {
+      "type": "copilot-matcha-vs-cafe",
+      "blocks": {
+        "row_UJ7JEV": {
+          "type": "row",
+          "settings": {
+            "feature_name": "",
+            "matcha_value": "EDUAR FIELDS",
+            "coffee_value": "CAFÉ"
+          }
+        },
+        "row_9KA9j8": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Energía",
+            "matcha_value": "Sostenida 4–6h",
+            "coffee_value": "Pico y crash"
+          }
+        },
+        "row_PgxpUC": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Nerviosismo",
+            "matcha_value": "Ninguno",
+            "coffee_value": "Frecuente"
+          }
+        },
+        "row_jYcdkY": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Acidez estomacal",
+            "matcha_value": "No",
+            "coffee_value": "Sí, en muchos"
+          }
+        },
+        "row_9VyTcL": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Ingredientes",
+            "matcha_value": "Uno: matcha",
+            "coffee_value": "Variable"
+          }
+        },
+        "row_eMfKXq": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Foco mental",
+            "matcha_value": "L-teanina incluida",
+            "coffee_value": "Solo cafeína"
+          }
+        },
+        "row_idVUGm": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Coste por taza",
+            "matcha_value": "≈ 1€",
+            "coffee_value": "1,20–2,50€"
+          }
+        },
+        "row_Q8AdkV": {
+          "type": "row",
+          "settings": {
+            "feature_name": "Ritual",
+            "matcha_value": "Igual de fácil",
+            "coffee_value": "Igual de fácil"
+          }
+        }
+      },
+      "block_order": [
+        "row_UJ7JEV",
+        "row_9KA9j8",
+        "row_PgxpUC",
+        "row_jYcdkY",
+        "row_9VyTcL",
+        "row_eMfKXq",
+        "row_idVUGm",
+        "row_Q8AdkV"
+      ],
+      "name": "Copilot - Tabla Matcha vs Café",
+      "settings": {
+        "title": "Edward Fields vs el café",
+        "subtitle": "",
+        "footer_text": "No te pedimos que lo dejes. Solo que pruebes las mañanas con algo distinto.",
+        "matcha_label": "",
+        "matcha_img": "shopify://shop_images/hf_20260513_133915_29e98096-c0dd-4624-8306-c1bb5ec3d402_2.png",
+        "coffee_label": "",
+        "cafe_img": "shopify://shop_images/ChatGPT_Image_13_may_2026_16_35_34_1.png",
+        "padding_top": 100,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
@@ -571,6 +662,7 @@
     "copilot_magic_matcha_DFU4JX",
     "copilot_reviews_X9CLnA",
     "copilot_people_MJyynV",
-    "copilot_flex_layout_wjrmHf"
+    "copilot_flex_layout_wjrmHf",
+    "copilot_matcha_vs_cafe_pfGFKQ"
   ]
 }

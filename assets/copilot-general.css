@@ -461,11 +461,13 @@ body.copilot-product {
 
 @media (max-width: 768px) {
     .copilot-hero-banner {
-        height: 700px;
+        height: 600px;
     }
 
     .copilot-hero-banner .banner__content {
+        background-color: rgba(0, 0, 0, .2);
         align-items: center;
+        padding-top: 100px;
     }
 
     .copilot-hero-banner picture {
@@ -473,8 +475,8 @@ body.copilot-product {
     }
 
     .copilot-hero-banner .banner__heading * {
-        font-size: 40px;
-        line-height: 42px;
+        font-size: 60px;
+        line-height: 60px;
         text-align: center;
     }
 
@@ -483,6 +485,7 @@ body.copilot-product {
     }
 
     .copilot-hero-banner .banner__box {
+        align-items: center;
         padding: 40px 20px !important;
         max-width: 100%;
         text-align: left;
@@ -494,7 +497,8 @@ body.copilot-product {
     }
 
     .copilot-hero-banner .banner__text {
-        line-height: 24px;
+        font-size: 20px;
+        line-height: 22px;
         margin: 10px 0 20px !important;
         text-align: center;
         color: var(--color-white);
@@ -586,8 +590,8 @@ body.copilot-product {
 
 @media (max-width: 420px) {
     .copilot-hero-banner .banner__heading * {
-        font-size: 33px;
-        line-height: 36px;
+        font-size: 50px;
+        line-height: 50px;
     }
 }
 
