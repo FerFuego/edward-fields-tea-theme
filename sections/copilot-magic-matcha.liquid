@@ -1,5 +1,7 @@
 <section class="magic-matcha">
   <div class="magic-matcha__container">
+    <img class="capsulas_1" src="https://cdn.shopify.com/s/files/1/0330/5737/4344/files/capsulas-1.webp?v=1779454445" height="92" width="113" alt="capsulas-1">
+    <img class="capsulas_2" src="https://cdn.shopify.com/s/files/1/0330/5737/4344/files/capsulas-21.webp?v=1779454962" height="105" width="120" alt="capsulas-2">
     <div class="magic-matcha__content">
       {% if section.settings.title != blank %}
         <h2 class="magic-matcha__title">{{ section.settings.title }}</h2>
@@ -171,6 +173,11 @@
     border-color: #125e37;
   }
 
+  .capsulas_1,
+  .capsulas_2 {
+    display: none;
+  }
+
   /* Mobile Responsive */
   @media (max-width: 768px) {
     .magic-matcha {
@@ -180,12 +187,17 @@
       {% if section.settings.bg_image_mobile != blank %}
         background-image: url('{{ section.settings.bg_image_mobile | image_url: width: 768 }}');
       {% endif %}
+      background-color: #eae5d9;
+      background-size: contain;
+      background-position: center bottom;
       padding: 50px 50px 294px;
+      position: relative;
       justify-content: center;
       border-radius: 0;
     }
     .magic-matcha__content {
       margin: 0;
+      position: relative;
     }
     .magic-matcha__title {
       font-size: 32px !important;
@@ -200,7 +212,13 @@
       flex-direction: column;
       gap: 15px;
     }
-
+    .capsulas_1,
+    .capsulas_2 {
+      display: block;
+      position: absolute;
+    }
+    .capsulas_1 { top: 184px; left: 0px; }
+    .capsulas_2 { top: 437px; right: -5px; }
     .magic-matcha__cta {
       width: 100%;
       max-width: 279px;

@@ -329,6 +329,7 @@
       "name": "Copilot - Magia Matcha",
       "settings": {
         "bg_image_desktop": "shopify://shop_images/hf_20260513_133613_7d6816cf-b269-4e2e-b3fe-30ec7288b1f3_1.webp",
+        "bg_image_mobile": "shopify://shop_images/bg-magia-mobile.webp",
         "title": "No es magia. Es matcha.",
         "subtitle": "Tres ingredientes naturales que trabajan juntos para que te sientas mejor que con el café.",
         "button_text": "Descubrir nuestros productos",
