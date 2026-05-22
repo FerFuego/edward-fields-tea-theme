@@ -173,22 +173,32 @@
 
   /* Mobile Responsive */
   @media (max-width: 768px) {
+    .magic-matcha {
+      padding: 0; 
+    }
     .magic-matcha__container {
       {% if section.settings.bg_image_mobile != blank %}
         background-image: url('{{ section.settings.bg_image_mobile | image_url: width: 768 }}');
       {% endif %}
-      padding: 60px 20px;
+      padding: 50px 50px 294px;
       justify-content: center;
+      border-radius: 0;
     }
-
+    .magic-matcha__content {
+      margin: 0;
+    }
     .magic-matcha__title {
-      font-size: 36px;
-      line-height: 40px;
+      font-size: 32px !important;
+      line-height: 34px;
+      max-width: 200px;
+      margin-bottom: 15px;
     }
-
+    .magic-matcha__feature-icon {
+      margin-bottom: 10px;
+    }
     .magic-matcha__features {
       flex-direction: column;
-      gap: 40px;
+      gap: 15px;
     }
 
     .magic-matcha__cta {

@@ -51,7 +51,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 24px;
+    border-radius: 20px;
   }
 
   .copilot-video-card__play {
@@ -68,9 +68,7 @@
     font-size: 22px;
     cursor: pointer;
   }
-  .js-video-slider .slick-track {
-    display: flex;
-  }
+
   .copilot-video-card__inner {
     position: relative;
     height: 528px;
@@ -108,6 +106,7 @@
   }
   .copilot-video-card__poster {
     position: absolute;
+    border-radius: 20px;
   }
   .copilot-video-card__video-content {
     position: absolute;
@@ -142,27 +141,61 @@
   @media (max-width: 768px) {
     .copilot-video-stories {
       padding: 40px 0px;
-    }
-    .copilot-video-stories__grid {
-      display: block;
-    }
-
-    .js-video-slider .slick-slide {
-      padding: 0 12px;
-    }
-
-    .js-video-slider .slick-dots {
-      margin-top: 20px;
-    }
-
-    .js-video-slider .slick-dots li button:before {
-      font-size: 10px;
-      color: #a25157;
+      margin: 0;
     }
     .copilot-video-stories__title {
       font-size: 25px !important;
       line-height: 30px !important;
       margin-bottom: 20px;
+    }
+    .copilot-video-card__inner {
+      margin: 0 auto;
+      height: 430px;
+      width: 305px;
+    }
+    /* — Slider nativo — */
+    .js-video-slider {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      gap: 0;
+      padding-bottom: 4px;
+    }
+    .js-video-slider::-webkit-scrollbar { display: none; }
+    .js-video-slider .copilot-video-card {
+      flex: 0 0 100%;
+      width: 100%;
+      scroll-snap-align: center;
+      padding: 0 16px;
+      box-sizing: border-box;
+    }
+
+    /* — Bullets pegajosos — */
+    .js-video-bullets {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 20px;
+    }
+    .js-video-bullet {
+      height: 6px;
+      width: 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.35);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition:
+        width 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+        background 0.35s ease;
+    }
+    .js-video-bullet.is-active {
+      width: 24px;
+      background: rgba(255,255,255,0.95);
     }
   }
 {% endstyle %}
@@ -212,6 +245,7 @@
         </div>
       {% endfor %}
     </div>
+    <div class="js-video-bullets" id="js-video-bullets-{{ section.id }}" style="display:none;"></div>
   </div>
 </section>
 
@@ -300,32 +334,77 @@
   });
 
   document.addEventListener('DOMContentLoaded', function () {
-    const slider = document.querySelector('.js-video-slider');
-    if (!slider || typeof $ === 'undefined' || !$.fn.slick) return;
+    var slider = document.querySelector('.js-video-slider');
+    var bulletsWrap = document.querySelector('.js-video-bullets');
+    if (!slider || !bulletsWrap) return;
 
-    function initVideoSlider() {
-      if (window.innerWidth <= 768) {
-        if (!$(slider).hasClass('slick-initialized')) {
-          $(slider).slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true,
-            centerMode: true,
-            centerPadding: '60px',
-            arrows: false,
-            dots: true,
-            adaptiveHeight: false,
-          });
+    var cards = slider.querySelectorAll('.copilot-video-card');
+    var total = cards.length;
+    var dots = [];
+    var currentIndex = 0;
+    var scrollListener = null;
+
+    function isMobile() { return window.innerWidth <= 768; }
+
+    function buildBullets() {
+      bulletsWrap.innerHTML = '';
+      dots = [];
+      for (var i = 0; i < total; i++) {
+        var dot = document.createElement('button');
+        dot.className = 'js-video-bullet';
+        dot.setAttribute('aria-label', 'Ir a video ' + (i + 1));
+        (function (idx) {
+          dot.addEventListener('click', function () { goTo(idx); });
+        })(i);
+        bulletsWrap.appendChild(dot);
+        dots.push(dot);
+      }
+      updateBullets(0);
+    }
+
+    function updateBullets(idx) {
+      currentIndex = idx;
+      dots.forEach(function (d, i) {
+        d.classList.toggle('is-active', i === idx);
+      });
+    }
+
+    function goTo(idx) {
+      var cardWidth = cards[0].getBoundingClientRect().width;
+      slider.scrollTo({ left: cardWidth * idx, behavior: 'smooth' });
+    }
+
+    function onScroll() {
+      var cardWidth = cards[0].getBoundingClientRect().width || slider.offsetWidth;
+      var idx = Math.round(slider.scrollLeft / cardWidth);
+      idx = Math.max(0, Math.min(idx, total - 1));
+      if (idx !== currentIndex) updateBullets(idx);
+    }
+
+    function setup() {
+      if (isMobile() && total > 1) {
+        bulletsWrap.style.display = 'flex';
+        buildBullets();
+        if (!scrollListener) {
+          scrollListener = onScroll;
+          slider.addEventListener('scroll', scrollListener, { passive: true });
         }
       } else {
-        if ($(slider).hasClass('slick-initialized')) {
-          $(slider).slick('unslick');
+        bulletsWrap.style.display = 'none';
+        if (scrollListener) {
+          slider.removeEventListener('scroll', scrollListener);
+          scrollListener = null;
         }
       }
     }
 
-    initVideoSlider();
-    window.addEventListener('resize', initVideoSlider);
+    setup();
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(setup, 150);
+    });
   });
 {% endjavascript %}
 
