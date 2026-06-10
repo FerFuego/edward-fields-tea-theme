@@ -2199,9 +2199,9 @@ body.copilot-product {
     gap: 0;
 }
 
-.footer__content-bottom {
+/* .footer__content-bottom {
     display: none;
-}
+} */
 
 .footer-block__heading {
     font-family: var(--fuente-terciaria) !important;
