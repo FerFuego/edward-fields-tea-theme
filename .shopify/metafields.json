@@ -10,59 +10,39 @@
   "page": [],
   "product": [
     {
-      "key": "related_products",
-      "namespace": "shopify--discovery--product_recommendation",
-      "name": "Productos relacionados",
-      "description": "Lista de productos relacionados",
+      "key": "color-pattern",
+      "namespace": "shopify",
+      "name": "Color",
+      "description": "Define el patrón o color primario, como las rayas o el azul.",
       "type": {
-        "name": "list.product_reference",
+        "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
     },
     {
-      "key": "related_products_display",
-      "namespace": "shopify--discovery--product_recommendation",
-      "name": "Configuración de productos relacionados",
-      "description": "Determina cómo se muestran los productos relacionados junto con las recomendaciones de producto generadas por algoritmos",
+      "key": "material",
+      "namespace": "shopify",
+      "name": "Material",
+      "description": "Define el material primario de un producto, como el algodón o la lana.",
       "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "complementary_products",
-      "namespace": "shopify--discovery--product_recommendation",
-      "name": "Productos complementarios",
-      "description": "Lista de productos complementarios",
-      "type": {
-        "name": "list.product_reference",
+        "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
     },
     {
-      "key": "queries",
-      "namespace": "shopify--discovery--product_search_boost",
-      "name": "Impulsos de productos en la búsqueda",
-      "description": "Lista de consultas de búsqueda para las que un producto obtiene una posición más alta en los resultados",
+      "key": "age-group",
+      "namespace": "shopify",
+      "name": "Grupo de edad",
+      "description": "Define el rango de edad objetivo de un producto, como los adultos o los niños.",
       "type": {
-        "name": "list.single_line_text_field",
-        "category": "TEXT"
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
       }
     },
     {
-      "key": "ingredientes",
+      "key": "compra_minima",
       "namespace": "custom",
-      "name": "Ingredientes",
-      "description": "",
-      "type": {
-        "name": "list.single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "t_decaf",
-      "namespace": "custom",
-      "name": "Decaf",
+      "name": "Compra minima",
       "description": "",
       "type": {
         "name": "single_line_text_field",
@@ -70,12 +50,32 @@
       }
     },
     {
-      "key": "beneficios",
+      "key": "material",
       "namespace": "custom",
-      "name": "Beneficios",
+      "name": "Material",
       "description": "",
       "type": {
-        "name": "list.single_line_text_field",
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "referencia",
+      "namespace": "custom",
+      "name": "Referencia",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "informacion_adicional",
+      "namespace": "custom",
+      "name": "Información adicional",
+      "description": "",
+      "type": {
+        "name": "single_line_text_field",
         "category": "TEXT"
       }
     },
@@ -90,90 +90,70 @@
       }
     },
     {
-      "key": "ecol_gico",
-      "namespace": "custom",
-      "name": "Ecológico",
-      "description": "Ecológico",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "calidad",
-      "namespace": "custom",
-      "name": "Calidad",
-      "description": "Calidad del Matcha",
-      "type": {
-        "name": "single_line_text_field",
-        "category": "TEXT"
-      }
-    },
-    {
-      "key": "rating",
-      "namespace": "reviews",
-      "name": "Calificación del producto",
-      "description": "Calificación media de clientes",
-      "type": {
-        "name": "rating",
-        "category": "RATING"
-      }
-    },
-    {
-      "key": "rating_count",
-      "namespace": "reviews",
-      "name": "Número de calificaciones del producto",
-      "description": "Número total de calificaciones de clientes",
-      "type": {
-        "name": "number_integer",
-        "category": "NUMBER"
-      }
-    },
-    {
-      "key": "dietary-preferences",
+      "key": "accessory-size",
       "namespace": "shopify",
-      "name": "Preferencias alimentarias",
-      "description": "Ayuda a identificar productos adecuados para dietas específicas, por ejemplo, veganas y sin frutos secos.",
+      "name": "Tamaño de accesorio",
+      "description": "Define el tamaño de un producto accesorio, como de talla única o compacto.",
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
     },
     {
-      "key": "flavor",
+      "key": "target-gender",
       "namespace": "shopify",
-      "name": "Sabor",
-      "description": "Especifica el sabor o la nota de un producto, por ejemplo, vainilla o menta.",
+      "name": "Sexo objetivo",
+      "description": "Identifica el sexo al que va destinado un producto, como femenino, masculino o unisex.",
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
     },
     {
-      "key": "tea-input-type",
+      "key": "tote-handle-type",
       "namespace": "shopify",
-      "name": "Tipo de entrada de té",
-      "description": "Especifica el estilo de preparación del té, por ejemplo, en bolsas o cápsulas K-cup.",
+      "name": "Tipo de asa de bolso de tela",
+      "description": "Identifica el estilo de las asas de un bolso de mano, como cortas o largas.",
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
     },
     {
-      "key": "allergen-information",
+      "key": "carry-options",
       "namespace": "shopify",
-      "name": "Información sobre alérgenos",
-      "description": "Indica posibles alérgenos presentes en alimentos o bebidas, como el trigo o el maní.",
+      "name": "Opciones de transporte",
+      "description": "Especifica los métodos de transporte disponibles para los artículos, como un asa o una correa de hombro.",
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
       }
     },
     {
-      "key": "dietary-supplements",
+      "key": "bag-case-material",
       "namespace": "shopify",
-      "name": "Suplementos dietéticos",
-      "description": "Identifica los nutrientes agregados de un producto, como el calcio o los probióticos.",
+      "name": "Material de la bolsa/caja",
+      "description": "Identifica el material principal utilizado en un bolso o maletín, como el cuero o la lona.",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "bag-case-features",
+      "namespace": "shopify",
+      "name": "Características de la bolsa/caja",
+      "description": "Describe las características únicas de un bolso o maletín, como la impermeabilidad o la ligereza.",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "bag-case-storage-features",
+      "namespace": "shopify",
+      "name": "Características de almacenamiento de la bolsa/caja",
+      "description": "Identifica elementos de almacenamiento únicos en bolsas o cajas, como divisores regulables o bolsillos externos",
       "type": {
         "name": "list.metaobject_reference",
         "category": "REFERENCE"
@@ -185,7 +165,7 @@
       "key": "custom_label_4",
       "namespace": "mm-google-shopping",
       "name": "Google: Custom Label 4",
-      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns",
+      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
       "type": {
         "name": "single_line_text_field",
         "category": "TEXT"
@@ -195,7 +175,7 @@
       "key": "custom_label_3",
       "namespace": "mm-google-shopping",
       "name": "Google: Custom Label 3",
-      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns",
+      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
       "type": {
         "name": "single_line_text_field",
         "category": "TEXT"
@@ -205,7 +185,7 @@
       "key": "custom_label_2",
       "namespace": "mm-google-shopping",
       "name": "Google: Custom Label 2",
-      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns",
+      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
       "type": {
         "name": "single_line_text_field",
         "category": "TEXT"
@@ -215,7 +195,7 @@
       "key": "custom_label_1",
       "namespace": "mm-google-shopping",
       "name": "Google: Custom Label 1",
-      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns",
+      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
       "type": {
         "name": "single_line_text_field",
         "category": "TEXT"
@@ -225,7 +205,7 @@
       "key": "custom_label_0",
       "namespace": "mm-google-shopping",
       "name": "Google: Custom Label 0",
-      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns",
+      "description": "Label that you assign to a product to help organize bidding and reporting in Shopping campaigns.",
       "type": {
         "name": "single_line_text_field",
         "category": "TEXT"
@@ -292,5 +272,26 @@
       }
     }
   ],
-  "shop": []
+  "shop": [
+    {
+      "key": "merchant_id",
+      "namespace": "mm_google_shopping_extension",
+      "name": "Google: Merchant ID",
+      "description": "Currently Linked Merchant Center ID",
+      "type": {
+        "name": "single_line_text_field",
+        "category": "TEXT"
+      }
+    },
+    {
+      "key": "show_store_widget_app_embed_block",
+      "namespace": "mm_google_shopping_extension",
+      "name": "Google: Show Store Widget App Embed Block",
+      "description": "Indicates if the store widget app embed block should be shown.",
+      "type": {
+        "name": "boolean",
+        "category": "TRUE_FALSE"
+      }
+    }
+  ]
 }

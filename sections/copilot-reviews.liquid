@@ -271,6 +271,9 @@
 
   /* Responsive Mobile Layout (Slider/Carousel) */
   @media (max-width: 767px) {
+    .copilot-reviews {
+      padding: 40px 0;
+    }
     .copilot-reviews__header {
       margin-bottom: 28px;
     }
@@ -284,9 +287,15 @@
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none; /* Oculta scrollbar en Firefox */
       gap: 0;
-      margin: 0 -20px; /* Bleed out */
+      /* margin: 0 -20px; /* Bleed out */
+      margin: 0;
       padding: 0 20px;
       width: calc(100% + 40px);
+    }
+
+    .copilot-reviews__title {
+      font-size: 32px;
+      line-height: 32px;
     }
 
     .copilot-reviews__grid::-webkit-scrollbar {

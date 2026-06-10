@@ -34,20 +34,12 @@
             "text": "-10% primer pedido código: EFNEW",
             "link": ""
           }
-        },
-        "announcement_7PEkc3": {
-          "type": "announcement",
-          "settings": {
-            "text": "Chasen de bambú gratis en tu primera compra",
-            "link": ""
-          }
         }
       },
       "block_order": [
         "announcement_VERANX",
         "announcement_DVeCcz",
-        "announcement_UPJKYm",
-        "announcement_7PEkc3"
+        "announcement_UPJKYm"
       ],
       "settings": {
         "color_scheme": "scheme-87247214-d370-49d1-96ca-7f26b279b7cf",
@@ -77,15 +69,15 @@
         "menu_type_desktop": "dropdown",
         "sticky_header_type": "always",
         "show_line_separator": false,
-        "color_scheme": "scheme-762cd8c3-54ca-4a17-af34-bec050b59cb5",
-        "menu_color_scheme": "accent-1",
+        "color_scheme": "background-1",
+        "menu_color_scheme": "background-1",
         "enable_country_selector": false,
         "enable_language_selector": false,
         "enable_customer_avatar": true,
         "mobile_logo_position": "center",
         "margin_bottom": 0,
         "padding_top": 36,
-        "padding_bottom": 4
+        "padding_bottom": 36
       }
     }
   },

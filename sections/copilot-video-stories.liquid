@@ -3,6 +3,7 @@
     background-color: #213529;
     padding: 80px 20px;
     margin: 100px 0 0;
+    overflow-x: hidden;
   }
 
   .copilot-video-stories__container {
@@ -13,13 +14,13 @@
   .copilot-video-stories__title {
     font-family: 'OverusedGrotesk', sans-serif !important;
     color: #fff;
-    text-align: center;
     font-size: 50px;
-    font-weight: 300;
+    font-weight: 300 !important;
     line-height: 50px;
     text-align: center;
     margin: 0 auto 20px;
     max-width: 415px;
+    text-transform: none !important;
   }
 
   .copilot-video-stories__subtitle {
@@ -31,7 +32,7 @@
     line-height: 24px;
     text-align: center;
     margin: 0 auto 40px;
-    max-width: 470px;
+    max-width: 480px;
   }
 
   .copilot-video-stories__grid {
@@ -107,15 +108,24 @@
   .copilot-video-card__poster {
     position: absolute;
     border-radius: 20px;
+    filter: blur(2px);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  @media (hover: hover) {
+    .copilot-video-card__poster:hover {
+      transform: scale(1.05);
+    }
   }
   .copilot-video-card__video-content {
+    background: #000000;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 41%, rgba(255, 255, 255, 0) 100%);
     position: absolute;
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 100%;
-    padding: 20px 50px;
-    bottom: 10px;
+    padding: 20px 50px 30px;
+    bottom: 0px;
     z-index: 2;
   }
   .copilot-video-card__video-content span {
@@ -146,11 +156,16 @@
     .copilot-video-stories__title {
       font-size: 25px !important;
       line-height: 30px !important;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      padding: 0 20px;
+    }
+    .copilot-video-stories__subtitle {
+      padding: 0 20px;
     }
     .copilot-video-card__inner {
       margin: 0 auto;
       height: 430px;
+      overflow: hidden;
       width: 305px;
     }
     /* — Slider nativo — */

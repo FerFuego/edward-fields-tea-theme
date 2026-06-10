@@ -40,10 +40,16 @@
     margin: 4px 0 0;
 }
 
+.section.judgeme-custom-header .judgeme-custom-header__title.review-title {
+  font-family: "OverusedGrotesk", sans-serif !important;
+  font-weight: 300;
+}
+
 @media (max-width: 768px) {
 
     .section.judgeme-custom-header .judgeme-custom-header__title.review-title {
-        font-size: 35px;
+        font-size: 30px;
+        line-height: 32px;
         display: inline-block;
     }
 

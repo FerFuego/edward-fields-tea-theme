@@ -184,7 +184,7 @@
           "settings": {
             "product": "matcha-premium-japones-organico",
             "badge": "",
-            "title_prod": "Tarro Ceremonial",
+            "title_prod": "Té Matcha Premium Ceremonial Japón BIO",
             "description": "100g de matcha Uji de primera cosecha. Para quien prefiere prepararlo a su manera.",
             "price_note": "",
             "cta_label": "Ver producto"
@@ -254,7 +254,7 @@
         "video_q64RJ6": {
           "type": "video",
           "settings": {
-            "video_es": "https://cdn.shopify.com/videos/c/o/v/b99f9ceff7cf4699948366a444b89cbd.mp4",
+            "video_es": "",
             "video_number": "01",
             "video_title": "Pon la cápsula",
             "video_subtitle": "En tu máquina Nespresso. Sin batidor, sin técnica, sin preparación.",
@@ -264,7 +264,7 @@
         "video_rqdRYA": {
           "type": "video",
           "settings": {
-            "video_es": "https://cdn.shopify.com/videos/c/o/v/388f16b0bf5c4267bc4aaf2c749a0e06.mp4",
+            "video_es": "",
             "video_number": "02",
             "video_title": "30 segundos",
             "video_subtitle": "Y tienes tu matcha listo. Espumoso y cremoso",
@@ -274,7 +274,7 @@
         "video_NEHmpK": {
           "type": "video",
           "settings": {
-            "video_es": "https://cdn.shopify.com/videos/c/o/v/1192eb89941f4bf6a5de7995e8f34239.mp4",
+            "video_es": "",
             "video_number": "03",
             "video_title": "Siente la diferencia",
             "video_subtitle": "Energía limpia desde la primera taza. Sin nerviosismo, sin acidez, sin bajones.",
@@ -308,16 +308,16 @@
           "type": "feature_item",
           "settings": {
             "icon": "shopify://shop_images/brain.svg",
-            "title": "Energía que dura",
-            "text": "Cafeína natural, sin el subidón. Sin el bajón. Solo foco durante horas."
+            "title": "Sin nerviosismo",
+            "text": "L-teanina, suaviza la cafeína. Misma energía, cero ansiedad."
           }
         },
         "feature_item_ajxzTF": {
           "type": "feature_item",
           "settings": {
             "icon": "shopify://shop_images/escudo.svg",
-            "title": "Energía que dura",
-            "text": "Cafeína natural, sin el subidón. Sin el bajón. Solo foco durante horas."
+            "title": "Protección",
+            "text": "EGCG, antioxidante que protege tu cuerpo mientras rindes."
           }
         }
       },
@@ -407,50 +407,6 @@
         "padding_bottom": 0
       }
     },
-    "copilot_people_MJyynV": {
-      "type": "copilot-people",
-      "blocks": {
-        "testimonial_CXKGkt": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/pers-1.webp",
-            "quote": "Cuido lo que me rodea y lo que consumo.",
-            "name": "Natalia Sáez",
-            "bio": "influencer @enabrilhojasmil"
-          }
-        },
-        "testimonial_yzeRcF": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/pers-2.webp",
-            "quote": "Cambié el café de las mañanas. No lo echo de menos.",
-            "name": "Jorge",
-            "bio": "Concursante de MasterChef 13"
-          }
-        },
-        "testimonial_HpzRar": {
-          "type": "testimonial",
-          "settings": {
-            "image": "shopify://shop_images/pers-3.webp",
-            "quote": "El pre-entreno más limpio que he probado.",
-            "name": "Nekane Terés",
-            "bio": "exjugadora profesional de balonmano"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_CXKGkt",
-        "testimonial_yzeRcF",
-        "testimonial_HpzRar"
-      ],
-      "name": "Copilot - Pers Criterio",
-      "settings": {
-        "title": "Lo toman personas con criterio.",
-        "subtitle": "",
-        "padding_top": 100,
-        "padding_bottom": 0
-      }
-    },
     "copilot_flex_layout_wjrmHf": {
       "type": "copilot-flex-layout",
       "blocks": {
@@ -515,6 +471,7 @@
             "text": "Somos Álvaro y Óscar. Fundadores de COPiLOT, agencia de ecommerce.",
             "heading_tag": "h4",
             "color": "#ffffff",
+            "font_family": "Sans-Serif",
             "font_size": "20px",
             "font_weight": "700",
             "margin": "0 0 10px 0",
@@ -528,6 +485,7 @@
             "parent_container_name": "cos-2",
             "text": "<p>Pasábamos 10 horas al día delante de una pantalla y el café era lo que nos mantenía en pie. Tres tazas, el bajón de las 3h, otra taza, mal sueño. El ciclo de siempre. Descubrimos el matcha buscando algo que funcionara sin ese coste. Funcionó. Así que adquirimos Edward Fields para convertirlo en una marca de energía limpia. Sin bajones. Sin ciclos.</p>",
             "color": "#ffffff",
+            "font_family": "Sans-Serif",
             "font_size": "16px",
             "font_weight": "400",
             "line_height": "1.2em",
@@ -559,7 +517,51 @@
         "column_count": 1,
         "rows_count": 1,
         "gap": "40px",
-        "custom_class": "class"
+        "custom_class": "somos-alvaro-oscar"
+      }
+    },
+    "copilot_people_MJyynV": {
+      "type": "copilot-people",
+      "blocks": {
+        "testimonial_CXKGkt": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/pers-1.webp",
+            "quote": "Cuido lo que me rodea y lo que consumo.",
+            "name": "Natalia Sáez",
+            "bio": "influencer @enabrilhojasmil"
+          }
+        },
+        "testimonial_yzeRcF": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/pers-2.webp",
+            "quote": "Cambié el café de las mañanas. No lo echo de menos.",
+            "name": "Jorge",
+            "bio": "Concursante de MasterChef 13"
+          }
+        },
+        "testimonial_HpzRar": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/pers-3.webp",
+            "quote": "El pre-entreno más limpio que he probado.",
+            "name": "Nekane Terés",
+            "bio": "exjugadora profesional de balonmano"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_CXKGkt",
+        "testimonial_yzeRcF",
+        "testimonial_HpzRar"
+      ],
+      "name": "Copilot - Pers Criterio",
+      "settings": {
+        "title": "Lo toman personas con criterio.",
+        "subtitle": "",
+        "padding_top": 100,
+        "padding_bottom": 0
       }
     },
     "copilot_matcha_vs_cafe_pfGFKQ": {
@@ -569,7 +571,7 @@
           "type": "row",
           "settings": {
             "feature_name": "",
-            "matcha_value": "EDUAR FIELDS",
+            "matcha_value": "EDWARD FIELDS",
             "coffee_value": "CAFÉ"
           }
         },
@@ -648,7 +650,7 @@
         "matcha_label": "",
         "matcha_img": "shopify://shop_images/hf_20260513_133915_29e98096-c0dd-4624-8306-c1bb5ec3d402_2.png",
         "coffee_label": "",
-        "cafe_img": "shopify://shop_images/ChatGPT_Image_13_may_2026_16_35_34_1.png",
+        "cafe_img": "shopify://shop_images/taza-gro.webp",
         "padding_top": 100,
         "padding_bottom": 0
       }
@@ -662,8 +664,8 @@
     "copilot_video_stories_kzFjTV",
     "copilot_magic_matcha_DFU4JX",
     "copilot_reviews_X9CLnA",
-    "copilot_people_MJyynV",
     "copilot_flex_layout_wjrmHf",
+    "copilot_people_MJyynV",
     "copilot_matcha_vs_cafe_pfGFKQ"
   ]
 }

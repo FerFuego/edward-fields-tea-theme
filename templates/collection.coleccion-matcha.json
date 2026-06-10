@@ -33,59 +33,66 @@
           "settings": {
             "container_name": "principal",
             "layout": "flex",
+            "link": "",
+            "link_new_tab": false,
             "grid_position": "auto/auto",
             "flex_order": 0,
-            "flex_direction": "row",
+            "flex_direction": "column",
             "justify_content": "flex-start",
-            "align_items": "flex-end",
-            "background_color": "#fbfaf4",
+            "align_items": "center",
+            "background_color": "rgba(0,0,0,0)",
             "border": "0",
-            "width": "505px",
+            "width": "535px",
             "height": "auto",
             "margin": "0",
             "padding": "0",
-            "gap": "0"
+            "gap": "20px"
           }
         },
         "heading_MJ7kpJ": {
           "type": "heading",
           "settings": {
             "parent_container_name": "principal",
-            "text": "Encuentra el ritual ideal para ti",
+            "text": "Para cada momento, el tuyo.",
             "heading_tag": "h1",
             "color": "#213529",
-            "font_size": "80px",
-            "font_weight": "600",
+            "font_family": "OverusedGrotesk",
+            "font_size": "50px",
+            "font_weight": "300",
             "margin": "0 0 10px 0",
             "padding": "0",
-            "width": "100%"
+            "width": "360px"
           }
         },
-        "image_wNwzMd": {
-          "type": "image",
+        "richtext_Pp3Uyb": {
+          "type": "richtext",
           "settings": {
             "parent_container_name": "principal",
-            "image": "shopify://shop_images/Vector.svg",
-            "width": "auto",
-            "height": "auto",
-            "margin": "0px 0 8px -205px",
-            "padding": "0",
-            "border_radius": "0"
+            "text": "<p>Mismo matcha, distintos formato, encuentra el que encaja con tu rutina.</p>",
+            "color": "#213529",
+            "font_family": "OverusedGrotesk",
+            "font_size": "16px",
+            "font_weight": "400",
+            "line_height": "1.2em",
+            "text_align": "center",
+            "margin": "0",
+            "padding": "0"
           }
         }
       },
       "block_order": [
         "container_NW9ii6",
         "heading_MJ7kpJ",
-        "image_wNwzMd"
+        "richtext_Pp3Uyb"
       ],
+      "custom_css": [],
       "name": "Copilot - Flexible Container",
       "settings": {
         "layout": "flex",
         "flex_direction": "column",
-        "justify_content": "flex-start",
-        "align_items": "flex-start",
-        "background_color": "#fbfaf4",
+        "justify_content": "center",
+        "align_items": "center",
+        "background_color": "#ffffff",
         "border": "0",
         "width": "100%",
         "height": "auto",
@@ -93,7 +100,7 @@
         "padding": "80px 5rem 20px",
         "column_count": 1,
         "rows_count": 1,
-        "gap": "0",
+        "gap": "20px",
         "custom_class": "copilot-collection-header"
       }
     },
@@ -102,7 +109,7 @@
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 4,
-        "color_scheme": "accent-1",
+        "color_scheme": "background-1",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -265,43 +272,75 @@
         "padding_bottom": 36
       }
     },
-    "copilot_custom_reviews_ngqUW9": {
-      "type": "copilot-custom-reviews",
+    "copilot_reviews_WEJXnA": {
+      "type": "copilot-reviews",
       "blocks": {
-        "review_nVjQBY": {
+        "review_nLAdfT": {
           "type": "review",
           "settings": {
-            "author": "Cliente feliz",
-            "comment": "“Lorem ipsum dolor sit amet consectetur adipiscing elit, tellus porttitor habitant laoreet nascetur sociis, venenatis ridiculus ultricies curae habitasse massa. Lacus feugiat conubia felis phasellus in justo quam, bibendum vehicula primis dui litora iaculis metus”",
-            "rating": 5
+            "rating": 5,
+            "comment": "Nunca había probado otro matcha que no fuera el de la cafetería de debajo de mi casa. Ahora me lo hago en casa con este de Edward y es una maravilla.",
+            "author": "Camilo R."
           }
         },
-        "review_RWjRFq": {
+        "review_RkGiiE": {
           "type": "review",
           "settings": {
-            "author": "Cliente feliz",
-            "comment": "“Lorem ipsum dolor sit amet consectetur adipiscing elit, tellus porttitor habitant laoreet nascetur sociis, venenatis ridiculus ultricies curae habitasse massa. Lacus feugiat conubia felis phasellus in justo quam, bibendum vehicula primis dui litora iaculis metus”",
-            "rating": 5
+            "rating": 5,
+            "comment": "Tiene un poder energizante que para mí está en su justa medida. Un desayuno maravillosamente placentero.",
+            "author": "Silvia"
           }
         },
-        "review_33Kb4Q": {
+        "review_ADR4bL": {
           "type": "review",
           "settings": {
-            "author": "Cliente feliz",
-            "comment": "“Lorem ipsum dolor sit amet consectetur adipiscing elit, tellus porttitor habitant laoreet nascetur sociis, venenatis ridiculus ultricies curae habitasse massa. Lacus feugiat conubia felis phasellus in justo quam, bibendum vehicula primis dui litora iaculis metus”",
-            "rating": 5
+            "rating": 5,
+            "comment": "El sabor espectacular, me gusta tomarlo por la mañana, me da energía. Textura suave y cremosa, sabor delicado y refrescante.",
+            "author": "Nico S."
+          }
+        },
+        "review_M8L7cY": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "El aroma es muy relajante pero a la vez me siento mucho más activa desde que lo tomo.",
+            "author": "J.M."
+          }
+        },
+        "review_dfw4Qd": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "Sabor increíble. Me lo llevo al trabajo en un termo frío y lo voy tomando durante la mañana.",
+            "author": "Maite"
+          }
+        },
+        "review_pwFGfh": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "Además de riquísimo sienta fenomenal, porque es energizante pero no te pone nerviosa, sino que mantienes la atención y concentración estable.",
+            "author": "Niara G."
           }
         }
       },
       "block_order": [
-        "review_nVjQBY",
-        "review_RWjRFq",
-        "review_33Kb4Q"
+        "review_nLAdfT",
+        "review_RkGiiE",
+        "review_ADR4bL",
+        "review_M8L7cY",
+        "review_dfw4Qd",
+        "review_pwFGfh"
       ],
-      "name": "Copilot - Reviews",
+      "name": "Copilot - Reseñas",
       "settings": {
-        "title": "LO QUE DICEN quienes viven el ritual sin dramas",
-        "subtitle": "Nuestra comunidad crece cada día porque acá no hay extremos, solo personas que eligen sumar bienestar sin dejar de disfrutar."
+        "show_badge": true,
+        "badge_logo": "shopify://shop_images/judge.me.png",
+        "badge_text": "+2.200 clientes",
+        "title": "Gente real, resultados reales",
+        "subtitle": "Personas que encontraron en Edward Fields la energía que buscaban, y lo contaron.",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     }
   },
@@ -314,6 +353,6 @@
     "image_banner_gNFrFG",
     "collapsible_content_JATmkF",
     "video_6GLnUQ",
-    "copilot_custom_reviews_ngqUW9"
+    "copilot_reviews_WEJXnA"
   ]
 }

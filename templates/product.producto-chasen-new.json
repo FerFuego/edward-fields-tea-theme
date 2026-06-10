@@ -100,33 +100,6 @@
             "icon_4": "none",
             "heading_4": ""
           }
-        },
-        "collapsible_tab_tKBBbc": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Ingredientes",
-            "icon": "none",
-            "content": "<p>Té verde Matcha 100% orgánico</p>",
-            "page": ""
-          }
-        },
-        "collapsible_tab_gMpG9h": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Conservación",
-            "icon": "none",
-            "content": "<p>El té Matcha ha sido cultivado de manera tradicional 100% ecológico. Recolectado en primavera tras 35 días de sombreado.</p>",
-            "page": ""
-          }
-        },
-        "collapsible_tab_mFdRDi": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "¿Cómo tomarlo?",
-            "icon": "none",
-            "content": "<ul><li>Solo con agua caliente</li><li>Matcha Latte: con leche o bebida vegetal (avena, almendra, soja, etc) caliente o fría.</li></ul>",
-            "page": ""
-          }
         }
       },
       "block_order": [
@@ -140,10 +113,7 @@
         "buy_buttons",
         "custom_liquid_BGD64f",
         "custom_liquid_9WFDmJ",
-        "icon_with_text_CN7ePN",
-        "collapsible_tab_tKBBbc",
-        "collapsible_tab_gMpG9h",
-        "collapsible_tab_mFdRDi"
+        "icon_with_text_CN7ePN"
       ],
       "settings": {
         "enable_sticky_info": true,

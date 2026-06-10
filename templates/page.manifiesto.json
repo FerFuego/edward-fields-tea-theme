@@ -14,23 +14,13 @@
       "disabled": true,
       "settings": {
         "padding_top": 28,
-        "padding_bottom": 28
+        "padding_bottom": 20
       }
     },
-    "manifesto_NPM3D6": {
-      "type": "manifesto",
-      "disabled": true,
-      "name": "Manifesto",
-      "settings": {
-        "title": "Manifiesto",
-        "text": "Vivimos con prisa, como si llegar antes sirviera de algo. Contamos los pasos, los mails, las calorías… pero nunca las veces que respiramos tranquilos.\n\nNos enseñaron que vales lo que produces,\nque el descanso es de flojos y que cuidarse es incluso otra forma de exigirse.\n\nNosotros aquí también tragamos con eso.\nEn nuestro caso, llevamos diez años emprendiendo y dirigiendo negocios como una agencia digital donde el estrés es casi un compañero más de la oficina.\n\nY un día, entre gestión de campañas y cafés fríos, apareció la oportunidad de quedarnos con la marca Edward Fields.\n\nY aquí no vimos una marca de matcha, <b>vimos una oportunidad para tratar de hacer las cosas distintas: para traerte los productos que mejor te cuiden por dentro y compartir contigo nuestra forma de ver la vida. Más lenta, más humana y más real.</b>\n\nNo venimos a venderte un milagro verde ni tampoco una rutina de Instagram.\n\n<b>Venimos a recordarte que no pasa nada por ser imperfecto. Que cuidarte no significa castigarte, y que tampoco tienes que fingir que siempre tienes todo bajo control.</b>\n\nCreamos productos honestos para acompañarte cada día, en tus daily essentials y en esos caprichos que te hacen sentir vivo. Porque el esfuerzo es innegociable, pero la vida también, coñ*. <b>Perfectly imperfect humans behind the brand.</b>",
-        "image": "shopify://shop_images/MATCHA-46_1.png"
-      }
-    },
-    "copilot_flex_layout_FNqxTL": {
+    "copilot_flex_layout_VWUbCB": {
       "type": "copilot-flex-layout",
       "blocks": {
-        "container_ARmLh9": {
+        "container_tterdd": {
           "type": "container",
           "settings": {
             "container_name": "manif-1",
@@ -51,7 +41,7 @@
             "gap": "0"
           }
         },
-        "heading_BnYkkK": {
+        "heading_wLxULX": {
           "type": "heading",
           "settings": {
             "parent_container_name": "manif-1",
@@ -66,7 +56,7 @@
             "width": "100%"
           }
         },
-        "richtext_rJHzLN": {
+        "richtext_6nKH9q": {
           "type": "richtext",
           "settings": {
             "parent_container_name": "manif-1",
@@ -81,7 +71,7 @@
             "padding": "0"
           }
         },
-        "container_eQz4qD": {
+        "container_ahzqda": {
           "type": "container",
           "settings": {
             "container_name": "manif-2",
@@ -102,7 +92,7 @@
             "gap": "0"
           }
         },
-        "container_CLPYad": {
+        "container_7gwGJ6": {
           "type": "container",
           "settings": {
             "container_name": "manif-3",
@@ -111,7 +101,7 @@
             "link_new_tab": false,
             "grid_position": "auto/auto",
             "flex_order": 0,
-            "flex_direction": "column",
+            "flex_direction": "row",
             "justify_content": "center",
             "align_items": "center",
             "background_color": "rgba(0,0,0,0)",
@@ -123,7 +113,7 @@
             "gap": "20px"
           }
         },
-        "image_Mz9kEe": {
+        "image_qQ7Qe3": {
           "type": "image",
           "settings": {
             "parent_container_name": "manif-3",
@@ -136,7 +126,7 @@
             "border_radius": "0"
           }
         },
-        "richtext_JkWURK": {
+        "richtext_tbPCmF": {
           "type": "richtext",
           "settings": {
             "parent_container_name": "manif-3",
@@ -151,7 +141,7 @@
             "padding": "0"
           }
         },
-        "container_Eq7kG7": {
+        "container_HAyWyL": {
           "type": "container",
           "settings": {
             "container_name": "manif-4",
@@ -174,17 +164,14 @@
         }
       },
       "block_order": [
-        "container_ARmLh9",
-        "heading_BnYkkK",
-        "richtext_rJHzLN",
-        "container_eQz4qD",
-        "container_CLPYad",
-        "image_Mz9kEe",
-        "richtext_JkWURK",
-        "container_Eq7kG7"
-      ],
-      "custom_css": [
-        ".manifiesto-page-module h1 {text-transform: none;}"
+        "container_tterdd",
+        "heading_wLxULX",
+        "richtext_6nKH9q",
+        "container_ahzqda",
+        "container_7gwGJ6",
+        "image_qQ7Qe3",
+        "richtext_tbPCmF",
+        "container_HAyWyL"
       ],
       "name": "Copilot - Flexible Container",
       "settings": {
@@ -207,7 +194,6 @@
   },
   "order": [
     "main",
-    "manifesto_NPM3D6",
-    "copilot_flex_layout_FNqxTL"
+    "copilot_flex_layout_VWUbCB"
   ]
 }

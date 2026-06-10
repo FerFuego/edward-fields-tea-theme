@@ -9,6 +9,17 @@
  */
 {
   "sections": {
+    "form": {
+      "type": "contact-form",
+      "disabled": true,
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "color_scheme": "accent-1",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -17,19 +28,122 @@
         "padding_bottom": 0
       }
     },
-    "form": {
-      "type": "contact-form",
+    "copilot_flex_layout_MJPMB8": {
+      "type": "copilot-flex-layout",
+      "blocks": {
+        "container_HaBiJx": {
+          "type": "container",
+          "settings": {
+            "container_name": "left-box",
+            "layout": "flex",
+            "link": "",
+            "link_new_tab": false,
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "column",
+            "justify_content": "center",
+            "align_items": "flex-start",
+            "background_color": "#ffffff",
+            "border": "0",
+            "width": "383px",
+            "height": "auto",
+            "margin": "0",
+            "padding": "0",
+            "gap": "0"
+          }
+        },
+        "heading_m6BrBR": {
+          "type": "heading",
+          "settings": {
+            "parent_container_name": "left-box",
+            "text": "¿Hablamos?",
+            "heading_tag": "h1",
+            "color": "#213529",
+            "font_family": "OverusedGrotesk",
+            "font_size": "50px",
+            "font_weight": "300",
+            "margin": "0 0 20px",
+            "padding": "0",
+            "width": "100%"
+          }
+        },
+        "richtext_DYfTEE": {
+          "type": "richtext",
+          "settings": {
+            "parent_container_name": "left-box",
+            "text": "<p>Estamos aquí para lo que necesites, una duda, un pedido o simplemente saber qué producto es el tuyo. Escríbenos a <a href=\"mailto:hello@edwardfieldstea.com\" target=\"_blank\" title=\"mailto:hello@edwardfieldstea.com\">hello@edwardfieldstea.com</a></p>",
+            "color": "#213529",
+            "font_family": "OverusedGrotesk",
+            "font_size": "16px",
+            "font_weight": "400",
+            "line_height": "1.2em",
+            "text_align": "left",
+            "margin": "0",
+            "padding": "0"
+          }
+        },
+        "container_ghPFGb": {
+          "type": "container",
+          "settings": {
+            "container_name": "right-box",
+            "layout": "flex",
+            "link": "",
+            "link_new_tab": false,
+            "grid_position": "auto/auto",
+            "flex_order": 0,
+            "flex_direction": "row",
+            "justify_content": "center",
+            "align_items": "center",
+            "background_color": "#ffffff",
+            "border": "0",
+            "width": "475px",
+            "height": "auto",
+            "margin": "0",
+            "padding": "0",
+            "gap": "0"
+          }
+        },
+        "contact_form_CCBX9m": {
+          "type": "contact_form",
+          "settings": {
+            "form_type": "contacto",
+            "parent_container_name": "right-box",
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "container_HaBiJx",
+        "heading_m6BrBR",
+        "richtext_DYfTEE",
+        "container_ghPFGb",
+        "contact_form_CCBX9m"
+      ],
+      "custom_css": [
+        ".contact-page-module h1 {text-transform: none;}"
+      ],
+      "name": "Copilot - Flexible Container",
       "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "color_scheme": "accent-1",
-        "padding_top": 0,
-        "padding_bottom": 36
+        "layout": "flex",
+        "flex_direction": "row",
+        "justify_content": "center",
+        "align_items": "flex-start",
+        "background_color": "#ffffff",
+        "border": "0",
+        "width": "100%",
+        "height": "auto",
+        "margin": "0",
+        "padding": "100px 20px",
+        "column_count": 2,
+        "rows_count": 1,
+        "gap": "50px",
+        "custom_class": "contact-page-module"
       }
     }
   },
   "order": [
     "form",
-    "main"
+    "main",
+    "copilot_flex_layout_MJPMB8"
   ]
 }

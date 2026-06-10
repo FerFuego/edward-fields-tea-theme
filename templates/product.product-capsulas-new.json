@@ -216,9 +216,9 @@
           "settings": {
             "video_es": "",
             "video_number": "01",
-            "video_title": "Mide la dosis",
-            "video_subtitle": "1-2 cucharaditas (2g). En un vaso, taza o shaker.",
-            "poster": "shopify://shop_images/image_55.png"
+            "video_title": "Pon la cápsula",
+            "video_subtitle": "En tu máquina Nespresso. Sin batidor, sin técnica, sin preparación.",
+            "poster": "shopify://shop_images/capsulas.webp"
           }
         },
         "video_TnnK46": {
@@ -226,8 +226,8 @@
           "settings": {
             "video_es": "",
             "video_number": "02",
-            "video_title": "Mezcla",
-            "video_subtitle": "Con agua caliente (70°C), leche vegetal o en smoothie. Sin grumos.",
+            "video_title": "30 segundos",
+            "video_subtitle": "Y tienes tu matcha listo. Espumoso y cremoso",
             "poster": "shopify://shop_images/image_56.png"
           }
         },
@@ -237,7 +237,7 @@
             "video_es": "",
             "video_number": "03",
             "video_title": "Siente la diferencia",
-            "video_subtitle": "Energía limpia desde el primer sorbo. Sin nerviosismo, sin bajones.",
+            "video_subtitle": "Energía limpia desde la primera taza. Sin nerviosismo, sin acidez, sin bajones.",
             "poster": "shopify://shop_images/image_57.png"
           }
         }

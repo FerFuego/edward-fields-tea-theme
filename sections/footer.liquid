@@ -88,6 +88,7 @@
                               <li>
                                 <a
                                   href="{{ link.url }}"
+                                  target="_blank"
                                   class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
                                 >
                                   {{ link.title | escape }}
@@ -181,7 +182,6 @@
                         <input id="NewsletterForm--{{ section.id }}" type="email" name="contact[email]" class="field__input" placeholder="Tu mail" required>
                         <button type="submit" class="newsletter-form__button field__button" name="commit" >
                           Unirme ahora 
-                          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 30 10" fill="none"><g clip-path="url(#clip0_137_60)"><path d="M22.5743 10H21.4604C21.4604 6.89397 25.1733 4.46973 29.9258 4.46973V5.60609C25.8416 5.60609 22.5743 7.65155 22.5743 10.0758V10Z" fill="currentColor"></path><path d="M30 5.5303C25.2475 5.5303 21.5347 3.0303 21.5347 0H22.6485C22.6485 2.42424 25.9901 4.39394 30 4.4697V5.60606V5.5303Z" fill="currentColor"></path><path d="M30 4.46973H0V5.60609H30V4.46973Z" fill="currentColor"></path></g><defs><clipPath id="clip0_137_60"><rect width="30" height="10" fill="white"></rect></clipPath></defs></svg>
                         </button>
                       </div>
                     </div>

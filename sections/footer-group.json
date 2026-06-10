@@ -28,7 +28,7 @@
           "settings": {
             "heading": "¿Es complicado preparar matcha?",
             "icon": "none",
-            "row_content": "<p>Nada de eso. Con agua y un batidor ya lo tienes. Y si quieres ponerte creativo, tenemos recetas fáciles y rápidas.</p>",
+            "row_content": "<p>Nada de eso. Con agua y un batidor ya lo tienes. Y si buscas algo todavía más fácil, prepáralo en 30 segundos con tus cápsulas compatibles con Nesspreso. Y si quieres ponerte creativo, tenemos recetas fáciles y rápidas.</p>",
             "page": ""
           }
         },
@@ -99,7 +99,7 @@
         "image": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Modo_de_aislamiento.svg",
+            "image": "shopify://shop_images/logo-w.svg",
             "image_width": 120,
             "alignment": ""
           }
@@ -127,7 +127,7 @@
       "settings": {
         "color_scheme": "scheme-87247214-d370-49d1-96ca-7f26b279b7cf",
         "newsletter_enable": true,
-        "newsletter_heading": "Únete a la comunidad de ritualistas y recibe inspiración para tu día a día.",
+        "newsletter_heading": "Únete a los que ya cambiaron su mañana. Recibe recetas, consejos y acceso anticipado a novedades.",
         "enable_follow_on_shop": false,
         "show_social": true,
         "enable_country_selector": false,
@@ -135,7 +135,7 @@
         "payment_enable": false,
         "show_policy": false,
         "margin_top": 0,
-        "padding_top": 32,
+        "padding_top": 0,
         "padding_bottom": 32
       }
     }

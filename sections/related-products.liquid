@@ -18,6 +18,26 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  @media screen and (max-width: 750px) {
+    .copilot-product .slider-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        top: 45%;
+        width: 100%;
+    }
+    .copilot-product .slider-button {
+      height: 25px;
+      width: 30px;
+    }
+    .copilot-product .slider-button--prev {
+      transform: rotate(90deg) translate(0px, 20px);
+    }
+    .copilot-product .slider-button--next {
+      transform: rotate(-90deg) translate(0px, 20px);
+    }
+  }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
@@ -28,35 +48,136 @@
     data-product-id="{{ product.id }}"
   >
     {% if recommendations.performed and recommendations.products_count > 0 %}
-      <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
-        {{ section.settings.heading }}
-      </h2>
-      <ul
-        class="grid product-grid grid--3-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down slider slider--mobile"
-        role="list"
+  <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
+    {{ section.settings.heading }}
+  </h2>
+
+  <slider-component class="slider-mobile-gutter">
+    <ul
+      class="grid product-grid grid--3-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down slider slider--mobile"
+      role="list"
+      id="Slider-{{ section.id }}"
+    >
+      {% assign skip_card_product_styles = false %}
+      {% for recommendation in recommendations.products %}
+        <li class="grid__item slider__slide">
+          {% render 'card-product',
+            card_product: recommendation,
+            media_aspect_ratio: section.settings.image_ratio,
+            image_shape: section.settings.image_shape,
+            show_secondary_image: section.settings.show_secondary_image,
+            show_vendor: section.settings.show_vendor,
+            show_rating: section.settings.show_rating,
+            skip_styles: skip_card_product_styles
+          %}
+        </li>
+        {%- assign skip_card_product_styles = true -%}
+      {% endfor %}
+    </ul>
+
+    <div class="slider-buttons no-js-hidden medium-hide large-up-hide">
+      <button
+        type="button"
+        class="slider-button slider-button--prev"
+        name="previous"
+        aria-label="{{ 'general.slider.previous_slide' | t }}"
       >
-        {% assign skip_card_product_styles = false %}
-        {% for recommendation in recommendations.products %}
-          <li class="grid__item">
-            {% render 'card-product',
-              card_product: recommendation,
-              media_aspect_ratio: section.settings.image_ratio,
-              image_shape: section.settings.image_shape,
-              show_secondary_image: section.settings.show_secondary_image,
-              show_vendor: section.settings.show_vendor,
-              show_rating: section.settings.show_rating,
-              skip_styles: skip_card_product_styles
-            %}
-          </li>
-          {%- assign skip_card_product_styles = true -%}
-        {% endfor %}
-      </ul>
-    {% endif %}
+      <img src="{{ 'icon-chevron.svg' | asset_url }}" width="30" alt="">
+      </button>
+
+      <button
+        type="button"
+        class="slider-button slider-button--next"
+        name="next"
+        aria-label="{{ 'general.slider.next_slide' | t }}"
+      >
+      <img src="{{ 'icon-chevron.svg' | asset_url }}" width="30" alt="">
+      </button>
+    </div>
+  </slider-component>
+{% endif %}
   </product-recommendations>
   {% if section.settings.image_shape == 'arch' %}
     {{ 'mask-arch.svg' | inline_asset_content }}
   {%- endif -%}
 </div>
+
+<script>
+  (function() {
+    function initRelatedSlider(section) {
+      const slider = section.querySelector('.slider--mobile');
+      const prevBtn = section.querySelector('.slider-button--prev');
+      const nextBtn = section.querySelector('.slider-button--next');
+      const current = section.querySelector('.slider-counter--current');
+      const total = section.querySelector('.slider-counter--total');
+
+      if (!slider || !prevBtn || !nextBtn) return;
+
+      // Calcula el ancho de un slide (item + gap)
+      function getSlideWidth() {
+        const firstSlide = slider.querySelector('.slider__slide');
+        if (!firstSlide) return 0;
+        const style = window.getComputedStyle(slider);
+        const gap = parseFloat(style.columnGap) || parseFloat(style.gap) || 0;
+        return firstSlide.offsetWidth + gap;
+      }
+
+      function getCurrentIndex() {
+        const slideWidth = getSlideWidth();
+        if (!slideWidth) return 0;
+        return Math.round(slider.scrollLeft / slideWidth);
+      }
+
+      function updateCounter() {
+        if (!current) return;
+        current.textContent = getCurrentIndex() + 1;
+      }
+
+      function updateButtons() {
+        const maxScroll = slider.scrollWidth - slider.clientWidth;
+        prevBtn.disabled = slider.scrollLeft <= 2;
+        nextBtn.disabled = slider.scrollLeft >= maxScroll - 2;
+      }
+
+      prevBtn.addEventListener('click', function() {
+        slider.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', function() {
+        slider.scrollBy({ left: getSlideWidth(), behavior: 'smooth' });
+      });
+
+      slider.addEventListener('scroll', function() {
+        updateCounter();
+        updateButtons();
+      });
+
+      // Estado inicial
+      updateButtons();
+    }
+
+    // Espera a que las recomendaciones carguen via AJAX
+    function waitForSlider(section) {
+      const observer = new MutationObserver(function(mutations, obs) {
+        const slider = section.querySelector('.slider--mobile');
+        if (slider && slider.children.length > 0) {
+          obs.disconnect();
+          initRelatedSlider(section);
+        }
+      });
+      observer.observe(section, { childList: true, subtree: true });
+
+      // Por si ya está cargado
+      if (section.querySelector('.slider--mobile li')) {
+        initRelatedSlider(section);
+      }
+    }
+
+    document.querySelectorAll('.related-products-section').forEach(function(section) {
+      waitForSlider(section);
+    });
+  })();
+</script>
 
 {% schema %}
 {

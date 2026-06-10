@@ -249,10 +249,22 @@
 
   /* Mobile Slider (Peeking Layout) */
   @media (max-width: 767px) {
-    .copilot-people__header {
-      margin-bottom: 28px;
+    .copilot-people {
+      padding: 0;
     }
-
+    .copilot-people__header {
+      margin-bottom: 20px;
+    }
+    .copilot-people__container {
+      padding: 40px 20px !important;
+    }
+    .copilot-people__title {
+      margin-bottom: 0;
+      font-size: 32px;
+      line-height: 32px;
+      text-align: center;
+      width: 300px;
+    }
     .copilot-people__grid {
       display: flex;
       flex-wrap: nowrap;
@@ -272,8 +284,8 @@
     }
 
     .copilot-people__card {
-      flex: 0 0 calc(100% - 80px); /* Subtracting paddings allows adjacent cards to peek from the sides! */
-      max-width: calc(100% - 80px);
+      flex: 0 0 calc(100% - 20px); /* Subtracting paddings allows adjacent cards to peek from the sides! */
+      max-width: calc(100% - 20px);
       scroll-snap-align: center;
     }
 

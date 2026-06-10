@@ -33,38 +33,61 @@
           "settings": {
             "container_name": "principal",
             "layout": "flex",
+            "link": "",
+            "link_new_tab": false,
             "grid_position": "auto/auto",
             "flex_order": 0,
-            "flex_direction": "row",
+            "flex_direction": "column",
             "justify_content": "center",
             "align_items": "center",
-            "background_color": "#fbfaf4",
+            "background_color": "#ffffff",
             "border": "",
             "width": "100%",
             "height": "auto",
             "margin": "0",
             "padding": "0",
-            "gap": "0"
+            "gap": "20px"
           }
         },
         "heading_CYYNkC": {
           "type": "heading",
           "settings": {
             "parent_container_name": "principal",
-            "text": "Encuentra el ritual ideal para ti",
+            "text": "Para cada momento, el tuyo.",
             "heading_tag": "h1",
             "color": "#213529",
-            "font_size": "40px",
-            "font_weight": "400",
+            "font_family": "OverusedGrotesk",
+            "font_size": "50px",
+            "font_weight": "300",
             "margin": "0 0 10px 0",
             "padding": "0",
-            "width": "100%"
+            "width": "440px"
+          }
+        },
+        "richtext_frpRxk": {
+          "type": "richtext",
+          "settings": {
+            "parent_container_name": "principal",
+            "text": "<p>Mismo matcha, distintos formato, encuentra el que encaja con tu rutina.</p>",
+            "color": "#213529",
+            "font_family": "OverusedGrotesk",
+            "font_size": "16px",
+            "font_weight": "400",
+            "line_height": "1.2em",
+            "text_align": "left",
+            "margin": "0",
+            "padding": "0"
           }
         }
       },
       "block_order": [
         "container_EtC9tC",
-        "heading_CYYNkC"
+        "heading_CYYNkC",
+        "richtext_frpRxk"
+      ],
+      "custom_css": [
+        ".copilot-collection-header h1 {font-size: 50px !important; line-height: 45px !important;}",
+        "@media (max-width: 768px) {.copilot-collection-header {padding: 20px 20px 0px !important; } .copilot-collection-header h1 {font-size: 35px !important; line-height: 36px !important; width: 100% !important; } .copilot-collection-header p {text-align: center !important; }}"
       ],
       "name": "Copilot - Flexible Container",
       "settings": {
@@ -72,12 +95,12 @@
         "flex_direction": "column",
         "justify_content": "center",
         "align_items": "center",
-        "background_color": "#fbfaf4",
+        "background_color": "#ffffff",
         "border": "",
         "width": "100%",
         "height": "auto",
         "margin": "0",
-        "padding": "30px 5rem 20px",
+        "padding": "60px 5rem 20px",
         "column_count": 1,
         "rows_count": 1,
         "gap": "0",
@@ -86,6 +109,7 @@
     },
     "custom_liquid_6BDbiP": {
       "type": "custom-liquid",
+      "disabled": true,
       "name": "t:sections.custom-liquid.presets.name",
       "settings": {
         "custom_liquid": "<ul class=\"copilot-custom-menu-filters\">\n<li><a href=\"/collections/todos\" class=\"{% if collection.handle == 'todos' %}active{% endif %}\">Todos los productos</a></li>\n  <li><a href=\"/collections/para-iniciadores\" class=\"{% if collection.handle == 'para-iniciadores' %}active{% endif %}\">Para iniciadores</a></li>\n  <li><a href=\"/collections/mejorar-concentracion\" class=\"{% if collection.handle == 'mejorar-concentracion' %}active{% endif %}\">Mejorar Concentración</a></li>\n  <li><a href=\"/collections/sabores-premium\" class=\"{% if collection.handle == 'sabores-premium' %}active{% endif %}\">Premium</a></li>\n</ul>",
@@ -99,7 +123,7 @@
       "settings": {
         "products_per_page": 12,
         "columns_desktop": 3,
-        "color_scheme": "accent-1",
+        "color_scheme": "scheme-762cd8c3-54ca-4a17-af34-bec050b59cb5",
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -126,31 +150,6 @@
     },
     "16891082647f2b126d": {
       "type": "apps",
-      "settings": {
-        "include_margins": true
-      }
-    },
-    "judgeme_carousel_jtUXMA": {
-      "type": "judgeme-carousel",
-      "name": "Carousel judge-me",
-      "settings": {
-        "title": "Lo que dicen quienes viven<br> el ritual, sin dramas",
-        "text": "Nuestra comunidad crece cada día porque acá no hay extremos, solo personas que eligen sumar bienestar sin dejar de disfrutar."
-      }
-    },
-    "1761156398bf594404": {
-      "type": "apps",
-      "blocks": {
-        "judge_me_reviews_featured_carousel_ihKNbr": {
-          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-            "maxwidth": 1080
-          }
-        }
-      },
-      "block_order": [
-        "judge_me_reviews_featured_carousel_ihKNbr"
-      ],
       "settings": {
         "include_margins": true
       }
@@ -203,6 +202,77 @@
         "title": "LO que dicen quienes viven el ritual sin dramas",
         "subtitle": "Nuestra comunidad crece cada día porque acá no hay extremos, solo personas que eligen sumar bienestar sin dejar de disfrutar."
       }
+    },
+    "copilot_reviews_wGwXwq": {
+      "type": "copilot-reviews",
+      "blocks": {
+        "review_DbPEyb": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "Nunca había probado otro matcha que no fuera el de la cafetería de debajo de mi casa. Ahora me lo hago en casa con este de Edward y es una maravilla.",
+            "author": "Camilo R."
+          }
+        },
+        "review_ngckkJ": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "Tiene un poder energizante que para mí está en su justa medida. Un desayuno maravillosamente placentero.",
+            "author": "Silvia"
+          }
+        },
+        "review_mjteGV": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "El sabor espectacular, me gusta tomarlo por la mañana, me da energía. Textura suave y cremosa, sabor delicado y refrescante.",
+            "author": "Nico S."
+          }
+        },
+        "review_PwnMNm": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "El aroma es muy relajante pero a la vez me siento mucho más activa desde que lo tomo.",
+            "author": "J.M."
+          }
+        },
+        "review_yV6QAc": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "Sabor increíble. Me lo llevo al trabajo en un termo frío y lo voy tomando durante la mañana.",
+            "author": "Maite"
+          }
+        },
+        "review_FyJqcj": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "Además de riquísimo sienta fenomenal, porque es energizante pero no te pone nerviosa, sino que mantienes la atención y concentración estable.",
+            "author": "Niara G."
+          }
+        }
+      },
+      "block_order": [
+        "review_DbPEyb",
+        "review_ngckkJ",
+        "review_mjteGV",
+        "review_PwnMNm",
+        "review_yV6QAc",
+        "review_FyJqcj"
+      ],
+      "name": "Copilot - Reseñas",
+      "settings": {
+        "show_badge": true,
+        "badge_logo": "shopify://shop_images/judge.me.png",
+        "badge_text": "+2.200 clientes",
+        "title": "Gente real, resultados reales",
+        "subtitle": "Personas que encontraron en Edward Fields la energía que buscaban, y lo contaron.",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -213,8 +283,7 @@
     "product-grid",
     "40f5b7b3-0b99-4118-b8dd-d053b6a6e313",
     "16891082647f2b126d",
-    "judgeme_carousel_jtUXMA",
-    "1761156398bf594404",
-    "copilot_custom_reviews_i3fUfW"
+    "copilot_custom_reviews_i3fUfW",
+    "copilot_reviews_wGwXwq"
   ]
 }

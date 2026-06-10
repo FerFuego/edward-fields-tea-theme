@@ -126,3 +126,29 @@
     }
   }
 }
+
+@media ( max-width: 768px ) {
+  .collapsible-content-wrapper-narrow {
+    flex-direction: column;
+    padding: 0 20px !important;
+    gap: 0 !important;
+  }
+  .collapsible-content__wrapper {
+    background-color: #fbfaf3;
+    padding: 40px 0px !important;
+  }
+  .accordion {
+    margin-top: 10px;
+  }
+  .collapsible-content__header {
+    width: 100%;
+  }
+  .collapsible-content__heading {
+    font-size: 32px;
+    line-height: 32px;
+    margin-bottom: 0;
+  }
+  .collapsible-content__grid {
+    width: 100%;
+  }
+}

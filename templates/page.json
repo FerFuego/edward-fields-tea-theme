@@ -9,22 +9,6 @@
  */
 {
   "sections": {
-    "image_banner_tRqmYL": {
-      "type": "image-banner",
-      "settings": {
-        "image": "shopify://shop_images/morematcha-featured-37603.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "small",
-        "desktop_content_position": "middle-center",
-        "show_text_box": true,
-        "desktop_content_alignment": "center",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
-      }
-    },
     "rich_text_NGYDcU": {
       "type": "rich-text",
       "blocks": {
@@ -39,6 +23,7 @@
       "block_order": [
         "heading_CMpgHG"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
@@ -48,9 +33,27 @@
         "padding_bottom": 52
       }
     },
+    "image_banner_tRqmYL": {
+      "type": "image-banner",
+      "disabled": true,
+      "settings": {
+        "copilot_custom_class": "",
+        "copilot_show_judge": false,
+        "image": "shopify://shop_images/morematcha-featured-37603.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
     "main": {
       "type": "main-page",
-      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 20
@@ -87,6 +90,7 @@
     },
     "contact_form_WmqhtW": {
       "type": "contact-form",
+      "disabled": true,
       "settings": {
         "heading": "Pregúntanos por nuestros formatos y precios especiales para hostelería",
         "heading_size": "h1",

@@ -11,12 +11,12 @@
   "current": {
     "logo": "shopify://shop_images/logo-a.svg",
     "logo_width": 200,
-    "favicon": "shopify://shop_images/Sin_titulo-1-05_1.png",
+    "favicon": "shopify://shop_images/icono.png",
     "type_header_font": "oswald_n4",
     "heading_scale": 110,
     "type_body_font": "rubik_n4",
     "body_scale": 105,
-    "page_width": 1400,
+    "page_width": 1200,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 24,
     "spacing_grid_vertical": 24,
@@ -85,12 +85,12 @@
     "sale_badge_color_scheme": "scheme-87247214-d370-49d1-96ca-7f26b279b7cf",
     "sold_out_badge_color_scheme": "inverse",
     "social_facebook_link": "",
-    "social_instagram_link": "https://www.instagram.com/edwardfieldstea/",
+    "social_instagram_link": "https://www.instagram.com/edwardfields_/",
     "social_youtube_link": "https://www.youtube.com/@edwardfieldstea",
     "social_tiktok_link": "https://www.tiktok.com/@edwardfieldstea",
-    "social_twitter_link": "https://twitter.com/edwardfieldstea",
+    "social_twitter_link": "",
     "social_snapchat_link": "",
-    "social_pinterest_link": "https://www.pinterest.es/edwardfieldstea",
+    "social_pinterest_link": "",
     "social_tumblr_link": "",
     "social_vimeo_link": "",
     "predictive_search_enabled": true,
@@ -224,11 +224,11 @@
         "settings": {
           "background": "#ffffff",
           "background_gradient": "",
-          "text": "#000000",
-          "button": "#000000",
+          "text": "#213529",
+          "button": "#213529",
           "button_label": "#ffffff",
-          "secondary_button_label": "#000000",
-          "shadow": "#000000"
+          "secondary_button_label": "#213529",
+          "shadow": "#213529"
         }
       },
       "background-2": {

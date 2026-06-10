@@ -338,6 +338,9 @@
     {% if template.name == 'index' %}copilot-home{% endif %} 
     {% if template.name == 'collection' %}copilot-collections{% endif %} 
     {% if template.name == 'product' %}copilot-product{% endif %} 
+    {% if page.handle == 'manifiesto' %}copilot-manifiesto{% endif %} 
+    {% if page.handle == 'nosotros' %}copilot-manifiesto{% endif %} 
+    {% if page.handle == 'contacto' %}copilot-contacto{% endif %} 
      gradient
     {% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}
     ">

@@ -1276,8 +1276,8 @@ a.product__text {
 }
 
 .icon-with-text img {
-  height: var(--icon-size);
-  width: var(--icon-size);
+  height: 64px;
+  width: 89px;
   object-fit: contain;
 }
 
@@ -1303,7 +1303,7 @@ a.product__text {
 
 .icon-with-text--horizontal .icon-with-text__item {
   flex-direction: column;
-  width: 33%;
+  width: 23%;
 }
 
 .icon-with-text--vertical .icon-with-text__item {
