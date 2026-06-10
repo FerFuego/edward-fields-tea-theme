@@ -3346,7 +3346,9 @@ product-info {
     background-color: #fff;
 }
 
-
+.footer__content-bottom-wrapper ul li::before {
+    display: none;
+}
 
 /* MOBILE */
 @media (max-width: 768px) {
@@ -3461,6 +3463,16 @@ product-info {
     }
     .product-form__actions-row {
         margin: 10px 0 !important;
+    }
+    .footer__content-bottom-wrapper {
+        flex-direction: column;
+        justify-content: center !important;
+        padding-top: 1rem;
+        padding-bottom: 0;
+    }
+    .footer__content-bottom-wrapper ul {
+        flex-direction: column;
+        gap: 0 !important;
     }
 }
 

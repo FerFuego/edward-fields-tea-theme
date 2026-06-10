@@ -134,6 +134,7 @@
         "enable_language_selector": false,
         "payment_enable": false,
         "show_policy": true,
+        "policies_menu": "footer-2",
         "margin_top": 0,
         "padding_top": 0,
         "padding_bottom": 32

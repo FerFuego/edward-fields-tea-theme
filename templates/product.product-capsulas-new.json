@@ -115,7 +115,7 @@
           "settings": {
             "heading": "Conservación",
             "icon": "none",
-            "content": "<p>El té Matcha ha sido cultivado de manera tradicional 100% ecológico. Recolectado en primavera tras 35 días de sombreado.</p>",
+            "content": "{{ product.metafields.custom.conservacion | metafield_tag }}",
             "page": ""
           }
         },
@@ -124,7 +124,7 @@
           "settings": {
             "heading": "¿Cómo tomarlo?",
             "icon": "none",
-            "content": "<ul><li>Solo con agua caliente</li><li>Matcha Latte: con leche o bebida vegetal (avena, almendra, soja, etc) caliente o fría.</li></ul>",
+            "content": "{{ product.metafields.custom.como_tomarlo | metafield_tag }}",
             "page": ""
           }
         }
