@@ -1,0 +1,386 @@
+<style>
+  .copilot-features-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .copilot-features-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    margin-bottom: 40px;
+  }
+
+  .copilot-features-title {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 50px;
+    line-height: 50px;
+    letter-spacing: 0%;
+    color: #213529;
+    margin: 0 0 16px 0;
+  }
+
+  .copilot-features-subtitle {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: #213529;
+    margin: 0;
+    max-width: 600px;
+  }
+
+  .copilot-features-slider-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .copilot-features-slider {
+    display: flex;
+    gap: 20px;
+    padding: 0 20px 20px 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+  
+  .copilot-features-slider::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  /* Alignment with max-width container on larger screens */
+  @media (min-width: 1240px) {
+    .copilot-features-slider {
+      padding-left: calc((100% - 1200px) / 2 + 20px);
+      padding-right: calc((100% - 1200px) / 2 + 20px);
+    }
+  }
+
+  .copilot-features-card {
+    flex: 0 0 auto;
+    width: 306px;
+    height: 306px;
+    border-radius: 20px;
+    border: 1px solid rgba(33, 53, 41, 0.2);
+    background-color: #FBFAF3;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease;
+  }
+
+  .copilot-features-card-icon {
+    height: 32px;
+    margin-bottom: 24px;
+    color: #1A7A4A;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .copilot-features-card-icon img,
+  .copilot-features-card-icon svg {
+    max-height: 100%;
+    width: auto;
+  }
+
+  .copilot-features-card-title {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    color: #213529;
+    margin: 0 0 12px 0;
+  }
+
+  .copilot-features-card-text {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: #213529;
+    margin: 0;
+  }
+
+  /* Bullets Pagination (Sticky style) */
+  .copilot-features-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .copilot-features-bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #D1E0D5; /* Inactive color */
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .copilot-features-bullet.active {
+    width: 32px;
+    background-color: #1A7A4A;
+  }
+
+  @media screen and (max-width: 768px) {
+    .copilot-features-title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+    .copilot-features-slider {
+      gap: 15px;
+    }
+    .copilot-features-card {
+      /* En responsive 1 item, que el siguiente asome */
+      width: 85vw;
+      /* Ajustamos altura si el contenido lo requiere o mantenemos fija. 
+         Se indicó height 306px, así que la mantendremos o dejaremos auto si sobra texto. */
+      height: 306px;
+    }
+  }
+</style>
+
+<div class="copilot-features-{{ section.id }}">
+  <div class="copilot-features-header">
+    {% if section.settings.title != blank %}
+      <h2 class="copilot-features-title">{{ section.settings.title }}</h2>
+    {% endif %}
+    {% if section.settings.subtitle != blank %}
+      <p class="copilot-features-subtitle">{{ section.settings.subtitle }}</p>
+    {% endif %}
+  </div>
+
+  <div class="copilot-features-slider-wrapper">
+    <div class="copilot-features-slider" id="slider-{{ section.id }}">
+      {% for block in section.blocks %}
+        <div class="copilot-features-card" {{ block.shopify_attributes }}>
+          <div class="copilot-features-card-icon">
+            {% if block.settings.icon != blank %}
+              {{ block.settings.icon }}
+            {% elsif block.settings.image != blank %}
+              <img src="{{ block.settings.image | image_url: height: 64 }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+            {% endif %}
+          </div>
+          {% if block.settings.title != blank %}
+            <h3 class="copilot-features-card-title">{{ block.settings.title }}</h3>
+          {% endif %}
+          {% if block.settings.text != blank %}
+            <div class="copilot-features-card-text">{{ block.settings.text }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination Bullets -->
+    <div class="copilot-features-pagination" id="pagination-{{ section.id }}">
+      {% for block in section.blocks %}
+        <div class="copilot-features-bullet {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}"></div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.getElementById('slider-{{ section.id }}');
+    const paginationContainer = document.getElementById('pagination-{{ section.id }}');
+    
+    if (!slider || !paginationContainer) return;
+
+    const bullets = paginationContainer.querySelectorAll('.copilot-features-bullet');
+    const cards = slider.querySelectorAll('.copilot-features-card');
+    
+    // Smooth scroll when clicking a bullet
+    bullets.forEach((bullet, index) => {
+      bullet.addEventListener('click', () => {
+        if (cards[index]) {
+          // Extraemos el padding izquierdo real del contenedor
+          const sliderStyle = window.getComputedStyle(slider);
+          const paddingLeft = parseFloat(sliderStyle.paddingLeft) || 0;
+          
+          const cardLeft = cards[index].offsetLeft;
+          const sliderLeft = slider.offsetLeft;
+          
+          // Calculamos el punto exacto para que la tarjeta quede al inicio del contenedor
+          const offset = cardLeft - sliderLeft - paddingLeft;
+          
+          slider.scrollTo({
+            left: offset,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Update active bullet on scroll
+    let isScrolling;
+    slider.addEventListener('scroll', () => {
+      window.clearTimeout(isScrolling);
+      isScrolling = setTimeout(() => {
+        const scrollLeft = slider.scrollLeft;
+        const sliderStyle = window.getComputedStyle(slider);
+        const paddingLeft = parseFloat(sliderStyle.paddingLeft) || 0;
+        
+        let closestIndex = 0;
+        let minDiff = Infinity;
+
+        cards.forEach((card, index) => {
+          const cardOffset = card.offsetLeft - slider.offsetLeft - paddingLeft;
+          const MathDiff = Math.abs(cardOffset - scrollLeft);
+          
+          if (MathDiff < minDiff) {
+            minDiff = MathDiff;
+            closestIndex = index;
+          }
+        });
+
+        bullets.forEach((bullet, index) => {
+          if (index === closestIndex) {
+            bullet.classList.add('active');
+          } else {
+            bullet.classList.remove('active');
+          }
+        });
+      }, 50); // Debounce para mejorar rendimiento
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Copilot Features Slider",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Todo lo que necesitas"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Producto de calidad, condiciones flexibles y soporte real. Sin burocracia."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "icon",
+          "label": "SVG Icon Code",
+          "info": "Paste the raw SVG code here"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image Icon",
+          "info": "Or upload an image if you don't have SVG code"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Card Text",
+          "default": "Description of the feature goes here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot Features Slider",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Descuento por volumen",
+            "text": "Cuanto más pides, más ahorras. Descuentos del 5% al 10% según el volumen del pedido. Sin letra pequeña, sin condiciones complicadas."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Etiqueta personalizada",
+            "text": "Tu marca, nuestra calidad. Diseñamos la etiqueta con tu identidad y la producimos desde un pedido mínimo de 20 unidades. Ideal para marcas blancas."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Catálogo completo",
+            "text": "Acceso a toda la gama Edward Fields y a nuevos productos antes que nadie. Si tienes una necesidad específica, cuéntanosla."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "title": "Envío rápido y fiable",
+            "text": "Entrega en 48h en Península. Gestionamos el stock para que nunca te quedes sin producto en el momento que más lo necesitas."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
