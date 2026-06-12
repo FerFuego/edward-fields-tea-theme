@@ -31,6 +31,7 @@
     justify-content: space-between;
     gap: 30px;
     box-sizing: border-box;
+    position: relative;
   }
 
   .copilot-cta-image {
@@ -45,6 +46,9 @@
     max-width: 100%;
     height: auto;
     object-fit: contain;
+    position: absolute;
+    top: -42px;
+    width: 190px;
   }
 
   .copilot-cta-content {
@@ -56,7 +60,7 @@
   }
 
   .copilot-cta-title {
-    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-family: 'OverusedGrotesk', sans-serif !important;
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
@@ -64,18 +68,19 @@
     letter-spacing: 0;
     color: #ffffff;
     margin: 0 0 8px 0;
+    text-transform: none;
   }
 
   .copilot-cta-subtitle {
-    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-family: 'OverusedGrotesk', sans-serif !important;
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0;
-    color: #ffffff;
+    color: #FBFAF3;
     margin: 0;
-    max-width: 600px;
+    max-width: 484px;
   }
 
   .copilot-cta-button-container {
@@ -91,7 +96,7 @@
     border-radius: 35px;
     background-color: #1A7A4A;
     border: 1px solid #1A7A4A;
-    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-family: 'OverusedGrotesk', sans-serif !important;
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
@@ -271,78 +276,9 @@
   </div>
 </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const track = document.getElementById('track-{{ section.id }}');
-    const paginationContainer = document.getElementById('pagination-{{ section.id }}');
-    const prevBtn = document.getElementById('prev-{{ section.id }}');
-    const nextBtn = document.getElementById('next-{{ section.id }}');
-    
-    if (!track) return;
-
-    const cards = Array.from(track.querySelectorAll('.copilot-cta-card'));
-    const bullets = paginationContainer ? Array.from(paginationContainer.querySelectorAll('.copilot-cta-bullet')) : [];
-
-    // Lógica para flechas en mobile
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener('click', () => {
-        const cardWidth = cards[0].offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
-        track.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
-      });
-
-      nextBtn.addEventListener('click', () => {
-        const cardWidth = cards[0].offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
-        track.scrollBy({ left: (cardWidth + gap), behavior: 'smooth' });
-      });
-    }
-
-    // Lógica para bullets en mobile
-    if (bullets.length > 0) {
-      bullets.forEach((bullet, index) => {
-        bullet.addEventListener('click', () => {
-          if (cards[index]) {
-            const paddingLeft = parseFloat(window.getComputedStyle(track).paddingLeft) || 0;
-            const offset = cards[index].offsetLeft - track.offsetLeft - paddingLeft;
-            track.scrollTo({ left: offset, behavior: 'smooth' });
-          }
-        });
-      });
-
-      // Sincronizar bullets al hacer scroll
-      let isScrolling;
-      track.addEventListener('scroll', () => {
-        window.clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-          const scrollLeft = track.scrollLeft;
-          const paddingLeft = parseFloat(window.getComputedStyle(track).paddingLeft) || 0;
-          
-          let closestIndex = 0;
-          let minDiff = Infinity;
-
-          cards.forEach((card, index) => {
-            const cardOffset = card.offsetLeft - track.offsetLeft - paddingLeft;
-            const diff = Math.abs(cardOffset - scrollLeft);
-            if (diff < minDiff) {
-              minDiff = diff;
-              closestIndex = index;
-            }
-          });
-
-          bullets.forEach((b, i) => {
-            if (i === closestIndex) b.classList.add('active');
-            else b.classList.remove('active');
-          });
-        }, 50);
-      });
-    }
-  });
-</script>
-
 {% schema %}
 {
-  "name": "Copilot CTA Slider",
+  "name": "Copilot CTA",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -421,7 +357,7 @@
   ],
   "presets": [
     {
-      "name": "Copilot CTA Slider",
+      "name": "Copilot CTA",
       "blocks": [
         {
           "type": "cta_banner"

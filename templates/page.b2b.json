@@ -216,8 +216,8 @@
         "title": "Todo lo que necesitas",
         "subtitle": "Producto de calidad, condiciones flexibles y soporte real. Sin burocracia.",
         "bg_color": "#ffffff",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "copilot_products_slider_X9dWdR": {
@@ -226,6 +226,7 @@
         "product_card_VeWQQr": {
           "type": "product_card",
           "settings": {
+            "image": "shopify://shop_images/hf_20260513_133727_5aac63e4-d0c8-4bfe-ba6b-f31fdc3d5cf8_1.webp",
             "title": "Matcha Barista",
             "text": "Matcha de grado barista, perfecto para preparaciones en cafeterías. Textura fina, color intenso, ideal para lattes y bebidas especiales.",
             "subtext": "Formato profesional (300g)",
@@ -236,30 +237,33 @@
         "product_card_JYUkK6": {
           "type": "product_card",
           "settings": {
+            "image": "shopify://shop_images/hf_20260513_133727_5aac63e4-d0c8-4bfe-ba6b-f31fdc3d5cf8_1.webp",
             "title": "Matcha Vainilla",
             "text": "Matcha ceremonial con vainilla natural. Sin azúcar añadida. Perfecto para clientes que buscan algo diferente con carácter propio.",
             "subtext": "Con sabor natural (300g)",
-            "tag": "MÁS PEDIDO",
+            "tag": "",
             "link": ""
           }
         },
         "product_card_fUkRfU": {
           "type": "product_card",
           "settings": {
+            "image": "shopify://shop_images/hf_20260513_133727_5aac63e4-d0c8-4bfe-ba6b-f31fdc3d5cf8_1.webp",
             "title": "Matcha Cúrcuma",
             "text": "La combinación antiinflamatoria más demandada. Matcha ceremonial con cúrcuma orgánica. Para tiendas de salud y nutrición.",
             "subtext": "Con sabor natural (300g)",
-            "tag": "MÁS PEDIDO",
+            "tag": "",
             "link": ""
           }
         },
         "product_card_EAXNhY": {
           "type": "product_card",
           "settings": {
+            "image": "shopify://shop_images/hf_20260513_133727_5aac63e4-d0c8-4bfe-ba6b-f31fdc3d5cf8_1.webp",
             "title": "Matcha Colágeno",
             "text": "Matcha ceremonial con colágeno marino hidrolizado. El producto más premium del catálogo. Para farmacias y tiendas de bienestar.",
             "subtext": "Con sabor natural (300g)",
-            "tag": "MÁS PEDIDO",
+            "tag": "",
             "link": ""
           }
         }
@@ -275,7 +279,7 @@
         "title": "Formato 300g para profesionales",
         "subtitle": "Cuatro productos en formato profesional. Y si necesitas algo más, consúltanos, podemos adaptarnos.",
         "bg_color": "#ffffff",
-        "padding_top": 80,
+        "padding_top": 40,
         "padding_bottom": 80
       }
     },
@@ -285,6 +289,7 @@
         "cta_banner_wVbDeE": {
           "type": "cta_banner",
           "settings": {
+            "image": "shopify://shop_images/matcha-ceremonial_10f04929-4842-46d6-aa85-903cbf736da1.webp",
             "title": "¿Necesitas algo diferente?",
             "subtitle": "Tenemos todo el catálogo disponible y podemos desarrollar nuevos formatos a medida. Cuéntanos qué necesitas.",
             "text_center": false,
@@ -298,7 +303,7 @@
       ],
       "name": "Copilot CTA Slider",
       "settings": {
-        "bg_color": "transparent",
+        "bg_color": "rgba(0,0,0,0)",
         "padding_top": 40,
         "padding_bottom": 40
       }
@@ -345,10 +350,11 @@
       "settings": {
         "title": "Sencillo desde el primer pedido",
         "subtitle": "Sin burocracia. Desde que nos escribes hasta que tienes el producto en tu negocio.",
+        "image": "shopify://shop_images/image064.webp",
         "reverse_layout": false,
         "bg_color": "#ffffff",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 52,
+        "padding_bottom": 40
       }
     },
     "copilot_reviews_QRXWLm": {
