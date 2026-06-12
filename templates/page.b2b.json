@@ -220,6 +220,137 @@
         "padding_bottom": 80
       }
     },
+    "copilot_products_slider_X9dWdR": {
+      "type": "copilot-products-slider",
+      "blocks": {
+        "product_card_VeWQQr": {
+          "type": "product_card",
+          "settings": {
+            "title": "Matcha Barista",
+            "text": "Matcha de grado barista, perfecto para preparaciones en cafeterías. Textura fina, color intenso, ideal para lattes y bebidas especiales.",
+            "subtext": "Formato profesional (300g)",
+            "tag": "MÁS PEDIDO",
+            "link": ""
+          }
+        },
+        "product_card_JYUkK6": {
+          "type": "product_card",
+          "settings": {
+            "title": "Matcha Vainilla",
+            "text": "Matcha ceremonial con vainilla natural. Sin azúcar añadida. Perfecto para clientes que buscan algo diferente con carácter propio.",
+            "subtext": "Con sabor natural (300g)",
+            "tag": "MÁS PEDIDO",
+            "link": ""
+          }
+        },
+        "product_card_fUkRfU": {
+          "type": "product_card",
+          "settings": {
+            "title": "Matcha Cúrcuma",
+            "text": "La combinación antiinflamatoria más demandada. Matcha ceremonial con cúrcuma orgánica. Para tiendas de salud y nutrición.",
+            "subtext": "Con sabor natural (300g)",
+            "tag": "MÁS PEDIDO",
+            "link": ""
+          }
+        },
+        "product_card_EAXNhY": {
+          "type": "product_card",
+          "settings": {
+            "title": "Matcha Colágeno",
+            "text": "Matcha ceremonial con colágeno marino hidrolizado. El producto más premium del catálogo. Para farmacias y tiendas de bienestar.",
+            "subtext": "Con sabor natural (300g)",
+            "tag": "MÁS PEDIDO",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_card_VeWQQr",
+        "product_card_JYUkK6",
+        "product_card_fUkRfU",
+        "product_card_EAXNhY"
+      ],
+      "name": "Copilot Products Slider",
+      "settings": {
+        "title": "Formato 300g para profesionales",
+        "subtitle": "Cuatro productos en formato profesional. Y si necesitas algo más, consúltanos, podemos adaptarnos.",
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "copilot_cta_slider_jhTVDH": {
+      "type": "copilot-cta-slider",
+      "blocks": {
+        "cta_banner_wVbDeE": {
+          "type": "cta_banner",
+          "settings": {
+            "title": "¿Necesitas algo diferente?",
+            "subtitle": "Tenemos todo el catálogo disponible y podemos desarrollar nuevos formatos a medida. Cuéntanos qué necesitas.",
+            "text_center": false,
+            "button_text": "Consultar catálogo",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "cta_banner_wVbDeE"
+      ],
+      "name": "Copilot CTA Slider",
+      "settings": {
+        "bg_color": "transparent",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "copilot_left_right_DcG6LW": {
+      "type": "copilot-left-right",
+      "blocks": {
+        "step_pH86J4": {
+          "type": "step",
+          "settings": {
+            "title": "Nos escribes",
+            "text": "Rellenas el formulario y nos cuentas qué necesitas, producto, volumen y frecuencia."
+          }
+        },
+        "step_fyncLY": {
+          "type": "step",
+          "settings": {
+            "title": "Te enviamos tarifa",
+            "text": "En menos de 24h recibes una propuesta personalizada con precios, descuentos y condiciones de entrega. Sin letra pequeña."
+          }
+        },
+        "step_W4eqHn": {
+          "type": "step",
+          "settings": {
+            "title": "Confirmas el pedido",
+            "text": "Apruebas la propuesta y gestionamos el pedido. Pago sencillo, factura inmediata."
+          }
+        },
+        "step_MiftFi": {
+          "type": "step",
+          "settings": {
+            "title": "Recibes en 48h",
+            "text": "El producto llega a tu negocio en 48h hábiles. Listo para vender o usar desde el primer día."
+          }
+        }
+      },
+      "block_order": [
+        "step_pH86J4",
+        "step_fyncLY",
+        "step_W4eqHn",
+        "step_MiftFi"
+      ],
+      "name": "Copilot Left-Right",
+      "settings": {
+        "title": "Sencillo desde el primer pedido",
+        "subtitle": "Sin burocracia. Desde que nos escribes hasta que tienes el producto en tu negocio.",
+        "reverse_layout": false,
+        "bg_color": "#ffffff",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "copilot_reviews_QRXWLm": {
       "type": "copilot-reviews",
       "blocks": {
@@ -386,6 +517,9 @@
     "image_banner_WhyB9T",
     "copilot_marquee_slider_fyFVWd",
     "copilot_features_slider_gEeFAn",
+    "copilot_products_slider_X9dWdR",
+    "copilot_cta_slider_jhTVDH",
+    "copilot_left_right_DcG6LW",
     "copilot_reviews_QRXWLm",
     "rich_text_NGYDcU",
     "image_banner_tRqmYL",
