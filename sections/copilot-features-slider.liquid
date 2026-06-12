@@ -44,6 +44,7 @@
   }
 
   .copilot-features-slider {
+    position: relative; /* Added to make offset calculations robust */
     display: flex;
     gap: 20px;
     padding: 0 20px 20px 20px;
@@ -129,6 +130,7 @@
   }
 
   .copilot-features-bullet {
+    display: block !important;
     width: 10px;
     height: 10px;
     border-radius: 10px;
@@ -207,61 +209,132 @@
     
     if (!slider || !paginationContainer) return;
 
-    const bullets = paginationContainer.querySelectorAll('.copilot-features-bullet');
-    const cards = slider.querySelectorAll('.copilot-features-card');
+    // Asegurarnos de que el slider sea relative para los offsets
+    slider.style.position = 'relative';
+
+    const originalCards = Array.from(slider.querySelectorAll('.copilot-features-card'));
+    const numOriginal = originalCards.length;
     
-    // Smooth scroll when clicking a bullet
-    bullets.forEach((bullet, index) => {
-      bullet.addEventListener('click', () => {
-        if (cards[index]) {
-          // Extraemos el padding izquierdo real del contenedor
-          const sliderStyle = window.getComputedStyle(slider);
-          const paddingLeft = parseFloat(sliderStyle.paddingLeft) || 0;
-          
-          const cardLeft = cards[index].offsetLeft;
-          const sliderLeft = slider.offsetLeft;
-          
-          // Calculamos el punto exacto para que la tarjeta quede al inicio del contenedor
-          const offset = cardLeft - sliderLeft - paddingLeft;
-          
-          slider.scrollTo({
-            left: offset,
-            behavior: 'smooth'
-          });
-        }
-      });
+    if (numOriginal <= 1) return;
+
+    // 1. Clonar las tarjetas para crear el efecto infinito real
+    originalCards.forEach(card => {
+      const clone = card.cloneNode(true);
+      clone.classList.add('is-clone');
+      slider.appendChild(clone);
+    });
+    
+    originalCards.slice().reverse().forEach(card => {
+      const clone = card.cloneNode(true);
+      clone.classList.add('is-clone');
+      slider.insertBefore(clone, slider.firstChild);
     });
 
-    // Update active bullet on scroll
-    let isScrolling;
+    const allCards = Array.from(slider.querySelectorAll('.copilot-features-card'));
+    const bullets = Array.from(paginationContainer.querySelectorAll('.copilot-features-bullet'));
+
+    // Inicializar la posición del scroll en el primer elemento original
+    setTimeout(() => {
+      const firstOriginal = allCards[numOriginal];
+      const paddingLeft = parseFloat(window.getComputedStyle(slider).paddingLeft) || 0;
+      
+      slider.style.scrollSnapType = 'none'; // Desactivamos temporalmente para no animar
+      slider.scrollLeft = firstOriginal.offsetLeft - paddingLeft;
+      
+      setTimeout(() => {
+        slider.style.scrollSnapType = 'x mandatory';
+      }, 50);
+    }, 100);
+
+    // Actualizar el bullet activo basado en el scroll
+    function updateActiveBullet() {
+      const scrollLeft = slider.scrollLeft;
+      const paddingLeft = parseFloat(window.getComputedStyle(slider).paddingLeft) || 0;
+      
+      let closestIndex = 0;
+      let minDiff = Infinity;
+
+      allCards.forEach((card, index) => {
+        const cardOffset = card.offsetLeft - paddingLeft;
+        const diff = Math.abs(cardOffset - scrollLeft);
+        if (diff < minDiff) {
+          minDiff = diff;
+          closestIndex = index;
+        }
+      });
+
+      // Mapeamos el índice actual a su correspondiente original
+      const bulletIndex = closestIndex % numOriginal;
+      
+      bullets.forEach((b, i) => {
+        if (i === bulletIndex) b.classList.add('active');
+        else b.classList.remove('active');
+      });
+    }
+
+    // Comprobar si llegamos al final/principio y hacer el loop invisible
+    let isResetting = false;
+    function checkAndResetScroll() {
+      if (isResetting) return;
+      
+      const scrollLeft = slider.scrollLeft;
+      const paddingLeft = parseFloat(window.getComputedStyle(slider).paddingLeft) || 0;
+      
+      let closestIndex = 0;
+      let minDiff = Infinity;
+
+      allCards.forEach((card, index) => {
+        const cardOffset = card.offsetLeft - paddingLeft;
+        const diff = Math.abs(cardOffset - scrollLeft);
+        if (diff < minDiff) {
+          minDiff = diff;
+          closestIndex = index;
+        }
+      });
+
+      // Si nos hemos desplazado a los clones de la izquierda
+      if (closestIndex < numOriginal) {
+        isResetting = true;
+        const targetCard = allCards[closestIndex + numOriginal];
+        slider.style.scrollSnapType = 'none';
+        slider.scrollLeft = targetCard.offsetLeft - paddingLeft;
+        void slider.offsetWidth; // Forzar reflow
+        slider.style.scrollSnapType = 'x mandatory';
+        setTimeout(() => isResetting = false, 50);
+      } 
+      // Si nos hemos desplazado a los clones de la derecha
+      else if (closestIndex >= numOriginal * 2) {
+        isResetting = true;
+        const targetCard = allCards[closestIndex - numOriginal];
+        slider.style.scrollSnapType = 'none';
+        slider.scrollLeft = targetCard.offsetLeft - paddingLeft;
+        void slider.offsetWidth; // Forzar reflow
+        slider.style.scrollSnapType = 'x mandatory';
+        setTimeout(() => isResetting = false, 50);
+      }
+    }
+
+    let scrollTimeout;
     slider.addEventListener('scroll', () => {
-      window.clearTimeout(isScrolling);
-      isScrolling = setTimeout(() => {
-        const scrollLeft = slider.scrollLeft;
-        const sliderStyle = window.getComputedStyle(slider);
-        const paddingLeft = parseFloat(sliderStyle.paddingLeft) || 0;
+      updateActiveBullet();
+      
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        checkAndResetScroll();
+      }, 150);
+    });
+
+    // Clic en los bullets
+    bullets.forEach((bullet, index) => {
+      bullet.addEventListener('click', () => {
+        const targetCard = allCards[numOriginal + index];
+        const paddingLeft = parseFloat(window.getComputedStyle(slider).paddingLeft) || 0;
         
-        let closestIndex = 0;
-        let minDiff = Infinity;
-
-        cards.forEach((card, index) => {
-          const cardOffset = card.offsetLeft - slider.offsetLeft - paddingLeft;
-          const MathDiff = Math.abs(cardOffset - scrollLeft);
-          
-          if (MathDiff < minDiff) {
-            minDiff = MathDiff;
-            closestIndex = index;
-          }
+        slider.scrollTo({
+          left: targetCard.offsetLeft - paddingLeft,
+          behavior: 'smooth'
         });
-
-        bullets.forEach((bullet, index) => {
-          if (index === closestIndex) {
-            bullet.classList.add('active');
-          } else {
-            bullet.classList.remove('active');
-          }
-        });
-      }, 50); // Debounce para mejorar rendimiento
+      });
     });
   });
 </script>
