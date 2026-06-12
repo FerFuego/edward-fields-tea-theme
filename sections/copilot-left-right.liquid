@@ -1,0 +1,476 @@
+<style>
+  .copilot-lr-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .copilot-lr-container {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+  }
+
+  .copilot-lr-container.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .copilot-lr-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .copilot-lr-title {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 50px;
+    line-height: 50px;
+    letter-spacing: 0%;
+    color: #213529;
+    margin: 0 0 20px 0;
+  }
+
+  .copilot-lr-subtitle {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: #213529;
+    margin: 0 0 40px 0;
+  }
+
+  .copilot-lr-steps-wrapper {
+    width: 100%;
+  }
+
+  .copilot-lr-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .copilot-step-card {
+    border-left: 2px solid #213529;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .copilot-step-title {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #213529;
+    margin: 0 0 8px 0;
+  }
+
+  .copilot-step-text {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #213529;
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  .copilot-lr-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .copilot-lr-right img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .copilot-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    background-color: #f4f4f4;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+
+  .copilot-lr-mobile-nav {
+    display: none;
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 768px) {
+    .copilot-lr-container {
+      flex-direction: column !important;
+      gap: 30px;
+    }
+
+    .copilot-lr-title {
+      font-size: 36px;
+      line-height: 40px;
+      margin-bottom: 16px;
+    }
+
+    .copilot-lr-subtitle {
+      margin-bottom: 0;
+    }
+
+    .copilot-lr-left {
+      display: contents; /* Allows reordering of Title, Subtitle and Steps relative to the Image */
+    }
+
+    /* Reorder logic for mobile: Title -> Subtitle -> Image -> Steps */
+    .copilot-lr-title { order: 1; }
+    .copilot-lr-subtitle { order: 2; }
+    
+    .copilot-lr-right { 
+      order: 3; 
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .copilot-lr-steps-wrapper { 
+      order: 4; 
+      width: 100%; 
+    }
+
+    /* Steps become a slider */
+    .copilot-lr-steps {
+      flex-direction: row;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      margin-left: -20px;
+      margin-right: -20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      width: calc(100% + 40px);
+      gap: 20px;
+    }
+    
+    .copilot-lr-steps::-webkit-scrollbar {
+      display: none;
+    }
+
+    .copilot-step-card {
+      flex: 0 0 85vw;
+      scroll-snap-align: start;
+    }
+
+    /* Navigation */
+    .copilot-lr-mobile-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .copilot-lr-pagination {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .copilot-lr-bullet {
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      background-color: #D1E0D5;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .copilot-lr-bullet.active {
+      width: 32px;
+      background-color: #1A7A4A;
+    }
+
+    .copilot-nav-arrow {
+      background: none;
+      border: 1px solid rgba(33, 53, 41, 0.2);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: #213529;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+    .copilot-nav-arrow:hover {
+      background-color: #213529;
+      color: #ffffff;
+    }
+    .copilot-nav-arrow svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+</style>
+
+<div class="copilot-lr-{{ section.id }}">
+  <div class="copilot-lr-container {% if section.settings.reverse_layout %}reverse{% endif %}">
+    
+    <div class="copilot-lr-left">
+      {% if section.settings.title != blank %}
+        <h2 class="copilot-lr-title">{{ section.settings.title }}</h2>
+      {% endif %}
+      
+      {% if section.settings.subtitle != blank %}
+        <p class="copilot-lr-subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+      
+      <div class="copilot-lr-steps-wrapper">
+        <div class="copilot-lr-steps" id="track-{{ section.id }}">
+          {% for block in section.blocks %}
+            <div class="copilot-step-card" {{ block.shopify_attributes }}>
+              {% if block.settings.title != blank %}
+                <h3 class="copilot-step-title">{{ block.settings.title }}</h3>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <div class="copilot-step-text">{{ block.settings.text }}</div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if section.blocks.size > 1 %}
+          <!-- Mobile Navigation -->
+          <div class="copilot-lr-mobile-nav">
+            <button class="copilot-nav-arrow prev" id="prev-{{ section.id }}" aria-label="Anterior">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            
+            <div class="copilot-lr-pagination" id="pagination-{{ section.id }}">
+              {% for block in section.blocks %}
+                <div class="copilot-lr-bullet {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}"></div>
+              {% endfor %}
+            </div>
+            
+            <button class="copilot-nav-arrow next" id="next-{{ section.id }}" aria-label="Siguiente">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="copilot-lr-right">
+      {% if section.settings.image != blank %}
+        <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.title | escape }}" loading="lazy">
+      {% else %}
+        {{ 'collection-1' | placeholder_svg_tag: 'copilot-placeholder' }}
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('track-{{ section.id }}');
+    const paginationContainer = document.getElementById('pagination-{{ section.id }}');
+    const prevBtn = document.getElementById('prev-{{ section.id }}');
+    const nextBtn = document.getElementById('next-{{ section.id }}');
+    
+    if (!track) return;
+
+    const cards = Array.from(track.querySelectorAll('.copilot-step-card'));
+    const bullets = paginationContainer ? Array.from(paginationContainer.querySelectorAll('.copilot-lr-bullet')) : [];
+
+    // Flechas en mobile
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => {
+        const cardWidth = cards[0].offsetWidth;
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+        track.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        const cardWidth = cards[0].offsetWidth;
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+        track.scrollBy({ left: (cardWidth + gap), behavior: 'smooth' });
+      });
+    }
+
+    // Bullets en mobile
+    if (bullets.length > 0) {
+      bullets.forEach((bullet, index) => {
+        bullet.addEventListener('click', () => {
+          if (cards[index]) {
+            const paddingLeft = parseFloat(window.getComputedStyle(track).paddingLeft) || 0;
+            const offset = cards[index].offsetLeft - track.offsetLeft - paddingLeft;
+            track.scrollTo({ left: offset, behavior: 'smooth' });
+          }
+        });
+      });
+
+      // Sincronizar bullets al scrollear
+      let isScrolling;
+      track.addEventListener('scroll', () => {
+        window.clearTimeout(isScrolling);
+        isScrolling = setTimeout(() => {
+          const scrollLeft = track.scrollLeft;
+          const paddingLeft = parseFloat(window.getComputedStyle(track).paddingLeft) || 0;
+          
+          let closestIndex = 0;
+          let minDiff = Infinity;
+
+          cards.forEach((card, index) => {
+            const cardOffset = card.offsetLeft - track.offsetLeft - paddingLeft;
+            const diff = Math.abs(cardOffset - scrollLeft);
+            if (diff < minDiff) {
+              minDiff = diff;
+              closestIndex = index;
+            }
+          });
+
+          bullets.forEach((b, i) => {
+            if (i === closestIndex) b.classList.add('active');
+            else b.classList.remove('active');
+          });
+        }, 50);
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Copilot Left-Right",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Sencillo desde el primer pedido"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "Sin burocracia. Desde que nos escribes hasta que tienes el producto en tu negocio."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_layout",
+      "label": "Reverse layout (Image left, text right)",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step / Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Step Title",
+          "default": "Nos escribes"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Step Text",
+          "default": "Rellenas el formulario y nos cuentas qué necesitas, producto, volumen y frecuencia."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot Left-Right",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Nos escribes",
+            "text": "Rellenas el formulario y nos cuentas qué necesitas, producto, volumen y frecuencia."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Te enviamos tarifa",
+            "text": "En menos de 24h recibes una propuesta personalizada con precios, descuentos y condiciones de entrega. Sin letra pequeña."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Confirmas el pedido",
+            "text": "Apruebas la propuesta y gestionamos el pedido. Pago sencillo, factura inmediata."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Recibes en 48h",
+            "text": "El producto llega a tu negocio en 48h hábiles. Listo para vender o usar desde el primer día."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

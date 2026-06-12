@@ -154,22 +154,6 @@
     "copilot_features_slider_gEeFAn": {
       "type": "copilot-features-slider",
       "blocks": {
-        "feature_egxePD": {
-          "type": "feature",
-          "settings": {
-            "icon": "",
-            "title": "Feature Title",
-            "text": "Description of the feature goes here."
-          }
-        },
-        "feature_x37Mjj": {
-          "type": "feature",
-          "settings": {
-            "icon": "",
-            "title": "Feature Title",
-            "text": "Description of the feature goes here."
-          }
-        },
         "feature_8XDtkj": {
           "type": "feature",
           "settings": {
@@ -220,8 +204,6 @@
         }
       },
       "block_order": [
-        "feature_egxePD",
-        "feature_x37Mjj",
         "feature_8XDtkj",
         "feature_Fe6AXR",
         "feature_TKp4kC",

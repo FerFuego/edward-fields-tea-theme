@@ -16,26 +16,27 @@
   }
 
   .copilot-features-title {
-    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-family: 'OverusedGrotesk', sans-serif !important;
     font-weight: 300;
     font-style: normal;
     font-size: 50px;
     line-height: 50px;
-    letter-spacing: 0%;
+    text-transform: none;
+    letter-spacing: 0;
     color: #213529;
     margin: 0 0 16px 0;
   }
 
   .copilot-features-subtitle {
-    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-family: 'OverusedGrotesk', sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
     line-height: 20px;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     color: #213529;
     margin: 0;
-    max-width: 600px;
+    max-width: 400px;
   }
 
   .copilot-features-slider-wrapper {
@@ -44,10 +45,9 @@
   }
 
   .copilot-features-slider {
-    position: relative; /* Added to make offset calculations robust */
     display: flex;
     gap: 20px;
-    padding: 0 20px 20px 20px;
+    padding: 20px 20px 20px 20px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none; /* Firefox */
@@ -73,19 +73,23 @@
     border-radius: 20px;
     border: 1px solid rgba(33, 53, 41, 0.2);
     background-color: #FBFAF3;
-    padding: 20px;
+    padding: 20px 20px 40px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: flex-end;
     align-items: flex-start;
     scroll-snap-align: start;
     transition: transform 0.3s ease;
   }
 
+  .copilot-features-card::last-child() .copilot-features-card-title {
+    max-width: 170px !important;
+  }
+
   .copilot-features-card-icon {
     height: 32px;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
     color: #1A7A4A;
     display: flex;
     align-items: center;
@@ -104,9 +108,11 @@
     font-style: normal;
     font-size: 20px;
     line-height: 24px;
-    letter-spacing: 0%;
+    letter-spacing: 0;
+    text-transform: none;
     color: #213529;
-    margin: 0 0 12px 0;
+    margin: 0 0 10px 0;
+    max-width: 145px;
   }
 
   .copilot-features-card-text {
@@ -115,7 +121,7 @@
     font-style: normal;
     font-size: 16px;
     line-height: 20px;
-    letter-spacing: 0%;
+    letter-spacing: 0;
     color: #213529;
     margin: 0;
   }
@@ -209,132 +215,61 @@
     
     if (!slider || !paginationContainer) return;
 
-    // Asegurarnos de que el slider sea relative para los offsets
-    slider.style.position = 'relative';
-
-    const originalCards = Array.from(slider.querySelectorAll('.copilot-features-card'));
-    const numOriginal = originalCards.length;
+    const bullets = paginationContainer.querySelectorAll('.copilot-features-bullet');
+    const cards = slider.querySelectorAll('.copilot-features-card');
     
-    if (numOriginal <= 1) return;
-
-    // 1. Clonar las tarjetas para crear el efecto infinito real
-    originalCards.forEach(card => {
-      const clone = card.cloneNode(true);
-      clone.classList.add('is-clone');
-      slider.appendChild(clone);
-    });
-    
-    originalCards.slice().reverse().forEach(card => {
-      const clone = card.cloneNode(true);
-      clone.classList.add('is-clone');
-      slider.insertBefore(clone, slider.firstChild);
-    });
-
-    const allCards = Array.from(slider.querySelectorAll('.copilot-features-card'));
-    const bullets = Array.from(paginationContainer.querySelectorAll('.copilot-features-bullet'));
-
-    // Inicializar la posición del scroll en el primer elemento original
-    setTimeout(() => {
-      const firstOriginal = allCards[numOriginal];
-      const paddingLeft = parseFloat(window.getComputedStyle(slider).paddingLeft) || 0;
-      
-      slider.style.scrollSnapType = 'none'; // Desactivamos temporalmente para no animar
-      slider.scrollLeft = firstOriginal.offsetLeft - paddingLeft;
-      
-      setTimeout(() => {
-        slider.style.scrollSnapType = 'x mandatory';
-      }, 50);
-    }, 100);
-
-    // Actualizar el bullet activo basado en el scroll
-    function updateActiveBullet() {
-      const scrollLeft = slider.scrollLeft;
-      const paddingLeft = parseFloat(window.getComputedStyle(slider).paddingLeft) || 0;
-      
-      let closestIndex = 0;
-      let minDiff = Infinity;
-
-      allCards.forEach((card, index) => {
-        const cardOffset = card.offsetLeft - paddingLeft;
-        const diff = Math.abs(cardOffset - scrollLeft);
-        if (diff < minDiff) {
-          minDiff = diff;
-          closestIndex = index;
-        }
-      });
-
-      // Mapeamos el índice actual a su correspondiente original
-      const bulletIndex = closestIndex % numOriginal;
-      
-      bullets.forEach((b, i) => {
-        if (i === bulletIndex) b.classList.add('active');
-        else b.classList.remove('active');
-      });
-    }
-
-    // Comprobar si llegamos al final/principio y hacer el loop invisible
-    let isResetting = false;
-    function checkAndResetScroll() {
-      if (isResetting) return;
-      
-      const scrollLeft = slider.scrollLeft;
-      const paddingLeft = parseFloat(window.getComputedStyle(slider).paddingLeft) || 0;
-      
-      let closestIndex = 0;
-      let minDiff = Infinity;
-
-      allCards.forEach((card, index) => {
-        const cardOffset = card.offsetLeft - paddingLeft;
-        const diff = Math.abs(cardOffset - scrollLeft);
-        if (diff < minDiff) {
-          minDiff = diff;
-          closestIndex = index;
-        }
-      });
-
-      // Si nos hemos desplazado a los clones de la izquierda
-      if (closestIndex < numOriginal) {
-        isResetting = true;
-        const targetCard = allCards[closestIndex + numOriginal];
-        slider.style.scrollSnapType = 'none';
-        slider.scrollLeft = targetCard.offsetLeft - paddingLeft;
-        void slider.offsetWidth; // Forzar reflow
-        slider.style.scrollSnapType = 'x mandatory';
-        setTimeout(() => isResetting = false, 50);
-      } 
-      // Si nos hemos desplazado a los clones de la derecha
-      else if (closestIndex >= numOriginal * 2) {
-        isResetting = true;
-        const targetCard = allCards[closestIndex - numOriginal];
-        slider.style.scrollSnapType = 'none';
-        slider.scrollLeft = targetCard.offsetLeft - paddingLeft;
-        void slider.offsetWidth; // Forzar reflow
-        slider.style.scrollSnapType = 'x mandatory';
-        setTimeout(() => isResetting = false, 50);
-      }
-    }
-
-    let scrollTimeout;
-    slider.addEventListener('scroll', () => {
-      updateActiveBullet();
-      
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        checkAndResetScroll();
-      }, 150);
-    });
-
-    // Clic en los bullets
+    // Smooth scroll when clicking a bullet
     bullets.forEach((bullet, index) => {
       bullet.addEventListener('click', () => {
-        const targetCard = allCards[numOriginal + index];
-        const paddingLeft = parseFloat(window.getComputedStyle(slider).paddingLeft) || 0;
-        
-        slider.scrollTo({
-          left: targetCard.offsetLeft - paddingLeft,
-          behavior: 'smooth'
-        });
+        if (cards[index]) {
+          // Extraemos el padding izquierdo real del contenedor
+          const sliderStyle = window.getComputedStyle(slider);
+          const paddingLeft = parseFloat(sliderStyle.paddingLeft) || 0;
+          
+          const cardLeft = cards[index].offsetLeft;
+          const sliderLeft = slider.offsetLeft;
+          
+          // Calculamos el punto exacto para que la tarjeta quede al inicio del contenedor
+          const offset = cardLeft - sliderLeft - paddingLeft;
+          
+          slider.scrollTo({
+            left: offset,
+            behavior: 'smooth'
+          });
+        }
       });
+    });
+
+    // Update active bullet on scroll
+    let isScrolling;
+    slider.addEventListener('scroll', () => {
+      window.clearTimeout(isScrolling);
+      isScrolling = setTimeout(() => {
+        const scrollLeft = slider.scrollLeft;
+        const sliderStyle = window.getComputedStyle(slider);
+        const paddingLeft = parseFloat(sliderStyle.paddingLeft) || 0;
+        
+        let closestIndex = 0;
+        let minDiff = Infinity;
+
+        cards.forEach((card, index) => {
+          const cardOffset = card.offsetLeft - slider.offsetLeft - paddingLeft;
+          const MathDiff = Math.abs(cardOffset - scrollLeft);
+          
+          if (MathDiff < minDiff) {
+            minDiff = MathDiff;
+            closestIndex = index;
+          }
+        });
+
+        bullets.forEach((bullet, index) => {
+          if (index === closestIndex) {
+            bullet.classList.add('active');
+          } else {
+            bullet.classList.remove('active');
+          }
+        });
+      }, 50); // Debounce para mejorar rendimiento
     });
   });
 </script>
