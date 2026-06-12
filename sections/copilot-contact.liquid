@@ -10,10 +10,9 @@
   .copilot-contact-container {
     max-width: 1022px;
     margin: 0 auto;
-    padding: 56px 96px;
     display: flex;
     gap: 80px;
-    align-items: flex-start;
+    align-items: center;
     box-sizing: border-box;
   }
 
@@ -26,17 +25,18 @@
   }
 
   .copilot-contact-title {
-    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-family: 'OverusedGrotesk', sans-serif !important;
     font-weight: 300;
     font-style: normal;
     font-size: 50px;
     line-height: 50px;
     color: #213529;
     margin: 0 0 24px 0;
+    text-transform: none;
   }
 
   .copilot-contact-text {
-    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-family: 'OverusedGrotesk', sans-serif !important;
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
@@ -71,7 +71,7 @@
   }
 
   .copilot-contact-info-text {
-    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-family: 'OverusedGrotesk', sans-serif !important;
     font-size: 16px;
     line-height: 20px;
     color: #213529;
@@ -90,7 +90,7 @@
 
   .copilot-contact-quote {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 16px;
     margin-top: 32px;
   }
@@ -99,11 +99,10 @@
     width: 70px;
     height: auto;
     flex-shrink: 0;
-    border-radius: 50%;
   }
 
   .copilot-contact-quote-text {
-    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-family: 'OverusedGrotesk', sans-serif !important;
     font-size: 14px;
     line-height: 18px;
     color: #213529;
@@ -113,24 +112,25 @@
 
   /* Right Column (Form) */
   .copilot-contact-right {
-    flex: 1.2; /* slightly wider to fit fields nicely */
+    flex: 1; /* slightly wider to fit fields nicely */
     background-color: #ffffff;
-    border: 1px solid rgba(33, 53, 41, 0.2);
+    border: 1px solid rgba(75, 124, 90, 0.50);
     border-radius: 20px;
     padding: 40px;
     box-sizing: border-box;
   }
 
   .copilot-contact-form-title {
-    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-family: 'OverusedGrotesk', sans-serif !important;
     font-size: 24px;
     font-weight: 400;
     margin: 0 0 8px 0;
     color: #213529;
+    text-transform: none;
   }
 
   .copilot-contact-form-subtitle {
-    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-family: 'OverusedGrotesk', sans-serif !important;
     font-size: 14px;
     line-height: 20px;
     margin: 0 0 32px 0;
@@ -144,7 +144,7 @@
     color: #1A7A4A;
     border-radius: 8px;
     margin-bottom: 24px;
-    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-family: 'OverusedGrotesk', sans-serif !important;
     font-size: 14px;
   }
 
@@ -165,19 +165,19 @@
   }
 
   .copilot-form-label {
-    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-family: 'OverusedGrotesk', sans-serif !important;
     font-size: 14px;
     margin-bottom: 8px;
     color: #213529;
   }
 
   .copilot-form-input {
-    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-family: 'OverusedGrotesk', sans-serif !important;
     font-size: 14px;
     padding: 14px 16px;
     border-radius: 8px;
-    border: 1px solid rgba(33, 53, 41, 0.2);
-    background-color: #FBFAF3;
+  border: 1px solid rgba(75, 124, 90, 0.50);
+  background: rgba(75, 124, 90, 0.05);
     color: #213529;
     width: 100%;
     box-sizing: border-box;
@@ -207,7 +207,7 @@
     background-color: #1A7A4A;
     border: none;
     color: #ffffff;
-    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-family: 'OverusedGrotesk', sans-serif !important;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;

@@ -342,6 +342,10 @@ body.copilot-product {
     top: -10px;
 }
 
+.copilot-b2b #shopify-section-sections--29996230869329__collapsible_content_tbW3HG {
+    display: none !important;
+}
+
 .copilot-cont-3-inner p {
     font-family: var(--fuente-terciaria);
 }

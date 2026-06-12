@@ -479,6 +479,98 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "copilot_tabs_faq_jw8iwt": {
+      "type": "copilot-tabs-faq",
+      "blocks": {
+        "faq_FwMziG": {
+          "type": "faq",
+          "settings": {
+            "category": "Producto",
+            "question": "¿El matcha es apto para celíacos, veganos y sin gluten?",
+            "answer": "<p>Sí. Todos nuestros productos son naturalmente sin gluten, aptos para veganos y sin alérgenos. Puedes consultar la ficha técnica completa escribiéndonos.</p>"
+          }
+        },
+        "faq_efykqG": {
+          "type": "faq",
+          "settings": {
+            "category": "Producto",
+            "question": "¿Cuánto dura el producto? ¿Puedo stockear?",
+            "answer": "<p>El producto tiene una vida útil prolongada. Consérvalo en un lugar fresco y seco.</p>"
+          }
+        },
+        "faq_ffyrcm": {
+          "type": "faq",
+          "settings": {
+            "category": "Producto",
+            "question": "¿Qué formato profesional ofrecéis?",
+            "answer": "<p>Ofrecemos formatos de 300g pensados específicamente para el canal HORECA y profesionales.</p>"
+          }
+        },
+        "faq_mNCR6c": {
+          "type": "faq",
+          "settings": {
+            "category": "Pedidos y Logística",
+            "question": "¿Cuáles son los tiempos de envío?",
+            "answer": "<p>Los envíos se realizan en un plazo de 24 a 48 horas laborables.</p>"
+          }
+        },
+        "faq_KYzypz": {
+          "type": "faq",
+          "settings": {
+            "category": "Etiqueta Personalizada",
+            "question": "¿Cuál es el pedido mínimo para etiqueta personalizada?",
+            "answer": "<p>El pedido mínimo es de 20 unidades.</p>"
+          }
+        },
+        "faq_eNaLG7": {
+          "type": "faq",
+          "settings": {
+            "category": "Precios y Condiciones",
+            "question": "¿Tienen descuentos por volumen?",
+            "answer": "<p>Sí, contáctanos para enviarte nuestra tarifa profesional con escalado de precios.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_FwMziG",
+        "faq_efykqG",
+        "faq_ffyrcm",
+        "faq_mNCR6c",
+        "faq_KYzypz",
+        "faq_eNaLG7"
+      ],
+      "name": "Copilot Tabs FAQ",
+      "settings": {
+        "section_bg_color": "#ffffff",
+        "bg_color": "#fbfaf3",
+        "border_radius": 20,
+        "max_width": 819,
+        "title": "¿Tienes preguntas? Tenemos las respuestas",
+        "subtitle": "Encuentra tu respuesta por categoría",
+        "section_padding_top": 100,
+        "section_padding_bottom": 100
+      }
+    },
+    "copilot_contact_rBAAT3": {
+      "type": "copilot-contact",
+      "name": "Copilot Contact",
+      "settings": {
+        "section_bg_color": "#ffffff",
+        "title": "¿Hablamos sin compromiso?",
+        "text": "Escríbenos y te respondemos en menos de 24h. Somos Álvaro y Óscar, los fundadores y te atendemos nosotros directamente, sin intermediarios ni bots.",
+        "phone_label": "Teléfono",
+        "phone_value": "(+34) 696 75 14 28",
+        "email_label": "Correo electrónico",
+        "email_value": "hello@edwardfieldstea.com",
+        "quote_image": "shopify://shop_images/IMG_1244_2_2.png",
+        "quote_text": "\"Si esto te funciona la mitad de bien que a nosotros, habrá valido la pena.\" <br>\n— Óscar y Álvaro",
+        "form_title": "Solicitar información",
+        "form_subtitle": "Rellena el formulario y te contactamos en menos de 24h. También puedes escribirnos por mail.",
+        "button_text": "Solicitar información",
+        "section_padding_top": 0,
+        "section_padding_bottom": 100
+      }
     }
   },
   "order": [
@@ -490,6 +582,8 @@
     "copilot_left_right_DcG6LW",
     "copilot_reviews_QRXWLm",
     "main",
-    "copilot_steps_grid_qD8kaj"
+    "copilot_steps_grid_qD8kaj",
+    "copilot_tabs_faq_jw8iwt",
+    "copilot_contact_rBAAT3"
   ]
 }
