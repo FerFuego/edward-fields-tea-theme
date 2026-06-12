@@ -1,0 +1,288 @@
+<style>
+  .copilot-marquee-wrapper-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  
+  .copilot-marquee-title {
+    flex-shrink: 0;
+    padding: 0 40px;
+    font-size: 1.2rem;
+    color: {{ section.settings.text_color }};
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+
+  .copilot-marquee-container {
+    flex-grow: 1;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  /* Degrade / Fade effect */
+  .copilot-marquee-container::before,
+  .copilot-marquee-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .copilot-marquee-container::before {
+    left: 0;
+    background: linear-gradient(to right, {{ section.settings.bg_color }} 0%, transparent 100%);
+  }
+
+  .copilot-marquee-container::after {
+    right: 0;
+    background: linear-gradient(to left, {{ section.settings.bg_color }} 0%, transparent 100%);
+  }
+
+  .copilot-marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding-left: 60px;
+    width: max-content;
+    animation: scroll-left-{{ section.id }} {{ section.settings.animation_speed }}s linear infinite;
+  }
+  
+  .copilot-marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .copilot-marquee-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .copilot-marquee-item img {
+    max-height: {{ section.settings.logo_height }}px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .copilot-marquee-item svg {
+    height: {{ section.settings.logo_height }}px;
+    width: {{ section.settings.logo_height | times: 2 }}px;
+    background: #f4f4f4;
+    color: #999;
+  }
+
+  @keyframes scroll-left-{{ section.id }} {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      /* Since we render 4 copies, we translate by 25% to shift exactly one copy's width */
+      transform: translateX(-25%);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .copilot-marquee-wrapper-{{ section.id }} {
+      flex-direction: column;
+      padding-top: {{ section.settings.mobile_padding_top }}px;
+      padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    }
+    .copilot-marquee-title {
+      padding: 0 20px 20px 20px;
+      text-align: center;
+    }
+    .copilot-marquee-container::before,
+    .copilot-marquee-container::after {
+      width: 60px;
+    }
+    .copilot-marquee-track {
+      gap: 40px;
+      padding-left: 40px;
+    }
+    .copilot-marquee-item img {
+      max-height: {{ section.settings.logo_height | times: 0.8 }}px;
+    }
+    .copilot-marquee-item svg {
+      height: {{ section.settings.logo_height | times: 0.8 }}px;
+      width: {{ section.settings.logo_height | times: 1.6 }}px;
+    }
+  }
+</style>
+
+<div class="copilot-marquee-wrapper-{{ section.id }}">
+  {% if section.settings.title != blank %}
+    <div class="copilot-marquee-title">
+      {{ section.settings.title }}
+    </div>
+  {% endif %}
+  
+  <div class="copilot-marquee-container">
+    {%- capture marquee_items -%}
+      {%- for block in section.blocks -%}
+        <div class="copilot-marquee-item" {{ block.shopify_attributes }}>
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" target="_blank" rel="noopener noreferrer">
+          {%- endif -%}
+          
+          {%- if block.settings.image != blank -%}
+            <img src="{{ block.settings.image | image_url: height: section.settings.logo_height }}" 
+                 alt="{{ block.settings.image.alt | escape }}" 
+                 loading="lazy"
+                 height="{{ section.settings.logo_height }}"
+                 width="{{ section.settings.logo_height | divided_by: block.settings.image.aspect_ratio | ceil }}">
+          {%- else -%}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+
+          {%- if block.settings.link != blank -%}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    {%- endcapture -%}
+    
+    <div class="copilot-marquee-track">
+      {{ marquee_items }}
+      {{ marquee_items }}
+      {{ marquee_items }}
+      {{ marquee_items }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Copilot Marquee Slider",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "CONFÍAN EN NOSOTROS"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "animation_speed",
+      "min": 5,
+      "max": 60,
+      "step": 1,
+      "unit": "s",
+      "label": "Animation Speed",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "min": 20,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Max Logo Height",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Desktop Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Mobile Padding"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 24
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot Marquee Slider",
+      "blocks": [
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" }
+      ]
+    }
+  ]
+}
+{% endschema %}
