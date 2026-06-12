@@ -106,7 +106,7 @@
           "settings": {
             "heading": "Ingredientes",
             "icon": "none",
-            "content": "<p>Té verde Matcha 100% orgánico</p>",
+            "content": "{{ product.metafields.custom.ingredientes | metafield_tag }}",
             "page": ""
           }
         },

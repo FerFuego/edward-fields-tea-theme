@@ -288,15 +288,15 @@
                       {% if form.errors contains 'body' %}aria-invalid="true"{% endif %}
                       placeholder="Tu consulta...">{% if form.body %}{{ form.body }}{% endif %}</textarea>
                   </div>
-                  {% comment %} <div class="contact-form__form-row contact-form__form-row--checkbox">
+                  <div class="contact-form__form-row contact-form__form-row--checkbox">
                     <div class="form-row">
                       <input type="hidden" name="contact[privacy]" value="not-accepted">
                       <input type="checkbox" id="{{ form_id }}-privacy" class="contact-form__checkbox"
-                        name="contact[privacy]" value="accepted"
+                        name="contact[privacy]" value="accepted" required
                         {% if form.privacy == "accepted" %}checked{% endif %}>
-                      <label for="{{ form_id }}-privacy">Estoy de acuerdo con la política de privacidad</label>
+                      <label for="{{ form_id }}-privacy">Estoy de acuerdo con la <a href="https://www.edwardfieldstea.com/pages/politica-de-privacidad">política de privacidad</a></label>
                     </div>
-                  </div> {% endcomment %}
+                  </div>
                   <button type="submit" class="button submit-button">Enviar mensaje</button>
                 {%- endif -%}
               {%- endform -%}

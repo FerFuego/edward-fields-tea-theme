@@ -100,6 +100,33 @@
             "icon_4": "none",
             "heading_4": ""
           }
+        },
+        "collapsible_tab_qngaHL": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Materiales",
+            "icon": "none",
+            "content": "{{ product.metafields.custom.ingredientes | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_tab_pAecjt": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Conservación",
+            "icon": "none",
+            "content": "{{ product.metafields.custom.conservacion | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_tab_Q8Nhix": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "¿Cómo usarlo?",
+            "icon": "none",
+            "content": "<p>{{ product.metafields.custom.como_tomarlo | metafield_tag }}</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -113,7 +140,10 @@
         "buy_buttons",
         "custom_liquid_BGD64f",
         "custom_liquid_9WFDmJ",
-        "icon_with_text_CN7ePN"
+        "icon_with_text_CN7ePN",
+        "collapsible_tab_qngaHL",
+        "collapsible_tab_pAecjt",
+        "collapsible_tab_Q8Nhix"
       ],
       "settings": {
         "enable_sticky_info": true,

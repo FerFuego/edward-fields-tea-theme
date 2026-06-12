@@ -331,11 +331,12 @@
     <script src="{{ 'copilot-general.js' | asset_url }}" defer="defer"></script>
     <!-- CopilotCSS -->
     {{ 'copilot-general.css' | asset_url | stylesheet_tag }}
-  
+    <meta name="google-site-verification" content="yGBzC5mdBfEjW23e08O6Pqoo7O16zDHd3tp8GAK2-vE" />
   </head>
 
   <body class="
     {% if template.name == 'index' %}copilot-home{% endif %} 
+    {% if page.handle == 'b2b' %}copilot-home{% endif %} 
     {% if template.name == 'collection' %}copilot-collections{% endif %} 
     {% if template.name == 'product' %}copilot-product{% endif %} 
     {% if page.handle == 'manifiesto' %}copilot-manifiesto{% endif %} 

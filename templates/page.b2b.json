@@ -1,0 +1,234 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_WhyB9T": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_pLwYXr": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Matcha premiumpara tu negocio.</p>",
+            "heading_size": "h1"
+          }
+        },
+        "text_c7B6kj": {
+          "type": "text",
+          "settings": {
+            "text": "Para cafeterías, gimnasios, tiendas y marcas que quieren ofrecer energía limpia a sus clientes.",
+            "text_style": "body"
+          }
+        },
+        "buttons_aVVaXj": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Solicitar información",
+            "button_link_1": "#",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_pLwYXr",
+        "text_c7B6kj",
+        "buttons_aVVaXj"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "copilot_custom_class": "copilot-hero-banner",
+        "copilot_show_judge": true,
+        "image": "shopify://shop_images/bg-b2b-shadow.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-left",
+        "show_text_box": true,
+        "desktop_content_alignment": "left",
+        "color_scheme": "scheme-762cd8c3-54ca-4a17-af34-bec050b59cb5",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "copilot_reviews_QRXWLm": {
+      "type": "copilot-reviews",
+      "blocks": {
+        "review_ng3VYm": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "Nunca había probado otro matcha que no fuera el de la cafetería de debajo de mi casa. Ahora me lo hago en casa con este de Edward y es una maravilla.",
+            "author": "Camilo R."
+          }
+        },
+        "review_WPKmQd": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "Tiene un poder energizante que para mí está en su justa medida. Un desayuno maravillosamente placentero.",
+            "author": "Silvia"
+          }
+        },
+        "review_6yTk6Q": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "El sabor espectacular, me gusta tomarlo por la mañana, me da energía. Textura suave y cremosa, sabor delicado y refrescante.",
+            "author": "Nico S."
+          }
+        },
+        "review_Jj9kXz": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "El aroma es muy relajante pero a la vez me siento mucho más activa desde que lo tomo.",
+            "author": "J.M."
+          }
+        },
+        "review_zxEEha": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "Sabor increíble. Me lo llevo al trabajo en un termo frío y lo voy tomando durante la mañana.",
+            "author": "Maite"
+          }
+        },
+        "review_9QBejy": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "comment": "Además de riquísimo sienta fenomenal, porque es energizante pero no te pone nerviosa, sino que mantienes la atención y concentración estable.",
+            "author": "Niara G."
+          }
+        }
+      },
+      "block_order": [
+        "review_ng3VYm",
+        "review_WPKmQd",
+        "review_6yTk6Q",
+        "review_Jj9kXz",
+        "review_zxEEha",
+        "review_9QBejy"
+      ],
+      "name": "Copilot - Reseñas",
+      "settings": {
+        "show_badge": true,
+        "badge_text": "+2.200 clientes",
+        "title": "Gente real, resultados reales",
+        "subtitle": "Personas que encontraron en Edward Fields la energía que buscaban, y lo contaron.",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "rich_text_NGYDcU": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_CMpgHG": {
+          "type": "heading",
+          "settings": {
+            "heading": "TU PARTNER PARA TU SPECIALTY COFFEE SHOP",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CMpgHG"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_banner_tRqmYL": {
+      "type": "image-banner",
+      "disabled": true,
+      "settings": {
+        "copilot_custom_class": "",
+        "copilot_show_judge": false,
+        "image": "shopify://shop_images/morematcha-featured-37603.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 20
+      }
+    },
+    "featured_collection_CJzgyA": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "TU PARTNER PARA TU SPECIALTY COFFEE SHOP",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "horca",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "contact_form_WmqhtW": {
+      "type": "contact-form",
+      "disabled": true,
+      "settings": {
+        "heading": "Pregúntanos por nuestros formatos y precios especiales para hostelería",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_banner_WhyB9T",
+    "copilot_reviews_QRXWLm",
+    "rich_text_NGYDcU",
+    "image_banner_tRqmYL",
+    "main",
+    "featured_collection_CJzgyA",
+    "contact_form_WmqhtW"
+  ]
+}
