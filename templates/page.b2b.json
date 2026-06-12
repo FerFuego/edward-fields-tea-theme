@@ -427,49 +427,6 @@
         "padding_bottom": 60
       }
     },
-    "rich_text_NGYDcU": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_CMpgHG": {
-          "type": "heading",
-          "settings": {
-            "heading": "TU PARTNER PARA TU SPECIALTY COFFEE SHOP",
-            "heading_size": "h1"
-          }
-        }
-      },
-      "block_order": [
-        "heading_CMpgHG"
-      ],
-      "disabled": true,
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
-    "image_banner_tRqmYL": {
-      "type": "image-banner",
-      "disabled": true,
-      "settings": {
-        "copilot_custom_class": "",
-        "copilot_show_judge": false,
-        "image": "shopify://shop_images/morematcha-featured-37603.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "small",
-        "desktop_content_position": "middle-center",
-        "show_text_box": true,
-        "desktop_content_alignment": "center",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
-      }
-    },
     "main": {
       "type": "main-page",
       "disabled": true,
@@ -478,44 +435,49 @@
         "padding_bottom": 20
       }
     },
-    "featured_collection_CJzgyA": {
-      "type": "featured-collection",
-      "disabled": true,
+    "copilot_steps_grid_qD8kaj": {
+      "type": "copilot-steps-grid",
+      "blocks": {
+        "step_DgEQjX": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "Nos mandas tu brief",
+            "text": "Colores, logo, tipografía o simplemente una idea. Nosotros lo desarrollamos."
+          }
+        },
+        "step_rPmVfw": {
+          "type": "step",
+          "settings": {
+            "number": "02",
+            "title": "Diseño de etiqueta",
+            "text": "Nuestro equipo crea la etiqueta adaptada a tu marca. Incluye revisiones hasta aprobación."
+          }
+        },
+        "step_Dq8KGP": {
+          "type": "step",
+          "settings": {
+            "number": "03",
+            "title": "Producción y entrega",
+            "text": "Mínimo 20 unidades. Producimos, etiquetamos y enviamos en el plazo acordado."
+          }
+        }
+      },
+      "block_order": [
+        "step_DgEQjX",
+        "step_rPmVfw",
+        "step_Dq8KGP"
+      ],
+      "name": "Copilot Steps Grid",
       "settings": {
-        "title": "TU PARTNER PARA TU SPECIALTY COFFEE SHOP",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "horca",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "contact_form_WmqhtW": {
-      "type": "contact-form",
-      "disabled": true,
-      "settings": {
-        "heading": "Pregúntanos por nuestros formatos y precios especiales para hostelería",
-        "heading_size": "h1",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "bg_color": "#213529",
+        "title": "Tu marca. Nuestra calidad.",
+        "subtitle": "Diseñamos y producimos tu etiqueta personalizada sobre nuestros productos. Tu identidad, la calidad que ya conocen tus clientes. A partir de 20 unidades por 300€ (pago único)",
+        "footer_text": "¿Tienes dudas sobre el proceso? Escríbenos y te explicamos todo sin compromiso.",
+        "button_text": "Me interesa la etiqueta personalizada",
+        "button_link": "",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
@@ -527,10 +489,7 @@
     "copilot_cta_slider_jhTVDH",
     "copilot_left_right_DcG6LW",
     "copilot_reviews_QRXWLm",
-    "rich_text_NGYDcU",
-    "image_banner_tRqmYL",
     "main",
-    "featured_collection_CJzgyA",
-    "contact_form_WmqhtW"
+    "copilot_steps_grid_qD8kaj"
   ]
 }

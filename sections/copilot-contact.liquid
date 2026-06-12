@@ -1,0 +1,474 @@
+<style>
+  .copilot-contact-{{ section.id }} {
+    width: 100%;
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+    background-color: {{ section.settings.section_bg_color }};
+    box-sizing: border-box;
+  }
+
+  .copilot-contact-container {
+    max-width: 1022px;
+    margin: 0 auto;
+    padding: 56px 96px;
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+    box-sizing: border-box;
+  }
+
+  /* Left Column */
+  .copilot-contact-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    color: #213529;
+  }
+
+  .copilot-contact-title {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 50px;
+    line-height: 50px;
+    color: #213529;
+    margin: 0 0 24px 0;
+  }
+
+  .copilot-contact-text {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #213529;
+    margin: 0 0 40px 0;
+    opacity: 0.9;
+  }
+
+  .copilot-contact-info-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .copilot-contact-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid #213529;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: #213529;
+  }
+
+  .copilot-contact-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .copilot-contact-info-text {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    color: #213529;
+  }
+
+  .copilot-contact-info-label {
+    display: block;
+    opacity: 0.8;
+    margin-bottom: 2px;
+  }
+
+  .copilot-contact-info-value {
+    display: block;
+    font-weight: 500;
+  }
+
+  .copilot-contact-quote {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .copilot-contact-quote-img {
+    width: 70px;
+    height: auto;
+    flex-shrink: 0;
+    border-radius: 50%;
+  }
+
+  .copilot-contact-quote-text {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: #213529;
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  /* Right Column (Form) */
+  .copilot-contact-right {
+    flex: 1.2; /* slightly wider to fit fields nicely */
+    background-color: #ffffff;
+    border: 1px solid rgba(33, 53, 41, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+  }
+
+  .copilot-contact-form-title {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0 0 8px 0;
+    color: #213529;
+  }
+
+  .copilot-contact-form-subtitle {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 0 32px 0;
+    color: #213529;
+    opacity: 0.8;
+  }
+  
+  .copilot-form-success {
+    padding: 16px;
+    background-color: #D1E0D5;
+    color: #1A7A4A;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-size: 14px;
+  }
+
+  .copilot-form-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .copilot-form-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .copilot-form-field.full-width {
+    margin-bottom: 24px;
+  }
+
+  .copilot-form-label {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #213529;
+  }
+
+  .copilot-form-input {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-size: 14px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(33, 53, 41, 0.2);
+    background-color: #FBFAF3;
+    color: #213529;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+  .copilot-form-input::placeholder {
+    color: rgba(33, 53, 41, 0.4);
+  }
+
+  .copilot-form-input:focus {
+    outline: none;
+    border-color: #1A7A4A;
+  }
+
+  .copilot-form-textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .copilot-form-submit {
+    display: block;
+    margin: 32px auto 0 auto;
+    min-width: 240px;
+    height: 60px;
+    border-radius: 35px;
+    background-color: #1A7A4A;
+    border: none;
+    color: #ffffff;
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0 40px;
+  }
+
+  .copilot-form-submit:hover {
+    background-color: #145e39;
+    transform: scale(1.02);
+  }
+
+  @media screen and (max-width: 1024px) {
+    .copilot-contact-container {
+      padding: 56px 40px;
+      gap: 40px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .copilot-contact-container {
+      flex-direction: column;
+      padding: 40px 20px;
+      gap: 40px;
+    }
+    .copilot-contact-title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+    .copilot-form-row {
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .copilot-contact-right {
+      padding: 32px 24px;
+      width: 100%;
+    }
+    .copilot-form-submit {
+      width: 100%;
+      min-width: auto;
+    }
+  }
+</style>
+
+<div class="copilot-contact-{{ section.id }}">
+  <div class="copilot-contact-container">
+    
+    <!-- Left Column -->
+    <div class="copilot-contact-left">
+      {% if section.settings.title != blank %}
+        <h2 class="copilot-contact-title">{{ section.settings.title }}</h2>
+      {% endif %}
+      
+      {% if section.settings.text != blank %}
+        <p class="copilot-contact-text">{{ section.settings.text }}</p>
+      {% endif %}
+
+      {% if section.settings.phone_value != blank %}
+        <div class="copilot-contact-info-block">
+          <div class="copilot-contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          </div>
+          <div class="copilot-contact-info-text">
+            <span class="copilot-contact-info-label">{{ section.settings.phone_label }}</span>
+            <span class="copilot-contact-info-value">{{ section.settings.phone_value }}</span>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if section.settings.email_value != blank %}
+        <div class="copilot-contact-info-block">
+          <div class="copilot-contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          </div>
+          <div class="copilot-contact-info-text">
+            <span class="copilot-contact-info-label">{{ section.settings.email_label }}</span>
+            <span class="copilot-contact-info-value">{{ section.settings.email_value }}</span>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if section.settings.quote_image != blank or section.settings.quote_text != blank %}
+        <div class="copilot-contact-quote">
+          {% if section.settings.quote_image != blank %}
+            <img src="{{ section.settings.quote_image | image_url: width: 140 }}" alt="Founders" class="copilot-contact-quote-img" loading="lazy">
+          {% endif %}
+          {% if section.settings.quote_text != blank %}
+            <p class="copilot-contact-quote-text">{{ section.settings.quote_text }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Right Column (Form) -->
+    <div class="copilot-contact-right">
+      {% if section.settings.form_title != blank %}
+        <h3 class="copilot-contact-form-title">{{ section.settings.form_title }}</h3>
+      {% endif %}
+      {% if section.settings.form_subtitle != blank %}
+        <p class="copilot-contact-form-subtitle">{{ section.settings.form_subtitle }}</p>
+      {% endif %}
+
+      {% form 'contact', id: 'CopilotContactForm' %}
+        {% if form.posted_successfully? %}
+          <div class="copilot-form-success">
+            ¡Gracias por contactarnos! Hemos recibido tu mensaje y te responderemos a la brevedad.
+          </div>
+        {% endif %}
+        
+        {{ form.errors | default_errors }}
+        
+        <div class="copilot-form-row">
+          <div class="copilot-form-field">
+            <label class="copilot-form-label" for="ContactForm-name">Nombre*</label>
+            <input class="copilot-form-input" type="text" id="ContactForm-name" name="contact[name]" placeholder="Tu nombre" required>
+          </div>
+          <div class="copilot-form-field">
+            <label class="copilot-form-label" for="ContactForm-company">Empresa*</label>
+            <input class="copilot-form-input" type="text" id="ContactForm-company" name="contact[company]" placeholder="Nombre de su empresa" required>
+          </div>
+        </div>
+
+        <div class="copilot-form-row">
+          <div class="copilot-form-field">
+            <label class="copilot-form-label" for="ContactForm-phone">Teléfono*</label>
+            <input class="copilot-form-input" type="tel" id="ContactForm-phone" name="contact[phone]" placeholder="+34..." required>
+          </div>
+          <div class="copilot-form-field">
+            <label class="copilot-form-label" for="ContactForm-email">Correo electrónico*</label>
+            <input class="copilot-form-input" type="email" id="ContactForm-email" name="contact[email]" placeholder="@email.com" required>
+          </div>
+        </div>
+
+        <div class="copilot-form-field full-width">
+          <label class="copilot-form-label" for="ContactForm-body">Cuéntanos qué necesitas</label>
+          <textarea class="copilot-form-input copilot-form-textarea" id="ContactForm-body" name="contact[body]" placeholder="Escribe tu mensaje..."></textarea>
+        </div>
+
+        <button type="submit" class="copilot-form-submit">
+          {{ section.settings.button_text }}
+        </button>
+      {% endform %}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Copilot Contact",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Left Column (Contact Info)"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "¿Hablamos sin compromiso?"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Escríbenos y te respondemos en menos de 24h. Somos Álvaro y Óscar, los fundadores y te atendemos nosotros directamente, sin intermediarios ni bots."
+    },
+    {
+      "type": "text",
+      "id": "phone_label",
+      "label": "Phone Label",
+      "default": "Teléfono"
+    },
+    {
+      "type": "text",
+      "id": "phone_value",
+      "label": "Phone Number",
+      "default": "(+34) 696 75 14 28"
+    },
+    {
+      "type": "text",
+      "id": "email_label",
+      "label": "Email Label",
+      "default": "Correo electrónico"
+    },
+    {
+      "type": "text",
+      "id": "email_value",
+      "label": "Email Address",
+      "default": "hello@edwardfieldstea.com"
+    },
+    {
+      "type": "image_picker",
+      "id": "quote_image",
+      "label": "Founders / Quote Image (Optional)"
+    },
+    {
+      "type": "textarea",
+      "id": "quote_text",
+      "label": "Quote Text",
+      "default": "\"Si esto te funciona la mitad de bien que a nosotros, habrá valido la pena.\" — Óscar y Álvaro"
+    },
+    {
+      "type": "header",
+      "content": "Right Column (Form)"
+    },
+    {
+      "type": "text",
+      "id": "form_title",
+      "label": "Form Title",
+      "default": "Solicitar información"
+    },
+    {
+      "type": "textarea",
+      "id": "form_subtitle",
+      "label": "Form Subtitle",
+      "default": "Rellena el formulario y te contactamos en menos de 24h. También puedes escribirnos por mail."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Solicitar información"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot Contact"
+    }
+  ]
+}
+{% endschema %}

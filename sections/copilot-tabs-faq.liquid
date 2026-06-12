@@ -1,0 +1,510 @@
+<style>
+  .copilot-faq-{{ section.id }} {
+    width: 100%;
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+    background-color: {{ section.settings.section_bg_color }};
+    box-sizing: border-box;
+  }
+
+  .copilot-faq-outer {
+    padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .copilot-faq-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    background-color: {{ section.settings.bg_color }};
+    border-radius: {{ section.settings.border_radius }}px;
+    padding: 56px 96px;
+    box-sizing: border-box;
+  }
+
+  .copilot-faq-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .copilot-faq-title {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-weight: 300;
+    font-size: 50px;
+    line-height: 50px;
+    color: #213529;
+    margin: 0 0 16px 0;
+  }
+
+  .copilot-faq-subtitle {
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #213529;
+    margin: 0;
+  }
+
+  .copilot-faq-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .copilot-faq-tab {
+    background: transparent;
+    border: 1px solid #213529;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #213529;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .copilot-faq-tab.active {
+    background-color: #1A7A4A; /* Brand green as per reference */
+    border-color: #1A7A4A;
+    color: #ffffff;
+  }
+  
+  .copilot-faq-tab:hover:not(.active) {
+    background-color: rgba(33, 53, 41, 0.05);
+  }
+
+  .copilot-faq-group {
+    display: none;
+  }
+
+  .copilot-faq-group.active {
+    display: block;
+    animation: copilotFadeIn 0.4s ease;
+  }
+
+  @keyframes copilotFadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .copilot-faq-item {
+    border-bottom: 1px solid rgba(33, 53, 41, 0.2);
+  }
+
+  .copilot-faq-item:first-child {
+    border-top: 1px solid rgba(33, 53, 41, 0.2);
+  }
+
+  .copilot-faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #213529;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .copilot-faq-icon {
+    flex-shrink: 0;
+    margin-left: 20px;
+    width: 14px;
+    height: 14px;
+    position: relative;
+  }
+
+  .copilot-faq-icon::before,
+  .copilot-faq-icon::after {
+    content: '';
+    position: absolute;
+    background-color: #213529;
+    transition: transform 0.3s ease;
+  }
+
+  .copilot-faq-icon::before {
+    top: 6px;
+    left: 0;
+    width: 14px;
+    height: 1px;
+  }
+
+  .copilot-faq-icon::after {
+    top: 0;
+    left: 6.5px;
+    width: 1px;
+    height: 14px;
+  }
+
+  .copilot-faq-item.open .copilot-faq-icon::after {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  .copilot-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .copilot-faq-answer-inner {
+    padding-bottom: 24px;
+    font-family: 'OverusedGrotesk', 'Overused Grotesk', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #213529;
+    opacity: 0.85;
+  }
+
+  .copilot-faq-answer-inner p {
+    margin: 0 0 10px 0;
+  }
+  .copilot-faq-answer-inner p:last-child {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .copilot-faq-container {
+      padding: 40px 20px;
+      border-radius: 16px;
+    }
+    
+    .copilot-faq-title {
+      font-size: 36px;
+      line-height: 40px;
+    }
+    
+    .copilot-faq-question {
+      font-size: 18px;
+    }
+
+    /* Transform tabs into a horizontal slider on mobile */
+    .copilot-faq-tabs {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      margin-left: -20px;
+      margin-right: -20px;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-bottom: 5px; /* slight space for scroll */
+    }
+    .copilot-faq-tabs::-webkit-scrollbar {
+      display: none;
+    }
+    .copilot-faq-tab {
+      flex-shrink: 0;
+      scroll-snap-align: start;
+    }
+  }
+</style>
+
+<div class="copilot-faq-{{ section.id }}">
+  <div class="copilot-faq-outer">
+    <div class="copilot-faq-container">
+      
+      <div class="copilot-faq-header">
+        {% if section.settings.title != blank %}
+          <h2 class="copilot-faq-title">{{ section.settings.title }}</h2>
+        {% endif %}
+        {% if section.settings.subtitle != blank %}
+          <p class="copilot-faq-subtitle">{{ section.settings.subtitle }}</p>
+        {% endif %}
+      </div>
+
+      {% comment %}
+        Obtener categorías únicas de los bloques para crear los Tabs.
+      {% endcomment %}
+      {% assign unique_categories = "" %}
+      {% for block in section.blocks %}
+        {% assign cat = block.settings.category | strip %}
+        {% if cat != blank %}
+          {% assign cat_handle = cat | handleize %}
+          {% assign cat_marker = "|||" | append: cat_handle | append: ":::" | append: cat | append: "|||" %}
+          {% unless unique_categories contains cat_marker %}
+            {% assign unique_categories = unique_categories | append: cat_marker | append: "," %}
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+      
+      {% assign category_array = unique_categories | split: "," %}
+
+      {% if category_array.size > 0 %}
+        <!-- Tabs -->
+        <div class="copilot-faq-tabs">
+          {% for item in category_array %}
+            {% if item != blank %}
+              {% assign clean_item = item | replace: '|||', '' %}
+              {% assign parts = clean_item | split: ':::' %}
+              {% assign handle = parts[0] %}
+              {% assign name = parts[1] %}
+              <button class="copilot-faq-tab {% if forloop.first %}active{% endif %}" data-tab="{{ handle }}">
+                {{ name }}
+              </button>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <!-- Tab Contents (FAQ Groups) -->
+        <div class="copilot-faq-content">
+          {% for item in category_array %}
+            {% if item != blank %}
+              {% assign clean_item = item | replace: '|||', '' %}
+              {% assign parts = clean_item | split: ':::' %}
+              {% assign handle = parts[0] %}
+              
+              <div class="copilot-faq-group {% if forloop.first %}active{% endif %}" id="group-{{ handle }}">
+                {% for block in section.blocks %}
+                  {% assign block_handle = block.settings.category | strip | handleize %}
+                  {% if block_handle == handle %}
+                    <div class="copilot-faq-item" {{ block.shopify_attributes }}>
+                      <button class="copilot-faq-question" aria-expanded="false">
+                        {{ block.settings.question }}
+                        <span class="copilot-faq-icon"></span>
+                      </button>
+                      <div class="copilot-faq-answer">
+                        <div class="copilot-faq-answer-inner">
+                          {{ block.settings.answer }}
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sectionId = '{{ section.id }}';
+    const container = document.querySelector('.copilot-faq-' + sectionId);
+    if (!container) return;
+
+    // Tabs Logic
+    const tabs = container.querySelectorAll('.copilot-faq-tab');
+    const groups = container.querySelectorAll('.copilot-faq-group');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remover activo de todos
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Mostrar el grupo correcto
+        const targetHandle = tab.getAttribute('data-tab');
+        groups.forEach(group => {
+          if (group.id === 'group-' + targetHandle) {
+            group.classList.add('active');
+          } else {
+            group.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    // Accordion Logic
+    const questions = container.querySelectorAll('.copilot-faq-question');
+    questions.forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        const answer = item.querySelector('.copilot-faq-answer');
+        const isOpen = item.classList.contains('open');
+        
+        if (!isOpen) {
+          item.classList.add('open');
+          question.setAttribute('aria-expanded', 'true');
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        } else {
+          item.classList.remove('open');
+          question.setAttribute('aria-expanded', 'false');
+          answer.style.maxHeight = null;
+        }
+      });
+    });
+
+    // Recalculate max-height on window resize for open items
+    window.addEventListener('resize', () => {
+      const openItems = container.querySelectorAll('.copilot-faq-item.open .copilot-faq-answer');
+      openItems.forEach(answer => {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Copilot Tabs FAQ",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Inner Container Background",
+      "default": "#FBFAF3"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Border Radius",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "max_width",
+      "label": "Container Max Width (px)",
+      "default": 819
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "¿Tienes preguntas? Tenemos las respuestas"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Encuentra tu respuesta por categoría"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Section Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Section Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category (Tab Name)",
+          "default": "Producto",
+          "info": "FAQs with the same exact category name will be grouped together in the same tab."
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "¿El matcha es apto para celíacos, veganos y sin gluten?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Sí. Todos nuestros productos son naturalmente sin gluten, aptos para veganos y sin alérgenos. Puedes consultar la ficha técnica completa escribiéndonos.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copilot Tabs FAQ",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Producto",
+            "question": "¿El matcha es apto para celíacos, veganos y sin gluten?",
+            "answer": "<p>Sí. Todos nuestros productos son naturalmente sin gluten, aptos para veganos y sin alérgenos. Puedes consultar la ficha técnica completa escribiéndonos.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Producto",
+            "question": "¿Cuánto dura el producto? ¿Puedo stockear?",
+            "answer": "<p>El producto tiene una vida útil prolongada. Consérvalo en un lugar fresco y seco.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Producto",
+            "question": "¿Qué formato profesional ofrecéis?",
+            "answer": "<p>Ofrecemos formatos de 300g pensados específicamente para el canal HORECA y profesionales.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Pedidos y Logística",
+            "question": "¿Cuáles son los tiempos de envío?",
+            "answer": "<p>Los envíos se realizan en un plazo de 24 a 48 horas laborables.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Etiqueta Personalizada",
+            "question": "¿Cuál es el pedido mínimo para etiqueta personalizada?",
+            "answer": "<p>El pedido mínimo es de 20 unidades.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "category": "Precios y Condiciones",
+            "question": "¿Tienen descuentos por volumen?",
+            "answer": "<p>Sí, contáctanos para enviarte nuestra tarifa profesional con escalado de precios.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
