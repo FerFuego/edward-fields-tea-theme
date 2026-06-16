@@ -47,7 +47,7 @@
     height: auto;
     object-fit: contain;
     position: absolute;
-    top: -42px;
+    top: -68px;
     width: 190px;
   }
 
@@ -124,19 +124,12 @@
       margin: 0 auto;
       padding: 0 20px;
     }
-    .copilot-cta-track {
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      /* Full width peeking */
-      margin-left: -20px;
-      margin-right: -20px;
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-bottom: 20px;
-      width: calc(100% + 40px);
+
+    .copilot-cta-{{ section.id }} {
+      padding-top: 80px !important;
+      padding-bottom: 0px !important;
     }
+
     .copilot-cta-track::-webkit-scrollbar {
       display: none;
     }
@@ -148,7 +141,7 @@
       /* On mobile, stack vertically */
       flex-direction: column;
       text-align: center;
-      padding: 40px 20px;
+      padding: 80px 20px 40px;
       gap: 20px;
     }
 
@@ -222,7 +215,6 @@
 
 <div class="copilot-cta-{{ section.id }}">
   <div class="copilot-cta-container">
-    <div class="copilot-cta-track" id="track-{{ section.id }}">
       {% for block in section.blocks %}
         <div class="copilot-cta-card" {{ block.shopify_attributes }}>
           {% if block.settings.image != blank %}
@@ -253,26 +245,6 @@
           {% endif %}
         </div>
       {% endfor %}
-    </div>
-
-    {% if section.blocks.size > 1 %}
-    <!-- Mobile Navigation (Arrows + Bullets) -->
-    <div class="copilot-cta-mobile-nav">
-      <button class="copilot-nav-arrow prev" id="prev-{{ section.id }}" aria-label="Anterior">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      
-      <div class="copilot-cta-pagination" id="pagination-{{ section.id }}">
-        {% for block in section.blocks %}
-          <div class="copilot-cta-bullet {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}"></div>
-        {% endfor %}
-      </div>
-      
-      <button class="copilot-nav-arrow next" id="next-{{ section.id }}" aria-label="Siguiente">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-    </div>
-    {% endif %}
   </div>
 </div>
 

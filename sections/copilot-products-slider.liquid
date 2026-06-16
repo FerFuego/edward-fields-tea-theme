@@ -51,7 +51,7 @@
 
   .copilot-products-track {
     display: flex;
-    gap: 20px;
+    gap: 40px;
     justify-content: flex-start;
     flex-wrap: nowrap; /* En desktop bajan de línea si no caben */
     width: 100%;
@@ -178,6 +178,10 @@
   }
 
   @media screen and (max-width: 1024px) {
+    .copilot-products-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: 40px !important;
+    }
     .copilot-products-container {
       max-width: 100%;
       margin: 0 auto;
@@ -187,6 +191,7 @@
     .copilot-products-slider-wrapper {
       margin-left: -20px;
       margin-right: -20px;
+      padding-top: 0;
       width: calc(100% + 40px);
     }
     .copilot-products-track {
@@ -195,25 +200,28 @@
       scroll-snap-type: x mandatory;
       scrollbar-width: none;
       -ms-overflow-style: none;
-      padding-left: 20px;
-      padding-right: 20px;
       padding-bottom: 20px;
+      padding-top: 100px;
+      margin: 0 50px;
     }
     .copilot-products-track::-webkit-scrollbar {
       display: none;
     }
     .copilot-product-card {
       flex: 0 0 85vw;
-      max-width: 306px;
+      max-width: 260px;
       scroll-snap-align: start;
     }
     .copilot-products-mobile-nav {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       gap: 20px;
+      top: 50%;
       margin-top: 10px;
-      padding: 0 20px;
+      padding: 0 10px;
+      position: absolute;
+      width: 100%;
     }
 
     .copilot-products-pagination {
@@ -236,8 +244,8 @@
       background-color: #1A7A4A;
     }
 
-    .copilot-nav-arrow {
-      background: none;
+    .copilot-products-mobile-nav .copilot-nav-arrow {
+      background: #1A7A4A !important;
       border: 1px solid rgba(33, 53, 41, 0.2);
       border-radius: 50%;
       width: 40px;
@@ -246,11 +254,11 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      color: #213529;
+      color: #FFF;
       transition: all 0.3s ease;
       padding: 0;
     }
-    .copilot-nav-arrow:hover {
+    .copilot-products-mobile-nav .copilot-nav-arrow:hover {
       background-color: #213529;
       color: #ffffff;
     }

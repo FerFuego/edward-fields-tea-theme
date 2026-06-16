@@ -113,22 +113,18 @@
     object-fit: cover;
   }
 
-  .copilot-lr-mobile-nav {
-    display: none;
-  }
-
   /* Mobile */
   @media screen and (max-width: 768px) {
     .copilot-lr-container {
       flex-direction: column !important;
-      gap: 30px;
+      gap: 20px;
       padding: 0 20px;
     }
 
     .copilot-lr-title {
       font-size: 36px;
       line-height: 40px;
-      margin-bottom: 16px;
+      margin-bottom: 0;
     }
 
     .copilot-lr-subtitle {
@@ -146,8 +142,8 @@
     .copilot-lr-right { 
       order: 3; 
       width: 100%;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      margin-top: 0;
+      margin-bottom: 0;
     }
     
     .copilot-lr-steps-wrapper { 
@@ -157,79 +153,11 @@
 
     /* Steps become a slider */
     .copilot-lr-steps {
-      flex-direction: row;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      margin-left: -20px;
-      margin-right: -20px;
-      padding-left: 20px;
-      padding-right: 20px;
-      width: calc(100% + 40px);
+      flex-direction: column;
+      width: 100%;
       gap: 20px;
     }
-    
-    .copilot-lr-steps::-webkit-scrollbar {
-      display: none;
-    }
 
-    .copilot-step-card {
-      flex: 0 0 85vw;
-      scroll-snap-align: start;
-    }
-
-    /* Navigation */
-    .copilot-lr-mobile-nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .copilot-lr-pagination {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .copilot-lr-bullet {
-      width: 10px;
-      height: 10px;
-      border-radius: 10px;
-      background-color: #D1E0D5;
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-
-    .copilot-lr-bullet.active {
-      width: 32px;
-      background-color: #1A7A4A;
-    }
-
-    .copilot-nav-arrow {
-      background: none;
-      border: 1px solid rgba(33, 53, 41, 0.2);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      color: #213529;
-      transition: all 0.3s ease;
-      padding: 0;
-    }
-    .copilot-nav-arrow:hover {
-      background-color: #213529;
-      color: #ffffff;
-    }
-    .copilot-nav-arrow svg {
-      width: 18px;
-      height: 18px;
-    }
   }
 </style>
 
@@ -258,25 +186,6 @@
             </div>
           {% endfor %}
         </div>
-
-        {% if section.blocks.size > 1 %}
-          <!-- Mobile Navigation -->
-          <div class="copilot-lr-mobile-nav">
-            <button class="copilot-nav-arrow prev" id="prev-{{ section.id }}" aria-label="Anterior">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            
-            <div class="copilot-lr-pagination" id="pagination-{{ section.id }}">
-              {% for block in section.blocks %}
-                <div class="copilot-lr-bullet {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}"></div>
-              {% endfor %}
-            </div>
-            
-            <button class="copilot-nav-arrow next" id="next-{{ section.id }}" aria-label="Siguiente">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
-          </div>
-        {% endif %}
       </div>
     </div>
 
