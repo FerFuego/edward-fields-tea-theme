@@ -167,6 +167,33 @@
       height: 306px;
     }
   }
+
+  .copilot-features-swiper {
+    overflow: visible;
+    padding: 20px 0;
+  }
+
+  .copilot-features-swiper .swiper-wrapper {
+    align-items: stretch;
+  }
+
+  .copilot-features-swiper .swiper-slide {
+    width: 306px !important;
+    height: auto;
+  }
+
+  .copilot-features-card {
+    width: 100%;
+    height: 306px;
+  }
+
+  @media screen and (max-width:768px){
+
+    .copilot-features-swiper .swiper-slide{
+      width:85vw !important;
+    }
+
+  }
 </style>
 
 <div class="copilot-features-{{ section.id }}">
@@ -180,24 +207,28 @@
   </div>
 
   <div class="copilot-features-slider-wrapper">
-    <div class="copilot-features-slider" id="slider-{{ section.id }}">
-      {% for block in section.blocks %}
-        <div class="copilot-features-card" {{ block.shopify_attributes }}>
-          <div class="copilot-features-card-icon">
-            {% if block.settings.icon != blank %}
-              {{ block.settings.icon }}
-            {% elsif block.settings.image != blank %}
-              <img src="{{ block.settings.image | image_url: height: 64 }}" alt="{{ block.settings.title | escape }}" loading="lazy">
-            {% endif %}
+    <div class="swiper copilot-features-swiper" id="slider-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="copilot-features-card" {{ block.shopify_attributes }}>
+              <div class="copilot-features-card-icon">
+                {% if block.settings.icon != blank %}
+                  {{ block.settings.icon }}
+                {% elsif block.settings.image != blank %}
+                  <img src="{{ block.settings.image | image_url: height: 64 }}" alt="{{ block.settings.title | escape }}" loading="lazy">
+                {% endif %}
+              </div>
+              {% if block.settings.title != blank %}
+                <h3 class="copilot-features-card-title">{{ block.settings.title }}</h3>
+              {% endif %}
+              {% if block.settings.text != blank %}
+                <div class="copilot-features-card-text">{{ block.settings.text }}</div>
+              {% endif %}
+            </div>
           </div>
-          {% if block.settings.title != blank %}
-            <h3 class="copilot-features-card-title">{{ block.settings.title }}</h3>
-          {% endif %}
-          {% if block.settings.text != blank %}
-            <div class="copilot-features-card-text">{{ block.settings.text }}</div>
-          {% endif %}
-        </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
     </div>
 
     <!-- Pagination Bullets -->
@@ -210,101 +241,75 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.getElementById('slider-{{ section.id }}');
-    const paginationContainer = document.getElementById('pagination-{{ section.id }}');
-    
-    if (!slider || !paginationContainer) return;
+  document.addEventListener('DOMContentLoaded', function () {
 
-    const bullets = paginationContainer.querySelectorAll('.copilot-features-bullet');
-    const cards = slider.querySelectorAll('.copilot-features-card');
-    
-    // Smooth scroll when clicking a bullet
-    bullets.forEach((bullet, index) => {
-      bullet.addEventListener('click', () => {
-        if (cards[index]) {
-          // Extraemos el padding izquierdo real del contenedor
-          const sliderStyle = window.getComputedStyle(slider);
-          const paddingLeft = parseFloat(sliderStyle.paddingLeft) || 0;
-          
-          const cardLeft = cards[index].offsetLeft;
-          const sliderLeft = slider.offsetLeft;
-          
-          // Calculamos el punto exacto para que la tarjeta quede al inicio del contenedor
-          const offset = cardLeft - sliderLeft - paddingLeft;
-          
-          slider.scrollTo({
-            left: offset,
-            behavior: 'smooth'
-          });
+    const bullets = document.querySelectorAll(
+      '#pagination-{{ section.id }} .copilot-features-bullet'
+    );
+
+    const swiper = new Swiper('#slider-{{ section.id }}', {
+
+      loop: true,
+
+      slidesPerView: 'auto',
+
+      spaceBetween: 20,
+
+      speed: 500,
+
+      grabCursor: true,
+
+      watchSlidesProgress: true,
+
+      breakpoints: {
+        0: {
+          slidesPerView: 'auto'
+        },
+        768: {
+          slidesPerView: 'auto'
         }
+      },
+
+      on: {
+
+        init() {
+
+          bullets.forEach(b => b.classList.remove('active'));
+
+          if (bullets[0]) {
+            bullets[0].classList.add('active');
+          }
+
+        },
+
+        slideChange() {
+
+          bullets.forEach(b => {
+            b.classList.remove('active');
+          });
+
+          const index = this.realIndex;
+
+          if (bullets[index]) {
+            bullets[index].classList.add('active');
+          }
+
+        }
+
+      }
+
+    });
+
+    bullets.forEach((bullet, index) => {
+
+      bullet.addEventListener('click', () => {
+
+        swiper.slideToLoop(index);
+
       });
+
     });
 
-    // Update active bullet on scroll
-    let isScrolling;
-    slider.addEventListener('scroll', () => {
-      window.clearTimeout(isScrolling);
-      isScrolling = setTimeout(() => {
-        const scrollLeft = slider.scrollLeft;
-        const sliderStyle = window.getComputedStyle(slider);
-        const paddingLeft = parseFloat(sliderStyle.paddingLeft) || 0;
-        
-        let closestIndex = 0;
-        let minDiff = Infinity;
-
-        cards.forEach((card, index) => {
-          const cardOffset = card.offsetLeft - slider.offsetLeft - paddingLeft;
-          const MathDiff = Math.abs(cardOffset - scrollLeft);
-          
-          if (MathDiff < minDiff) {
-            minDiff = MathDiff;
-            closestIndex = index;
-          }
-        });
-
-        bullets.forEach((bullet, index) => {
-          if (index === closestIndex) {
-            bullet.classList.add('active');
-          } else {
-            bullet.classList.remove('active');
-          }
-        });
-      }, 50); // Debounce para mejorar rendimiento
-    });
-
-    // Drag slider with mouse
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    slider.addEventListener('mousedown', (e) => {
-      isDown = true;
-      slider.classList.add('dragging');
-      startX = e.pageX - slider.offsetLeft;
-      scrollLeft = slider.scrollLeft;
-    });
-
-    slider.addEventListener('mouseleave', () => {
-      isDown = false;
-      slider.classList.remove('dragging');
-    });
-
-    slider.addEventListener('mouseup', () => {
-      isDown = false;
-      slider.classList.remove('dragging');
-    });
-
-    slider.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-
-      e.preventDefault();
-
-      const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 2; // velocidad drag
-
-      slider.scrollLeft = scrollLeft - walk;
-    });
   });
 </script>
 
