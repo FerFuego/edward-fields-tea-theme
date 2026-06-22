@@ -74,18 +74,18 @@
     border-radius: 20px;
     border: 1px solid rgba(33, 53, 41, 0.2);
     background-color: #FBFAF3;
-    padding: 20px 20px 40px;
+    padding: 80px 20px 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: flex-start;
     scroll-snap-align: start;
     transition: transform 0.3s ease;
   }
 
-  .copilot-features-card::last-child() .copilot-features-card-title {
-    max-width: 170px !important;
+  .swiper-slide[data-swiper-slide-index="5"] .copilot-features-card-title {
+    max-width: 170px;
   }
 
   .copilot-features-card-icon {
@@ -108,7 +108,7 @@
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
-    line-height: 24px;
+    line-height: 22px;
     letter-spacing: 0;
     text-transform: none;
     color: #213529;
@@ -248,19 +248,12 @@
     );
 
     const swiper = new Swiper('#slider-{{ section.id }}', {
-
       loop: true,
-
       slidesPerView: 'auto',
-
       spaceBetween: 20,
-
       speed: 500,
-
       grabCursor: true,
-
       watchSlidesProgress: true,
-
       breakpoints: {
         0: {
           slidesPerView: 'auto'

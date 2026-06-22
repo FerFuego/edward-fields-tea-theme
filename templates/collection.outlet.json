@@ -53,7 +53,7 @@
           "type": "heading",
           "settings": {
             "parent_container_name": "principal",
-            "text": "Para cada momento, el tuyo.",
+            "text": "Summer sale 2026",
             "heading_tag": "h1",
             "color": "#213529",
             "font_family": "OverusedGrotesk",
@@ -68,7 +68,7 @@
           "type": "richtext",
           "settings": {
             "parent_container_name": "principal",
-            "text": "<p>Mismo matcha, distintos formato, encuentra el que encaja con tu rutina.</p>",
+            "text": "<p>30% de descuento hasta agotar existencias</p>",
             "color": "#213529",
             "font_family": "OverusedGrotesk",
             "font_size": "16px",

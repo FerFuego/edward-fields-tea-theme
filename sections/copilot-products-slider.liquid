@@ -191,15 +191,11 @@
     .copilot-products-slider-wrapper {
       margin-left: -20px;
       margin-right: -20px;
-      padding-top: 0;
+      padding-top: 60px;
       width: calc(100% + 40px);
     }
     .copilot-products-track {
       flex-wrap: nowrap;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
       padding-bottom: 20px;
       padding-top: 100px;
       margin: 0 50px;
@@ -210,7 +206,6 @@
     .copilot-product-card {
       flex: 0 0 85vw;
       max-width: 260px;
-      scroll-snap-align: start;
     }
     .copilot-products-mobile-nav {
       display: flex;
@@ -218,10 +213,10 @@
       align-items: center;
       gap: 20px;
       top: 50%;
-      margin-top: 10px;
       padding: 0 10px;
       position: absolute;
       width: 100%;
+      z-index: 2;
     }
 
     .copilot-products-pagination {
@@ -277,6 +272,49 @@
       flex: 0 0 85vw;
     }
   }
+  .copilot-products-swiper {
+    overflow: visible;
+  }
+
+  .copilot-products-swiper .swiper-wrapper {
+    align-items: stretch;
+  }
+
+  .copilot-products-swiper .swiper-slide {
+    width: auto;
+  }
+
+  @media (min-width:1025px){
+
+    .copilot-products-swiper .swiper-wrapper{
+      display:flex;
+      gap:20px;
+    }
+
+    .copilot-products-swiper .swiper-slide{
+      width:306px !important;
+      flex-shrink:0;
+    }
+
+  }
+
+  @media (max-width:1024px){
+
+    .copilot-products-swiper .swiper-slide{
+      width:100% !important;
+      display:flex;
+      justify-content:center;
+    }
+
+    .copilot-product-card{
+      width:85vw;
+      max-width:260px;
+    }
+
+    .copilot-products-swiper .swiper-wrapper {
+      scroll-snap-type: none !important;
+    }
+  }
 </style>
 
 <div class="copilot-products-{{ section.id }}">
@@ -291,48 +329,52 @@
     </div>
 
     <div class="copilot-products-slider-wrapper">
-      <div class="copilot-products-track" id="track-{{ section.id }}">
-        {% for block in section.blocks %}
-          <div class="copilot-product-card" {{ block.shopify_attributes }}>
-            {% if block.settings.link != blank %}
-              <a
-                href="{{ block.settings.link }}"
-                class="copilot-product-link"
-                aria-label="{{ block.settings.title | escape }}"
-              ></a>
-            {% endif %}
+      <div class="swiper copilot-products-swiper" id="track-{{ section.id }}">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide">
+              <div class="copilot-product-card" {{ block.shopify_attributes }}>
+                {% if block.settings.link != blank %}
+                  <a
+                    href="{{ block.settings.link }}"
+                    class="copilot-product-link"
+                    aria-label="{{ block.settings.title | escape }}"
+                  ></a>
+                {% endif %}
 
-            <div class="copilot-product-image">
-              {% if block.settings.image != blank %}
-                <img
-                  src="{{ block.settings.image | image_url: height: 400 }}"
-                  alt="{{ block.settings.title | escape }}"
-                  loading="lazy"
-                >
-              {% else %}
-                {{ 'product-1' | placeholder_svg_tag }}
-              {% endif %}
+                <div class="copilot-product-image">
+                  {% if block.settings.image != blank %}
+                    <img
+                      src="{{ block.settings.image | image_url: height: 400 }}"
+                      alt="{{ block.settings.title | escape }}"
+                      loading="lazy"
+                    >
+                  {% else %}
+                    {{ 'product-1' | placeholder_svg_tag }}
+                  {% endif %}
+                </div>
+
+                {% if block.settings.title != blank %}
+                  <h3 class="copilot-product-title">{{ block.settings.title }}</h3>
+                {% endif %}
+
+                {% if block.settings.text != blank %}
+                  <div class="copilot-product-text">{{ block.settings.text }}</div>
+                {% endif %}
+
+                {% if block.settings.subtext != blank %}
+                  <div class="copilot-product-subtext">{{ block.settings.subtext }}</div>
+                {% endif %}
+
+                {% if block.settings.tag != blank %}
+                  <div class="copilot-product-tag">{{ block.settings.tag }}</div>
+                {% else %}
+                  <div class="copilot-product-tag__empty">&nbsp;</div>
+                {% endif %}
+              </div>
             </div>
-
-            {% if block.settings.title != blank %}
-              <h3 class="copilot-product-title">{{ block.settings.title }}</h3>
-            {% endif %}
-
-            {% if block.settings.text != blank %}
-              <div class="copilot-product-text">{{ block.settings.text }}</div>
-            {% endif %}
-
-            {% if block.settings.subtext != blank %}
-              <div class="copilot-product-subtext">{{ block.settings.subtext }}</div>
-            {% endif %}
-
-            {% if block.settings.tag != blank %}
-              <div class="copilot-product-tag">{{ block.settings.tag }}</div>
-            {% else %}
-              <div class="copilot-product-tag__empty">&nbsp;</div>
-            {% endif %}
-          </div>
-        {% endfor %}
+          {% endfor %}
+        </div>
       </div>
 
       <!-- Mobile Navigation (Arrows + Bullets) -->
@@ -350,14 +392,14 @@
           </svg>
         </button>
 
-        <div class="copilot-products-pagination" id="pagination-{{ section.id }}">
+        {% comment %} <div class="copilot-products-pagination" id="pagination-{{ section.id }}">
           {% for block in section.blocks %}
             <div
               class="copilot-products-bullet {% if forloop.first %}active{% endif %}"
               data-index="{{ forloop.index0 }}"
             ></div>
           {% endfor %}
-        </div>
+        </div> {% endcomment %}
 
         <button class="copilot-nav-arrow next" id="next-{{ section.id }}" aria-label="Siguiente">
           <svg
@@ -378,72 +420,24 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const track = document.getElementById('track-{{ section.id }}');
-    const paginationContainer = document.getElementById('pagination-{{ section.id }}');
-    const prevBtn = document.getElementById('prev-{{ section.id }}');
-    const nextBtn = document.getElementById('next-{{ section.id }}');
 
-    if (!track) return;
+    const isMobile = window.innerWidth <= 1024;
 
-    const cards = Array.from(track.querySelectorAll('.copilot-product-card'));
-    const bullets = paginationContainer
-      ? Array.from(paginationContainer.querySelectorAll('.copilot-products-bullet'))
-      : [];
+    if (!isMobile) return;
 
-    // Lógica para las flechas en mobile
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener('click', () => {
-        const cardWidth = cards[0].offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
-        track.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
-      });
+    const swiper = new Swiper('#track-{{ section.id }}', {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 20,
+      speed: 500,
+      grabCursor: true,
+      watchSlidesProgress: true,
+      navigation: {
+        nextEl: '#next-{{ section.id }}',
+        prevEl: '#prev-{{ section.id }}'
+      }
+    });
 
-      nextBtn.addEventListener('click', () => {
-        const cardWidth = cards[0].offsetWidth;
-        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
-        track.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
-      });
-    }
-
-    // Lógica para los bullets en mobile
-    if (bullets.length > 0) {
-      bullets.forEach((bullet, index) => {
-        bullet.addEventListener('click', () => {
-          if (cards[index]) {
-            const paddingLeft = parseFloat(window.getComputedStyle(track).paddingLeft) || 0;
-            const offset = cards[index].offsetLeft - track.offsetLeft - paddingLeft;
-            track.scrollTo({ left: offset, behavior: 'smooth' });
-          }
-        });
-      });
-
-      // Sincronizar bullets al scrollear
-      let isScrolling;
-      track.addEventListener('scroll', () => {
-        window.clearTimeout(isScrolling);
-        isScrolling = setTimeout(() => {
-          const scrollLeft = track.scrollLeft;
-          const paddingLeft = parseFloat(window.getComputedStyle(track).paddingLeft) || 0;
-
-          let closestIndex = 0;
-          let minDiff = Infinity;
-
-          cards.forEach((card, index) => {
-            const cardOffset = card.offsetLeft - track.offsetLeft - paddingLeft;
-            const diff = Math.abs(cardOffset - scrollLeft);
-            if (diff < minDiff) {
-              minDiff = diff;
-              closestIndex = index;
-            }
-          });
-
-          bullets.forEach((b, i) => {
-            if (i === closestIndex) b.classList.add('active');
-            else b.classList.remove('active');
-          });
-        }, 50);
-      });
-    }
   });
 </script>
 
