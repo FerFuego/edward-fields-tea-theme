@@ -2364,26 +2364,26 @@ body.copilot-product {
 .newsletter-form__field-wrapper .field__input {
     border-bottom: 1px solid var(--color-white);
 }
-.newsletter-form__field-wrapper .field__input ::-webkit-input-placeholder,
+.newsletter-form__field-wrapper .field__input::-webkit-input-placeholder,
 .customer .field input::-webkit-input-placeholder {
-  color: #fff;
+  color: #fff !important;
   opacity: 1;
 }
 
-.newsletter-form__field-wrapper .field__input ::-moz-placeholder,
+.newsletter-form__field-wrapper .field__input::-moz-placeholder,
 .customer .field input::-moz-placeholder {
-  color: #fff;
+  color: #fff !important;
   opacity: 1;
 }
 
-.newsletter-form__field-wrapper .field__input :-ms-input-placeholder,
+.newsletter-form__field-wrapper .field__input:-ms-input-placeholder,
 .customer .field input:-ms-input-placeholder {
-  color: #fff;
+  color: #fff !important;
 }
 
-.newsletter-form__field-wrapper .field__input ::placeholder,
+.newsletter-form__field-wrapper .field__input::placeholder,
 .customer .field input::placeholder {
-  color: #fff;
+  color: #fff !important;
   opacity: 1;
 }
 
