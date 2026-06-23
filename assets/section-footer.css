@@ -8,6 +8,7 @@
 
 .footer__content-top {
   padding-bottom: 5rem;
+  border-bottom: 1px solid #fff;
   display: block;
 }
 
@@ -41,7 +42,7 @@
 }
 
 .footer__content-bottom {
-  border-top: solid 0.1rem rgba(var(--color-foreground), 0.08);
+  /* border-top: solid 0.1rem rgba(var(--color-foreground), 0.08); */
   padding-top: 3rem;
 }
 
@@ -174,7 +175,25 @@
 .footer__list-social.list-social:only-child {
   justify-content: center;
 }
-
+.footer__header {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+}
+.footer__header .footer-block__newsletter {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+.footer__header h2 strong {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 400 !important;
+  font-size: 20px;
+  line-height: 20px;
+  letter-spacing: 0;
+}
 .footer-block__newsletter {
   text-align: center;
   flex-grow: 1;

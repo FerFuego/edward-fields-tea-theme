@@ -51,8 +51,41 @@
   -%}
     {%- unless only_empty_brand -%}
       <div class="footer__content-top page-width">
+        <div class="footer__header">
+          <div
+            class="footer-block--newsletter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+            {% endif %}
+          >
+            {%- if section.settings.newsletter_enable -%}
+              <div class="footer-block__newsletter">
+                {%- if section.settings.newsletter_heading != blank -%}
+                  <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
+                {%- endif -%}
+                {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <div class="newsletter-form__field-wrapper">
+                    <div class="field">
+                      <input
+                        id="NewsletterForm--{{ section.id }}"
+                        type="email"
+                        name="contact[email]"
+                        class="field__input"
+                        placeholder="Tu mail"
+                        required
+                      >
+                      <button type="submit" class="newsletter-form__button field__button" name="commit">
+                        Unirme ahora
+                      </button>
+                    </div>
+                  </div>
+                {%- endform -%}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
         <div class="footer__grid">
-          
           <!-- Columna izquierda -->
           <div class="footer__left">
             {%- if section.blocks.size > 0 -%}
@@ -125,27 +158,27 @@
                           {%- endif -%}
                         </div>
                       {%- when 'image' -%}
-                          <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
-                            {%- if block.settings.image != blank -%}
-                              {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
-                              <div
-                                class="footer-block__image-wrapper"
-                                style="max-width: min(100%, {{ block.settings.image_width }}px);"
+                        <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
+                          {%- if block.settings.image != blank -%}
+                            {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
+                            <div
+                              class="footer-block__image-wrapper"
+                              style="max-width: min(100%, {{ block.settings.image_width }}px);"
+                            >
+                              <img
+                                srcset="{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
+                                src="{{ block.settings.image | image_url: width: 760 }}"
+                                alt="{{ block.settings.image.alt | escape }}"
+                                loading="lazy"
+                                width="{{ block.settings.image.width }}"
+                                height="{{ block.settings.image.height }}"
                               >
-                                <img
-                                  srcset="{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
-                                  src="{{ block.settings.image | image_url: width: 760 }}"
-                                  alt="{{ block.settings.image.alt | escape }}"
-                                  loading="lazy"
-                                  width="{{ block.settings.image.width }}"
-                                  height="{{ block.settings.image.height }}"
-                                >
-                              </div>
-                            {%- else -%}
-                              {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-                            {%- endif -%}
-                          </div>
-                      {%- endcase -%}
+                            </div>
+                          {%- else -%}
+                            {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+                          {%- endif -%}
+                        </div>
+                    {%- endcase -%}
                   </div>
                 {%- endfor -%}
               </div>
@@ -162,38 +195,117 @@
             {%- endif -%}
           </div>
 
-          <!-- Columna derecha -->
-          <div class="footer__right">
+          <!-- Columna 2: Formulario de Creadores -->
+          <div class="footer__middle">
             <div
               class="footer-block--newsletter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
               {% if settings.animations_reveal_on_scroll %}
                 data-cascade
               {% endif %}
             >
-              {%- if section.settings.newsletter_enable -%}
-                <div class="footer-block__newsletter">
-                  {%- if section.settings.newsletter_heading != blank -%}
-                    <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
+              <div class="footer-block__newsletter footer-custom-form">
+                {%- if section.settings.col2_title != blank -%}
+                  <h2 class="footer-custom-form__heading">{{ section.settings.col2_title }}</h2>
+                {%- endif -%}
+                {%- if section.settings.col2_text != blank -%}
+                  <p class="footer-custom-form__text">{{ section.settings.col2_text }}</p>
+                {%- endif -%}
+
+                {%- form 'customer',
+                  id: 'ContactFooterCustom',
+                  class: 'footer__newsletter newsletter-form custom-creator-form'
+                -%}
+                  <input type="hidden" name="contact[tags]" value="newsletter, creator_application">
+
+                  {%- if form.errors -%}
+                    <small
+                      class="newsletter-form__message form__message"
+                      id="ContactFooter-error"
+                      style="color: #ff6b6b; margin-bottom: 15px; display: block; font-family: var(--fuente-terciaria);"
+                    >
+                      {{- form.errors.translated_fields.email | capitalize }}
+                      {{ form.errors.messages.email -}}
+                    </small>
                   {%- endif -%}
-                  {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
-                    <input type="hidden" name="contact[tags]" value="newsletter">
-                    <div class="newsletter-form__field-wrapper">
-                      <div class="field">
-                        <input id="NewsletterForm--{{ section.id }}" type="email" name="contact[email]" class="field__input" placeholder="Tu mail" required>
-                        <button type="submit" class="newsletter-form__button field__button" name="commit" >
-                          Unirme ahora 
-                        </button>
-                      </div>
+
+                  {%- if form.posted_successfully? -%}
+                    <h3
+                      class="newsletter-form__message newsletter-form__message--success form__message"
+                      id="ContactFooter-success"
+                      tabindex="-1"
+                      autofocus
+                      style="color: #2ecc71; margin-bottom: 15px; font-family: var(--fuente-terciaria);"
+                    >
+                      ¡Gracias por aplicar! Nos pondremos en contacto pronto.
+                    </h3>
+                  {%- endif -%}
+
+                  <div class="newsletter-form__field-wrapper-custom">
+                    <div class="field-custom">
+                      <label class="visually-hidden" for="NewsletterFormEmail--{{ section.id }}">Tu mail</label>
+                      <input
+                        id="NewsletterFormEmail--{{ section.id }}"
+                        type="email"
+                        name="contact[email]"
+                        class="field__input-custom"
+                        value="{{ form.email }}"
+                        placeholder="Tu mail"
+                        aria-required="true"
+                        required
+                      >
                     </div>
-                  {%- endform -%}
-                </div>
-              {%- endif -%}
+                    <div class="field-custom">
+                      <label class="visually-hidden" for="NewsletterFormInstagram--{{ section.id }}"
+                        >Tu Instagram</label
+                      >
+                      <input
+                        id="NewsletterFormInstagram--{{ section.id }}"
+                        type="text"
+                        name="contact[note][Instagram]"
+                        class="field__input-custom"
+                        placeholder="Tu Instagram"
+                        required
+                      >
+                    </div>
+                    <div class="field-button-custom">
+                      <button type="submit" class="newsletter-form__button-custom" name="commit">Aplica aquí</button>
+                    </div>
+                  </div>
+                {%- endform -%}
+              </div>
             </div>
           </div>
 
+          <!-- Columna 3: Menú Seleccionable -->
+          <div class="footer__right">
+            <div
+              class="footer-block{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+              {% endif %}
+            >
+              {%- if section.settings.col3_title != blank -%}
+                <h2 class="footer-block__heading inline-richtext">{{ section.settings.col3_title }}</h2>
+              {%- endif -%}
+              {%- assign menu_handle = section.settings.col3_menu_handle -%}
+              {%- if menu_handle != blank and linklists[menu_handle] != blank -%}
+                <ul class="footer-block__details-content list-unstyled">
+                  {%- for link in linklists[menu_handle].links -%}
+                    <li>
+                      <a
+                        href="{{ link.url }}"
+                        class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                      >
+                        {{ link.title | escape }}
+                      </a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              {%- endif -%}
+            </div>
+          </div>
         </div>
       </div>
-
     {%- endunless -%}
   {%- endif -%}
 
@@ -244,7 +356,10 @@
         {%- endif -%}
       </div>
     </div>
-    <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; padding-bottom: 2rem;">
+    <div
+      class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}"
+      style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; padding-bottom: 2rem;"
+    >
       <div class="footer__copyright caption" style="margin: 0;">
         <small class="copyright__content"
           >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
@@ -479,6 +594,39 @@
       "id": "policies_menu",
       "label": "Menú de políticas (Opcional)",
       "info": "Si seleccionas un menú aquí, reemplazará la lista predeterminada de Shopify."
+    },
+    {
+      "type": "header",
+      "content": "Columna 2 (Formulario de Creadores)"
+    },
+    {
+      "type": "text",
+      "id": "col2_title",
+      "label": "Título del Formulario",
+      "default": "Buscamos creadores que ya viven la energía limpia."
+    },
+    {
+      "type": "textarea",
+      "id": "col2_text",
+      "label": "Texto del Formulario",
+      "default": "Si tu contenido gira en torno al rendimiento, los hábitos o el bienestar real, lo queremos ver."
+    },
+    {
+      "type": "header",
+      "content": "Columna 3 (Menú Seleccionable)"
+    },
+    {
+      "type": "text",
+      "id": "col3_title",
+      "label": "Título del Menú",
+      "default": "Menú"
+    },
+    {
+      "type": "text",
+      "id": "col3_menu_handle",
+      "label": "Identificador (handle) del Menú",
+      "default": "footer",
+      "info": "Introduce el identificador (handle) del menú (por ejemplo: 'footer' o 'main-menu')."
     },
     {
       "type": "header",

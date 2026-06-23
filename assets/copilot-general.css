@@ -125,17 +125,21 @@ body.copilot-product {
     outline-offset: 0 !important;
     box-shadow: none !important;
 }
+
 #MainContent {
     max-width: 100%;
     overflow-x: hidden;
     overflow-y: hidden;
 }
+
 .copilot-home #MainContent {
     margin-top: -121px;
 }
+
 .copilot-home .header-wrapper {
     background-color: transparent !important;
 }
+
 .copilot-home #shopify-section-sections--26310682313041__header:not(.scrolled-past-header) .header .header__menu-item * {
     color: var(--color-white);
 }
@@ -473,6 +477,7 @@ body.copilot-product {
     .copilot-hero-banner {
         height: 600px;
     }
+
     .copilot-hero-banner .banner__content {
         background-color: rgba(0, 0, 0, .2);
         align-items: center;
@@ -595,6 +600,7 @@ body.copilot-product {
     .descubre-cont-5-inner p {
         margin: 0 auto !important;
     }
+
     .somos-alvaro-oscar {
         margin: 0 !important;
         width: 100%;
@@ -607,24 +613,28 @@ body.copilot-product {
         height: auto !important;
         gap: 10px !important;
     }
+
     #cos-1,
     #cos-2 {
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
     }
-    #cos-2 h4{
+
+    #cos-2 h4 {
         font-family: var(--fuente-terciaria) !important;
         font-size: 20px !important;
         text-align: center;
         width: 100% !important;
     }
+
     #cos-2 p {
         font-family: var(--fuente-terciaria) !important;
         font-weight: 400 !important;
         text-align: center;
         width: 100% !important;
     }
+
     .copilot-reviews {
         overflow: hidden;
     }
@@ -2128,7 +2138,8 @@ body.copilot-product {
     .accordion__content {
         padding: 0 20px 20px !important;
     }
-    .section-header.scrolled-past-header .header, 
+
+    .section-header.scrolled-past-header .header,
     .copilot-home .section-header.scrolled-past-header .header {
         padding-left: 2rem !important;
         padding-right: 2rem !important;
@@ -2140,11 +2151,12 @@ body.copilot-product {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
+
 .footer__grid {
     display: flex;
-    flex-direction: row;
-    gap: 0;
+    gap: 40px;
     justify-content: space-between;
+
 }
 
 .footer__newsletter {
@@ -2153,7 +2165,8 @@ body.copilot-product {
 
 .footer-block__details-content {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
 }
 
 .footer__grid .list-menu__item {
@@ -2164,7 +2177,6 @@ body.copilot-product {
     letter-spacing: 0;
     padding: 0 !important;
     color: var(--color-white) !important;
-    text-decoration: underline !important;
 }
 
 .footer-block__image-wrapper {
@@ -2186,14 +2198,23 @@ body.copilot-product {
     flex-direction: column;
     align-items: flex-start;
     max-width: 380px;
+    width: 100%;
+}
+
+.footer__middle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 410px;
+    width: 100%;
 }
 
 .footer__right {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 410px;
+    align-items: flex-start;
+    max-width: 300px;
+    width: 100%;
 }
 
 .footer__left .footer__blocks-wrapper {
@@ -2203,13 +2224,105 @@ body.copilot-product {
     gap: 0;
 }
 
+/* Custom Creator Form (Column 2) */
+.footer-custom-form {
+    width: 100%;
+}
+
+.footer-custom-form__heading {
+    font-family: var(--fuente-terciaria) !important;
+    font-weight: 400;
+    font-size: 22px !important;
+    line-height: 22px !important;
+    color: var(--color-white);
+    text-transform: none !important;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.footer-custom-form__text {
+    font-family: var(--fuente-terciaria);
+    font-weight: 300;
+    font-size: 16px !important;
+    line-height: 20px !important;
+    color: var(--color-white);
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.newsletter-form__field-wrapper-custom {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.field-custom {
+    position: relative;
+    width: 100%;
+}
+
+.field__input-custom {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid var(--color-white);
+    padding: 5px 0;
+    color: var(--color-white);
+    font-family: var(--fuente-terciaria);
+    font-size: 18px;
+    line-height: 24px;
+    outline: none;
+    transition: border-bottom-color 0.2s ease;
+}
+
+.field__input-custom::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+    opacity: 1;
+}
+
+.field__input-custom:-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.field-button-custom {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.newsletter-form__button-custom {
+    font-family: var(--fuente-terciaria);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #fff;
+    background-color: #1A7A4A !important;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 40px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+}
+
+.newsletter-form__button-custom:hover {
+    background-color: #135F38 !important;
+}
+
 /* .footer__content-bottom {
     display: none;
 } */
 
 .footer-block__heading {
     font-family: var(--fuente-terciaria) !important;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 16px !important;
     line-height: 20px;
     letter-spacing: 0;
@@ -2231,6 +2344,7 @@ body.copilot-product {
     line-height: 25px;
     letter-spacing: 0;
     color: var(--color-white);
+    max-width: 244px;
 }
 
 .newsletter-form__field-wrapper .field {
@@ -2249,6 +2363,28 @@ body.copilot-product {
 
 .newsletter-form__field-wrapper .field__input {
     border-bottom: 1px solid var(--color-white);
+}
+.newsletter-form__field-wrapper .field__input ::-webkit-input-placeholder,
+.customer .field input::-webkit-input-placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+.newsletter-form__field-wrapper .field__input ::-moz-placeholder,
+.customer .field input::-moz-placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+.newsletter-form__field-wrapper .field__input :-ms-input-placeholder,
+.customer .field input:-ms-input-placeholder {
+  color: #fff;
+}
+
+.newsletter-form__field-wrapper .field__input ::placeholder,
+.customer .field input::placeholder {
+  color: #fff;
+  opacity: 1;
 }
 
 .newsletter-form__field-wrapper .newsletter-form__button {
@@ -2298,9 +2434,11 @@ body.copilot-product {
     border: 1px solid;
     border-radius: 50%;
 }
+
 #right-box .nested-block {
     width: 100%;
 }
+
 #right-box .contact-form input,
 #right-box .contact-form textarea {
     font-family: var(--fuente-terciaria);
@@ -2311,15 +2449,18 @@ body.copilot-product {
     padding: 0 0 10px;
     width: 100%;
 }
+
 #right-box .contact-form__form-row {
     margin-bottom: 30px;
 }
+
 #right-box label {
     font-family: var(--fuente-terciaria);
     font-weight: 400;
     font-size: 16px;
     line-height: 18px;
 }
+
 #right-box .contact-form .submit-button {
     font-family: var(--fuente-terciaria);
     font-weight: 400;
@@ -2332,6 +2473,7 @@ body.copilot-product {
     height: 60px;
     width: 340px;
 }
+
 #right-box .contact-form .contact-form__checkbox {
     width: auto !important;
     font-family: var(--fuente-terciaria);
@@ -2339,18 +2481,22 @@ body.copilot-product {
     font-size: 16px;
     line-height: 24px;
 }
+
 .contact-form a {
     border-bottom: 1px solid rgba(var(--color-foreground), 0.75);
 }
+
 #left-box p {
     font-family: var(--fuente-terciaria);
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
 }
+
 #left-box p a {
     border-bottom: 1px solid;
 }
+
 .manifiesto-page-module {
     background-image: url(https://cdn.shopify.com/s/files/1/0330/5737/4344/files/bg-manifiesto.webp?v=1779822653);
     background-position: center;
@@ -2358,13 +2504,16 @@ body.copilot-product {
     background-size: contain;
     border-radius: 20px;
 }
+
 #manif-1 p {
     margin-bottom: 20px;
 }
+
 .copilot-manifiesto .section-sections--29996230869329__collapsible_content_tbW3HG-padding,
 .copilot-contacto .section-sections--29996230869329__collapsible_content_tbW3HG-padding {
     display: none !important;
 }
+
 @media (max-width: 768px) {
     .contact-page-module {
         flex-direction: column !important;
@@ -2372,27 +2521,53 @@ body.copilot-product {
         padding: 60px 20px !important;
         gap: 40px !important;
     }
+
     #left-box,
     #right-box {
         width: 100% !important;
     }
+
     #left-box h1 {
         font-size: 40px !important;
     }
+
     #right-box .contact-form .submit-button {
         width: 100% !important;
     }
+
     .footer__content-top {
         padding: 40px !important;
     }
 
     .footer__grid {
+        display: flex;
         flex-direction: column;
-        gap: 25px;
+        gap: 40px;
+    }
+
+    .footer__left,
+    .footer__middle,
+    .footer__right {
+        max-width: 100% !important;
+        width: 100% !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .footer-custom-form__heading,
+    .footer-custom-form__text {
+        text-align: center !important;
+        max-width: 100% !important;
+    }
+
+    .newsletter-form__field-wrapper-custom {
+        align-items: center !important;
     }
 
     .footer-block__details-content {
+        justify-content: center !important;
         margin-bottom: 0 !important;
+        align-items: center;
         width: 100%;
         gap: 20px;
     }
@@ -2402,6 +2577,7 @@ body.copilot-product {
         line-height: 28px;
         margin-bottom: 0 !important;
     }
+
     .manifiesto-page-module {
         background-color: #fff !important;
         background-image: none !important;
@@ -2410,10 +2586,12 @@ body.copilot-product {
         padding: 40px 20px !important;
         margin: 0 !important;
         width: 100% !important;
-    } 
-    #manif-1 {        
+    }
+
+    #manif-1 {
         width: 100% !important;
     }
+
     #manif-1 h1 {
         font-size: 40px !important;
     }
@@ -2636,6 +2814,7 @@ body.copilot-product {
     .copilot-collections .product-card-wrapper {
         width: auto;
     }
+
     .product-card-wrapper .btn {
         margin-top: 10px;
         height: 45px;
@@ -2696,9 +2875,11 @@ body.copilot-product {
     color: var(--color-white);
     border-radius: 33px;
 }
+
 .product .product-form__submit:after {
     display: none;
 }
+
 /* .product .product-form__submit:hover {
     background-color: var(--color-secundario);
     border: 1.2px solid var(--color-primario);
@@ -2794,9 +2975,11 @@ product-info {
     text-align: center;
     color: #213529;
 }
+
 .product .icon-with-text span strong {
     font-weight: 500 !important;
 }
+
 .product .accordion__title {
     font-weight: 600;
     font-size: 20px;
@@ -3078,6 +3261,7 @@ product-info {
         font-size: 11px;
         line-height: 12px;
     }
+
     .product .price {
         margin: 10px;
     }
@@ -3178,20 +3362,25 @@ product-info {
     letter-spacing: 0;
     color: var(--color-primario);
 }
+
 .copilot-product .jdgm-rev__author {
     color: #213529 !important;
 }
+
 .copilot-product .jdgm-rev__title,
 .copilot-product .jdgm-row-extra {
     display: none;
 }
+
 .copilot-product .jdgm-rev {
     padding: 40px 0 30px;
     border-bottom: 1px solid #213529 !important;
 }
+
 .copilot-product .jdgm-rev__content {
     margin-left: 45px;
 }
+
 .copilot-product .jdgm-widget .jdgm-btn.jdgm-btn,
 .copilot-product .jdgm-write-rev-link {
     display: flex;
@@ -3212,6 +3401,7 @@ product-info {
     height: 50px;
     width: 210px;
 }
+
 .copilot-product .jdgm-ask-question-btn {
     display: flex;
     justify-content: center;
@@ -3231,14 +3421,17 @@ product-info {
     height: 50px;
     width: 210px;
 }
+
 .copilot-product .jdgm-rev-widg>.jdgm-row-actions .jdgm-sort-dropdown-wrapper {
     border-radius: 20px;
     border: 1px solid #213529;
     padding: 5px 20px;
 }
+
 #shopify-section-template--29996230508881__judgeme_reviews_HBBGb6 section {
     margin-top: 0 !important;
 }
+
 .product-form__actions-row {
     display: flex;
     gap: 1rem;
@@ -3293,6 +3486,7 @@ product-info {
     flex: none !important;
     margin: 0 !important;
 }
+
 .product-form__input--pill input[type=radio].disabled+label,
 .product-form__input--pill input[type=radio]:checked+label {
     font-family: var(--fuente-terciaria) !important;
@@ -3477,19 +3671,23 @@ product-info {
     .copilot-product .jdgm-rev-widg {
         padding: 0;
     }
+
     .product-form__actions-row {
         margin: 10px 0 !important;
     }
+
     .footer__content-bottom-wrapper {
         flex-direction: column;
         justify-content: center !important;
         padding-top: 1rem;
         padding-bottom: 0;
     }
+
     .footer__content-bottom-wrapper ul {
         flex-direction: column;
         gap: 0 !important;
     }
+
     .jdgm-review-widget--small .jdgm-form__fieldset-actions {
         gap: 10px;
     }
@@ -3586,10 +3784,12 @@ product-info {
     .cop-1-new__img {
         margin-top: 30px !important;
     }
+
     footer {
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
     }
+
     #shopify-section-template--29996230508881__judgeme_reviews_HBBGb6 section {
         margin-top: 40px !important;
     }

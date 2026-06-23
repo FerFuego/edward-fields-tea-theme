@@ -108,26 +108,18 @@
           "type": "text",
           "settings": {
             "heading": "",
-            "subtext": "<p>Nuestro propósito: cuidar de ti y del planeta. Té premium, ético y sostenible.</p>"
-          }
-        },
-        "link-list": {
-          "type": "link_list",
-          "settings": {
-            "heading": "",
-            "menu": "new-footer-menu"
+            "subtext": "<p>Energía limpia para las personas que exigen más de su mañana.</p>"
           }
         }
       },
       "block_order": [
         "image",
-        "text_iyXc6i",
-        "link-list"
+        "text_iyXc6i"
       ],
       "settings": {
         "color_scheme": "scheme-87247214-d370-49d1-96ca-7f26b279b7cf",
         "newsletter_enable": true,
-        "newsletter_heading": "Únete a los que ya cambiaron su mañana. Recibe recetas, consejos y acceso anticipado a novedades.",
+        "newsletter_heading": "<strong>Cambia tu mañana </strong>Únete a los que ya cambiaron su mañana. Recibe recetas, consejos y acceso anticipado a novedades.",
         "enable_follow_on_shop": false,
         "show_social": true,
         "enable_country_selector": false,
@@ -135,6 +127,10 @@
         "payment_enable": false,
         "show_policy": true,
         "policies_menu": "footer-2",
+        "col2_title": "Buscamos creadores que ya viven la energía limpia.",
+        "col2_text": "Si tu contenido gira en torno al rendimiento, los hábitos o el bienestar real, lo queremos ver.",
+        "col3_title": "",
+        "col3_menu_handle": "footer",
         "margin_top": 0,
         "padding_top": 0,
         "padding_bottom": 32
