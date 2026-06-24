@@ -2366,24 +2366,24 @@ body.copilot-product {
 }
 .newsletter-form__field-wrapper .field__input::-webkit-input-placeholder,
 .customer .field input::-webkit-input-placeholder {
-  color: #fff !important;
+  color: #ffffffb9 !important;
   opacity: 1;
 }
 
 .newsletter-form__field-wrapper .field__input::-moz-placeholder,
 .customer .field input::-moz-placeholder {
-  color: #fff !important;
+  color: #ffffffb9 !important;
   opacity: 1;
 }
 
 .newsletter-form__field-wrapper .field__input:-ms-input-placeholder,
 .customer .field input:-ms-input-placeholder {
-  color: #fff !important;
+  color: #ffffffb9 !important;
 }
 
 .newsletter-form__field-wrapper .field__input::placeholder,
 .customer .field input::placeholder {
-  color: #fff !important;
+  color: #ffffffb9 !important;
   opacity: 1;
 }
 

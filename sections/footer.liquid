@@ -211,11 +211,11 @@
                   <p class="footer-custom-form__text">{{ section.settings.col2_text }}</p>
                 {%- endif -%}
 
-                {%- form 'customer',
+                {%- form 'contact',
                   id: 'ContactFooterCustom',
                   class: 'footer__newsletter newsletter-form custom-creator-form'
                 -%}
-                  <input type="hidden" name="contact[tags]" value="newsletter, creator_application">
+                  <input type="hidden" name="contact[tags]" value="creator_application">
 
                   {%- if form.errors -%}
                     <small
@@ -242,9 +242,9 @@
 
                   <div class="newsletter-form__field-wrapper-custom">
                     <div class="field-custom">
-                      <label class="visually-hidden" for="NewsletterFormEmail--{{ section.id }}">Tu mail</label>
+                      <label class="visually-hidden" for="ContactFormEmail--{{ section.id }}">Tu mail</label>
                       <input
-                        id="NewsletterFormEmail--{{ section.id }}"
+                        id="ContactFormEmail--{{ section.id }}"
                         type="email"
                         name="contact[email]"
                         class="field__input-custom"
@@ -255,13 +255,11 @@
                       >
                     </div>
                     <div class="field-custom">
-                      <label class="visually-hidden" for="NewsletterFormInstagram--{{ section.id }}"
-                        >Tu Instagram</label
-                      >
+                      <label class="visually-hidden" for="ContactFormInstagram--{{ section.id }}">Tu Instagram</label>
                       <input
-                        id="NewsletterFormInstagram--{{ section.id }}"
+                        id="ContactFormInstagram--{{ section.id }}"
                         type="text"
-                        name="contact[note][Instagram]"
+                        name="contact[Instagram]"
                         class="field__input-custom"
                         placeholder="Tu Instagram"
                         required
